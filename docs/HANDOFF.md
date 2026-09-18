@@ -96,3 +96,8 @@ The ICL frame viewer pairs each original image with its immediately preceding te
 Shanghai AI Lab logo now precedes InternRobotics. The header stays sticky, including a second navigation row on phones. `report-navigation.js` provides the fixed left Contents toggle, current-section tracking, Escape collapse, and per-session preference. At >=1400 px an expanded outline reserves 230 px beside the body; on smaller screens it overlays and closes after selecting a link.
 
 The Matrix quote now uses a lighter blue background with green characters. The on-card pause button is removed at the author's request; reduced-motion, offscreen and visibility handling remain. ICL frames and original text have equal-width/equal-height panels on desktop, readable labels, and previous/next controls outside the pair, plus keyboard arrows. Phones stack the panels. Data and source wording remain unchanged.
+
+
+## Author clarification: ICL preparation and POC trajectories
+
+A separate GPT-6-Astra instance at `high` reasoning effort reviews one training-set video trajectory per task and autonomously chooses the annotated keyframes and accompanying prompts. This provenance is now stated both in Experiment Setup and the ICL viewer; do not confuse it with the evaluation agent or publish authoring prompts. Format `high` as inline code. Composed POC tasks have no ground-truth trajectories, which is why their evaluation uses zero-shot rather than ICL. Atomic-skill training of comparison policies remains distinct from those unseen compositions. These details were explicitly supplied by the author on 2026-09-19.
