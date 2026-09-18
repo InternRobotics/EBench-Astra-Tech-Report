@@ -26,4 +26,26 @@ const apple=read('apple-recovery-evidence'),appleEpisode=episodes.find(e=>e.task
 assert.equal(appleEpisode.sr,apple.server_result.sr);assert.equal(appleEpisode.score,apple.server_result.score);
 assert.deepEqual(apple.actions.map(a=>a.call),['call_00010','call_00011','call_00017']);
 const html=fs.readFileSync(path.join(root,'index.html'),'utf8');assert.ok(html.indexOf('id="overall"')<html.indexOf('id="setup"'));assert.ok(html.includes('https://internrobotics.shlab.org.cn/eval/landing-page'));
+const provenance=read('evaluation-provenance');
+assert.equal(provenance.episodes.length,510);
+assert.equal(new Set(provenance.episodes.map(e=>e.task+'/'+e.seed)).size,510);
+for(const entry of provenance.episodes){
+ const outcome=episodes.find(e=>e.task===entry.task&&e.seed===entry.seed);
+ assert.ok(outcome,entry.task+'/'+entry.seed+' provenance match');
+ assert.equal(entry.sr,outcome.sr);assert.ok(Math.abs(entry.score-outcome.score)<1e-4);
+ assert.match(entry.summary_sha256,/^[a-f0-9]{64}$/);
+ assert.ok(!Object.keys(entry).some(k=>/prompt|profile|account_id|source_output|source_summary/.test(k)));
+}
+const holds=provenance.episodes.filter(e=>e.terminal_hold_steps>0);
+assert.equal(holds.length,provenance.counts.terminal_hold_episodes);
+assert.equal(holds.reduce((sum,e)=>sum+e.terminal_hold_steps,0),provenance.counts.terminal_hold_steps);
+assert.equal(holds.filter(e=>e.sr===1).length,provenance.counts.successful_episodes_with_hold);
+for(const [route,count] of Object.entries(provenance.counts.execution_routes))assert.equal(provenance.episodes.filter(e=>e.execution_routes.join(' → ')===route).length,count);
+assert.equal(provenance.comparator_submissions.length,7);
+for(const submission of provenance.comparator_submissions){
+ assert.equal(new URL(submission.url).hostname,'internrobotics.shlab.org.cn');
+ const model=figures.models.find(m=>m.id===submission.model);assert.ok(model);
+ assert.equal(submission.sr,model.sr);assert.equal(submission.score,model.score);
+}
+console.log('Validated: public cohort manifest matches all 510 outcomes, holding totals, execution routes and seven source submissions.');
 console.log('Validated: 8 systems, 26 tasks, 510 unique outcomes, 27 main demos, 4 POC videos, 3 behavior videos; headline aggregates and selected-episode labels match source data.');

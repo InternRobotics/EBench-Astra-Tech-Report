@@ -163,3 +163,5 @@ main .overall-metric .metric-label{font-size:12px;line-height:1.5;letter-spacing
 .timing-measurements th:first-child{text-align:left}
 .timing-measurements tbody th{font-weight:500;white-space:nowrap}
 .timing-measurements tbody tr:last-child>*{border-bottom:0}
+.protocol-scope td,.protocol-scope thead th{text-align:left;vertical-align:top;line-height:1.7}
+.protocol-scope tbody th{vertical-align:top;white-space:normal;width:30%}
