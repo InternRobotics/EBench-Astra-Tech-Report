@@ -67,3 +67,8 @@ Reading hierarchy: retain selective semantic bold on decisive comparisons, failu
 - User explicitly distinguishes actual supplied ICL data (show completely) from casually written authoring prompts (do not publish). Do not expose original-user-prompts, annotation-batch templates, or initial execution prompts as report appendices.
 - Source `episode` identifies the receiving evaluation run; historical source episodes are specified in the original annotations. Historical top-camera views are not live-policy observations. Demonstrations have no official source success labels.
 - Paired ICL appendix now separates the eight fresh pairs from the five historical dishwasher comparisons; displays both SR and Score, regressions, and terminal holding caveats from appendix.tex. No main-cohort aggregate is changed.
+
+
+## Author copy revision 1
+
+The masthead title is “How Frontier Language Models Reshape Embodied Policies”, with subtitle “A Comprehensive Evaluation of GPT-6-Astra on EBench”. Introduction now precedes Overall performance, using the author's four paragraphs verbatim (including requested emphasis). This supersedes the previous results-first opening; quantitative results still precede General Analysis. The opening epigraph is “Welcome to the real world.” — The Matrix (1999), with a linked attribution. The launch date and qualitative framing in this opening are author-supplied copy, not newly verified benchmark findings.
