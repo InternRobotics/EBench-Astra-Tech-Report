@@ -1,0 +1,3312 @@
+[
+  {
+    "task": "apple_from_shelf",
+    "overview": "media/icl/apple_from_shelf/keyframes_preview.jpg",
+    "overview_sha256": "04c17169461d8406dc81b2616cf2bcfbfd1c291e1baf5ebf1303f4e1a6c30a97",
+    "description": "Approach the shelf, raise the right hand to the green apple on the upper shelf, bring the fingers around it from the exposed side, close the grip, and withdraw the held apple out of the shelf while retreating the base. Keep clearance from the shelf above and adjacent fruit.",
+    "frames": [
+      {
+        "path": "media/icl/apple_from_shelf/00_overlook_000000.png",
+        "frame": 0,
+        "camera": "overlook",
+        "phase": "Initial shelf approach.",
+        "label": "Historical episode 1840; frame 0; 0.000s; overlook camera. Initial shelf approach.",
+        "sha256": "2c7566db45c591305ce30acb9ba3d6a9641f1b5069c037aa4002236e2955278e"
+      },
+      {
+        "path": "media/icl/apple_from_shelf/01_overlook_000042.png",
+        "frame": 42,
+        "camera": "overlook",
+        "phase": "Base positioned in front of the shelf.",
+        "label": "Historical episode 1840; frame 42; 2.800s; overlook camera. Base positioned in front of the shelf.",
+        "sha256": "2bacbc5810d359620de0099c474269b9703272ced96667aa4df8f15c1ad17221"
+      },
+      {
+        "path": "media/icl/apple_from_shelf/02_overlook_000106.png",
+        "frame": 106,
+        "camera": "overlook",
+        "phase": "Right arm rises toward the upper shelf.",
+        "label": "Historical episode 1840; frame 106; 7.067s; overlook camera. Right arm rises toward the upper shelf.",
+        "sha256": "04363d7c2aea3317004997fbec002ed5a9a39f754adc43eaac9551b61e831427"
+      },
+      {
+        "path": "media/icl/apple_from_shelf/03_overlook_000170.png",
+        "frame": 170,
+        "camera": "overlook",
+        "phase": "Right hand aligns near the target.",
+        "label": "Historical episode 1840; frame 170; 11.333s; overlook camera. Right hand aligns near the target.",
+        "sha256": "630241b9581563d461435da6fa6005e3402ca56f36117a40a80f30730d449b54"
+      },
+      {
+        "path": "media/icl/apple_from_shelf/04_top_000191.png",
+        "frame": 191,
+        "camera": "top",
+        "phase": "Green apple remains on its upper-shelf support before the grasp.",
+        "label": "Historical episode 1840; frame 191; 12.733s; top camera. Green apple remains on its upper-shelf support before the grasp.",
+        "sha256": "afe3838f9e22714f4284d0121f35f5af34e162e6e03d819011239389fdf4437c"
+      },
+      {
+        "path": "media/icl/apple_from_shelf/05_top_000212.png",
+        "frame": 212,
+        "camera": "top",
+        "phase": "Right gripper surrounds the green apple.",
+        "label": "Historical episode 1840; frame 212; 14.133s; top camera. Right gripper surrounds the green apple.",
+        "sha256": "d89d24a7c5ea26341043a9e8acefcf992f81a8ab17190de524d5d1819a36729c"
+      },
+      {
+        "path": "media/icl/apple_from_shelf/06_overlook_000233.png",
+        "frame": 233,
+        "camera": "overlook",
+        "phase": "Right hand holds the apple at the shelf edge.",
+        "label": "Historical episode 1840; frame 233; 15.533s; overlook camera. Right hand holds the apple at the shelf edge.",
+        "sha256": "278335fe0f058c41e846f4a9019d4c3ddd0f425a31574fc24f4d45bd8ec33c74"
+      },
+      {
+        "path": "media/icl/apple_from_shelf/07_top_000254.png",
+        "frame": 254,
+        "camera": "top",
+        "phase": "Apple is lifted from its support.",
+        "label": "Historical episode 1840; frame 254; 16.933s; top camera. Apple is lifted from its support.",
+        "sha256": "61769d8bc2d93d6fbe2e6d1a8c4cd989f51fb4e6b5111cba50baadf1fbf2a081"
+      },
+      {
+        "path": "media/icl/apple_from_shelf/08_overlook_000276.png",
+        "frame": 276,
+        "camera": "overlook",
+        "phase": "Withdraw the held apple away from the shelf.",
+        "label": "Historical episode 1840; frame 276; 18.400s; overlook camera. Withdraw the held apple away from the shelf.",
+        "sha256": "62e08d9eb90f381a7c150c495c58ae9335ddc44028950f1d157ab747f4dfeaa1"
+      },
+      {
+        "path": "media/icl/apple_from_shelf/09_overlook_000318.png",
+        "frame": 318,
+        "camera": "overlook",
+        "phase": "Base retreats while the right hand continues holding the apple.",
+        "label": "Historical episode 1840; frame 318; 21.200s; overlook camera. Base retreats while the right hand continues holding the apple.",
+        "sha256": "f2cfe7414cf9f75bb72d67501e6776306ce866788a0e95b34e2deda4842a1d80"
+      }
+    ],
+    "source": {
+      "type": "archive",
+      "location": "astra_web_evidence_20260918/reference/icl/apple_from_shelf",
+      "revision": "astra_web_evidence_20260918_core.zip",
+      "manifest_sha256": "651a54a95e538d26c7b4c7939415291958f1127acd0a667f0e26e23ad78d7b3d",
+      "annotations_sha256": "94c564925f20fb33f329ca49b91e5a647dd526996f84d357aa0e63ee40553d9d"
+    }
+  },
+  {
+    "task": "apple_to_fruit_bowl",
+    "overview": "media/icl/apple_to_fruit_bowl/keyframes_preview.jpg",
+    "overview_sha256": "971e7c8f73800360ddd1be71525fea967ad03c58263e6bd3b7dae21cafcd4337",
+    "description": "Approach the table, align the right gripper around the apple, close and lift it, then reposition the base toward the fruit bowl. Carry the apple over the open bowl, lower it inside, and open the gripper with the apple supported by the bowl.",
+    "frames": [
+      {
+        "path": "media/icl/apple_to_fruit_bowl/00_overlook_000000.png",
+        "frame": 0,
+        "camera": "overlook",
+        "phase": "Apple and empty brown bowl before approach.",
+        "label": "Historical episode 1000; frame 0; 0.000s; overlook camera. Apple and empty brown bowl before approach.",
+        "sha256": "a5c9295ecb9f12570cbad053103a5276dac019e7cba37ac36e4e0e80c5397a62"
+      },
+      {
+        "path": "media/icl/apple_to_fruit_bowl/01_overlook_000054.png",
+        "frame": 54,
+        "camera": "overlook",
+        "phase": "Right fingers approach the apple.",
+        "label": "Historical episode 1000; frame 54; 3.600s; overlook camera. Right fingers approach the apple.",
+        "sha256": "a6053f4aa54bce929e35cb13b22af532e5614809cdcb50b4e51c77cb0b4fec92"
+      },
+      {
+        "path": "media/icl/apple_to_fruit_bowl/02_overlook_000109.png",
+        "frame": 109,
+        "camera": "overlook",
+        "phase": "Align the gripper around the apple.",
+        "label": "Historical episode 1000; frame 109; 7.267s; overlook camera. Align the gripper around the apple.",
+        "sha256": "55d67c08353a7912c0b0215d6a9a47b68bdc7e67ea017c04bb2ff2d9d01681bc"
+      },
+      {
+        "path": "media/icl/apple_to_fruit_bowl/03_overlook_000163.png",
+        "frame": 163,
+        "camera": "overlook",
+        "phase": "Grasp and start lifting the apple.",
+        "label": "Historical episode 1000; frame 163; 10.867s; overlook camera. Grasp and start lifting the apple.",
+        "sha256": "b1653397fbdc44bf1e9812be603ec1f235ae8b49f3c8a8556da65f0f8328b20b"
+      },
+      {
+        "path": "media/icl/apple_to_fruit_bowl/04_overlook_000218.png",
+        "frame": 218,
+        "camera": "overlook",
+        "phase": "Hold the apple clear of the pickup location.",
+        "label": "Historical episode 1000; frame 218; 14.533s; overlook camera. Hold the apple clear of the pickup location.",
+        "sha256": "0753cd57fef641458a457e494bb5d82349b09fdf1a8ac51221fa88f2b193de7a"
+      },
+      {
+        "path": "media/icl/apple_to_fruit_bowl/05_overlook_000272.png",
+        "frame": 272,
+        "camera": "overlook",
+        "phase": "Base and right hand move toward the bowl.",
+        "label": "Historical episode 1000; frame 272; 18.133s; overlook camera. Base and right hand move toward the bowl.",
+        "sha256": "2e6b365e9b0bbbdda8ac0d6a4a788e301826a39241e9364e12ff9958b3263698"
+      },
+      {
+        "path": "media/icl/apple_to_fruit_bowl/06_overlook_000299.png",
+        "frame": 299,
+        "camera": "overlook",
+        "phase": "Held apple positioned above the bowl.",
+        "label": "Historical episode 1000; frame 299; 19.933s; overlook camera. Held apple positioned above the bowl.",
+        "sha256": "5730ba3fd8686ce85e9a008701e39519d37e9478efd990f04554b95df0be4d5d"
+      },
+      {
+        "path": "media/icl/apple_to_fruit_bowl/07_overlook_000326.png",
+        "frame": 326,
+        "camera": "overlook",
+        "phase": "Lower the apple into the bowl.",
+        "label": "Historical episode 1000; frame 326; 21.733s; overlook camera. Lower the apple into the bowl.",
+        "sha256": "6517997cae5e580f5ffccb06d7b800d284fc35dbb73628ce8deea1276eed343f"
+      },
+      {
+        "path": "media/icl/apple_to_fruit_bowl/08_overlook_000381.png",
+        "frame": 381,
+        "camera": "overlook",
+        "phase": "Open fingers with the apple supported in the bowl.",
+        "label": "Historical episode 1000; frame 381; 25.400s; overlook camera. Open fingers with the apple supported in the bowl.",
+        "sha256": "bb9eba9efd210b653d39c4bca651586582d92e0d9d5bd14a1c1d98b7a457e853"
+      },
+      {
+        "path": "media/icl/apple_to_fruit_bowl/09_top_000408.png",
+        "frame": 408,
+        "camera": "top",
+        "phase": "Final view shows the apple in the bowl.",
+        "label": "Historical episode 1000; frame 408; 27.200s; top camera. Final view shows the apple in the bowl.",
+        "sha256": "cf866a50d5c3f32fc9c451488fb4373eda0900a6d8df7d25442cdc12fec9abcb"
+      }
+    ],
+    "source": {
+      "type": "archive",
+      "location": "astra_web_evidence_20260918/reference/icl/apple_to_fruit_bowl",
+      "revision": "astra_web_evidence_20260918_core.zip",
+      "manifest_sha256": "caefde08636130fdf4417e2b3dab0f8360e873392f6c7ffb3c81cb8b1f245e14",
+      "annotations_sha256": "4bbfcc9c12cd4b4984a23f7e2c621540505f1260272bd3d8d8ceeaeadf200d13"
+    }
+  },
+  {
+    "task": "bookmark_on_book",
+    "overview": "media/icl/bookmark_on_book/keyframes_preview.jpg",
+    "overview_sha256": "e51717728268dcaad1d23fa687d64084f2225974377684bf169f83177d1e9bbf",
+    "description": "Pick up the long yellow bookmark with the blue end using the left hand. Lift it from the desk, reposition toward the open book, carry it above the page, lower it onto the book, release, and withdraw. The small pink rectangular object near the book is not the bookmark moved in this recording.",
+    "frames": [
+      {
+        "path": "media/icl/bookmark_on_book/00_overlook_000000.png",
+        "frame": 0,
+        "camera": "overlook",
+        "phase": "Initial desk with yellow bookmark at the left front edge.",
+        "label": "Historical episode 1400; frame 0; 0.000s; overlook camera. Initial desk with yellow bookmark at the left front edge.",
+        "sha256": "9d5f9384cfb8edeb1acbea473e00a21b09ad9d119b78b633d8ed086e68262715"
+      },
+      {
+        "path": "media/icl/bookmark_on_book/01_overlook_000057.png",
+        "frame": 57,
+        "camera": "overlook",
+        "phase": "Left fingers approach the bookmark.",
+        "label": "Historical episode 1400; frame 57; 3.800s; overlook camera. Left fingers approach the bookmark.",
+        "sha256": "2f9dd3215940a02fb14586099523464cdc02ae1465e1275a27232494ef300c43"
+      },
+      {
+        "path": "media/icl/bookmark_on_book/02_overlook_000114.png",
+        "frame": 114,
+        "camera": "overlook",
+        "phase": "Left wrist aligns for the pickup.",
+        "label": "Historical episode 1400; frame 114; 7.600s; overlook camera. Left wrist aligns for the pickup.",
+        "sha256": "ae7706eed2a4ab8246f708a9f1a354fe7c0169de4f67bd34baf8f2c0036348e3"
+      },
+      {
+        "path": "media/icl/bookmark_on_book/03_overlook_000171.png",
+        "frame": 171,
+        "camera": "overlook",
+        "phase": "Grasp the bookmark with the left hand.",
+        "label": "Historical episode 1400; frame 171; 11.400s; overlook camera. Grasp the bookmark with the left hand.",
+        "sha256": "1edb1b30416bc517f2ae579ce88ac4f7ab5afffa64e764f4397cfef42eb94b3d"
+      },
+      {
+        "path": "media/icl/bookmark_on_book/04_overlook_000228.png",
+        "frame": 228,
+        "camera": "overlook",
+        "phase": "Lift and carry the bookmark.",
+        "label": "Historical episode 1400; frame 228; 15.200s; overlook camera. Lift and carry the bookmark.",
+        "sha256": "ed6eeeea970882dafb25fb9b9ea45942404ac8cb9553b99aa7dc7566f83acb28"
+      },
+      {
+        "path": "media/icl/bookmark_on_book/05_overlook_000285.png",
+        "frame": 285,
+        "camera": "overlook",
+        "phase": "Move the held bookmark over the open book.",
+        "label": "Historical episode 1400; frame 285; 19.000s; overlook camera. Move the held bookmark over the open book.",
+        "sha256": "280b654fccffa036b293ea164beae3276eb0a7b492e22c0afba43402fdbc5ab7"
+      },
+      {
+        "path": "media/icl/bookmark_on_book/06_overlook_000342.png",
+        "frame": 342,
+        "camera": "overlook",
+        "phase": "Lower the bookmark toward the page.",
+        "label": "Historical episode 1400; frame 342; 22.800s; overlook camera. Lower the bookmark toward the page.",
+        "sha256": "6f2fc9c73f9a7f9b9dfa4eb1d7b3cf5c8e81f6e54569908aae8ea8c15104c36d"
+      },
+      {
+        "path": "media/icl/bookmark_on_book/07_top_000370.png",
+        "frame": 370,
+        "camera": "top",
+        "phase": "Bookmark reaches the book surface.",
+        "label": "Historical episode 1400; frame 370; 24.667s; top camera. Bookmark reaches the book surface.",
+        "sha256": "6651c10b7b3518a72b1987ecdc163ad32811a6688f865877acff22bcabfa6a08"
+      },
+      {
+        "path": "media/icl/bookmark_on_book/08_top_000399.png",
+        "frame": 399,
+        "camera": "top",
+        "phase": "Left fingers release; bookmark rests on the book.",
+        "label": "Historical episode 1400; frame 399; 26.600s; top camera. Left fingers release; bookmark rests on the book.",
+        "sha256": "9dbcf7fccf6e8d813161122cb623c8a8363d51e07cfd8525d997dcd3127ae3f1"
+      },
+      {
+        "path": "media/icl/bookmark_on_book/09_top_000427.png",
+        "frame": 427,
+        "camera": "top",
+        "phase": "Released bookmark remains on the open book.",
+        "label": "Historical episode 1400; frame 427; 28.467s; top camera. Released bookmark remains on the open book.",
+        "sha256": "e9fbbda9743c70427014a59ffc53b354535efe2591a52fc1944734c1b4c2e846"
+      }
+    ],
+    "source": {
+      "type": "archive",
+      "location": "astra_web_evidence_20260918/reference/icl/bookmark_on_book",
+      "revision": "astra_web_evidence_20260918_core.zip",
+      "manifest_sha256": "f2cf85dd77b9abb8ccdd4b22dfbc27dcf6552453e309615d18d7c8c549fb4d4c",
+      "annotations_sha256": "e2108bd0092e94beaaf9171fa4c451282aaa9ac89794c92e48755715f4cc52a8"
+    }
+  },
+  {
+    "task": "bottle",
+    "overview": "media/icl/bottle/keyframes_preview.jpg",
+    "overview_sha256": "5203aefe8ff2bead5c3415b11129701a6765a05b143071bc968603c16ead8f3d",
+    "description": "Pick one bottle by its body, lift it clear, move the base and arm to an unoccupied basket compartment, align and lower the bottle, then release. Return to the remaining bottles and repeat while keeping track of occupied compartments. The receiving object is the compartment basket, not the open cardboard box behind it.",
+    "frames": [
+      {
+        "path": "media/icl/bottle/00_overlook_000000.png",
+        "frame": 0,
+        "camera": "overlook",
+        "phase": "Initial bottles, compartment basket and background cardboard box",
+        "label": "Historical episode 2800; frame 0; 0.000s; overlook camera. Initial bottles, compartment basket and background cardboard box",
+        "sha256": "c3512c8bc6d7fea976d780caee1dab048b68a0489f37c4b349f784546e748f55"
+      },
+      {
+        "path": "media/icl/bottle/01_right_000173.png",
+        "frame": 173,
+        "camera": "right",
+        "phase": "Right gripper carries an early bottle",
+        "label": "Historical episode 2800; frame 173; 11.533s; right camera. Right gripper carries an early bottle",
+        "sha256": "7a682ba59527e068291e356ef048be9374531d547d93a5651098e76acb28a4b7"
+      },
+      {
+        "path": "media/icl/bottle/02_right_000347.png",
+        "frame": 347,
+        "camera": "right",
+        "phase": "Return to approach another bottle",
+        "label": "Historical episode 2800; frame 347; 23.133s; right camera. Return to approach another bottle",
+        "sha256": "40797700ca0a838d532d18480700e946ffce1e50f73c9d92d70d0a9290769dc8"
+      },
+      {
+        "path": "media/icl/bottle/03_right_000520.png",
+        "frame": 520,
+        "camera": "right",
+        "phase": "Early bottles are visible inside basket compartments",
+        "label": "Historical episode 2800; frame 520; 34.667s; right camera. Early bottles are visible inside basket compartments",
+        "sha256": "7a9e544cb2c11d473fd7f1026da4346c38e86717bb090a572edd838d324d7188"
+      },
+      {
+        "path": "media/icl/bottle/04_overlook_000694.png",
+        "frame": 694,
+        "camera": "overlook",
+        "phase": "Repeat collection while several bottles remain",
+        "label": "Historical episode 2800; frame 694; 46.267s; overlook camera. Repeat collection while several bottles remain",
+        "sha256": "8dd177dc4f713058665ec80975231639c70ec6dfcc8d36c63e25dc0bbc16c537"
+      },
+      {
+        "path": "media/icl/bottle/05_top_000868.png",
+        "frame": 868,
+        "camera": "top",
+        "phase": "Inspect occupied and unoccupied compartments",
+        "label": "Historical episode 2800; frame 868; 57.867s; top camera. Inspect occupied and unoccupied compartments",
+        "sha256": "dfb8384aec69b3febb3c07549eb153e10c0bc632983ee52f405e0f2dc7ee590e"
+      },
+      {
+        "path": "media/icl/bottle/06_overlook_001389.png",
+        "frame": 1389,
+        "camera": "overlook",
+        "phase": "Intermediate progress across the source set",
+        "label": "Historical episode 2800; frame 1389; 92.600s; overlook camera. Intermediate progress across the source set",
+        "sha256": "69c9ca99cafd03a995c95166ff3016e2eec40cdc38b95c03357d02b1e862109c"
+      },
+      {
+        "path": "media/icl/bottle/07_top_001562.png",
+        "frame": 1562,
+        "camera": "top",
+        "phase": "Several basket compartments have been filled",
+        "label": "Historical episode 2800; frame 1562; 104.133s; top camera. Several basket compartments have been filled",
+        "sha256": "b05187b1fc305d3ff20721a71233a84e67cd24ebc7e0a53d4fa82256ac7778bd"
+      },
+      {
+        "path": "media/icl/bottle/08_overlook_002083.png",
+        "frame": 2083,
+        "camera": "overlook",
+        "phase": "Continue the repeated transfer sequence",
+        "label": "Historical episode 2800; frame 2083; 138.867s; overlook camera. Continue the repeated transfer sequence",
+        "sha256": "8c60e5f4a69c34279dd270dde278c6fc8c4f96cd83d765662ac441a9cb3c4741"
+      },
+      {
+        "path": "media/icl/bottle/09_top_002430.png",
+        "frame": 2430,
+        "camera": "top",
+        "phase": "View the partially filled basket before later placements",
+        "label": "Historical episode 2800; frame 2430; 162.000s; top camera. View the partially filled basket before later placements",
+        "sha256": "4b70196ebb6bea51157f34e6314b6a8040f99b3714f392f9c56ebe7c0b9a59f1"
+      },
+      {
+        "path": "media/icl/bottle/10_overlook_002604.png",
+        "frame": 2604,
+        "camera": "overlook",
+        "phase": "Only a small part of the source set remains",
+        "label": "Historical episode 2800; frame 2604; 173.600s; overlook camera. Only a small part of the source set remains",
+        "sha256": "85c153a6545b48f465a25d9b26ec3483c035612491476d8d88b3438b3d7ff292"
+      },
+      {
+        "path": "media/icl/bottle/11_overlook_002778.png",
+        "frame": 2778,
+        "camera": "overlook",
+        "phase": "Continue collecting the remaining bottles",
+        "label": "Historical episode 2800; frame 2778; 185.200s; overlook camera. Continue collecting the remaining bottles",
+        "sha256": "3fc8bab0550e929eb0efc1213ed68bcacc969d9d4e7d2d5f7bb73ded02ff5913"
+      },
+      {
+        "path": "media/icl/bottle/12_top_002951.png",
+        "frame": 2951,
+        "camera": "top",
+        "phase": "Basket near the end of the sequence",
+        "label": "Historical episode 2800; frame 2951; 196.733s; top camera. Basket near the end of the sequence",
+        "sha256": "e51e97b0635d61b121b5802005c3df8d45a64aa58f8d7efe1280acd0a17d4bc1"
+      },
+      {
+        "path": "media/icl/bottle/13_right_003125.png",
+        "frame": 3125,
+        "camera": "right",
+        "phase": "Approach the final bottle before the recorded closing command",
+        "label": "Historical episode 2800; frame 3125; 208.333s; right camera. Approach the final bottle before the recorded closing command",
+        "sha256": "ac4e5fd1e23faff25f49e2a1cf2c52de9756ba003c2a898f2a5c093f61b420ce"
+      },
+      {
+        "path": "media/icl/bottle/14_right_003200.png",
+        "frame": 3200,
+        "camera": "right",
+        "phase": "Carry the final bottle",
+        "label": "Historical episode 2800; frame 3200; 213.333s; right camera. Carry the final bottle",
+        "sha256": "79fbd46d561eb93a6a29efae975ab155eb73f09b0946c8f08551a67278e82e73"
+      },
+      {
+        "path": "media/icl/bottle/15_right_003250.png",
+        "frame": 3250,
+        "camera": "right",
+        "phase": "Align the final bottle with the remaining compartment",
+        "label": "Historical episode 2800; frame 3250; 216.667s; right camera. Align the final bottle with the remaining compartment",
+        "sha256": "49e2bac38f2711a936a19e17f997de577e86b1a02624c080be3d9fbc047dab75"
+      },
+      {
+        "path": "media/icl/bottle/16_right_003299.png",
+        "frame": 3299,
+        "camera": "right",
+        "phase": "Final bottle in the basket; gripper open",
+        "label": "Historical episode 2800; frame 3299; 219.933s; right camera. Final bottle in the basket; gripper open",
+        "sha256": "052deacec09a9c056c99f957e00a0a049c9ca504ac7eb5d91837352e2d80b6dc"
+      },
+      {
+        "path": "media/icl/bottle/17_overlook_003299.png",
+        "frame": 3299,
+        "camera": "overlook",
+        "phase": "Final source-area and basket overview",
+        "label": "Historical episode 2800; frame 3299; 219.933s; overlook camera. Final source-area and basket overview",
+        "sha256": "d091a28dc36d81e1747a002a9d688109656536df74dacc1d4d009b924ba9583f"
+      }
+    ],
+    "source": {
+      "type": "git",
+      "location": "ref/icl/bottle",
+      "revision": "814d3112772c7a6e06ded20ae90149530376f363",
+      "manifest_sha256": "d10371be8ccfe6f2ae812299fd5d595d97d9d9b2ef4369dc70a3e1a7243ec561",
+      "annotations_sha256": "508429a95f5b84361470a5656df5ad1f62be2b2819b3bc7e6b99204d0b0c6539"
+    }
+  },
+  {
+    "task": "bowl_to_plate",
+    "overview": "media/icl/bowl_to_plate/keyframes_preview.jpg",
+    "overview_sha256": "e0301d2618411acfb6db1343032f1d54cc7bc5dba3243ae9d53d2397c70faa77",
+    "description": "Reach into the sink and grip the rim of the brown bowl. Lift it clear of the other bowls and sink rim, reposition the base toward the plate on the counter, place the bowl over the plate, lower it onto the plate, and open the fingers.",
+    "frames": [
+      {
+        "path": "media/icl/bowl_to_plate/00_overlook_000000.png",
+        "frame": 0,
+        "camera": "overlook",
+        "phase": "Initial sink and destination plate.",
+        "label": "Historical episode 600; frame 0; 0.000s; overlook camera. Initial sink and destination plate.",
+        "sha256": "024cb85a7b05a83bc90fdcad902d61aa8bb44cdec43168b62dc5bec006b5f390"
+      },
+      {
+        "path": "media/icl/bowl_to_plate/01_overlook_000063.png",
+        "frame": 63,
+        "camera": "overlook",
+        "phase": "Right hand approaches the brown bowl.",
+        "label": "Historical episode 600; frame 63; 4.200s; overlook camera. Right hand approaches the brown bowl.",
+        "sha256": "2fea4727b98cd205d5984ed2426064cde36fa1b0eaa5cf954f8e496f382ef6f0"
+      },
+      {
+        "path": "media/icl/bowl_to_plate/02_top_000126.png",
+        "frame": 126,
+        "camera": "top",
+        "phase": "Right fingers align with the bowl rim.",
+        "label": "Historical episode 600; frame 126; 8.400s; top camera. Right fingers align with the bowl rim.",
+        "sha256": "4e120ea48f859fc61cba935a4e40a05851fd3ff4722a3f74291413a1a1534e29"
+      },
+      {
+        "path": "media/icl/bowl_to_plate/03_overlook_000188.png",
+        "frame": 188,
+        "camera": "overlook",
+        "phase": "Grasp and lift the brown bowl.",
+        "label": "Historical episode 600; frame 188; 12.533s; overlook camera. Grasp and lift the brown bowl.",
+        "sha256": "1eba0dbd21f2aed15d047fc363a8be7c5d884713b3225215e487195163931fb2"
+      },
+      {
+        "path": "media/icl/bowl_to_plate/04_overlook_000220.png",
+        "frame": 220,
+        "camera": "overlook",
+        "phase": "Bowl clears its sink support.",
+        "label": "Historical episode 600; frame 220; 14.667s; overlook camera. Bowl clears its sink support.",
+        "sha256": "2cccb86b41f1a60e69b528e49b7058111f0a866d0498378b14880b6cc6816e9e"
+      },
+      {
+        "path": "media/icl/bowl_to_plate/05_overlook_000283.png",
+        "frame": 283,
+        "camera": "overlook",
+        "phase": "Base shifts toward the counter plate.",
+        "label": "Historical episode 600; frame 283; 18.867s; overlook camera. Base shifts toward the counter plate.",
+        "sha256": "225251f96f7b8d17a242d43526a9490bdb7f8580bc552ddc37f417b746f2f0ca"
+      },
+      {
+        "path": "media/icl/bowl_to_plate/06_overlook_000345.png",
+        "frame": 345,
+        "camera": "overlook",
+        "phase": "Hold the bowl over the plate.",
+        "label": "Historical episode 600; frame 345; 23.000s; overlook camera. Hold the bowl over the plate.",
+        "sha256": "2ab2e1437fdd30a17b851f6ea52a652d9654ebfbcf3a87cc014a4710bf80df91"
+      },
+      {
+        "path": "media/icl/bowl_to_plate/07_overlook_000408.png",
+        "frame": 408,
+        "camera": "overlook",
+        "phase": "Lower the bowl onto the plate.",
+        "label": "Historical episode 600; frame 408; 27.200s; overlook camera. Lower the bowl onto the plate.",
+        "sha256": "faa4239d3b8413762c5b06235cb7c4c6c46078d9929d9e458b2b98c58dc87ded"
+      },
+      {
+        "path": "media/icl/bowl_to_plate/08_overlook_000440.png",
+        "frame": 440,
+        "camera": "overlook",
+        "phase": "Open the right fingers around the supported bowl.",
+        "label": "Historical episode 600; frame 440; 29.333s; overlook camera. Open the right fingers around the supported bowl.",
+        "sha256": "8e804c05f31e309af03ed6c4e437686bd1b586a7aa49a0c03d3a09c8314332dc"
+      },
+      {
+        "path": "media/icl/bowl_to_plate/09_overlook_000471.png",
+        "frame": 471,
+        "camera": "overlook",
+        "phase": "Final bowl-on-plate placement.",
+        "label": "Historical episode 600; frame 471; 31.400s; overlook camera. Final bowl-on-plate placement.",
+        "sha256": "8685977b2892bcf81bcd2bbcf8bc730a2c862c50a7e3bf018c36c3a8b5fce355"
+      }
+    ],
+    "source": {
+      "type": "archive",
+      "location": "astra_web_evidence_20260918/reference/icl/bowl_to_plate",
+      "revision": "astra_web_evidence_20260918_core.zip",
+      "manifest_sha256": "97bb6309ecc351f3f96f43fc2d42d8d03474d5d9e84b61e7fa930dd83527d847",
+      "annotations_sha256": "0a62010821a769b654d3955b9196a385defafbfa69ae4a05a87dd97ae4806c85"
+    }
+  },
+  {
+    "task": "collect_coffee_beans",
+    "overview": "media/icl/collect_coffee_beans/keyframes_preview.jpg",
+    "overview_sha256": "f50693d5b8ef517c798888f6ba382b417cbf0edd9017a28b41eb289bd8a7738c",
+    "description": "Grasp the jar with the left hand and hold its open mouth just below the table edge beside the bean pile. With the right hand, grasp the spoon handle, lift it out of its holder, and sweep the beans toward the jar. Return the spoon, put the jar upright on the table, then grasp and place the lid using the right hand. The example transfers beans with a utensil rather than picking them one by one.",
+    "frames": [
+      {
+        "path": "media/icl/collect_coffee_beans/top_000000.png",
+        "frame": 0,
+        "camera": "top",
+        "phase": "Initial jar, bean pile, lid, and spoon in holder",
+        "label": "episode 5000, frame 0, 0.000 s, top camera; Initial jar, bean pile, lid, and spoon in holder",
+        "sha256": "9a5342b880c6baec394375a167dc177362b319a92a1b452fd3d906ccc4885814"
+      },
+      {
+        "path": "media/icl/collect_coffee_beans/overlook_000000.png",
+        "frame": 0,
+        "camera": "overlook",
+        "phase": "Initial jar, bean pile, lid, and spoon in holder",
+        "label": "episode 5000, frame 0, 0.000 s, overlook camera; Initial jar, bean pile, lid, and spoon in holder",
+        "sha256": "24185fb14005da9574fea42db0865fbd51dfc24d9a0f38365e739ab94fef78b5"
+      },
+      {
+        "path": "media/icl/collect_coffee_beans/top_000209.png",
+        "frame": 209,
+        "camera": "top",
+        "phase": "Left fingers aligned around the jar before closing",
+        "label": "episode 5000, frame 209, 13.933 s, top camera; Left fingers aligned around the jar before closing",
+        "sha256": "cbc86ce1643710465b535e5502ccc0e8df1d2aab4cceefaff9fe7afbb29570ae"
+      },
+      {
+        "path": "media/icl/collect_coffee_beans/top_000418.png",
+        "frame": 418,
+        "camera": "top",
+        "phase": "Left hand holds the jar below the table edge",
+        "label": "episode 5000, frame 418, 27.867 s, top camera; Left hand holds the jar below the table edge",
+        "sha256": "51eb34b8ae6bc2bd07357bbd21ccb1abbe70f822688f47bda435e8129fe889ae"
+      },
+      {
+        "path": "media/icl/collect_coffee_beans/right_000837.png",
+        "frame": 837,
+        "camera": "right",
+        "phase": "Right hand grips the spoon handle",
+        "label": "episode 5000, frame 837, 55.800 s, right camera; Right hand grips the spoon handle",
+        "sha256": "24f907cb1012a94cbfe076ec1b4da88057c1167df9f91b06e874d593198aef8a"
+      },
+      {
+        "path": "media/icl/collect_coffee_beans/top_001046.png",
+        "frame": 1046,
+        "camera": "top",
+        "phase": "Spoon lifted out of its holder and moved toward the beans",
+        "label": "episode 5000, frame 1046, 69.733 s, top camera; Spoon lifted out of its holder and moved toward the beans",
+        "sha256": "6565a6ef0aecd1e747557b0a26e7ab154f21cea3e259823a311397faefe734c1"
+      },
+      {
+        "path": "media/icl/collect_coffee_beans/top_001255.png",
+        "frame": 1255,
+        "camera": "top",
+        "phase": "Spoon passes across the bean-pile area toward the held jar",
+        "label": "episode 5000, frame 1255, 83.667 s, top camera; Spoon passes across the bean-pile area toward the held jar",
+        "sha256": "08b7c70b3b62bf1040cf1697f369a6c99e8dd8e9d99ada42346369962f6b82c6"
+      },
+      {
+        "path": "media/icl/collect_coffee_beans/right_001464.png",
+        "frame": 1464,
+        "camera": "right",
+        "phase": "Spoon returned toward its holder after the transfer",
+        "label": "episode 5000, frame 1464, 97.600 s, right camera; Spoon returned toward its holder after the transfer",
+        "sha256": "38d486c1fb1be25885d75eb791109f4f3938c1177d72a2e84958cd61ca7990dd"
+      },
+      {
+        "path": "media/icl/collect_coffee_beans/top_001673.png",
+        "frame": 1673,
+        "camera": "top",
+        "phase": "Spoon parked; original bean-pile area clear; jar still held",
+        "label": "episode 5000, frame 1673, 111.533 s, top camera; Spoon parked; original bean-pile area clear; jar still held",
+        "sha256": "07e6cdaef2708cf76759c5e42efb9973e8aafb2e9bd29981c6b3436a2ad62e39"
+      },
+      {
+        "path": "media/icl/collect_coffee_beans/top_002091.png",
+        "frame": 2091,
+        "camera": "top",
+        "phase": "Jar upright on the table before lid placement",
+        "label": "episode 5000, frame 2091, 139.400 s, top camera; Jar upright on the table before lid placement",
+        "sha256": "943e4aa4455df8e6de358f3a4376b58f871a66f6829a36c4e7ab9e6418254fc1"
+      },
+      {
+        "path": "media/icl/collect_coffee_beans/top_002510.png",
+        "frame": 2510,
+        "camera": "top",
+        "phase": "Right hand lifts the lid",
+        "label": "episode 5000, frame 2510, 167.333 s, top camera; Right hand lifts the lid",
+        "sha256": "398538928bac6812ebed47813bf0b264fbe51494363e4f3bf696f46607ce0b31"
+      },
+      {
+        "path": "media/icl/collect_coffee_beans/right_002719.png",
+        "frame": 2719,
+        "camera": "right",
+        "phase": "Lid aligned over the jar mouth",
+        "label": "episode 5000, frame 2719, 181.267 s, right camera; Lid aligned over the jar mouth",
+        "sha256": "a2d7a24db0df3b04d4fad79fed6d6602c3520581a1630dd89c6171f97275b4a4"
+      },
+      {
+        "path": "media/icl/collect_coffee_beans/top_002928.png",
+        "frame": 2928,
+        "camera": "top",
+        "phase": "Lid seated as the right hand releases",
+        "label": "episode 5000, frame 2928, 195.200 s, top camera; Lid seated as the right hand releases",
+        "sha256": "bbfa4ad93d0f3eb78b39c960f5a3ec83ff31bba2c6a755fe42f594b63b1c528b"
+      },
+      {
+        "path": "media/icl/collect_coffee_beans/top_003137.png",
+        "frame": 3137,
+        "camera": "top",
+        "phase": "Final covered jar with both hands withdrawn",
+        "label": "episode 5000, frame 3137, 209.133 s, top camera; Final covered jar with both hands withdrawn",
+        "sha256": "d0bbc91c346373abf86e2e937175b515b5991e9a2812b773fb2303dd0fb208d2"
+      },
+      {
+        "path": "media/icl/collect_coffee_beans/overlook_003137.png",
+        "frame": 3137,
+        "camera": "overlook",
+        "phase": "Final covered jar with both hands withdrawn",
+        "label": "episode 5000, frame 3137, 209.133 s, overlook camera; Final covered jar with both hands withdrawn",
+        "sha256": "454180aa35f5a2285d5e77cff4309b32593553d21ea51dc19492b24cde7a5453"
+      }
+    ],
+    "source": {
+      "type": "git",
+      "location": "ref/icl/collect_coffee_beans",
+      "revision": "814d3112772c7a6e06ded20ae90149530376f363",
+      "manifest_sha256": "18eac4a62390ffe2dc589d50229a2311b1755c2511baa00011aa50ab733a2666",
+      "annotations_sha256": "55224778d5ad38838ec24dac72e79f243a3e770b3caec91aa73ccbb915ae55a7"
+    }
+  },
+  {
+    "task": "detergent",
+    "overview": "media/icl/detergent/keyframes_preview.jpg",
+    "overview_sha256": "1ef8753fabc03710be91ed560fa5c1fd24b1648d63a26fd51c939db415595485",
+    "description": "Process three detergent bottles one at a time. Pick a bottle with the left hand, lift it into the shared handover region, bring the right fingers around a free part of the bottle, and secure the right-hand grasp before releasing the left. Carry the bottle above the basket, lower and release it inside. Repeat for the green, blue/red, and grey/green bottles while tracking which pickup locations are empty.",
+    "frames": [
+      {
+        "path": "media/icl/detergent/00_overlook_000000.png",
+        "frame": 0,
+        "camera": "overlook",
+        "phase": "Three bottles beside the empty basket.",
+        "label": "Historical episode 2000; frame 0; 0.000s; overlook camera. Three bottles beside the empty basket.",
+        "sha256": "f963ab0b1025822902e0113e5d3e128f6b71b16db7d2ed5a5616f580df2997c4"
+      },
+      {
+        "path": "media/icl/detergent/01_overlook_000141.png",
+        "frame": 141,
+        "camera": "overlook",
+        "phase": "Left fingers grasp the first green bottle.",
+        "label": "Historical episode 2000; frame 141; 9.400s; overlook camera. Left fingers grasp the first green bottle.",
+        "sha256": "a1cea757f12dc01acaad748d837ee2aeba31afe76c306a53ddd0a48c7c9b3a84"
+      },
+      {
+        "path": "media/icl/detergent/02_overlook_000282.png",
+        "frame": 282,
+        "camera": "overlook",
+        "phase": "Lift the green bottle into the handover region.",
+        "label": "Historical episode 2000; frame 282; 18.800s; overlook camera. Lift the green bottle into the handover region.",
+        "sha256": "ecf9ee744986e085e74c583bae6888ee5b655360d34f43044bc67f3968928a51"
+      },
+      {
+        "path": "media/icl/detergent/03_overlook_000423.png",
+        "frame": 423,
+        "camera": "overlook",
+        "phase": "Right fingers receive the green bottle.",
+        "label": "Historical episode 2000; frame 423; 28.200s; overlook camera. Right fingers receive the green bottle.",
+        "sha256": "15af8670512ff5596f87d821d804faf6e00fa04db374d5fca1eb29fcaaaffddc"
+      },
+      {
+        "path": "media/icl/detergent/04_overlook_000564.png",
+        "frame": 564,
+        "camera": "overlook",
+        "phase": "Right arm lowers the first bottle into the basket.",
+        "label": "Historical episode 2000; frame 564; 37.600s; overlook camera. Right arm lowers the first bottle into the basket.",
+        "sha256": "d602c929808ec7e943e60a15007bf1c28f32dce89f520976fe05648c631d87e7"
+      },
+      {
+        "path": "media/icl/detergent/05_overlook_000705.png",
+        "frame": 705,
+        "camera": "overlook",
+        "phase": "First green bottle released inside the basket.",
+        "label": "Historical episode 2000; frame 705; 47.000s; overlook camera. First green bottle released inside the basket.",
+        "sha256": "b1e28cf77913ee7217e67f7b3b6ac98ccde3f082e5ce3e1af1912e8743562abb"
+      },
+      {
+        "path": "media/icl/detergent/06_overlook_000846.png",
+        "frame": 846,
+        "camera": "overlook",
+        "phase": "Left hand grips the blue/red bottle.",
+        "label": "Historical episode 2000; frame 846; 56.400s; overlook camera. Left hand grips the blue/red bottle.",
+        "sha256": "4f97aa4ca37a58045ac298954c6c1f3e74cf24ae006034fb09970478950a1c70"
+      },
+      {
+        "path": "media/icl/detergent/07_overlook_000987.png",
+        "frame": 987,
+        "camera": "overlook",
+        "phase": "Carry the second bottle into the handover region.",
+        "label": "Historical episode 2000; frame 987; 65.800s; overlook camera. Carry the second bottle into the handover region.",
+        "sha256": "3047a4eef603ac3025fe0767c5dfe739495b4c4b1c2d0db31b13f207e24853b9"
+      },
+      {
+        "path": "media/icl/detergent/08_overlook_001128.png",
+        "frame": 1128,
+        "camera": "overlook",
+        "phase": "Both hands coordinate the second handover.",
+        "label": "Historical episode 2000; frame 1128; 75.200s; overlook camera. Both hands coordinate the second handover.",
+        "sha256": "fe08527d4a8f4222eb50964f0466f81817374b469df3c45746c09e50de3953f9"
+      },
+      {
+        "path": "media/icl/detergent/09_overlook_001269.png",
+        "frame": 1269,
+        "camera": "overlook",
+        "phase": "Right hand supports the second bottle after left release.",
+        "label": "Historical episode 2000; frame 1269; 84.600s; overlook camera. Right hand supports the second bottle after left release.",
+        "sha256": "c5eb11f2500fec614195b992261f4672f9b840bcef19e05b71fd4d6119cc545a"
+      },
+      {
+        "path": "media/icl/detergent/10_overlook_001410.png",
+        "frame": 1410,
+        "camera": "overlook",
+        "phase": "Place the second bottle in the basket.",
+        "label": "Historical episode 2000; frame 1410; 94.000s; overlook camera. Place the second bottle in the basket.",
+        "sha256": "32f4fce753c9cf5f950462e42777529cd90e1834976500356cf498afdf63b131"
+      },
+      {
+        "path": "media/icl/detergent/11_overlook_001551.png",
+        "frame": 1551,
+        "camera": "overlook",
+        "phase": "Left hand starts the final grey/green bottle pickup.",
+        "label": "Historical episode 2000; frame 1551; 103.400s; overlook camera. Left hand starts the final grey/green bottle pickup.",
+        "sha256": "f0eb05f3441049fdcf9248d8458d72a3ab73f765fae168987b8ec6f661ae92a9"
+      },
+      {
+        "path": "media/icl/detergent/12_overlook_001692.png",
+        "frame": 1692,
+        "camera": "overlook",
+        "phase": "Lift the third bottle toward the receiving right hand.",
+        "label": "Historical episode 2000; frame 1692; 112.800s; overlook camera. Lift the third bottle toward the receiving right hand.",
+        "sha256": "67ecb7592fef430e78ddb47a4286cf1d0c178daffbd0a633d98705237be5c4ee"
+      },
+      {
+        "path": "media/icl/detergent/13_overlook_001833.png",
+        "frame": 1833,
+        "camera": "overlook",
+        "phase": "Third bottle handover.",
+        "label": "Historical episode 2000; frame 1833; 122.200s; overlook camera. Third bottle handover.",
+        "sha256": "eb2b0a485c0dde8e5ecc517ae05a831ba12ad2b62e1e4531e5a60dfea2b08bc8"
+      },
+      {
+        "path": "media/icl/detergent/14_overlook_001974.png",
+        "frame": 1974,
+        "camera": "overlook",
+        "phase": "Carry the final bottle toward the basket.",
+        "label": "Historical episode 2000; frame 1974; 131.600s; overlook camera. Carry the final bottle toward the basket.",
+        "sha256": "58662d17ae3795c4e9628a54192466d2c1b786dc1d581aac50dd7f590c477c45"
+      },
+      {
+        "path": "media/icl/detergent/15_overlook_002115.png",
+        "frame": 2115,
+        "camera": "overlook",
+        "phase": "Final bottle lowered at the basket; rim partly obscures contact.",
+        "label": "Historical episode 2000; frame 2115; 141.000s; overlook camera. Final bottle lowered at the basket; rim partly obscures contact.",
+        "sha256": "2ce8f24495f4b643a9d8f2692d26c946b507af01e74ea994e2eb1eb7ee801e3e"
+      }
+    ],
+    "source": {
+      "type": "archive",
+      "location": "astra_web_evidence_20260918/reference/icl/detergent",
+      "revision": "astra_web_evidence_20260918_core.zip",
+      "manifest_sha256": "d3d6205c4e0842a42909c188426d86bfcb7ce4fdfc1cebf370244d1881e7d686",
+      "annotations_sha256": "96265fd1148910e08008d8813fb60fa8b5f8aebda718c6d3841f5dbb2f5f9e0b"
+    }
+  },
+  {
+    "task": "dish",
+    "overview": "media/icl/dish/keyframes_preview.jpg",
+    "overview_sha256": "b67527805dcd014721ce9d96bac7c2223f9e55e37a3f0e53aa5fc0f5783abaff",
+    "description": "Place the dishes one at a time into the large basket: pick the white plate at its rim, carry and release it; repeat for the pale patterned bowl and the blue bowl, stacking them on the plate. Pick the goblet and place it on the dish stack. Use the right hand to pick the spoon by its handle and place it in the separate small basket.",
+    "frames": [
+      {
+        "path": "media/icl/dish/00_overlook_000000.png",
+        "frame": 0,
+        "camera": "overlook",
+        "phase": "Two empty baskets and dishes before manipulation.",
+        "label": "Historical episode 2400; frame 0; 0.000s; overlook camera. Two empty baskets and dishes before manipulation.",
+        "sha256": "d1084a903961215f8c50ab898457b697837c13a631908da7e93f580ead39dafc"
+      },
+      {
+        "path": "media/icl/dish/01_overlook_000142.png",
+        "frame": 142,
+        "camera": "overlook",
+        "phase": "Left hand grips the white plate rim.",
+        "label": "Historical episode 2400; frame 142; 9.467s; overlook camera. Left hand grips the white plate rim.",
+        "sha256": "d9b4e169b4092d82824be090d4635115674244ad4c287947b062520bddda1c7a"
+      },
+      {
+        "path": "media/icl/dish/02_overlook_000285.png",
+        "frame": 285,
+        "camera": "overlook",
+        "phase": "Carry the plate above the large basket.",
+        "label": "Historical episode 2400; frame 285; 19.000s; overlook camera. Carry the plate above the large basket.",
+        "sha256": "7c62c4a1ff3bce1dec9ba4a1b90febbc0a9a8fb67dcb55257fda79ebd016e17c"
+      },
+      {
+        "path": "media/icl/dish/03_overlook_000427.png",
+        "frame": 427,
+        "camera": "overlook",
+        "phase": "Lower the plate into the large basket.",
+        "label": "Historical episode 2400; frame 427; 28.467s; overlook camera. Lower the plate into the large basket.",
+        "sha256": "0ae239ea0fb661719b393886b5453b68f42493eab15393d5d2383ac53fa08696"
+      },
+      {
+        "path": "media/icl/dish/04_overlook_000570.png",
+        "frame": 570,
+        "camera": "overlook",
+        "phase": "Pick the pale patterned bowl.",
+        "label": "Historical episode 2400; frame 570; 38.000s; overlook camera. Pick the pale patterned bowl.",
+        "sha256": "bda6632406062d2455701f363e2250f03756e89b39d1856c51af5c9cb9a75e40"
+      },
+      {
+        "path": "media/icl/dish/05_overlook_000712.png",
+        "frame": 712,
+        "camera": "overlook",
+        "phase": "Carry the pale bowl above the plate.",
+        "label": "Historical episode 2400; frame 712; 47.467s; overlook camera. Carry the pale bowl above the plate.",
+        "sha256": "21010eb33d83d822cec0fc40df2c67caa694bfece3a62145b12ba848b721fa05"
+      },
+      {
+        "path": "media/icl/dish/06_top_000854.png",
+        "frame": 854,
+        "camera": "top",
+        "phase": "Pale bowl supported on the plate.",
+        "label": "Historical episode 2400; frame 854; 56.933s; top camera. Pale bowl supported on the plate.",
+        "sha256": "b2501b5778a55d31e4ee6c09dfc531a616d6662b3c1ad73246c7f66f36dad751"
+      },
+      {
+        "path": "media/icl/dish/07_overlook_000997.png",
+        "frame": 997,
+        "camera": "overlook",
+        "phase": "Left hand starts pickup of the blue bowl.",
+        "label": "Historical episode 2400; frame 997; 66.467s; overlook camera. Left hand starts pickup of the blue bowl.",
+        "sha256": "ad7fc28559d70686a06f0890376d744eb507c5474b26a78252fc8baf11e79037"
+      },
+      {
+        "path": "media/icl/dish/08_overlook_001139.png",
+        "frame": 1139,
+        "camera": "overlook",
+        "phase": "Blue bowl grasp and lift.",
+        "label": "Historical episode 2400; frame 1139; 75.933s; overlook camera. Blue bowl grasp and lift.",
+        "sha256": "5c021d748922dec57897f973a7b0ce21e4a6279f9e84e875c2d269f389252f8c"
+      },
+      {
+        "path": "media/icl/dish/09_overlook_001282.png",
+        "frame": 1282,
+        "camera": "overlook",
+        "phase": "Place blue bowl over the dish stack.",
+        "label": "Historical episode 2400; frame 1282; 85.467s; overlook camera. Place blue bowl over the dish stack.",
+        "sha256": "4c875a5e7ce2586905e22dce5f72ff847c69f9d976a173b03942be404ddb5708"
+      },
+      {
+        "path": "media/icl/dish/10_overlook_001424.png",
+        "frame": 1424,
+        "camera": "overlook",
+        "phase": "Release the blue bowl inside the large basket.",
+        "label": "Historical episode 2400; frame 1424; 94.933s; overlook camera. Release the blue bowl inside the large basket.",
+        "sha256": "dacca3dd993bb49366200e5da421b021d7fc4fb3e4593d67d224624c2782cda9"
+      },
+      {
+        "path": "media/icl/dish/11_overlook_001566.png",
+        "frame": 1566,
+        "camera": "overlook",
+        "phase": "Pick up the goblet with the left hand.",
+        "label": "Historical episode 2400; frame 1566; 104.400s; overlook camera. Pick up the goblet with the left hand.",
+        "sha256": "7e841f3852be2ba7244fb2902e2fda7135255a31696cb1257f96fd214055836b"
+      },
+      {
+        "path": "media/icl/dish/12_overlook_001709.png",
+        "frame": 1709,
+        "camera": "overlook",
+        "phase": "Place the goblet on the dish stack.",
+        "label": "Historical episode 2400; frame 1709; 113.933s; overlook camera. Place the goblet on the dish stack.",
+        "sha256": "21c42e9ccb2543e827e84fedf8c6ecef7e3e78680c1c8d90ff27d6949593e0a9"
+      },
+      {
+        "path": "media/icl/dish/13_overlook_001851.png",
+        "frame": 1851,
+        "camera": "overlook",
+        "phase": "Right hand approaches the spoon handle.",
+        "label": "Historical episode 2400; frame 1851; 123.400s; overlook camera. Right hand approaches the spoon handle.",
+        "sha256": "09b07e96b8c69b5481829992be8b75d87b6bcd9f870316ba106d1c900aaaadcf"
+      },
+      {
+        "path": "media/icl/dish/14_overlook_001994.png",
+        "frame": 1994,
+        "camera": "overlook",
+        "phase": "Lift and transport the spoon.",
+        "label": "Historical episode 2400; frame 1994; 132.933s; overlook camera. Lift and transport the spoon.",
+        "sha256": "f5a1da44a2448d01eee165422052cdd6efa4d16052f5a57d4474cbef179df43c"
+      },
+      {
+        "path": "media/icl/dish/15_overlook_002136.png",
+        "frame": 2136,
+        "camera": "overlook",
+        "phase": "Spoon placed in the separate small basket.",
+        "label": "Historical episode 2400; frame 2136; 142.400s; overlook camera. Spoon placed in the separate small basket.",
+        "sha256": "b4ab97899ee7947b44d5be67202b89c75029142b53a6cd72126747859a458280"
+      }
+    ],
+    "source": {
+      "type": "archive",
+      "location": "astra_web_evidence_20260918/reference/icl/dish",
+      "revision": "astra_web_evidence_20260918_core.zip",
+      "manifest_sha256": "1d1179a718760cbc88536044cbc49e776adb6056071166395e59e96c4fe441d2",
+      "annotations_sha256": "78c343a1e04a3269b6c00fddceb2c09fa32f7668532fc771192cbd076cd3ca57"
+    }
+  },
+  {
+    "task": "dishwasher",
+    "overview": "media/icl/dishwasher/keyframes_preview.jpg",
+    "overview_sha256": "ba532fb593639a6dbddaac6507caed205fae7cb84e1b0dda160742b55a9768db",
+    "description": "Pick the first bowl from the countertop with the left hand and keep it supported while the right hand opens the dishwasher. Reposition to reach the open rack, lower and release the first bowl, then return for the second bowl and load it into another part of the rack. Withdraw after release and check both placements.",
+    "frames": [
+      {
+        "path": "media/icl/dishwasher/00_overlook_000000.png",
+        "frame": 0,
+        "camera": "overlook",
+        "phase": "Initial bowls on the counter above the dishwasher",
+        "label": "Historical episode 3600; frame 0; 0.000s; overlook camera. Initial bowls on the counter above the dishwasher",
+        "sha256": "789c2d36935b6a8428f444f2f087f368700dc0275a82d69456c3176e83eae9a8"
+      },
+      {
+        "path": "media/icl/dishwasher/01_left_000163.png",
+        "frame": 163,
+        "camera": "left",
+        "phase": "Left hand supports the first bowl",
+        "label": "Historical episode 3600; frame 163; 10.867s; left camera. Left hand supports the first bowl",
+        "sha256": "59a44a143772f06771331d788d85ed74fcebf8e0d138d3ddf8e216badf693a43"
+      },
+      {
+        "path": "media/icl/dishwasher/02_overlook_000245.png",
+        "frame": 245,
+        "camera": "overlook",
+        "phase": "Hold the first bowl while approaching the appliance front",
+        "label": "Historical episode 3600; frame 245; 16.333s; overlook camera. Hold the first bowl while approaching the appliance front",
+        "sha256": "0e3a891298ae4a8d63c3b50b7df5d4b9b083d1dd72cd89110e91821942ef5d27"
+      },
+      {
+        "path": "media/icl/dishwasher/03_overlook_000408.png",
+        "frame": 408,
+        "camera": "overlook",
+        "phase": "Right arm operates the dishwasher front while left holds the bowl",
+        "label": "Historical episode 3600; frame 408; 27.200s; overlook camera. Right arm operates the dishwasher front while left holds the bowl",
+        "sha256": "115ed738d742d3eed35f6b69606cf0d63276541144d0b82035cf07d606332530"
+      },
+      {
+        "path": "media/icl/dishwasher/04_overlook_000572.png",
+        "frame": 572,
+        "camera": "overlook",
+        "phase": "Opening sequence before rack access",
+        "label": "Historical episode 3600; frame 572; 38.133s; overlook camera. Opening sequence before rack access",
+        "sha256": "15207bc4b3a41731d296d7360166a43ddd5cc51a2547802c85bd7cf007d6a951"
+      },
+      {
+        "path": "media/icl/dishwasher/05_left_000736.png",
+        "frame": 736,
+        "camera": "left",
+        "phase": "Lower the first bowl toward the open rack",
+        "label": "Historical episode 3600; frame 736; 49.067s; left camera. Lower the first bowl toward the open rack",
+        "sha256": "0ef00e162245cab52b22cd8bf31f08546dbb76f95bba1e50fa437967c8b2fcaa"
+      },
+      {
+        "path": "media/icl/dishwasher/06_top_000817.png",
+        "frame": 817,
+        "camera": "top",
+        "phase": "First bowl released in the rack",
+        "label": "Historical episode 3600; frame 817; 54.467s; top camera. First bowl released in the rack",
+        "sha256": "908f6c29eedcaff84c4455a9bc5d9dbf9b04b50f2ef6c646d464482fc7009ca4"
+      },
+      {
+        "path": "media/icl/dishwasher/07_overlook_000981.png",
+        "frame": 981,
+        "camera": "overlook",
+        "phase": "Return to the red bowl on the countertop",
+        "label": "Historical episode 3600; frame 981; 65.400s; overlook camera. Return to the red bowl on the countertop",
+        "sha256": "ad35d2868b5c5e1bc4cb2def4d327b4a4a5163ceebd68952eb4a0f0c2f2714b0"
+      },
+      {
+        "path": "media/icl/dishwasher/08_left_001063.png",
+        "frame": 1063,
+        "camera": "left",
+        "phase": "Left hand grasps the second bowl",
+        "label": "Historical episode 3600; frame 1063; 70.867s; left camera. Left hand grasps the second bowl",
+        "sha256": "da7ffb46944d795f74bd25698a09b3e854bf2a5d2beb6e42e3cdfd46b0474de3"
+      },
+      {
+        "path": "media/icl/dishwasher/09_left_001226.png",
+        "frame": 1226,
+        "camera": "left",
+        "phase": "Carry the red bowl toward a rack position",
+        "label": "Historical episode 3600; frame 1226; 81.733s; left camera. Carry the red bowl toward a rack position",
+        "sha256": "63628489ea142037abd48dbc2d5c71c3ed53e039fcf201ee073eac5bdcab91b1"
+      },
+      {
+        "path": "media/icl/dishwasher/10_overlook_001308.png",
+        "frame": 1308,
+        "camera": "overlook",
+        "phase": "Red bowl reaches the open rack",
+        "label": "Historical episode 3600; frame 1308; 87.200s; overlook camera. Red bowl reaches the open rack",
+        "sha256": "89214aba403f01af4c2fe232ee57e1051b26aa5cd2755638f8af947c045083a5"
+      },
+      {
+        "path": "media/icl/dishwasher/11_left_001390.png",
+        "frame": 1390,
+        "camera": "left",
+        "phase": "Red bowl in the rack after release",
+        "label": "Historical episode 3600; frame 1390; 92.667s; left camera. Red bowl in the rack after release",
+        "sha256": "52c992039564d3556620538db5265c6724bb0ca1540ec2854a3a377c6ac63fd7"
+      },
+      {
+        "path": "media/icl/dishwasher/12_top_001472.png",
+        "frame": 1472,
+        "camera": "top",
+        "phase": "Near-final rack view with both bowls",
+        "label": "Historical episode 3600; frame 1472; 98.133s; top camera. Near-final rack view with both bowls",
+        "sha256": "0298cf598578b9db7e7a2eb7ef4c891eb487755ae6d0c849d6b2d1ea69362e8c"
+      },
+      {
+        "path": "media/icl/dishwasher/13_overlook_001554.png",
+        "frame": 1554,
+        "camera": "overlook",
+        "phase": "Withdrawn arms and cleared countertop source area",
+        "label": "Historical episode 3600; frame 1554; 103.600s; overlook camera. Withdrawn arms and cleared countertop source area",
+        "sha256": "874c56559d30cb5fac245672f1bce632b7b3f58ec7de4bf150e3a8433ade159d"
+      }
+    ],
+    "source": {
+      "type": "git",
+      "location": "ref/icl/dishwasher",
+      "revision": "814d3112772c7a6e06ded20ae90149530376f363",
+      "manifest_sha256": "58383ccd81ef7c029aa3cef94ebaccaa48ea2bd129331e1390e8062954e8d656",
+      "annotations_sha256": "33863bd7a0775dbbd9169cf3d3ce96ecb579a4e3cae78d96dc7e05006b357ed7"
+    }
+  },
+  {
+    "task": "flip_cup_collect_cookies",
+    "overview": "media/icl/flip_cup_collect_cookies/keyframes_preview.jpg",
+    "overview_sha256": "38755fb0401bb97937d3f15966da0b5cd0739ff2f874bc550648734aa30d5fd5",
+    "description": "The left hand picks up the inverted cup and rotates it sideways. The right hand receives it while the left hand opens and withdraws, then sets the cup down with its opening upward. The right hand next grasps the cookie plate at its rim, brings a low edge over the bowl, and progressively tilts the plate so cookies fall into the bowl. Return and release the empty plate. The cup and receiving bowl are distinct objects.",
+    "frames": [
+      {
+        "path": "media/icl/flip_cup_collect_cookies/top_000000.png",
+        "frame": 0,
+        "camera": "top",
+        "phase": "Initial inverted cup, empty bowl, and plate of cookies",
+        "label": "episode 4640, frame 0, 0.000 s, top camera; Initial inverted cup, empty bowl, and plate of cookies",
+        "sha256": "3222ca45a3511d7517ecba5a476d5d5ce490f0daa0b0769f36f9c0cdf68eae56"
+      },
+      {
+        "path": "media/icl/flip_cup_collect_cookies/overlook_000000.png",
+        "frame": 0,
+        "camera": "overlook",
+        "phase": "Initial inverted cup, empty bowl, and plate of cookies",
+        "label": "episode 4640, frame 0, 0.000 s, overlook camera; Initial inverted cup, empty bowl, and plate of cookies",
+        "sha256": "2e2794967f56698064097217a8ad5795a67b39526eb37ca2e9b767f6ca0724fe"
+      },
+      {
+        "path": "media/icl/flip_cup_collect_cookies/overlook_000161.png",
+        "frame": 161,
+        "camera": "overlook",
+        "phase": "Left hand encloses the inverted cup before gripping",
+        "label": "episode 4640, frame 161, 10.733 s, overlook camera; Left hand encloses the inverted cup before gripping",
+        "sha256": "27981a27266c7165ecaf252348b20748e10a66a1bd482ffb7566e3368447e2a7"
+      },
+      {
+        "path": "media/icl/flip_cup_collect_cookies/overlook_000322.png",
+        "frame": 322,
+        "camera": "overlook",
+        "phase": "Left hand holds the cup horizontally",
+        "label": "episode 4640, frame 322, 21.467 s, overlook camera; Left hand holds the cup horizontally",
+        "sha256": "54f89ffcb4014e15c85997df798c3aa0ecfde34fc04d8a5bde487d3c5e602cb1"
+      },
+      {
+        "path": "media/icl/flip_cup_collect_cookies/right_000484.png",
+        "frame": 484,
+        "camera": "right",
+        "phase": "Right fingers approach the cup while the left hand supports it",
+        "label": "episode 4640, frame 484, 32.267 s, right camera; Right fingers approach the cup while the left hand supports it",
+        "sha256": "02bd88d72a55572589ec192070374c94a419d886b15c52ac42d520dc73d7e134"
+      },
+      {
+        "path": "media/icl/flip_cup_collect_cookies/right_000563.png",
+        "frame": 563,
+        "camera": "right",
+        "phase": "Right-hand contact during the cup handover",
+        "label": "episode 4640, frame 563, 37.533 s, right camera; Right-hand contact during the cup handover",
+        "sha256": "6009861bd727c8d4e7926942f4b749b0c4fa5c15ad152ea52eb0b65c5330f4ba"
+      },
+      {
+        "path": "media/icl/flip_cup_collect_cookies/right_000645.png",
+        "frame": 645,
+        "camera": "right",
+        "phase": "Left fingers open while the right hand receives the cup",
+        "label": "episode 4640, frame 645, 43.000 s, right camera; Left fingers open while the right hand receives the cup",
+        "sha256": "7c97299f235c85d110dc85085ee0f2e976b2e2d0a9804f343c6e1c96ea5c2f9c"
+      },
+      {
+        "path": "media/icl/flip_cup_collect_cookies/overlook_000806.png",
+        "frame": 806,
+        "camera": "overlook",
+        "phase": "Right hand holds the cup as the left arm retreats",
+        "label": "episode 4640, frame 806, 53.733 s, overlook camera; Right hand holds the cup as the left arm retreats",
+        "sha256": "b23612919efa3bfe2c1e241c3e2a34ecbb54e8133d92caefa5513411c3f55e09"
+      },
+      {
+        "path": "media/icl/flip_cup_collect_cookies/overlook_000967.png",
+        "frame": 967,
+        "camera": "overlook",
+        "phase": "Cup placed opening-up on the table",
+        "label": "episode 4640, frame 967, 64.467 s, overlook camera; Cup placed opening-up on the table",
+        "sha256": "b2f6507f0bd543b1811728486bf81b62c54c9f1574e777fa1bfbd5eaa36e7511"
+      },
+      {
+        "path": "media/icl/flip_cup_collect_cookies/right_001128.png",
+        "frame": 1128,
+        "camera": "right",
+        "phase": "Right fingers approach the cookie plate rim",
+        "label": "episode 4640, frame 1128, 75.200 s, right camera; Right fingers approach the cookie plate rim",
+        "sha256": "0c35119da046ec6bc5ce722f335818eb3d9f50d60a1b4bd25a6ec0baa3738237"
+      },
+      {
+        "path": "media/icl/flip_cup_collect_cookies/right_001290.png",
+        "frame": 1290,
+        "camera": "right",
+        "phase": "Right hand grips the plate rim",
+        "label": "episode 4640, frame 1290, 86.000 s, right camera; Right hand grips the plate rim",
+        "sha256": "8fce0c2a7394b28de98b63ddd009b4d31f829bf1863128707d9f91e63b791dc4"
+      },
+      {
+        "path": "media/icl/flip_cup_collect_cookies/top_001451.png",
+        "frame": 1451,
+        "camera": "top",
+        "phase": "Plate lifted toward the receiving bowl",
+        "label": "episode 4640, frame 1451, 96.733 s, top camera; Plate lifted toward the receiving bowl",
+        "sha256": "e57d96d853048e2cf767540029483c6881abb49671d2d8d88a666b5b4f6e6e91"
+      },
+      {
+        "path": "media/icl/flip_cup_collect_cookies/top_001612.png",
+        "frame": 1612,
+        "camera": "top",
+        "phase": "Plate edge positioned over the bowl and tilted",
+        "label": "episode 4640, frame 1612, 107.467 s, top camera; Plate edge positioned over the bowl and tilted",
+        "sha256": "07e4cd74e06d8c4f5919231aefc1b1c8e968e1ff62d38c6926807de94bf6a9bc"
+      },
+      {
+        "path": "media/icl/flip_cup_collect_cookies/top_001773.png",
+        "frame": 1773,
+        "camera": "top",
+        "phase": "Steeper plate tilt directs cookies toward the bowl",
+        "label": "episode 4640, frame 1773, 118.200 s, top camera; Steeper plate tilt directs cookies toward the bowl",
+        "sha256": "da9cb50f1a9a67bdfcf7be4c43bd7329912501ce20fc6e8535b11ca4bfde7449"
+      },
+      {
+        "path": "media/icl/flip_cup_collect_cookies/top_001934.png",
+        "frame": 1934,
+        "camera": "top",
+        "phase": "Cookies entering the bowl as the plate empties",
+        "label": "episode 4640, frame 1934, 128.933 s, top camera; Cookies entering the bowl as the plate empties",
+        "sha256": "79d958b105e9711e69dd6367586961f3a960deedfb1578457414f1f9de202ed8"
+      },
+      {
+        "path": "media/icl/flip_cup_collect_cookies/top_002096.png",
+        "frame": 2096,
+        "camera": "top",
+        "phase": "Empty plate returned toward the tabletop",
+        "label": "episode 4640, frame 2096, 139.733 s, top camera; Empty plate returned toward the tabletop",
+        "sha256": "3f596b603e217050d3443bf8b30993879384f6d897c07edd918de3404e909767"
+      },
+      {
+        "path": "media/icl/flip_cup_collect_cookies/top_002418.png",
+        "frame": 2418,
+        "camera": "top",
+        "phase": "Final upright cup, empty plate, and cookies in the bowl",
+        "label": "episode 4640, frame 2418, 161.200 s, top camera; Final upright cup, empty plate, and cookies in the bowl",
+        "sha256": "c63cfc6cbe155c377a2b47e780fc1d1278b7c44aa9a7221b867cf9e0c7010138"
+      },
+      {
+        "path": "media/icl/flip_cup_collect_cookies/overlook_002418.png",
+        "frame": 2418,
+        "camera": "overlook",
+        "phase": "Final upright cup, empty plate, and cookies in the bowl",
+        "label": "episode 4640, frame 2418, 161.200 s, overlook camera; Final upright cup, empty plate, and cookies in the bowl",
+        "sha256": "023b6fdf0a4161fa71daed63260a159217e22b14d6a497efc4d6c88af53f7eb0"
+      }
+    ],
+    "source": {
+      "type": "git",
+      "location": "ref/icl/flip_cup_collect_cookies",
+      "revision": "814d3112772c7a6e06ded20ae90149530376f363",
+      "manifest_sha256": "638a2be84a99989aefdb16d8183254b9a83916ad28ecb9e336cece26e76ac706",
+      "annotations_sha256": "5dceb8c95981a547c8ad292c1fdbee496f1344590eff393bac09754cdd378f8e"
+    }
+  },
+  {
+    "task": "frame_against_pen_holder",
+    "overview": "media/icl/frame_against_pen_holder/keyframes_preview.jpg",
+    "overview_sha256": "4397dfca78bc95ceaf7ba2474a3b55e5454c813f9e2d3c3a03d9bb01734b14aa",
+    "description": "Use a two-arm transfer to obtain a useful grip on the picture frame. The right hand first grips the frame edge; the left hand approaches another edge and takes support before the right hand releases. The left hand then raises and reorients the frame, lowers its bottom edge onto the table, and brings its back against the cylindrical holder. Open the fingers after the table and holder support the frame, then withdraw and inspect.",
+    "frames": [
+      {
+        "path": "media/icl/frame_against_pen_holder/top_000000.png",
+        "frame": 0,
+        "camera": "top",
+        "phase": "Initial flat frame and upright cylindrical holder",
+        "label": "episode 3840, frame 0, 0.000 s, top camera; Initial flat frame and upright cylindrical holder",
+        "sha256": "ddd5ca2713ed14dde32789327fe08dc8e980ae3b0958aedd46fd4ed99a83b17d"
+      },
+      {
+        "path": "media/icl/frame_against_pen_holder/overlook_000000.png",
+        "frame": 0,
+        "camera": "overlook",
+        "phase": "Initial flat frame and upright cylindrical holder",
+        "label": "episode 3840, frame 0, 0.000 s, overlook camera; Initial flat frame and upright cylindrical holder",
+        "sha256": "3bbfd60f1a94b8c1b8b4b35eb72b8b0d7729b474f1f76de9d5cf049d8ab08a4b"
+      },
+      {
+        "path": "media/icl/frame_against_pen_holder/top_000179.png",
+        "frame": 179,
+        "camera": "top",
+        "phase": "Right fingers aligned at the frame edge before closing",
+        "label": "episode 3840, frame 179, 11.933 s, top camera; Right fingers aligned at the frame edge before closing",
+        "sha256": "5ec15092d84670d3b00d59e5d589736f535c4c128a37497f976704c0ec60cd94"
+      },
+      {
+        "path": "media/icl/frame_against_pen_holder/top_000358.png",
+        "frame": 358,
+        "camera": "top",
+        "phase": "Right hand holds the frame during the initial lift",
+        "label": "episode 3840, frame 358, 23.867 s, top camera; Right hand holds the frame during the initial lift",
+        "sha256": "e51c12cf7bc63b307035522c23ff714772e394f6db836646358a9daed52727ac"
+      },
+      {
+        "path": "media/icl/frame_against_pen_holder/top_000626.png",
+        "frame": 626,
+        "camera": "top",
+        "phase": "Left fingers approach a second frame edge",
+        "label": "episode 3840, frame 626, 41.733 s, top camera; Left fingers approach a second frame edge",
+        "sha256": "4ce966d05560245404d706517de9c122658ee7c93158c8eaeb24cfbd141ea989"
+      },
+      {
+        "path": "media/icl/frame_against_pen_holder/top_000716.png",
+        "frame": 716,
+        "camera": "top",
+        "phase": "Both hands support the frame during transfer",
+        "label": "episode 3840, frame 716, 47.733 s, top camera; Both hands support the frame during transfer",
+        "sha256": "ba6ae059de3d0fd8d27973cfb218684715f09bd9cc3fc8857190f69752f053f0"
+      },
+      {
+        "path": "media/icl/frame_against_pen_holder/top_000805.png",
+        "frame": 805,
+        "camera": "top",
+        "phase": "Left hand takes support as the right hand releases",
+        "label": "episode 3840, frame 805, 53.667 s, top camera; Left hand takes support as the right hand releases",
+        "sha256": "a5a5aea9472803984cdcf4b4069b38460818e04d1ec1a0a7c75efad3a7187bc1"
+      },
+      {
+        "path": "media/icl/frame_against_pen_holder/top_000895.png",
+        "frame": 895,
+        "camera": "top",
+        "phase": "Left hand lifts and reorients the frame",
+        "label": "episode 3840, frame 895, 59.667 s, top camera; Left hand lifts and reorients the frame",
+        "sha256": "b45685c4b44d786cd794f3da38312020d0e0d03d9842971de648ddecd4bbf2e0"
+      },
+      {
+        "path": "media/icl/frame_against_pen_holder/overlook_000895.png",
+        "frame": 895,
+        "camera": "overlook",
+        "phase": "Left hand lifts and reorients the frame",
+        "label": "episode 3840, frame 895, 59.667 s, overlook camera; Left hand lifts and reorients the frame",
+        "sha256": "c27a2708d32fee40f268f5c4558e0600742868a371d1537a0e6bf412139089be"
+      },
+      {
+        "path": "media/icl/frame_against_pen_holder/top_000984.png",
+        "frame": 984,
+        "camera": "top",
+        "phase": "Frame rotated upright beside the holder",
+        "label": "episode 3840, frame 984, 65.600 s, top camera; Frame rotated upright beside the holder",
+        "sha256": "2ed576dd6b813eef57bd91ec339d8704b8ea0cc71d530b2f4e78e0f4e1ce4b9d"
+      },
+      {
+        "path": "media/icl/frame_against_pen_holder/top_001074.png",
+        "frame": 1074,
+        "camera": "top",
+        "phase": "Frame bottom rests on the table and back approaches the holder",
+        "label": "episode 3840, frame 1074, 71.600 s, top camera; Frame bottom rests on the table and back approaches the holder",
+        "sha256": "d003d33efec4e352a44a74d5e3ec500de6204ac144d6b9eae5b4e3f34349ceef"
+      },
+      {
+        "path": "media/icl/frame_against_pen_holder/top_001163.png",
+        "frame": 1163,
+        "camera": "top",
+        "phase": "Left hand releases the supported leaning frame",
+        "label": "episode 3840, frame 1163, 77.533 s, top camera; Left hand releases the supported leaning frame",
+        "sha256": "7326274e1845ec26592ad35f9ae7534cd1e9ba16ce25ed6b27c71c5adca77219"
+      },
+      {
+        "path": "media/icl/frame_against_pen_holder/top_001253.png",
+        "frame": 1253,
+        "camera": "top",
+        "phase": "Hand withdrawn while the frame remains leaning",
+        "label": "episode 3840, frame 1253, 83.533 s, top camera; Hand withdrawn while the frame remains leaning",
+        "sha256": "4abadc2fc0e6fd10c338e166b4801d0836725f00196ac0babb06d8ea41f45b11"
+      },
+      {
+        "path": "media/icl/frame_against_pen_holder/top_001342.png",
+        "frame": 1342,
+        "camera": "top",
+        "phase": "Final upright frame supported by the table and holder",
+        "label": "episode 3840, frame 1342, 89.467 s, top camera; Final upright frame supported by the table and holder",
+        "sha256": "82cf46991f5176a887dd952de893c88af73813a924fd5f6f2674ed1b96e4ec81"
+      },
+      {
+        "path": "media/icl/frame_against_pen_holder/overlook_001342.png",
+        "frame": 1342,
+        "camera": "overlook",
+        "phase": "Final upright frame supported by the table and holder",
+        "label": "episode 3840, frame 1342, 89.467 s, overlook camera; Final upright frame supported by the table and holder",
+        "sha256": "59c97f4085d98d50d49c406e1215681d3cab902659b2c93700c92281efcb402b"
+      }
+    ],
+    "source": {
+      "type": "git",
+      "location": "ref/icl/frame_against_pen_holder",
+      "revision": "814d3112772c7a6e06ded20ae90149530376f363",
+      "manifest_sha256": "7fd336a8f6394b25750df21d5f9e0ba5d2a5927f5b1a847577d3b6915a159191",
+      "annotations_sha256": "755f8c366102cd6aa8aca657430084efa40d39393274e93847bd0421bd645c5b"
+    }
+  },
+  {
+    "task": "fruit",
+    "overview": "media/icl/fruit/keyframes_preview.jpg",
+    "overview_sha256": "1f41abe6351a57a4a5d67ff8c05ed7be0cc80d99efda9b6d80fce83d2bdd7e40",
+    "description": "Pick each of the three small fruits with the right hand and pass it to the left in the shared region above the table. Secure the receiving grasp before opening the other hand. The left hand then carries and releases each fruit into the large pale jug. After the three transfers, grasp the green cup with the right hand, raise it above the jug, and tilt its opening toward the jug.",
+    "frames": [
+      {
+        "path": "media/icl/fruit/00_overlook_000000.png",
+        "frame": 0,
+        "camera": "overlook",
+        "phase": "Initial small fruits, large pale jug, yellow mango segment and green cup.",
+        "label": "Historical episode 2640; frame 0; 0.000s; overlook camera. Initial small fruits, large pale jug, yellow mango segment and green cup.",
+        "sha256": "e5405a619ab5f79a0c0a8b0c952b80d7b182160a8728fd7e4d7634637e4a18c2"
+      },
+      {
+        "path": "media/icl/fruit/01_overlook_000085.png",
+        "frame": 85,
+        "camera": "overlook",
+        "phase": "Right hand picks the first small fruit.",
+        "label": "Historical episode 2640; frame 85; 5.667s; overlook camera. Right hand picks the first small fruit.",
+        "sha256": "83800d954a4b2f609317367e8a5088a82cd009cf0b105adcfc3f5a95c2a66476"
+      },
+      {
+        "path": "media/icl/fruit/02_overlook_000170.png",
+        "frame": 170,
+        "camera": "overlook",
+        "phase": "Right hand raises fruit toward the left receiving hand.",
+        "label": "Historical episode 2640; frame 170; 11.333s; overlook camera. Right hand raises fruit toward the left receiving hand.",
+        "sha256": "a0d2a7b55e5e2c565281fb9e468aa23d4ba2ff193e5f7c398e1b5dc46a9b1695"
+      },
+      {
+        "path": "media/icl/fruit/03_top_000255.png",
+        "frame": 255,
+        "camera": "top",
+        "phase": "Both grippers coordinate the first fruit handover.",
+        "label": "Historical episode 2640; frame 255; 17.000s; top camera. Both grippers coordinate the first fruit handover.",
+        "sha256": "4a99b0dec86ea1e3567d8fdd7a57834812021a97fbf1a2a7124cdb6528d51704"
+      },
+      {
+        "path": "media/icl/fruit/04_overlook_000340.png",
+        "frame": 340,
+        "camera": "overlook",
+        "phase": "Left hand carries the first fruit toward the jug.",
+        "label": "Historical episode 2640; frame 340; 22.667s; overlook camera. Left hand carries the first fruit toward the jug.",
+        "sha256": "d20ba0b138896f01f7c70d68e7be0e5c282f4a52e0f04b18ee561987b4874dd7"
+      },
+      {
+        "path": "media/icl/fruit/05_overlook_000425.png",
+        "frame": 425,
+        "camera": "overlook",
+        "phase": "Left hand places fruit into the jug while right prepares the next pickup.",
+        "label": "Historical episode 2640; frame 425; 28.333s; overlook camera. Left hand places fruit into the jug while right prepares the next pickup.",
+        "sha256": "13239a28952189286402c6705ff5cb02e42b05a2cbe364f5cefd0fff0c2818ef"
+      },
+      {
+        "path": "media/icl/fruit/06_overlook_000510.png",
+        "frame": 510,
+        "camera": "overlook",
+        "phase": "Raise the second fruit toward the receiving left hand.",
+        "label": "Historical episode 2640; frame 510; 34.000s; overlook camera. Raise the second fruit toward the receiving left hand.",
+        "sha256": "b7d4eb80b90b16068940ad394ca2d51c8ac6d03714693f82a692ca1a03978de4"
+      },
+      {
+        "path": "media/icl/fruit/07_top_000595.png",
+        "frame": 595,
+        "camera": "top",
+        "phase": "Second fruit handover.",
+        "label": "Historical episode 2640; frame 595; 39.667s; top camera. Second fruit handover.",
+        "sha256": "4b3a02fc4c8ac63748025fce17dcf5b7caa459109a8cefda13c55bb7751d0bae"
+      },
+      {
+        "path": "media/icl/fruit/08_overlook_000680.png",
+        "frame": 680,
+        "camera": "overlook",
+        "phase": "Left hand carries the second fruit over the jug.",
+        "label": "Historical episode 2640; frame 680; 45.333s; overlook camera. Left hand carries the second fruit over the jug.",
+        "sha256": "43f0791b554e743a4652c737bf492391849f17b17f42fe983f6c6394e92963d1"
+      },
+      {
+        "path": "media/icl/fruit/09_overlook_000765.png",
+        "frame": 765,
+        "camera": "overlook",
+        "phase": "Second fruit placement and third fruit pickup.",
+        "label": "Historical episode 2640; frame 765; 51.000s; overlook camera. Second fruit placement and third fruit pickup.",
+        "sha256": "7d59f6fe6a453d82b0111cd3058983ab78840296309fe3bf56673795e5bc0bb8"
+      },
+      {
+        "path": "media/icl/fruit/10_top_000850.png",
+        "frame": 850,
+        "camera": "top",
+        "phase": "Right hand holds the third red fruit near the receiving left fingers.",
+        "label": "Historical episode 2640; frame 850; 56.667s; top camera. Right hand holds the third red fruit near the receiving left fingers.",
+        "sha256": "733f47da0ce6943388a79a1860074950452c1d935b2c51d8705ad391aa585e8d"
+      },
+      {
+        "path": "media/icl/fruit/11_overlook_000935.png",
+        "frame": 935,
+        "camera": "overlook",
+        "phase": "Third fruit handover.",
+        "label": "Historical episode 2640; frame 935; 62.333s; overlook camera. Third fruit handover.",
+        "sha256": "f6659dea49aa76638c8c8e8d0c1a898549c40f790591af4ce32d977ad2c97282"
+      },
+      {
+        "path": "media/icl/fruit/12_overlook_001020.png",
+        "frame": 1020,
+        "camera": "overlook",
+        "phase": "Left hand places the third fruit while right approaches green cup.",
+        "label": "Historical episode 2640; frame 1020; 68.000s; overlook camera. Left hand places the third fruit while right approaches green cup.",
+        "sha256": "7d7fb511d5cd3334861a1ed7ea1a498e57fc1f2e54c2e56345181072aa698050"
+      },
+      {
+        "path": "media/icl/fruit/13_overlook_001105.png",
+        "frame": 1105,
+        "camera": "overlook",
+        "phase": "Right fingers grasp the green cup.",
+        "label": "Historical episode 2640; frame 1105; 73.667s; overlook camera. Right fingers grasp the green cup.",
+        "sha256": "4e04bc1329fa1d7d0982f16ddc9b384674fb339dcd353a5ba41306f99e4db4cb"
+      },
+      {
+        "path": "media/icl/fruit/14_top_001190.png",
+        "frame": 1190,
+        "camera": "top",
+        "phase": "Fruit pieces visible inside the jug before pouring motion.",
+        "label": "Historical episode 2640; frame 1190; 79.333s; top camera. Fruit pieces visible inside the jug before pouring motion.",
+        "sha256": "b2af198b8efd8d5dc776aee6ee97e7bb021129cf30cad3853c49dd141bda267c"
+      },
+      {
+        "path": "media/icl/fruit/15_overlook_001275.png",
+        "frame": 1275,
+        "camera": "overlook",
+        "phase": "Right arm tilts the green cup over the jug; liquid transfer not established.",
+        "label": "Historical episode 2640; frame 1275; 85.000s; overlook camera. Right arm tilts the green cup over the jug; liquid transfer not established.",
+        "sha256": "52097595da85f125092d70d22d22fded5c2f1129ebc6172f06707adaace4324b"
+      }
+    ],
+    "source": {
+      "type": "archive",
+      "location": "astra_web_evidence_20260918/reference/icl/fruit",
+      "revision": "astra_web_evidence_20260918_core.zip",
+      "manifest_sha256": "b02fbfb8513acbfcda27807484f41a4223b4ffd888d78526b3ce40dbd5e73cd0",
+      "annotations_sha256": "1f9d163ec22a66984eea521658dc51a8c14d5b2b9c06b02f7055daeb38a7aa04"
+    }
+  },
+  {
+    "task": "install_gear",
+    "overview": "media/icl/install_gear/keyframes_preview.jpg",
+    "overview_sha256": "d8faa1972f18390160ddae0f87a4f2244b8be19e3988ac22bd030a5d17946633",
+    "description": "approach with an oblique downward-facing hand; place the fingers on opposite sides of the blue gear's raised cylindrical portion, close while nearly stationary, lift clear, then translate over the free middle mounting position. The recorded measured finger gap stays near 0.0319 m during the held segment. This is demonstration-specific contact evidence, not a universal grasp threshold. Keep the object held while lowering and making small alignment corrections, then open and verify it remains on the assembly. The small white gear is part of the assembly; its visible center must not be confused with the intended middle mounting position.",
+    "frames": [
+      {
+        "path": "media/icl/install_gear/00_overlook_frame_000000.png",
+        "frame": 0,
+        "camera": "overlook",
+        "phase": "initial",
+        "label": "episode 4240, frame 0, 0.000 s, overlook camera; initial",
+        "sha256": "561ad67d3b74ae6c938984acd4ee1aa0858f142ea22cbb4c0de2bafcc747baa5"
+      },
+      {
+        "path": "media/icl/install_gear/01_left_frame_000120.png",
+        "frame": 120,
+        "camera": "left",
+        "phase": "open fingers aligned around blue gear",
+        "label": "episode 4240, frame 120, 8.000 s, left camera; open fingers aligned around blue gear",
+        "sha256": "47d9fa8dd2d5eacf2fbbe47bcc9bfd7b0fecab8f0d56556ebe9f5ed6ee2555b3"
+      },
+      {
+        "path": "media/icl/install_gear/02_left_frame_000140.png",
+        "frame": 140,
+        "camera": "left",
+        "phase": "closed contact before lift",
+        "label": "episode 4240, frame 140, 9.333 s, left camera; closed contact before lift",
+        "sha256": "60a592fa4f08a038c1668830edc72762d7ffb31b21f8259cd81d202079a8bfb2"
+      },
+      {
+        "path": "media/icl/install_gear/03_left_frame_000161.png",
+        "frame": 161,
+        "camera": "left",
+        "phase": "lift and transport",
+        "label": "episode 4240, frame 161, 10.733 s, left camera; lift and transport",
+        "sha256": "b3ea1994352a2e4835e1fd3742fadd62de188bc59f4c128be75254118971a5ac"
+      },
+      {
+        "path": "media/icl/install_gear/04_overlook_frame_000161.png",
+        "frame": 161,
+        "camera": "overlook",
+        "phase": "lift and transport",
+        "label": "episode 4240, frame 161, 10.733 s, overlook camera; lift and transport",
+        "sha256": "544d5189a03a5ac34353fe1c2b0312fd082af59dd2bf3e03a1d811127bef8244"
+      },
+      {
+        "path": "media/icl/install_gear/05_left_frame_000200.png",
+        "frame": 200,
+        "camera": "left",
+        "phase": "over installation area",
+        "label": "episode 4240, frame 200, 13.333 s, left camera; over installation area",
+        "sha256": "45042d06f49ca3d61f7348f4449db6116b3cddedc56f9ac322b3a026def6a1f1"
+      },
+      {
+        "path": "media/icl/install_gear/06_left_frame_000280.png",
+        "frame": 280,
+        "camera": "left",
+        "phase": "lower and align",
+        "label": "episode 4240, frame 280, 18.667 s, left camera; lower and align",
+        "sha256": "0137d0406bf5dd313f8333401c9179d8a5e5a3cd3dcf6752ebd38a34ecfae27b"
+      },
+      {
+        "path": "media/icl/install_gear/07_left_frame_000440.png",
+        "frame": 440,
+        "camera": "left",
+        "phase": "near-stationary final alignment",
+        "label": "episode 4240, frame 440, 29.333 s, left camera; near-stationary final alignment",
+        "sha256": "ccd3cce0b2b695828dfbb932ab0907e49cf1581bcaf8dc7e522b677b9b73343f"
+      },
+      {
+        "path": "media/icl/install_gear/08_left_frame_000480.png",
+        "frame": 480,
+        "camera": "left",
+        "phase": "released with fingers open",
+        "label": "episode 4240, frame 480, 32.000 s, left camera; released with fingers open",
+        "sha256": "937e7f823c8dff6092f97cf103089e9a6760023d0098a892b6009743d9978ce6"
+      },
+      {
+        "path": "media/icl/install_gear/09_left_frame_000540.png",
+        "frame": 540,
+        "camera": "left",
+        "phase": "open-hand inspection",
+        "label": "episode 4240, frame 540, 36.000 s, left camera; open-hand inspection",
+        "sha256": "e2b52d0a95d99624b13631fea93cdd25b2e6017c0beee6a680b32094f2440987"
+      },
+      {
+        "path": "media/icl/install_gear/10_overlook_frame_000645.png",
+        "frame": 645,
+        "camera": "overlook",
+        "phase": "withdrawn final state",
+        "label": "episode 4240, frame 645, 43.000 s, overlook camera; withdrawn final state",
+        "sha256": "f8e76bb62084fb93b91aed234565ea996c85c611efc31e5b73cf696888b6b328"
+      },
+      {
+        "path": "media/icl/install_gear/11_top_frame_000645.png",
+        "frame": 645,
+        "camera": "top",
+        "phase": "blue gear remains at the middle mounting position after withdrawal",
+        "label": "episode 4240, frame 645, final top camera; blue gear remains at the middle mounting position after withdrawal",
+        "sha256": "0fc0fbba074ee3d86da387728de0be49ec3e0c18113c818e539531a8409fe7cb"
+      }
+    ],
+    "source": {
+      "type": "git",
+      "location": "ref/icl/install_gear",
+      "revision": "814d3112772c7a6e06ded20ae90149530376f363",
+      "manifest_sha256": "f231140765b33e1bef21364778a1574e267d9e69fcad6c41c61b70695412c22e",
+      "annotations_sha256": "f0c591b451481258c0cbc6449af5c0f5e247c78f4817cdbab921936e9a849dcc"
+    }
+  },
+  {
+    "task": "make_sandwich",
+    "overview": "media/icl/make_sandwich/keyframes_preview.jpg",
+    "overview_sha256": "de15c435b1986db8fd0d51b7600b63d16090ec4f21cf3f0c703a8da68241155d",
+    "description": "Approach the work surface. Take a bread slice with the right hand and the patty with the left. Place the bread on the plate, put the patty over it, add the green leaf with the right hand, and bring the remaining bread slice over the stack with the left. Use wrist views to check the plate because the body obscures it in the overlook camera after the base approaches.",
+    "frames": [
+      {
+        "path": "media/icl/make_sandwich/00_overlook_000000.png",
+        "frame": 0,
+        "camera": "overlook",
+        "phase": "Initial plate and separate ingredients",
+        "label": "Historical episode 3000; frame 0; 0.000s; overlook camera. Initial plate and separate ingredients",
+        "sha256": "f3bcb81136f8b2c15097f112c79f935cceefd0b4e3566605a2cd6d44d26cc744"
+      },
+      {
+        "path": "media/icl/make_sandwich/01_overlook_000041.png",
+        "frame": 41,
+        "camera": "overlook",
+        "phase": "Base approaches; plate becomes partly hidden by the body",
+        "label": "Historical episode 3000; frame 41; 2.733s; overlook camera. Base approaches; plate becomes partly hidden by the body",
+        "sha256": "282075ef274151c71a0d30c476339f206536a24ae6a8817d0a2780a2989667eb"
+      },
+      {
+        "path": "media/icl/make_sandwich/02_left_000125.png",
+        "frame": 125,
+        "camera": "left",
+        "phase": "Approach the patty with the left gripper",
+        "label": "Historical episode 3000; frame 125; 8.333s; left camera. Approach the patty with the left gripper",
+        "sha256": "042df31a64d1407c4ce4bf53ddb57ab857712cc2cbe28c63e4c1cbd2f747b1c2"
+      },
+      {
+        "path": "media/icl/make_sandwich/03_right_000166.png",
+        "frame": 166,
+        "camera": "right",
+        "phase": "Right gripper takes the first bread slice",
+        "label": "Historical episode 3000; frame 166; 11.067s; right camera. Right gripper takes the first bread slice",
+        "sha256": "12b160408d0bd7bf9be81298575a538f767ff6032f1334e2895f117144786f77"
+      },
+      {
+        "path": "media/icl/make_sandwich/04_overlook_000208.png",
+        "frame": 208,
+        "camera": "overlook",
+        "phase": "Both arms support their first ingredients",
+        "label": "Historical episode 3000; frame 208; 13.867s; overlook camera. Both arms support their first ingredients",
+        "sha256": "c022bb1f04d429a68cde7387051533ae109a116ed7f920474714da8a13c3ed0c"
+      },
+      {
+        "path": "media/icl/make_sandwich/05_right_000292.png",
+        "frame": 292,
+        "camera": "right",
+        "phase": "Bring the first bread slice over the plate and release",
+        "label": "Historical episode 3000; frame 292; 19.467s; right camera. Bring the first bread slice over the plate and release",
+        "sha256": "68f445a33dfd0e49c63b13ea7f6044c69710966e0a75e7aebd76b6a56431362b"
+      },
+      {
+        "path": "media/icl/make_sandwich/06_left_000333.png",
+        "frame": 333,
+        "camera": "left",
+        "phase": "First bread on the plate while left retains the patty",
+        "label": "Historical episode 3000; frame 333; 22.200s; left camera. First bread on the plate while left retains the patty",
+        "sha256": "25b977fd4d0efe7db49edb67ce5b9a57223d61b707e8b6ba369ee2488dc0a2ad"
+      },
+      {
+        "path": "media/icl/make_sandwich/07_left_000375.png",
+        "frame": 375,
+        "camera": "left",
+        "phase": "Bring the patty over the first bread slice",
+        "label": "Historical episode 3000; frame 375; 25.000s; left camera. Bring the patty over the first bread slice",
+        "sha256": "11732628fc24e0d6e6ae88b23548859aa7bf146c11dab896f1ac78af875a70ea"
+      },
+      {
+        "path": "media/icl/make_sandwich/08_left_000459.png",
+        "frame": 459,
+        "camera": "left",
+        "phase": "Patty visible on the first bread slice",
+        "label": "Historical episode 3000; frame 459; 30.600s; left camera. Patty visible on the first bread slice",
+        "sha256": "bda94afcc2e6f068a316d1a5326e92c805e1e0f539ce5587e3d53744c79ffa91"
+      },
+      {
+        "path": "media/icl/make_sandwich/09_right_000459.png",
+        "frame": 459,
+        "camera": "right",
+        "phase": "Right gripper takes the green leaf",
+        "label": "Historical episode 3000; frame 459; 30.600s; right camera. Right gripper takes the green leaf",
+        "sha256": "3c2e069ac215b1a1607b3b6717f87961a9a2950d9f60f0142642e5d3161a6ba3"
+      },
+      {
+        "path": "media/icl/make_sandwich/10_right_000542.png",
+        "frame": 542,
+        "camera": "right",
+        "phase": "Carry the green leaf over the bread and patty",
+        "label": "Historical episode 3000; frame 542; 36.133s; right camera. Carry the green leaf over the bread and patty",
+        "sha256": "bee45a83ae3b5a84fb2857f43d6fda810165df4055d5eee03549eebfb876bf8d"
+      },
+      {
+        "path": "media/icl/make_sandwich/11_right_000584.png",
+        "frame": 584,
+        "camera": "right",
+        "phase": "Place the green leaf over the stack",
+        "label": "Historical episode 3000; frame 584; 38.933s; right camera. Place the green leaf over the stack",
+        "sha256": "5fe00fe415fecf8f4974673bff903307abd4e60d81979559e08a6239d4d17fec"
+      },
+      {
+        "path": "media/icl/make_sandwich/12_left_000626.png",
+        "frame": 626,
+        "camera": "left",
+        "phase": "Left gripper takes the remaining bread slice",
+        "label": "Historical episode 3000; frame 626; 41.733s; left camera. Left gripper takes the remaining bread slice",
+        "sha256": "201d83ab04867297d257d211a214f5ded85857bd01ff2cfd7e4e409268af7aa4"
+      },
+      {
+        "path": "media/icl/make_sandwich/13_right_000667.png",
+        "frame": 667,
+        "camera": "right",
+        "phase": "Green leaf visible over the patty",
+        "label": "Historical episode 3000; frame 667; 44.467s; right camera. Green leaf visible over the patty",
+        "sha256": "cc51a09e7941cf446b34f22413960d88e62ea219b70c92998169154b0db36da4"
+      },
+      {
+        "path": "media/icl/make_sandwich/14_left_000709.png",
+        "frame": 709,
+        "camera": "left",
+        "phase": "Carry the second bread slice toward the stack",
+        "label": "Historical episode 3000; frame 709; 47.267s; left camera. Carry the second bread slice toward the stack",
+        "sha256": "710491d83bbc19bb54d566bdcc4972f71d41778b07b8acbcefc87c9b906af302"
+      },
+      {
+        "path": "media/icl/make_sandwich/15_left_000751.png",
+        "frame": 751,
+        "camera": "left",
+        "phase": "Release the final bread slice over the stack",
+        "label": "Historical episode 3000; frame 751; 50.067s; left camera. Release the final bread slice over the stack",
+        "sha256": "266d538890fbf59e223fa7315af4a36866a67eded58e93f7125050d3306e8815"
+      },
+      {
+        "path": "media/icl/make_sandwich/16_right_000793.png",
+        "frame": 793,
+        "camera": "right",
+        "phase": "Final stack partly occluded; full top-slice alignment unconfirmed",
+        "label": "Historical episode 3000; frame 793; 52.867s; right camera. Final stack partly occluded; full top-slice alignment unconfirmed",
+        "sha256": "2f804d578d3a11caa9c4c90fc89fefb9e389df2c56d5ed491be71bc49a66d0af"
+      },
+      {
+        "path": "media/icl/make_sandwich/17_left_000793.png",
+        "frame": 793,
+        "camera": "left",
+        "phase": "Complementary final view of the released bread slice",
+        "label": "Historical episode 3000; frame 793; 52.867s; left camera. Complementary final view of the released bread slice",
+        "sha256": "5c450b010c2fdc037031575ce1449524f52deef5e8b5d50331d8f8a6b3800707"
+      }
+    ],
+    "source": {
+      "type": "git",
+      "location": "ref/icl/make_sandwich",
+      "revision": "814d3112772c7a6e06ded20ae90149530376f363",
+      "manifest_sha256": "2647c8623487646ecc21860ff43dd6de17d4286fb7a1ad3c39d7cfa8d287c8ab",
+      "annotations_sha256": "38d0f1ca577383f8154c65503ee4d2fac1136b7f9cb0fd9d48322dec1f9a68f3"
+    }
+  },
+  {
+    "task": "microwave",
+    "overview": "media/icl/microwave/keyframes_preview.jpg",
+    "overview_sha256": "06f19dfc7e1c7a347f652437a836cefe00ae061cc30172ae3c86fc8766467aab",
+    "description": "Open the microwave with the right hand, reposition the hand as needed to obtain a sufficiently clear opening, and transfer the two egg tarts from the table into the cavity one at a time. After release, reposition the base and right hand to move the door toward closed. Verify the door and any required start operation from current observations and permitted feedback.",
+    "frames": [
+      {
+        "path": "media/icl/microwave/00_overlook_000000.png",
+        "frame": 0,
+        "camera": "overlook",
+        "phase": "Initial closed microwave and two egg tarts on the table",
+        "label": "Historical episode 3400; frame 0; 0.000s; overlook camera. Initial closed microwave and two egg tarts on the table",
+        "sha256": "f210557f2568e7b856c63049e1b28bdcfe27d86ba630a22e912214936e9cb36d"
+      },
+      {
+        "path": "media/icl/microwave/01_right_000134.png",
+        "frame": 134,
+        "camera": "right",
+        "phase": "Approach the microwave door handle",
+        "label": "Historical episode 3400; frame 134; 8.933s; right camera. Approach the microwave door handle",
+        "sha256": "dd92437026d159213cfdbb32ede1411de3872855d7b0364801c9576a0736b9a3"
+      },
+      {
+        "path": "media/icl/microwave/02_right_000269.png",
+        "frame": 269,
+        "camera": "right",
+        "phase": "Door partly open",
+        "label": "Historical episode 3400; frame 269; 17.933s; right camera. Door partly open",
+        "sha256": "483b2833428a73084fbee38d89c4a6a8f5460adb24561779efa83a8f4f279e7f"
+      },
+      {
+        "path": "media/icl/microwave/03_overlook_000404.png",
+        "frame": 404,
+        "camera": "overlook",
+        "phase": "Reposition the arm during the opening sequence",
+        "label": "Historical episode 3400; frame 404; 26.933s; overlook camera. Reposition the arm during the opening sequence",
+        "sha256": "cb1a143313dcda58a3f77bf97475592a030249fd54d982be9656c5a0c6429295"
+      },
+      {
+        "path": "media/icl/microwave/04_right_000538.png",
+        "frame": 538,
+        "camera": "right",
+        "phase": "Further door-opening motion",
+        "label": "Historical episode 3400; frame 538; 35.867s; right camera. Further door-opening motion",
+        "sha256": "5abeeb4db6c5939dd29b299957d86fe0d864c77b68fa4f4daa73ad819e0d6864"
+      },
+      {
+        "path": "media/icl/microwave/05_overlook_000606.png",
+        "frame": 606,
+        "camera": "overlook",
+        "phase": "Open cavity before loading",
+        "label": "Historical episode 3400; frame 606; 40.400s; overlook camera. Open cavity before loading",
+        "sha256": "bee4d32447baa9c7d037964f6f0eec504d3f4dc2974ab546a599c566f2aab1db"
+      },
+      {
+        "path": "media/icl/microwave/06_right_000741.png",
+        "frame": 741,
+        "camera": "right",
+        "phase": "Lift the first egg tart",
+        "label": "Historical episode 3400; frame 741; 49.400s; right camera. Lift the first egg tart",
+        "sha256": "0ab687bd3fd4bdb840de905910893c12d2b7addb66e089962053b4548f145d9d"
+      },
+      {
+        "path": "media/icl/microwave/07_right_000808.png",
+        "frame": 808,
+        "camera": "right",
+        "phase": "First egg tart inside the cavity",
+        "label": "Historical episode 3400; frame 808; 53.867s; right camera. First egg tart inside the cavity",
+        "sha256": "0e1c52b623a265cd8f30a10d720bfc06e59e2a32a69e8781c297fcf2e9cb2c41"
+      },
+      {
+        "path": "media/icl/microwave/08_overlook_000875.png",
+        "frame": 875,
+        "camera": "overlook",
+        "phase": "First tart transferred; second remains on the table",
+        "label": "Historical episode 3400; frame 875; 58.333s; overlook camera. First tart transferred; second remains on the table",
+        "sha256": "cf732cda3b3a62bd3ead6e5ab8f5c7cdb5f377a22e0549dbcde00e9ed3c63ee7"
+      },
+      {
+        "path": "media/icl/microwave/09_right_000943.png",
+        "frame": 943,
+        "camera": "right",
+        "phase": "Approach the remaining egg tart",
+        "label": "Historical episode 3400; frame 943; 62.867s; right camera. Approach the remaining egg tart",
+        "sha256": "9a68444be9fe3982625a8104f92c205157e4d7c812311daebbe03cfc8922feea"
+      },
+      {
+        "path": "media/icl/microwave/10_right_001010.png",
+        "frame": 1010,
+        "camera": "right",
+        "phase": "Grasp and carry the second egg tart",
+        "label": "Historical episode 3400; frame 1010; 67.333s; right camera. Grasp and carry the second egg tart",
+        "sha256": "8eb6d940844e2f7945dc63f30f1ad76218511e603a39b3e84fb44b88fcc22045"
+      },
+      {
+        "path": "media/icl/microwave/11_right_001077.png",
+        "frame": 1077,
+        "camera": "right",
+        "phase": "Both egg tarts visible inside the microwave",
+        "label": "Historical episode 3400; frame 1077; 71.800s; right camera. Both egg tarts visible inside the microwave",
+        "sha256": "bc97e72c171dc9852392327d383f5270e89c1c4d1bce1c3dbc5f6eb873d02c57"
+      },
+      {
+        "path": "media/icl/microwave/12_overlook_001145.png",
+        "frame": 1145,
+        "camera": "overlook",
+        "phase": "Base and arm reposition for the closing motion",
+        "label": "Historical episode 3400; frame 1145; 76.333s; overlook camera. Base and arm reposition for the closing motion",
+        "sha256": "ebc374f2293cc2249d73479f2f28b093003ab66307e81890d05167408af800e2"
+      },
+      {
+        "path": "media/icl/microwave/13_right_001212.png",
+        "frame": 1212,
+        "camera": "right",
+        "phase": "Begin moving the door toward closed",
+        "label": "Historical episode 3400; frame 1212; 80.800s; right camera. Begin moving the door toward closed",
+        "sha256": "72a71d519e1d5a8e4ad23de5a3177afb3597a6150338d953d48643fec3fe89d8"
+      },
+      {
+        "path": "media/icl/microwave/14_right_001250.png",
+        "frame": 1250,
+        "camera": "right",
+        "phase": "Continue the closing motion",
+        "label": "Historical episode 3400; frame 1250; 83.333s; right camera. Continue the closing motion",
+        "sha256": "3004c2fde84953cb8cf6d22fa4cc53cd8f41b1eb51c3bc4b62a663d0f2559609"
+      },
+      {
+        "path": "media/icl/microwave/15_overlook_001280.png",
+        "frame": 1280,
+        "camera": "overlook",
+        "phase": "Final appliance and arm overview",
+        "label": "Historical episode 3400; frame 1280; 85.333s; overlook camera. Final appliance and arm overview",
+        "sha256": "837f61d0b0a6da76e8daf0e2796cdb516838633625327749dc3db81732910231"
+      },
+      {
+        "path": "media/icl/microwave/16_right_001280.png",
+        "frame": 1280,
+        "camera": "right",
+        "phase": "Final door-edge view; activation and heating unconfirmed",
+        "label": "Historical episode 3400; frame 1280; 85.333s; right camera. Final door-edge view; activation and heating unconfirmed",
+        "sha256": "06e9622fa4ee8c96b385edbd8f181eb8787ca5438fc2e20907c2dddf6044ed7c"
+      }
+    ],
+    "source": {
+      "type": "git",
+      "location": "ref/icl/microwave",
+      "revision": "814d3112772c7a6e06ded20ae90149530376f363",
+      "manifest_sha256": "5f52f41ca822cc7897ab334cec699587b0999ada87fcc9ef893d63004a65d839",
+      "annotations_sha256": "c34c5570793cc64a4458b773c4083ffd4d1ec1df62739d4a6b57ddb532ac15e3"
+    }
+  },
+  {
+    "task": "peg_in_hole",
+    "overview": "media/icl/peg_in_hole/keyframes_preview.jpg",
+    "overview_sha256": "5165fc0f0bdebcde47d29f7c6d7ed6aeb674f6a0c34d889b8f555f0e50c00788",
+    "description": "Prepare a grasp on the receiver with the left hand, then grasp the yellow peg with the right. During insertion both components are held. Lift the peg clear of its original support, bring its axis above the receiver opening, and lower it with small alignment corrections while maintaining left-hand support. Release and withdraw the right hand once the peg is seated, then put the assembled receiver down and release the left hand. Grasp preparation is staggered in this recording even though both pieces are held during insertion.",
+    "frames": [
+      {
+        "path": "media/icl/peg_in_hole/top_000000.png",
+        "frame": 0,
+        "camera": "top",
+        "phase": "Initial receiver on the left and yellow peg on its right support",
+        "label": "episode 5800, frame 0, 0.000 s, top camera; Initial receiver on the left and yellow peg on its right support",
+        "sha256": "9b2ebc8a461c7d706609976940e39a7345daa34bf50e1da2ef0f2a1a3376c111"
+      },
+      {
+        "path": "media/icl/peg_in_hole/top_000104.png",
+        "frame": 104,
+        "camera": "top",
+        "phase": "Left fingers aligned around the receiver",
+        "label": "episode 5800, frame 104, 6.933 s, top camera; Left fingers aligned around the receiver",
+        "sha256": "9eb0ba076f8dcca8b116002bb53a80af7ff9de62d50e498c9f7c84b627c98420"
+      },
+      {
+        "path": "media/icl/peg_in_hole/top_000208.png",
+        "frame": 208,
+        "camera": "top",
+        "phase": "Left hand grips the receiver",
+        "label": "episode 5800, frame 208, 13.867 s, top camera; Left hand grips the receiver",
+        "sha256": "17668147d5232a3cdb9f55dcc3eb7d2747f8a81fa2175ce29efbaa1da2963820"
+      },
+      {
+        "path": "media/icl/peg_in_hole/top_000416.png",
+        "frame": 416,
+        "camera": "top",
+        "phase": "Right fingers approach the yellow peg",
+        "label": "episode 5800, frame 416, 27.733 s, top camera; Right fingers approach the yellow peg",
+        "sha256": "33081439c9289e7286668182b07b5daf976107edf2bdeab94413ed9a6691fe53"
+      },
+      {
+        "path": "media/icl/peg_in_hole/top_000520.png",
+        "frame": 520,
+        "camera": "top",
+        "phase": "Right hand grips the peg while left support is maintained",
+        "label": "episode 5800, frame 520, 34.667 s, top camera; Right hand grips the peg while left support is maintained",
+        "sha256": "1a662a9bb3cc66e45a628ed8a54624ebf4d7daa016241b27b4e2a68b65cb7dd0"
+      },
+      {
+        "path": "media/icl/peg_in_hole/top_000728.png",
+        "frame": 728,
+        "camera": "top",
+        "phase": "Both grasps maintained before the peg lift",
+        "label": "episode 5800, frame 728, 48.533 s, top camera; Both grasps maintained before the peg lift",
+        "sha256": "559d0b3ad1bd00698f25ec2e8bad4de9d796da6789a844aa457ee2710006688c"
+      },
+      {
+        "path": "media/icl/peg_in_hole/top_000832.png",
+        "frame": 832,
+        "camera": "top",
+        "phase": "Yellow peg lifted clear of its original support",
+        "label": "episode 5800, frame 832, 55.467 s, top camera; Yellow peg lifted clear of its original support",
+        "sha256": "3cbe25f8371d9a95270dea5d18eeb274daac6dcaeca7d20db33dd964711fc546"
+      },
+      {
+        "path": "media/icl/peg_in_hole/overlook_000832.png",
+        "frame": 832,
+        "camera": "overlook",
+        "phase": "Yellow peg lifted clear of its original support",
+        "label": "episode 5800, frame 832, 55.467 s, overlook camera; Yellow peg lifted clear of its original support",
+        "sha256": "d4b0a9e92f3a188a81a081203f7fd0a26aa478e577014f258edf1d9c74d59062"
+      },
+      {
+        "path": "media/icl/peg_in_hole/top_000936.png",
+        "frame": 936,
+        "camera": "top",
+        "phase": "Peg axis aligned above the receiver opening",
+        "label": "episode 5800, frame 936, 62.400 s, top camera; Peg axis aligned above the receiver opening",
+        "sha256": "85154f5d055d9bafd5c860b2bb0d3b75a11e11ebcf2fd1b42a3c5b23d56116f1"
+      },
+      {
+        "path": "media/icl/peg_in_hole/top_001040.png",
+        "frame": 1040,
+        "camera": "top",
+        "phase": "Peg lowered into the held receiver",
+        "label": "episode 5800, frame 1040, 69.333 s, top camera; Peg lowered into the held receiver",
+        "sha256": "6ba66095ef5ed81d06f4bce5dde501c342eaf90caf2615ce1c0ff3424c07a8f9"
+      },
+      {
+        "path": "media/icl/peg_in_hole/top_001144.png",
+        "frame": 1144,
+        "camera": "top",
+        "phase": "Right fingers open with the peg seated",
+        "label": "episode 5800, frame 1144, 76.267 s, top camera; Right fingers open with the peg seated",
+        "sha256": "7549874de39d58eaa4934cc44c0853dcd5c294bd6dfc655d8ec7c1117e8031b6"
+      },
+      {
+        "path": "media/icl/peg_in_hole/top_001248.png",
+        "frame": 1248,
+        "camera": "top",
+        "phase": "Right hand withdrawn; left hand still supports the assembly",
+        "label": "episode 5800, frame 1248, 83.200 s, top camera; Right hand withdrawn; left hand still supports the assembly",
+        "sha256": "9a5efbc3f7219cbd2ea3a1069b17f70b42808b91097c9652530097adbfdf6d79"
+      },
+      {
+        "path": "media/icl/peg_in_hole/top_001352.png",
+        "frame": 1352,
+        "camera": "top",
+        "phase": "Left hand lowers the assembled receiver onto the table",
+        "label": "episode 5800, frame 1352, 90.133 s, top camera; Left hand lowers the assembled receiver onto the table",
+        "sha256": "d6b81cd8712c69b3cc0e4db1c254b2bbbc8e6d44b5aee42e3ba172378c1fe975"
+      },
+      {
+        "path": "media/icl/peg_in_hole/top_001456.png",
+        "frame": 1456,
+        "camera": "top",
+        "phase": "Left hand withdrawn after releasing the assembly",
+        "label": "episode 5800, frame 1456, 97.067 s, top camera; Left hand withdrawn after releasing the assembly",
+        "sha256": "cd5f2db866d18c85de8e2e2041e834c71ae1ff6f0f99dd7cf6c9fe1df2bc7375"
+      },
+      {
+        "path": "media/icl/peg_in_hole/top_001560.png",
+        "frame": 1560,
+        "camera": "top",
+        "phase": "Final peg in receiver beside the empty original support",
+        "label": "episode 5800, frame 1560, 104.000 s, top camera; Final peg in receiver beside the empty original support",
+        "sha256": "e64105d2ba1df5c5879d88c8b0db4f34a646558117ca49980e6fa3b149e12122"
+      },
+      {
+        "path": "media/icl/peg_in_hole/overlook_001560.png",
+        "frame": 1560,
+        "camera": "overlook",
+        "phase": "Final peg in receiver beside the empty original support",
+        "label": "episode 5800, frame 1560, 104.000 s, overlook camera; Final peg in receiver beside the empty original support",
+        "sha256": "c3cf897312baad4a4709ae5c408ce78d42ec5506a28424548e5173b9aa11a698"
+      }
+    ],
+    "source": {
+      "type": "git",
+      "location": "ref/icl/peg_in_hole",
+      "revision": "814d3112772c7a6e06ded20ae90149530376f363",
+      "manifest_sha256": "846ce65a1a87fbd3ed2b311c1f203da30ef8bea688802f1cb472dd2580415b5f",
+      "annotations_sha256": "3c60a4f5167f73a73af69767d1e36c632be5be92f5c89ffe5e4c0ca99e8e8892"
+    }
+  },
+  {
+    "task": "pen",
+    "overview": "media/icl/pen/keyframes_preview.jpg",
+    "overview_sha256": "30cb92d90a165b11e40d979016e14b6a8a446b0ddb3e8116bc903021ede55a6f",
+    "description": "Pick one pen at a time by its shaft, lift clear of the tabletop, rotate the long axis toward vertical, align a tip over the holder opening, lower the tip inside, and open the fingers. The left hand handles the left multicolour pen and the pink pen; the right hand handles the white and blue pen on the right. Keep the holder and previously inserted pens clear during each approach.",
+    "frames": [
+      {
+        "path": "media/icl/pen/00_top_000000.png",
+        "frame": 0,
+        "camera": "top",
+        "phase": "Three pens and an empty cylindrical holder.",
+        "label": "Historical episode 3220; frame 0; 0.000s; top camera. Three pens and an empty cylindrical holder.",
+        "sha256": "641693c73a3e4753543facaebcc014195fd58d01c5bb986c4090b1e1da6b0e18"
+      },
+      {
+        "path": "media/icl/pen/01_overlook_000074.png",
+        "frame": 74,
+        "camera": "overlook",
+        "phase": "Left hand grasps the first pen shaft.",
+        "label": "Historical episode 3220; frame 74; 4.933s; overlook camera. Left hand grasps the first pen shaft.",
+        "sha256": "acad5f7c96d0deb0c336b44c1cc2bfaa6a8d26b697faa84345c419bfb79cd362"
+      },
+      {
+        "path": "media/icl/pen/02_overlook_000147.png",
+        "frame": 147,
+        "camera": "overlook",
+        "phase": "Lift first pen from the table.",
+        "label": "Historical episode 3220; frame 147; 9.800s; overlook camera. Lift first pen from the table.",
+        "sha256": "a8279791b43c4c03c41d611b230539aad54c2086bfe9766fa74f27852b18e698"
+      },
+      {
+        "path": "media/icl/pen/03_top_000221.png",
+        "frame": 221,
+        "camera": "top",
+        "phase": "Orient first pen above the holder.",
+        "label": "Historical episode 3220; frame 221; 14.733s; top camera. Orient first pen above the holder.",
+        "sha256": "0637cb0ec96e02486798620bf9b9de59b09058fd25a5da5fd2e5a06a21376068"
+      },
+      {
+        "path": "media/icl/pen/04_top_000295.png",
+        "frame": 295,
+        "camera": "top",
+        "phase": "Lower first pen tip inside the holder.",
+        "label": "Historical episode 3220; frame 295; 19.667s; top camera. Lower first pen tip inside the holder.",
+        "sha256": "739d7643eb810cf5ac61bad6dcd1d58b64db3cf081272c6bc56fa60cd168abe4"
+      },
+      {
+        "path": "media/icl/pen/05_top_000369.png",
+        "frame": 369,
+        "camera": "top",
+        "phase": "First pen released in the holder.",
+        "label": "Historical episode 3220; frame 369; 24.600s; top camera. First pen released in the holder.",
+        "sha256": "c32e49118082f79c0ddbda325e13701ba2ed94b16cd8bfd691f75565e845c55e"
+      },
+      {
+        "path": "media/icl/pen/06_overlook_000442.png",
+        "frame": 442,
+        "camera": "overlook",
+        "phase": "Left hand approaches the pink pen.",
+        "label": "Historical episode 3220; frame 442; 29.467s; overlook camera. Left hand approaches the pink pen.",
+        "sha256": "805b7344c374388c6e7885b1303548b832b3dcbe10b22c6bd0803562152ff558"
+      },
+      {
+        "path": "media/icl/pen/07_top_000516.png",
+        "frame": 516,
+        "camera": "top",
+        "phase": "Left fingers close around pink pen shaft.",
+        "label": "Historical episode 3220; frame 516; 34.400s; top camera. Left fingers close around pink pen shaft.",
+        "sha256": "8f4c912850437780ec97845a23db82db7b24073892479595dc182c2c64e5e61d"
+      },
+      {
+        "path": "media/icl/pen/08_top_000590.png",
+        "frame": 590,
+        "camera": "top",
+        "phase": "Lift and reorient the pink pen.",
+        "label": "Historical episode 3220; frame 590; 39.333s; top camera. Lift and reorient the pink pen.",
+        "sha256": "b0150025a2fb6bbcc902e8c145d7d67470ffa0a083d1457675f45ab097ced943"
+      },
+      {
+        "path": "media/icl/pen/09_top_000664.png",
+        "frame": 664,
+        "camera": "top",
+        "phase": "Insert pink pen into the holder.",
+        "label": "Historical episode 3220; frame 664; 44.267s; top camera. Insert pink pen into the holder.",
+        "sha256": "a5b50f42a006968450dab0f3f2961265bf7d0a185f36601a25e9ee63fcd09de5"
+      },
+      {
+        "path": "media/icl/pen/10_top_000737.png",
+        "frame": 737,
+        "camera": "top",
+        "phase": "Pink pen released next to the first pen.",
+        "label": "Historical episode 3220; frame 737; 49.133s; top camera. Pink pen released next to the first pen.",
+        "sha256": "501a72d8812fc16cc2d68d2fc7749db2299f33c0d4de54cf61f36974c9bbb64f"
+      },
+      {
+        "path": "media/icl/pen/11_overlook_000811.png",
+        "frame": 811,
+        "camera": "overlook",
+        "phase": "Right hand approaches the remaining white/blue pen.",
+        "label": "Historical episode 3220; frame 811; 54.067s; overlook camera. Right hand approaches the remaining white/blue pen.",
+        "sha256": "9449d6e76c5c8acc85d37948ceeebcd0a690fe5568d55bd5ad98dadb549e3e55"
+      },
+      {
+        "path": "media/icl/pen/12_overlook_000885.png",
+        "frame": 885,
+        "camera": "overlook",
+        "phase": "Grip the final pen.",
+        "label": "Historical episode 3220; frame 885; 59.000s; overlook camera. Grip the final pen.",
+        "sha256": "b146d2c81d91ca494a4b68ccf125899c96141c53ea220108561a759b50d88741"
+      },
+      {
+        "path": "media/icl/pen/13_top_000959.png",
+        "frame": 959,
+        "camera": "top",
+        "phase": "Lift and orient final pen above holder.",
+        "label": "Historical episode 3220; frame 959; 63.933s; top camera. Lift and orient final pen above holder.",
+        "sha256": "19862a25de3d84367d05af087efc55a014c07f14c3b052d7c0f9a0bb19c5e7d8"
+      },
+      {
+        "path": "media/icl/pen/14_top_001032.png",
+        "frame": 1032,
+        "camera": "top",
+        "phase": "Lower final pen tip into holder.",
+        "label": "Historical episode 3220; frame 1032; 68.800s; top camera. Lower final pen tip into holder.",
+        "sha256": "7d14464ad0cae61fac04c56897a739318286f08e0c2c8cac9ea46f90eb5ff1f5"
+      },
+      {
+        "path": "media/icl/pen/15_top_001106.png",
+        "frame": 1106,
+        "camera": "top",
+        "phase": "Three pens visible inside holder after release.",
+        "label": "Historical episode 3220; frame 1106; 73.733s; top camera. Three pens visible inside holder after release.",
+        "sha256": "3a9617293fbf042a0dd1612503a1b985c11ae81362e940577cbcafd92e3e7c71"
+      }
+    ],
+    "source": {
+      "type": "archive",
+      "location": "astra_web_evidence_20260918/reference/icl/pen",
+      "revision": "astra_web_evidence_20260918_core.zip",
+      "manifest_sha256": "5fa3604d4eb0e094c13a28df8d7b8633cd7366d559f32b0186e5f38b06143360",
+      "annotations_sha256": "52a25aa36bddbe9a2ea0b253de96c97ad843afbc2efe606851afe76f22cbb5fe"
+    }
+  },
+  {
+    "task": "perfume_to_cosmetics_rack",
+    "overview": "media/icl/perfume_to_cosmetics_rack/keyframes_preview.jpg",
+    "overview_sha256": "5d2e0c8f01b82cd81afbf8f641bc7c39a949a158d7d83361398ee6d2c2621fb8",
+    "description": "Approach the small perfume bottle with the left hand, align the fingers around its sides, grasp and lift it upright. Reposition toward the organizer, hold the bottle over an open compartment, lower it between the dividers and release with its base supported.",
+    "frames": [
+      {
+        "path": "media/icl/perfume_to_cosmetics_rack/00_top_000000.png",
+        "frame": 0,
+        "camera": "top",
+        "phase": "Small perfume bottle beside the cosmetics organizer.",
+        "label": "Historical episode 240; frame 0; 0.000s; top camera. Small perfume bottle beside the cosmetics organizer.",
+        "sha256": "4f62087efd02a214b61259e5de95719fdd2571e1ca0e45310366fccd2a90301e"
+      },
+      {
+        "path": "media/icl/perfume_to_cosmetics_rack/01_overlook_000079.png",
+        "frame": 79,
+        "camera": "overlook",
+        "phase": "Left arm approaches the bottle.",
+        "label": "Historical episode 240; frame 79; 5.267s; overlook camera. Left arm approaches the bottle.",
+        "sha256": "cade13722eaa2b2a7f9a4b89455b5f9f68f96761359ec11eb87042c61376ddf2"
+      },
+      {
+        "path": "media/icl/perfume_to_cosmetics_rack/02_top_000132.png",
+        "frame": 132,
+        "camera": "top",
+        "phase": "Left fingers align around the perfume bottle.",
+        "label": "Historical episode 240; frame 132; 8.800s; top camera. Left fingers align around the perfume bottle.",
+        "sha256": "10995f1b069481c79c399de9a2e5d1d4c64abd47ea0507602ace502e8afa3e8b"
+      },
+      {
+        "path": "media/icl/perfume_to_cosmetics_rack/03_top_000184.png",
+        "frame": 184,
+        "camera": "top",
+        "phase": "Close the grip on the bottle.",
+        "label": "Historical episode 240; frame 184; 12.267s; top camera. Close the grip on the bottle.",
+        "sha256": "b1bb03583e8808ebc3cea6e689585c330f2101a69c883b8f9746de680c359f3b"
+      },
+      {
+        "path": "media/icl/perfume_to_cosmetics_rack/04_top_000211.png",
+        "frame": 211,
+        "camera": "top",
+        "phase": "Lift the perfume upright.",
+        "label": "Historical episode 240; frame 211; 14.067s; top camera. Lift the perfume upright.",
+        "sha256": "b4d0f4fe3c81ff120d0e75510e8e7d90d8835205f099fe4499a1b4d8dc23b90c"
+      },
+      {
+        "path": "media/icl/perfume_to_cosmetics_rack/05_overlook_000263.png",
+        "frame": 263,
+        "camera": "overlook",
+        "phase": "Move toward the organizer.",
+        "label": "Historical episode 240; frame 263; 17.533s; overlook camera. Move toward the organizer.",
+        "sha256": "b27dbcfee858b840b07df284b699f826e95bccdaa1d5ff4832110eea0d9e1536"
+      },
+      {
+        "path": "media/icl/perfume_to_cosmetics_rack/06_top_000290.png",
+        "frame": 290,
+        "camera": "top",
+        "phase": "Held bottle approaches an open compartment.",
+        "label": "Historical episode 240; frame 290; 19.333s; top camera. Held bottle approaches an open compartment.",
+        "sha256": "55f7c6ba71f8c2c3820749ff80f321ef274dcef6a63588abd6eac8766d78bf10"
+      },
+      {
+        "path": "media/icl/perfume_to_cosmetics_rack/07_top_000342.png",
+        "frame": 342,
+        "camera": "top",
+        "phase": "Lower bottle between compartment dividers.",
+        "label": "Historical episode 240; frame 342; 22.800s; top camera. Lower bottle between compartment dividers.",
+        "sha256": "67760372ca5d1e4397335cea28284fa99789636a54ca05d957caedc74a863251"
+      },
+      {
+        "path": "media/icl/perfume_to_cosmetics_rack/08_top_000369.png",
+        "frame": 369,
+        "camera": "top",
+        "phase": "Seat the bottle inside the compartment.",
+        "label": "Historical episode 240; frame 369; 24.600s; top camera. Seat the bottle inside the compartment.",
+        "sha256": "881f342500d8e0cde5444b2ac0dba684b605206f101fd3f688fc822203b8e552"
+      },
+      {
+        "path": "media/icl/perfume_to_cosmetics_rack/09_top_000395.png",
+        "frame": 395,
+        "camera": "top",
+        "phase": "Open the fingers with the bottle supported in the organizer.",
+        "label": "Historical episode 240; frame 395; 26.333s; top camera. Open the fingers with the bottle supported in the organizer.",
+        "sha256": "00f55800759701a4896d359c6e587e8c0a3f80230fecd743ada52765c7c8497f"
+      }
+    ],
+    "source": {
+      "type": "archive",
+      "location": "astra_web_evidence_20260918/reference/icl/perfume_to_cosmetics_rack",
+      "revision": "astra_web_evidence_20260918_core.zip",
+      "manifest_sha256": "d366655739a0d737942c678ee1a142cabc702297f6d5045317dd69ba18f18a0f",
+      "annotations_sha256": "c73dfaa1e90d298e7da9f43ab5aa4ea10477c4f35ba778153c9f8bd7bf704413"
+    }
+  },
+  {
+    "task": "put_glass_in_glassbox",
+    "overview": "media/icl/put_glass_in_glassbox/keyframes_preview.jpg",
+    "overview_sha256": "79fb6007e120b51ad3202f9f6ead71933abf20b08c76af1e649cf9b5519ab166",
+    "description": "The target is a pair of eyeglasses, not a drinking glass. Grasp one side with the right hand, add left-hand support on the other side, and carry the glasses into the open case. Release them supported inside the case. Re-approach with the left fingers to fold the protruding temples inward, clear the hinges and rim, then close the lid. The recording places the glasses first and folds the temples while the case supports the frame.",
+    "frames": [
+      {
+        "path": "media/icl/put_glass_in_glassbox/top_000000.png",
+        "frame": 0,
+        "camera": "top",
+        "phase": "Initial eyeglasses with open temples and an open case",
+        "label": "episode 5420, frame 0, 0.000 s, top camera; Initial eyeglasses with open temples and an open case",
+        "sha256": "3df72ad5d2048d23c2f245335d836f71e43a3c045de4b8ace9e110c4ef879702"
+      },
+      {
+        "path": "media/icl/put_glass_in_glassbox/top_000158.png",
+        "frame": 158,
+        "camera": "top",
+        "phase": "Right fingers approach one side of the glasses",
+        "label": "episode 5420, frame 158, 10.533 s, top camera; Right fingers approach one side of the glasses",
+        "sha256": "a79631bc0f6f58ae55efbf13b7fd0f94058b8e36559f8eeceac5c7c6d1ce99a0"
+      },
+      {
+        "path": "media/icl/put_glass_in_glassbox/top_000315.png",
+        "frame": 315,
+        "camera": "top",
+        "phase": "Right-hand grasp established",
+        "label": "episode 5420, frame 315, 21.000 s, top camera; Right-hand grasp established",
+        "sha256": "469985349015ef9af4dcfeb01f0ccb29cdbfedacea50a416303b1b9c8ae04626"
+      },
+      {
+        "path": "media/icl/put_glass_in_glassbox/top_000630.png",
+        "frame": 630,
+        "camera": "top",
+        "phase": "Left hand adds support on the opposite side",
+        "label": "episode 5420, frame 630, 42.000 s, top camera; Left hand adds support on the opposite side",
+        "sha256": "e48837f66c578444037bd62f4813b676e6638ff7dbcca53ff5393c217c8045c4"
+      },
+      {
+        "path": "media/icl/put_glass_in_glassbox/top_000788.png",
+        "frame": 788,
+        "camera": "top",
+        "phase": "Both hands lift and carry the glasses",
+        "label": "episode 5420, frame 788, 52.533 s, top camera; Both hands lift and carry the glasses",
+        "sha256": "836d217bbd51900c46605c4c01a78e266bdd885827d69a79daa28abdab78d3b3"
+      },
+      {
+        "path": "media/icl/put_glass_in_glassbox/top_000946.png",
+        "frame": 946,
+        "camera": "top",
+        "phase": "Glasses aligned inside the open case",
+        "label": "episode 5420, frame 946, 63.067 s, top camera; Glasses aligned inside the open case",
+        "sha256": "059bb308ebdf0269536faad18f583685966e06a0e4232f9bd5c761174cae442a"
+      },
+      {
+        "path": "media/icl/put_glass_in_glassbox/left_000946.png",
+        "frame": 946,
+        "camera": "left",
+        "phase": "Glasses aligned inside the open case",
+        "label": "episode 5420, frame 946, 63.067 s, left camera; Glasses aligned inside the open case",
+        "sha256": "f3b14aa6695c2233d594db9bb02699175c4dd8a56197c7236ce99edfb2db71fc"
+      },
+      {
+        "path": "media/icl/put_glass_in_glassbox/left_001103.png",
+        "frame": 1103,
+        "camera": "left",
+        "phase": "Fingers open with the glasses supported in the case",
+        "label": "episode 5420, frame 1103, 73.533 s, left camera; Fingers open with the glasses supported in the case",
+        "sha256": "263ec0c648d1747f95b8681b1494a66c446aa926077c103f89df74450bb91b06"
+      },
+      {
+        "path": "media/icl/put_glass_in_glassbox/left_001261.png",
+        "frame": 1261,
+        "camera": "left",
+        "phase": "Glasses remain in the case with temples still projecting",
+        "label": "episode 5420, frame 1261, 84.067 s, left camera; Glasses remain in the case with temples still projecting",
+        "sha256": "7ddec35921f4bd457c015bf7e7d1427828f923e31d0477b2ed8ef17b539c276b"
+      },
+      {
+        "path": "media/icl/put_glass_in_glassbox/left_001418.png",
+        "frame": 1418,
+        "camera": "left",
+        "phase": "Left fingers begin folding a temple inward",
+        "label": "episode 5420, frame 1418, 94.533 s, left camera; Left fingers begin folding a temple inward",
+        "sha256": "ac17c2638824209bed4b4ede5db4e9ad1fd9f03e0621385b4a8d6dec214c4bc8"
+      },
+      {
+        "path": "media/icl/put_glass_in_glassbox/left_001576.png",
+        "frame": 1576,
+        "camera": "left",
+        "phase": "Temple-folding adjustment with the frame supported by the case",
+        "label": "episode 5420, frame 1576, 105.067 s, left camera; Temple-folding adjustment with the frame supported by the case",
+        "sha256": "165c24410b9dda5bf3d1a5e4feb4dd224d96ba3f8f733ed90f979d7e26775b64"
+      },
+      {
+        "path": "media/icl/put_glass_in_glassbox/left_001734.png",
+        "frame": 1734,
+        "camera": "left",
+        "phase": "Left fingers reposition at the remaining projecting temple",
+        "label": "episode 5420, frame 1734, 115.600 s, left camera; Left fingers reposition at the remaining projecting temple",
+        "sha256": "5ad55578ee8798b323cbfbf0e112d5381fa53fd0c05c486b268b30c18ee71953"
+      },
+      {
+        "path": "media/icl/put_glass_in_glassbox/left_002049.png",
+        "frame": 2049,
+        "camera": "left",
+        "phase": "Temples folded inward within the case",
+        "label": "episode 5420, frame 2049, 136.600 s, left camera; Temples folded inward within the case",
+        "sha256": "abb8cadcf6bbb1ee63e91e4c2e6e28831e1ecd5950386dc319cfc03312e28d84"
+      },
+      {
+        "path": "media/icl/put_glass_in_glassbox/top_002206.png",
+        "frame": 2206,
+        "camera": "top",
+        "phase": "Folded glasses remain in the case as the hand clears the lid",
+        "label": "episode 5420, frame 2206, 147.067 s, top camera; Folded glasses remain in the case as the hand clears the lid",
+        "sha256": "f4d186b26a3ac288bf7c07d9e40798587121e21af576f0318af42f363ede96b9"
+      },
+      {
+        "path": "media/icl/put_glass_in_glassbox/top_002364.png",
+        "frame": 2364,
+        "camera": "top",
+        "phase": "Final closed case with hands withdrawn",
+        "label": "episode 5420, frame 2364, 157.600 s, top camera; Final closed case with hands withdrawn",
+        "sha256": "8a78cc16229130f79e2cfd716c97f08b888210fba13001b8722f68a5f1953951"
+      },
+      {
+        "path": "media/icl/put_glass_in_glassbox/overlook_002364.png",
+        "frame": 2364,
+        "camera": "overlook",
+        "phase": "Final closed case with hands withdrawn",
+        "label": "episode 5420, frame 2364, 157.600 s, overlook camera; Final closed case with hands withdrawn",
+        "sha256": "3f4b6e62ed667db3292791f5bb73ab90effef16256b34ef3510050b9d90cb1e1"
+      }
+    ],
+    "source": {
+      "type": "git",
+      "location": "ref/icl/put_glass_in_glassbox",
+      "revision": "814d3112772c7a6e06ded20ae90149530376f363",
+      "manifest_sha256": "42529bfd1fcd8766d35b02a67d41c9b4568fe2ca0a335ee255affdb3f252fb9a",
+      "annotations_sha256": "db11641bced385df84e2769079f51acbb8b5094cb38219810fb3f9de2a524fea"
+    }
+  },
+  {
+    "task": "remote_to_holder",
+    "overview": "media/icl/remote_to_holder/keyframes_preview.jpg",
+    "overview_sha256": "7d4258a14215c38cb241993e74409de2ad9fb71028fa18ff268197ba79ceb24b",
+    "description": "Approach the remote with the left hand, align the fingers across its narrow dimension, grip and lift it from the coffee table. Carry it over an open compartment of the black holder, lower it between the dividers, release and withdraw.",
+    "frames": [
+      {
+        "path": "media/icl/remote_to_holder/00_top_000000.png",
+        "frame": 0,
+        "camera": "top",
+        "phase": "Remote on the coffee table before pickup.",
+        "label": "Historical episode 1600; frame 0; 0.000s; top camera. Remote on the coffee table before pickup.",
+        "sha256": "efb3bd64ba60b539530e9034ce1428dd5b71a91a1dabaa00de8acbbe94310ebe"
+      },
+      {
+        "path": "media/icl/remote_to_holder/01_overlook_000052.png",
+        "frame": 52,
+        "camera": "overlook",
+        "phase": "Left hand approaches the remote.",
+        "label": "Historical episode 1600; frame 52; 3.467s; overlook camera. Left hand approaches the remote.",
+        "sha256": "b826ceda29dad973f92748b8914c4ac8a7dd1477039e903e05094dc7114113a9"
+      },
+      {
+        "path": "media/icl/remote_to_holder/02_top_000104.png",
+        "frame": 104,
+        "camera": "top",
+        "phase": "Fingers align across the narrow dimension.",
+        "label": "Historical episode 1600; frame 104; 6.933s; top camera. Fingers align across the narrow dimension.",
+        "sha256": "cfb3ee3c08208915689faa867affbe77fa0966665d7b22dadf47ad3046aaae0c"
+      },
+      {
+        "path": "media/icl/remote_to_holder/03_top_000156.png",
+        "frame": 156,
+        "camera": "top",
+        "phase": "Close the grip and start lifting.",
+        "label": "Historical episode 1600; frame 156; 10.400s; top camera. Close the grip and start lifting.",
+        "sha256": "91d48d2f935c3389b612887411ad0b71a966328f9d82939c140f86c746a8d7bc"
+      },
+      {
+        "path": "media/icl/remote_to_holder/04_top_000207.png",
+        "frame": 207,
+        "camera": "top",
+        "phase": "Remote lifted clear of the table.",
+        "label": "Historical episode 1600; frame 207; 13.800s; top camera. Remote lifted clear of the table.",
+        "sha256": "a98902714ba3da475e144d33cae72b9ce939d7ef0c1416ca822c43813fb4b3e0"
+      },
+      {
+        "path": "media/icl/remote_to_holder/05_top_000259.png",
+        "frame": 259,
+        "camera": "top",
+        "phase": "Carry the remote over the holder.",
+        "label": "Historical episode 1600; frame 259; 17.267s; top camera. Carry the remote over the holder.",
+        "sha256": "938c04d88f0bb4c8c92275c878e968261b0a3636df7d83985d10c6986432befd"
+      },
+      {
+        "path": "media/icl/remote_to_holder/06_overlook_000311.png",
+        "frame": 311,
+        "camera": "overlook",
+        "phase": "Align the remote above an open compartment.",
+        "label": "Historical episode 1600; frame 311; 20.733s; overlook camera. Align the remote above an open compartment.",
+        "sha256": "e9af902bb95725668052b7ba6c92203c7f05602f3d1bd67b97301c7c256c0e69"
+      },
+      {
+        "path": "media/icl/remote_to_holder/07_top_000337.png",
+        "frame": 337,
+        "camera": "top",
+        "phase": "Lower the remote between holder dividers.",
+        "label": "Historical episode 1600; frame 337; 22.467s; top camera. Lower the remote between holder dividers.",
+        "sha256": "ce443e2327e3b99b02204f059e6aad93d42610f467aab6b06eede4c0e4bd2b5e"
+      },
+      {
+        "path": "media/icl/remote_to_holder/08_top_000363.png",
+        "frame": 363,
+        "camera": "top",
+        "phase": "Open the fingers as the remote enters the holder.",
+        "label": "Historical episode 1600; frame 363; 24.200s; top camera. Open the fingers as the remote enters the holder.",
+        "sha256": "c63cb5c54f335686eb82670df08ed74ffde53441f2108730ea82032f93c825c4"
+      },
+      {
+        "path": "media/icl/remote_to_holder/09_top_000389.png",
+        "frame": 389,
+        "camera": "top",
+        "phase": "Remote remains released inside the holder.",
+        "label": "Historical episode 1600; frame 389; 25.933s; top camera. Remote remains released inside the holder.",
+        "sha256": "1c107cbc46c775173dd93468503788d48abea8874d2bf1a0e49f8c2bb868f538"
+      }
+    ],
+    "source": {
+      "type": "archive",
+      "location": "astra_web_evidence_20260918/reference/icl/remote_to_holder",
+      "revision": "astra_web_evidence_20260918_core.zip",
+      "manifest_sha256": "b61f7af2eac16297b6316d5df55ac5918306c7aeb5df4d3f4fc617b63e26502a",
+      "annotations_sha256": "6847c61afeb174de4d75edba44281135b29ebe93d07b788e52690d32b269d0f3"
+    }
+  },
+  {
+    "task": "salt_to_spice_rack",
+    "overview": "media/icl/salt_to_spice_rack/keyframes_preview.jpg",
+    "overview_sha256": "ab96d8777ed71735060ffaf40af95ac49926237837ab573d3500d4598c33feed",
+    "description": "Grasp the small salt jar upright with the left hand, lift it off the countertop, and move it above the metal spice rack. Lower the jar onto the rack support, release the fingers, and withdraw while keeping it upright.",
+    "frames": [
+      {
+        "path": "media/icl/salt_to_spice_rack/00_top_000000.png",
+        "frame": 0,
+        "camera": "top",
+        "phase": "Salt jar beside an empty metal rack.",
+        "label": "Historical episode 1200; frame 0; 0.000s; top camera. Salt jar beside an empty metal rack.",
+        "sha256": "868fc8e6de5a50163ab497912d876b820fb4535ce6edc1b0c96da31d26a81797"
+      },
+      {
+        "path": "media/icl/salt_to_spice_rack/01_overlook_000064.png",
+        "frame": 64,
+        "camera": "overlook",
+        "phase": "Left arm approaches the jar.",
+        "label": "Historical episode 1200; frame 64; 4.267s; overlook camera. Left arm approaches the jar.",
+        "sha256": "3e4f85809ef06a6779ec8a19e122ef7172f32040049a776530a817c10cfbde6f"
+      },
+      {
+        "path": "media/icl/salt_to_spice_rack/02_top_000106.png",
+        "frame": 106,
+        "camera": "top",
+        "phase": "Align fingers around the upright jar.",
+        "label": "Historical episode 1200; frame 106; 7.067s; top camera. Align fingers around the upright jar.",
+        "sha256": "8969218f8de91d6a010d470bd974225d4fe26611d09f313126feaf5335b8d2d5"
+      },
+      {
+        "path": "media/icl/salt_to_spice_rack/03_top_000148.png",
+        "frame": 148,
+        "camera": "top",
+        "phase": "Grip and lift the jar.",
+        "label": "Historical episode 1200; frame 148; 9.867s; top camera. Grip and lift the jar.",
+        "sha256": "b4ee5df010b2721cd0b1665e2326445cc7dbf89059c8a3c8115a7125fd42da1e"
+      },
+      {
+        "path": "media/icl/salt_to_spice_rack/04_top_000191.png",
+        "frame": 191,
+        "camera": "top",
+        "phase": "Transport the held jar toward the rack.",
+        "label": "Historical episode 1200; frame 191; 12.733s; top camera. Transport the held jar toward the rack.",
+        "sha256": "91f308f5b97f9571166a7663c7fe6f80c64be7a150e74f754e0e868326fea1c2"
+      },
+      {
+        "path": "media/icl/salt_to_spice_rack/05_top_000233.png",
+        "frame": 233,
+        "camera": "top",
+        "phase": "Raise jar above the rack support.",
+        "label": "Historical episode 1200; frame 233; 15.533s; top camera. Raise jar above the rack support.",
+        "sha256": "b13d469861ec318d5780262d40c14d76a683bcf6305fe3b982679b0f3abf7891"
+      },
+      {
+        "path": "media/icl/salt_to_spice_rack/06_top_000254.png",
+        "frame": 254,
+        "camera": "top",
+        "phase": "Position jar over the rack.",
+        "label": "Historical episode 1200; frame 254; 16.933s; top camera. Position jar over the rack.",
+        "sha256": "fe7d11d16d56cee4848f117c15d3854e713affe419ec913d662bfa72e0cb1e00"
+      },
+      {
+        "path": "media/icl/salt_to_spice_rack/07_top_000276.png",
+        "frame": 276,
+        "camera": "top",
+        "phase": "Lower jar onto the rack.",
+        "label": "Historical episode 1200; frame 276; 18.400s; top camera. Lower jar onto the rack.",
+        "sha256": "16144bcdae4da0398fe467c89cd7eae0bb40c3b3fa38fc34493744665e295db1"
+      },
+      {
+        "path": "media/icl/salt_to_spice_rack/08_top_000297.png",
+        "frame": 297,
+        "camera": "top",
+        "phase": "Open fingers around the supported jar.",
+        "label": "Historical episode 1200; frame 297; 19.800s; top camera. Open fingers around the supported jar.",
+        "sha256": "c9bf8bd5072dc0260a5abf2534bf65293474f3b8163955d5bd747f529dd13b62"
+      },
+      {
+        "path": "media/icl/salt_to_spice_rack/09_top_000318.png",
+        "frame": 318,
+        "camera": "top",
+        "phase": "Jar remains upright on the rack.",
+        "label": "Historical episode 1200; frame 318; 21.200s; top camera. Jar remains upright on the rack.",
+        "sha256": "2414d19873684cf4376c357a96622bc259b092bbe41c0a4ed8b353fefd66f71d"
+      }
+    ],
+    "source": {
+      "type": "archive",
+      "location": "astra_web_evidence_20260918/reference/icl/salt_to_spice_rack",
+      "revision": "astra_web_evidence_20260918_core.zip",
+      "manifest_sha256": "70d152e35e723d60b87eb0a1ede85267a5a32281860a892c1a5a9a70ff8ab5df",
+      "annotations_sha256": "b79f429ffa3bd9d4a2760e6b3c8ffc49cbb1c3de50347f11dd3b1f26fdd4545f"
+    }
+  },
+  {
+    "task": "shop",
+    "overview": "media/icl/shop/keyframes_preview.jpg",
+    "overview_sha256": "d51f5148686a0a3323e3454f4d412c172113ed1d65652fe8d4be3b79d3af0c3b",
+    "description": "Process the checkout items one at a time. Pick with the right hand, bring the item into a shared handover region, secure it with the left before releasing the right, carry it across the central scanner region, then place it on the opposite side. Repeat for items of different shapes while tracking what remains on the source side and what has already been transferred.",
+    "frames": [
+      {
+        "path": "media/icl/shop/00_overlook_000000.png",
+        "frame": 0,
+        "camera": "overlook",
+        "phase": "Initial checkout items and central scanner region",
+        "label": "Historical episode 2200; frame 0; 0.000s; overlook camera. Initial checkout items and central scanner region",
+        "sha256": "3fda75cc86aaaff5e452e0e5e897c248c2b7c8b97f64df47f68817b7b450727f"
+      },
+      {
+        "path": "media/icl/shop/01_right_000225.png",
+        "frame": 225,
+        "camera": "right",
+        "phase": "Right hand holds the first carton",
+        "label": "Historical episode 2200; frame 225; 15.000s; right camera. Right hand holds the first carton",
+        "sha256": "18fd042265c13c626613ebdf8ce2795a19b0aa6b2f840a2a267f48ce61ea0d2d"
+      },
+      {
+        "path": "media/icl/shop/02_left_000350.png",
+        "frame": 350,
+        "camera": "left",
+        "phase": "Left hand has received the carton after the handover",
+        "label": "Historical episode 2200; frame 350; 23.333s; left camera. Left hand has received the carton after the handover",
+        "sha256": "e4c38b80802566b4d4683a0ae641b6070eeee448c278e73f7db46c714906f4d6"
+      },
+      {
+        "path": "media/icl/shop/03_overlook_000450.png",
+        "frame": 450,
+        "camera": "overlook",
+        "phase": "Carry the first carton across the scanner region",
+        "label": "Historical episode 2200; frame 450; 30.000s; overlook camera. Carry the first carton across the scanner region",
+        "sha256": "a8dab5a03314b02afc0270ba2f65783e831be7c935176a2218c5ae260ee17bfe"
+      },
+      {
+        "path": "media/icl/shop/04_overlook_000676.png",
+        "frame": 676,
+        "camera": "overlook",
+        "phase": "First item placed on the destination side",
+        "label": "Historical episode 2200; frame 676; 45.067s; overlook camera. First item placed on the destination side",
+        "sha256": "697f03e0ef7789c3023e2e827dc78d3caf0c23a7ecb3d341766ead3cb2e02cf0"
+      },
+      {
+        "path": "media/icl/shop/05_overlook_000901.png",
+        "frame": 901,
+        "camera": "overlook",
+        "phase": "Right arm collects the next item",
+        "label": "Historical episode 2200; frame 901; 60.067s; overlook camera. Right arm collects the next item",
+        "sha256": "ebd7bdf46079f3449bb20ece906a636de4351e378ffde1b4d97ca95421f71032"
+      },
+      {
+        "path": "media/icl/shop/06_left_001126.png",
+        "frame": 1126,
+        "camera": "left",
+        "phase": "Left hand supports the blue bottle",
+        "label": "Historical episode 2200; frame 1126; 75.067s; left camera. Left hand supports the blue bottle",
+        "sha256": "669fee4198259656c5cb9e0f490829c660efd7dd5ea64a70cfc6cb4bc4e33b65"
+      },
+      {
+        "path": "media/icl/shop/07_overlook_001352.png",
+        "frame": 1352,
+        "camera": "overlook",
+        "phase": "Progress after the first two transfers",
+        "label": "Historical episode 2200; frame 1352; 90.133s; overlook camera. Progress after the first two transfers",
+        "sha256": "8e5ea806ccadf7ca45c2fa56e0e20f7667678242a192a76c9bbad816f1eff596"
+      },
+      {
+        "path": "media/icl/shop/08_left_001802.png",
+        "frame": 1802,
+        "camera": "left",
+        "phase": "Receive the milk carton",
+        "label": "Historical episode 2200; frame 1802; 120.133s; left camera. Receive the milk carton",
+        "sha256": "e444fcd7d0da3d5c13913a6f6af068b638c7114dc9a1db775bc80be04f7a01b2"
+      },
+      {
+        "path": "media/icl/shop/09_overlook_002028.png",
+        "frame": 2028,
+        "camera": "overlook",
+        "phase": "Place the milk carton on the destination side",
+        "label": "Historical episode 2200; frame 2028; 135.200s; overlook camera. Place the milk carton on the destination side",
+        "sha256": "8aea95c3adbf19a75f3c11a869ddae94337634218ca3aa5e997c29400a9a2942"
+      },
+      {
+        "path": "media/icl/shop/10_left_002479.png",
+        "frame": 2479,
+        "camera": "left",
+        "phase": "Receive the long carton using the same handover pattern",
+        "label": "Historical episode 2200; frame 2479; 165.267s; left camera. Receive the long carton using the same handover pattern",
+        "sha256": "00eeb0a527494fbae60a7a67632de38cbd55c0d40937551d1e683ad77b6d7bca"
+      },
+      {
+        "path": "media/icl/shop/11_overlook_002704.png",
+        "frame": 2704,
+        "camera": "overlook",
+        "phase": "Continue placement and track remaining items",
+        "label": "Historical episode 2200; frame 2704; 180.267s; overlook camera. Continue placement and track remaining items",
+        "sha256": "062b6587622c08836eed7e653e670c9d9aa3979e33923dcdd4ed005d76f70b6a"
+      },
+      {
+        "path": "media/icl/shop/12_overlook_003155.png",
+        "frame": 3155,
+        "camera": "overlook",
+        "phase": "Right arm picks a cylindrical container",
+        "label": "Historical episode 2200; frame 3155; 210.333s; overlook camera. Right arm picks a cylindrical container",
+        "sha256": "e782b548d838d71d5e8bc3ffb83f59bf325746e254ac4f1b4f035eecc39c51e8"
+      },
+      {
+        "path": "media/icl/shop/13_left_003380.png",
+        "frame": 3380,
+        "camera": "left",
+        "phase": "Carry the cylindrical container across the work area",
+        "label": "Historical episode 2200; frame 3380; 225.333s; left camera. Carry the cylindrical container across the work area",
+        "sha256": "4392a885a9409e127427453aef020b1b685b93a80613b840c12a2a61922e7c9e"
+      },
+      {
+        "path": "media/icl/shop/14_overlook_003605.png",
+        "frame": 3605,
+        "camera": "overlook",
+        "phase": "Only the final source item remains",
+        "label": "Historical episode 2200; frame 3605; 240.333s; overlook camera. Only the final source item remains",
+        "sha256": "1bbf14e3b257a37a77b750cd02069a1f3f85557b6037cd56e8158df83cd8da6d"
+      },
+      {
+        "path": "media/icl/shop/15_overlook_004056.png",
+        "frame": 4056,
+        "camera": "overlook",
+        "phase": "Final item handover",
+        "label": "Historical episode 2200; frame 4056; 270.400s; overlook camera. Final item handover",
+        "sha256": "77a4bb4a157097e39507db49dfd5d4eac6d5f28a7ab68bd2f565265aade2c3ff"
+      },
+      {
+        "path": "media/icl/shop/16_overlook_004282.png",
+        "frame": 4282,
+        "camera": "overlook",
+        "phase": "All visible items on the destination side",
+        "label": "Historical episode 2200; frame 4282; 285.467s; overlook camera. All visible items on the destination side",
+        "sha256": "ce0711f20a4f77ee6f9a14d905cf0cc8f2cfcf011358ab4e2170189201678920"
+      },
+      {
+        "path": "media/icl/shop/17_left_004282.png",
+        "frame": 4282,
+        "camera": "left",
+        "phase": "Close view of the transferred item group",
+        "label": "Historical episode 2200; frame 4282; 285.467s; left camera. Close view of the transferred item group",
+        "sha256": "26b3b408ce36bc947a9009c9333ba9dc8055e49b486029fb51c086f07be48c60"
+      }
+    ],
+    "source": {
+      "type": "git",
+      "location": "ref/icl/shop",
+      "revision": "814d3112772c7a6e06ded20ae90149530376f363",
+      "manifest_sha256": "e4a9d8dc2867a8ecfcc64dac7d5fd19fc4d52d91791010d57d253ad45c36c394",
+      "annotations_sha256": "98ab316e8e5add6b4833b7a92c7f49dfb0b730f6b800f2057a1c8fbd3c5902a9"
+    }
+  },
+  {
+    "task": "soap_to_dish",
+    "overview": "media/icl/soap_to_dish/keyframes_preview.jpg",
+    "overview_sha256": "7454eda1382846507f4f55b4d2f8f8703f67d04f6e00a8d2b930e445498234b1",
+    "description": "Approach the blue soap bar with the right hand, align fingers around opposite sides, grasp and lift it clear of the counter. Reposition toward the grey soap dish, carry the bar above the dish and lower it toward the recess before opening the fingers.",
+    "frames": [
+      {
+        "path": "media/icl/soap_to_dish/00_top_000000.png",
+        "frame": 0,
+        "camera": "top",
+        "phase": "Blue soap bar and empty grey dish.",
+        "label": "Historical episode 40; frame 0; 0.000s; top camera. Blue soap bar and empty grey dish.",
+        "sha256": "739a5f298e9a16c0e8ae41df3e4d9340cd04c08e254d8f95164919ea8326faae"
+      },
+      {
+        "path": "media/icl/soap_to_dish/01_overlook_000077.png",
+        "frame": 77,
+        "camera": "overlook",
+        "phase": "Right arm approaches the soap.",
+        "label": "Historical episode 40; frame 77; 5.133s; overlook camera. Right arm approaches the soap.",
+        "sha256": "cbe850aeb0af591a858da0922f202e6e1bed506a15a03e6c99ed104a7595ff36"
+      },
+      {
+        "path": "media/icl/soap_to_dish/02_top_000128.png",
+        "frame": 128,
+        "camera": "top",
+        "phase": "Align fingers around opposite soap sides.",
+        "label": "Historical episode 40; frame 128; 8.533s; top camera. Align fingers around opposite soap sides.",
+        "sha256": "609f691df9694af5ae09fa5a0371c91f16a23e5b56c2c2c93a6c5f0ee6949d25"
+      },
+      {
+        "path": "media/icl/soap_to_dish/03_top_000180.png",
+        "frame": 180,
+        "camera": "top",
+        "phase": "Grip the soap bar.",
+        "label": "Historical episode 40; frame 180; 12.000s; top camera. Grip the soap bar.",
+        "sha256": "4ab1a7aca1966516d4f0f6ffbfd1184c9ab515c3a456c12e568e9ca2447234db"
+      },
+      {
+        "path": "media/icl/soap_to_dish/04_top_000205.png",
+        "frame": 205,
+        "camera": "top",
+        "phase": "Lift the soap clear of the counter.",
+        "label": "Historical episode 40; frame 205; 13.667s; top camera. Lift the soap clear of the counter.",
+        "sha256": "abecd95e5a8674b8ef95180311ae8e78ab7586c1b3050bd8b1379e5b1de4994c"
+      },
+      {
+        "path": "media/icl/soap_to_dish/05_overlook_000257.png",
+        "frame": 257,
+        "camera": "overlook",
+        "phase": "Move the held bar toward the dish.",
+        "label": "Historical episode 40; frame 257; 17.133s; overlook camera. Move the held bar toward the dish.",
+        "sha256": "797e04e39c2ba5f0fabe9905c772574e79f578a56a5cf2dcdb6aec3ea2bdda68"
+      },
+      {
+        "path": "media/icl/soap_to_dish/06_top_000308.png",
+        "frame": 308,
+        "camera": "top",
+        "phase": "Align the bar above the dish recess.",
+        "label": "Historical episode 40; frame 308; 20.533s; top camera. Align the bar above the dish recess.",
+        "sha256": "2649ae55231040b005f06550d07ce17b96fd2caa7b8b02e52498cf94bb0b88af"
+      },
+      {
+        "path": "media/icl/soap_to_dish/07_top_000334.png",
+        "frame": 334,
+        "camera": "top",
+        "phase": "Lower soap toward the dish.",
+        "label": "Historical episode 40; frame 334; 22.267s; top camera. Lower soap toward the dish.",
+        "sha256": "03957dbcfd7a69d6309ab806f6f1e3b3f12d300dcc0466ec8eeb7c8f04200c5f"
+      },
+      {
+        "path": "media/icl/soap_to_dish/08_top_000359.png",
+        "frame": 359,
+        "camera": "top",
+        "phase": "Bar near dish at release height.",
+        "label": "Historical episode 40; frame 359; 23.933s; top camera. Bar near dish at release height.",
+        "sha256": "9e1a9674e7de616af0ac90c928088d64d6f23856b873e11c8df8415c4ad74629"
+      },
+      {
+        "path": "media/icl/soap_to_dish/09_top_000385.png",
+        "frame": 385,
+        "camera": "top",
+        "phase": "Fingers open near the end; settled placement remains unconfirmed.",
+        "label": "Historical episode 40; frame 385; 25.667s; top camera. Fingers open near the end; settled placement remains unconfirmed.",
+        "sha256": "68aec89b9636fac6a7a3cf7b0ca67f5bd7427db162638c7b258e33575da9c640"
+      }
+    ],
+    "source": {
+      "type": "archive",
+      "location": "astra_web_evidence_20260918/reference/icl/soap_to_dish",
+      "revision": "astra_web_evidence_20260918_core.zip",
+      "manifest_sha256": "c5f161fa8936f92526b8c8b4cae9fda529121e7efb47949e728fbbd0d060f529",
+      "annotations_sha256": "9add7b2e6f686ac644eee336da6c14119dfd828e7bfbfadca540dd6a65b7edc1"
+    }
+  },
+  {
+    "task": "teacup_to_saucer_teapot_to_tray",
+    "overview": "media/icl/teacup_to_saucer_teapot_to_tray/keyframes_preview.jpg",
+    "overview_sha256": "172da4962eea39b11d84256da1feebad1b13efb4f8875a2760aad6da9f423cce",
+    "description": "First grasp the blue teacup assembly with the left hand, lift it from the desk, move it above the empty white saucer/plate, lower and release. Then grasp the teapot at its handle, lift and carry it toward the wooden tray, lower its base into the tray, release and withdraw. Preserve the cup-first then teapot order.",
+    "frames": [
+      {
+        "path": "media/icl/teacup_to_saucer_teapot_to_tray/00_top_000000.png",
+        "frame": 0,
+        "camera": "top",
+        "phase": "Teacup, teapot, empty white saucer/plate and wooden tray.",
+        "label": "Historical episode 400; frame 0; 0.000s; top camera. Teacup, teapot, empty white saucer/plate and wooden tray.",
+        "sha256": "bdfcfd48cfc58fd8c1357da3df3ea521705408216165aab3f96c7fe0592f5415"
+      },
+      {
+        "path": "media/icl/teacup_to_saucer_teapot_to_tray/01_overlook_000098.png",
+        "frame": 98,
+        "camera": "overlook",
+        "phase": "Left hand approaches teacup.",
+        "label": "Historical episode 400; frame 98; 6.533s; overlook camera. Left hand approaches teacup.",
+        "sha256": "536cd0a17ab678cea824fe397e8e302c04a47afa484dd626f097a8bcf6071dd7"
+      },
+      {
+        "path": "media/icl/teacup_to_saucer_teapot_to_tray/02_top_000196.png",
+        "frame": 196,
+        "camera": "top",
+        "phase": "Grasp the blue teacup assembly.",
+        "label": "Historical episode 400; frame 196; 13.067s; top camera. Grasp the blue teacup assembly.",
+        "sha256": "3a96471bb163997da5935e7ab08fb4ffaed97872d08161a7817f2f81cb1ad138"
+      },
+      {
+        "path": "media/icl/teacup_to_saucer_teapot_to_tray/03_top_000245.png",
+        "frame": 245,
+        "camera": "top",
+        "phase": "Lift the teacup clear of the desk.",
+        "label": "Historical episode 400; frame 245; 16.333s; top camera. Lift the teacup clear of the desk.",
+        "sha256": "126c35fc94b3d62356b3f46b60cd2dbcb52a2ed0341ccd028939d846d5cd1b62"
+      },
+      {
+        "path": "media/icl/teacup_to_saucer_teapot_to_tray/04_top_000294.png",
+        "frame": 294,
+        "camera": "top",
+        "phase": "Carry the teacup toward the white saucer/plate.",
+        "label": "Historical episode 400; frame 294; 19.600s; top camera. Carry the teacup toward the white saucer/plate.",
+        "sha256": "fb990a3a3d89f991e1907e45537b6c66e7978d88a41ccd41f28c3dd650b6232c"
+      },
+      {
+        "path": "media/icl/teacup_to_saucer_teapot_to_tray/05_overlook_000343.png",
+        "frame": 343,
+        "camera": "overlook",
+        "phase": "Lower the cup over its destination.",
+        "label": "Historical episode 400; frame 343; 22.867s; overlook camera. Lower the cup over its destination.",
+        "sha256": "ed8baf3bc9e7a704315af6370e98ccfbbb792b76c5bdcffed55b326bcb7656c1"
+      },
+      {
+        "path": "media/icl/teacup_to_saucer_teapot_to_tray/06_overlook_000392.png",
+        "frame": 392,
+        "camera": "overlook",
+        "phase": "Release the cup on the white support.",
+        "label": "Historical episode 400; frame 392; 26.133s; overlook camera. Release the cup on the white support.",
+        "sha256": "334dd62759dab4b3f220e0365c89479edff210e8096a3a9830f2910234f60c18"
+      },
+      {
+        "path": "media/icl/teacup_to_saucer_teapot_to_tray/07_top_000441.png",
+        "frame": 441,
+        "camera": "top",
+        "phase": "Cup remains placed as hand withdraws.",
+        "label": "Historical episode 400; frame 441; 29.400s; top camera. Cup remains placed as hand withdraws.",
+        "sha256": "838243ed55d8fc6af47d55741aae7d4cf86db82e4453f310548b7ba66ab02390"
+      },
+      {
+        "path": "media/icl/teacup_to_saucer_teapot_to_tray/08_top_000490.png",
+        "frame": 490,
+        "camera": "top",
+        "phase": "Left hand approaches teapot handle.",
+        "label": "Historical episode 400; frame 490; 32.667s; top camera. Left hand approaches teapot handle.",
+        "sha256": "a8cb5bc08cd35adae0a941a45e3fd0c76c706ff84f0d99943fde4e32a9a4c496"
+      },
+      {
+        "path": "media/icl/teacup_to_saucer_teapot_to_tray/09_top_000539.png",
+        "frame": 539,
+        "camera": "top",
+        "phase": "Secure teapot grasp.",
+        "label": "Historical episode 400; frame 539; 35.933s; top camera. Secure teapot grasp.",
+        "sha256": "1f37499971000d4bb611a003dc8f7776d3dc456e70d72fd793fbce4f67ecbb7d"
+      },
+      {
+        "path": "media/icl/teacup_to_saucer_teapot_to_tray/10_top_000588.png",
+        "frame": 588,
+        "camera": "top",
+        "phase": "Lift and carry the teapot toward the wooden tray.",
+        "label": "Historical episode 400; frame 588; 39.200s; top camera. Lift and carry the teapot toward the wooden tray.",
+        "sha256": "f1152355a5125100475f80b2d70185dde1f768eb824ab6e2340459cd8b41dc89"
+      },
+      {
+        "path": "media/icl/teacup_to_saucer_teapot_to_tray/11_top_000637.png",
+        "frame": 637,
+        "camera": "top",
+        "phase": "Hold teapot above tray.",
+        "label": "Historical episode 400; frame 637; 42.467s; top camera. Hold teapot above tray.",
+        "sha256": "acb5a7f02ef57acd17f17b4c9b25ab5799a1437761f1b1131500a16ef2ed7081"
+      },
+      {
+        "path": "media/icl/teacup_to_saucer_teapot_to_tray/12_top_000686.png",
+        "frame": 686,
+        "camera": "top",
+        "phase": "Lower teapot onto tray surface.",
+        "label": "Historical episode 400; frame 686; 45.733s; top camera. Lower teapot onto tray surface.",
+        "sha256": "f500efd235ff4959e851d992e827904b77b2e357268005927b01e9c9212a14e1"
+      },
+      {
+        "path": "media/icl/teacup_to_saucer_teapot_to_tray/13_top_000735.png",
+        "frame": 735,
+        "camera": "top",
+        "phase": "Release and withdraw; teapot stands in the tray.",
+        "label": "Historical episode 400; frame 735; 49.000s; top camera. Release and withdraw; teapot stands in the tray.",
+        "sha256": "e661f8735a736b5065ddaf1365fb2d5e1125bfeef8d5ee61b3ff1659e7a2aa64"
+      }
+    ],
+    "source": {
+      "type": "archive",
+      "location": "astra_web_evidence_20260918/reference/icl/teacup_to_saucer_teapot_to_tray",
+      "revision": "astra_web_evidence_20260918_core.zip",
+      "manifest_sha256": "11e4fc394643c2274bfa99c360d236d830ea8c65d0ab4cf8510df94e3814d12b",
+      "annotations_sha256": "908b089ae880daa84c1fffc86af2164aa73541112f4920d388bdd9221ff1e46c"
+    }
+  },
+  {
+    "task": "tighten_nut",
+    "overview": "media/icl/tighten_nut/keyframes_preview.jpg",
+    "overview_sha256": "3ee5988cfa04d629a0c184fb9e2e9a91548dff8977e57e28ef37cabaebd8cbe1",
+    "description": "Grasp opposite outer sides of the yellow nut, lift it over the white bolt, align the nut's hole with the bolt axis, and lower until the bolt enters the hole. The hand then opens and retreats slightly. The nut subsequently rotates/descends in the images while the recorded hand remains nearly stationary and open. This is a useful grasp/alignment/seating reference, but it is not evidence of a demonstrated active multi-turn wrist-screwing controller. Verify progress in the current environment instead of assuming the post-release behavior will recur.",
+    "frames": [
+      {
+        "path": "media/icl/tighten_nut/top_000000.png",
+        "frame": 0,
+        "camera": "top",
+        "phase": "Initial yellow nut and white threaded bolt",
+        "label": "episode 6240, frame 0, 0.000 s, top camera; Initial yellow nut and white threaded bolt",
+        "sha256": "033f5e235ed681920b6ac2ebe6dc77742cd4dcce518089e791f8011f36340ed0"
+      },
+      {
+        "path": "media/icl/tighten_nut/overlook_000000.png",
+        "frame": 0,
+        "camera": "overlook",
+        "phase": "Initial yellow nut and white threaded bolt",
+        "label": "episode 6240, frame 0, 0.000 s, overlook camera; Initial yellow nut and white threaded bolt",
+        "sha256": "6f89dcfe5f2198dbcbe0887aa9f57ae8b82586afb95742feb97a86eeac0d20d8"
+      },
+      {
+        "path": "media/icl/tighten_nut/left_000094.png",
+        "frame": 94,
+        "camera": "left",
+        "phase": "Open left fingers approach opposite outer sides of the nut",
+        "label": "episode 6240, frame 94, 6.267 s, left camera; Open left fingers approach opposite outer sides of the nut",
+        "sha256": "cfdfc28a639024a761f7bec8f58432a332c7963df9a12d46135882a623982f7c"
+      },
+      {
+        "path": "media/icl/tighten_nut/left_000130.png",
+        "frame": 130,
+        "camera": "left",
+        "phase": "Nut held between left fingers",
+        "label": "episode 6240, frame 130, 8.667 s, left camera; Nut held between left fingers",
+        "sha256": "d419570b97b5f6ded84820325064cc590cfc1ec051e01540e169761ed964e373"
+      },
+      {
+        "path": "media/icl/tighten_nut/left_000187.png",
+        "frame": 187,
+        "camera": "left",
+        "phase": "Nut hole brought above the bolt axis",
+        "label": "episode 6240, frame 187, 12.467 s, left camera; Nut hole brought above the bolt axis",
+        "sha256": "89c923343f69116ec58c1790c09d691530fb11603336b11ec86048bb57de0b34"
+      },
+      {
+        "path": "media/icl/tighten_nut/left_000240.png",
+        "frame": 240,
+        "camera": "left",
+        "phase": "Bolt enters the nut hole during lowering",
+        "label": "episode 6240, frame 240, 16.000 s, left camera; Bolt enters the nut hole during lowering",
+        "sha256": "ff951982494a636baba53fdc9c48ab33196760b16a482fda1bebe1f115574917"
+      },
+      {
+        "path": "media/icl/tighten_nut/left_000281.png",
+        "frame": 281,
+        "camera": "left",
+        "phase": "Nut seated around the bolt before release",
+        "label": "episode 6240, frame 281, 18.733 s, left camera; Nut seated around the bolt before release",
+        "sha256": "2283afe237af631e8673c41e950d2ea5fec1684dc681bc005759da63303e8e8f"
+      },
+      {
+        "path": "media/icl/tighten_nut/left_000330.png",
+        "frame": 330,
+        "camera": "left",
+        "phase": "Fingers opening and moving clear of the nut",
+        "label": "episode 6240, frame 330, 22.000 s, left camera; Fingers opening and moving clear of the nut",
+        "sha256": "cec60c791c659b8f812f29634377666b27033c2b997603250bd96fbe6c5a2176"
+      },
+      {
+        "path": "media/icl/tighten_nut/top_000468.png",
+        "frame": 468,
+        "camera": "top",
+        "phase": "Post-release observation; open hand nearly stationary",
+        "label": "episode 6240, frame 468, 31.200 s, top camera; Post-release observation; open hand nearly stationary",
+        "sha256": "bafbbf5b50c6f278ab8273276baaef480a1aefbf0c903b0b9be91ed01338b8ca"
+      },
+      {
+        "path": "media/icl/tighten_nut/top_000749.png",
+        "frame": 749,
+        "camera": "top",
+        "phase": "Nut lower on the bolt without a demonstrated wrist rotation",
+        "label": "episode 6240, frame 749, 49.933 s, top camera; Nut lower on the bolt without a demonstrated wrist rotation",
+        "sha256": "f167eec234f77c9ca178a4b3071467944978ed82f5c082e5f04ae7766f79046d"
+      },
+      {
+        "path": "media/icl/tighten_nut/top_001030.png",
+        "frame": 1030,
+        "camera": "top",
+        "phase": "Continued visible nut descent while the hand stays open",
+        "label": "episode 6240, frame 1030, 68.667 s, top camera; Continued visible nut descent while the hand stays open",
+        "sha256": "dc732bc7e74f008745c911dc4623148d82273817fd6e3966bba1afc1d95e40f3"
+      },
+      {
+        "path": "media/icl/tighten_nut/top_001311.png",
+        "frame": 1311,
+        "camera": "top",
+        "phase": "Nut near its final lower position before hand retreat",
+        "label": "episode 6240, frame 1311, 87.400 s, top camera; Nut near its final lower position before hand retreat",
+        "sha256": "2878e8b9495d0384128fe2d820000f8da36b9f3c8826378e59c316b3481e1d85"
+      },
+      {
+        "path": "media/icl/tighten_nut/top_001405.png",
+        "frame": 1405,
+        "camera": "top",
+        "phase": "Final nut on bolt with hand withdrawn",
+        "label": "episode 6240, frame 1405, 93.667 s, top camera; Final nut on bolt with hand withdrawn",
+        "sha256": "b21bb33a51e96437775d6df1f1f0f1e1557b4839546075144d4115cb6e63eff6"
+      },
+      {
+        "path": "media/icl/tighten_nut/overlook_001405.png",
+        "frame": 1405,
+        "camera": "overlook",
+        "phase": "Final nut on bolt with hand withdrawn",
+        "label": "episode 6240, frame 1405, 93.667 s, overlook camera; Final nut on bolt with hand withdrawn",
+        "sha256": "2d1ccfe8751cedf3f21d9b856a2d452ceee7c8b8758a4b4971dcd5cbce6129aa"
+      }
+    ],
+    "source": {
+      "type": "git",
+      "location": "ref/icl/tighten_nut",
+      "revision": "814d3112772c7a6e06ded20ae90149530376f363",
+      "manifest_sha256": "4c562510b1b32a582bbc1f908f7be3aea18c6f928822ecceaff3d0b1043ce954",
+      "annotations_sha256": "6ff8933b7871392ae098346aae7f7328c5ebaab7b5044bbf4f878e52ec7b386a"
+    }
+  },
+  {
+    "task": "utensils_to_holder",
+    "overview": "media/icl/utensils_to_holder/keyframes_preview.jpg",
+    "overview_sha256": "a4ca5603213069e6208fcca49e114f588d10006bd26338ca7ebfe179679ddf6a",
+    "description": "Use the right hand to pick utensils at their handles, lift and reorient them toward the holder beside the sink, then lower and release at its compartments. Return for the remaining utensils and repeat. The source includes several overlapping metal utensils, so check that each intended utensil moves with the gripper and that already placed pieces remain in the holder.",
+    "frames": [
+      {
+        "path": "media/icl/utensils_to_holder/00_top_000000.png",
+        "frame": 0,
+        "camera": "top",
+        "phase": "Overlapping utensils on the counter and empty holder beside the sink.",
+        "label": "Historical episode 840; frame 0; 0.000s; top camera. Overlapping utensils on the counter and empty holder beside the sink.",
+        "sha256": "1fce74eddf9e6f940784d06d880b07a7492cabe0105fc999991bdb3dd49ac46a"
+      },
+      {
+        "path": "media/icl/utensils_to_holder/01_overlook_000045.png",
+        "frame": 45,
+        "camera": "overlook",
+        "phase": "Right hand approaches utensil pickup area.",
+        "label": "Historical episode 840; frame 45; 3.000s; overlook camera. Right hand approaches utensil pickup area.",
+        "sha256": "be0d3f2b195b90cf62998ed6529ab178c6b4eee49294d7a486553eaa9efe1014"
+      },
+      {
+        "path": "media/icl/utensils_to_holder/02_top_000089.png",
+        "frame": 89,
+        "camera": "top",
+        "phase": "Align right fingers at the handle region.",
+        "label": "Historical episode 840; frame 89; 5.933s; top camera. Align right fingers at the handle region.",
+        "sha256": "86409596dd66b904c18bb791a4eb2432af1c4b3c55475df72db21dd12e1496ea"
+      },
+      {
+        "path": "media/icl/utensils_to_holder/03_top_000134.png",
+        "frame": 134,
+        "camera": "top",
+        "phase": "Secure a handle grasp among nearby utensils.",
+        "label": "Historical episode 840; frame 134; 8.933s; top camera. Secure a handle grasp among nearby utensils.",
+        "sha256": "655d0a055d62e04e0bea1ba916e0267e3f4de04c2f04147b1874ebe8064d603d"
+      },
+      {
+        "path": "media/icl/utensils_to_holder/04_top_000179.png",
+        "frame": 179,
+        "camera": "top",
+        "phase": "Lift selected utensil; nearby pieces shift.",
+        "label": "Historical episode 840; frame 179; 11.933s; top camera. Lift selected utensil; nearby pieces shift.",
+        "sha256": "c91b7d07e99766de0631986e4d13173b802ef8ff07d015666650f99fb8fd7091"
+      },
+      {
+        "path": "media/icl/utensils_to_holder/05_overlook_000223.png",
+        "frame": 223,
+        "camera": "overlook",
+        "phase": "Carry held utensil as base repositions.",
+        "label": "Historical episode 840; frame 223; 14.867s; overlook camera. Carry held utensil as base repositions.",
+        "sha256": "fcd7389f25ba7b3e58b2beef74a94bba8bb55e76f093921db1359c020baedb5a"
+      },
+      {
+        "path": "media/icl/utensils_to_holder/06_overlook_000268.png",
+        "frame": 268,
+        "camera": "overlook",
+        "phase": "Approach sink-side holder.",
+        "label": "Historical episode 840; frame 268; 17.867s; overlook camera. Approach sink-side holder.",
+        "sha256": "2651993d14a8e5dfcaa300213182d9db781b06a9c838b98428d8c323f7e26161"
+      },
+      {
+        "path": "media/icl/utensils_to_holder/07_top_000313.png",
+        "frame": 313,
+        "camera": "top",
+        "phase": "Lower first carried utensil toward a holder compartment.",
+        "label": "Historical episode 840; frame 313; 20.867s; top camera. Lower first carried utensil toward a holder compartment.",
+        "sha256": "733a8e216a213d4980d997dadd85a587ab85d80749c08e9dcc34285b757c5021"
+      },
+      {
+        "path": "media/icl/utensils_to_holder/08_top_000357.png",
+        "frame": 357,
+        "camera": "top",
+        "phase": "Open fingers near the compartment.",
+        "label": "Historical episode 840; frame 357; 23.800s; top camera. Open fingers near the compartment.",
+        "sha256": "437d24627993f1533daa8fd32c8fb3585a70c932b68e0541661b1f7ed49fd6f6"
+      },
+      {
+        "path": "media/icl/utensils_to_holder/09_overlook_000402.png",
+        "frame": 402,
+        "camera": "overlook",
+        "phase": "Withdraw and return for remaining utensils.",
+        "label": "Historical episode 840; frame 402; 26.800s; overlook camera. Withdraw and return for remaining utensils.",
+        "sha256": "5c7c727dba4af3b89412b406abb15f385105a1aedb88c391ad4c2ded6f30ed2d"
+      },
+      {
+        "path": "media/icl/utensils_to_holder/10_top_000447.png",
+        "frame": 447,
+        "camera": "top",
+        "phase": "Approach the remaining handle cluster.",
+        "label": "Historical episode 840; frame 447; 29.800s; top camera. Approach the remaining handle cluster.",
+        "sha256": "fea54e22e169eb941c28027aefbd6704f180eabca4aab45a78390909035dd0c8"
+      },
+      {
+        "path": "media/icl/utensils_to_holder/11_top_000491.png",
+        "frame": 491,
+        "camera": "top",
+        "phase": "Grasp remaining utensils at the handles.",
+        "label": "Historical episode 840; frame 491; 32.733s; top camera. Grasp remaining utensils at the handles.",
+        "sha256": "036bcfd091a3750d9a65299cbb047b7c2daceb7657cd3b481b96dacfcc4791e5"
+      },
+      {
+        "path": "media/icl/utensils_to_holder/12_top_000536.png",
+        "frame": 536,
+        "camera": "top",
+        "phase": "Lift and reorient held pieces.",
+        "label": "Historical episode 840; frame 536; 35.733s; top camera. Lift and reorient held pieces.",
+        "sha256": "e3122e730aec7843e4c1898aac879ba99087f3dd98e81d8783546b928e476f6e"
+      },
+      {
+        "path": "media/icl/utensils_to_holder/13_top_000581.png",
+        "frame": 581,
+        "camera": "top",
+        "phase": "Carry pieces above the holder and draining tray.",
+        "label": "Historical episode 840; frame 581; 38.733s; top camera. Carry pieces above the holder and draining tray.",
+        "sha256": "81add1c7f908e0acf3f3bfc2e27c13eef546feef48b25db4077c4698fc2fa04c"
+      },
+      {
+        "path": "media/icl/utensils_to_holder/14_top_000625.png",
+        "frame": 625,
+        "camera": "top",
+        "phase": "Lower and release near holder compartments.",
+        "label": "Historical episode 840; frame 625; 41.667s; top camera. Lower and release near holder compartments.",
+        "sha256": "d66162e83109a1d9179adc1914fb9ceb9aff505561f8b3b483a89dafb6735b06"
+      },
+      {
+        "path": "media/icl/utensils_to_holder/15_top_000670.png",
+        "frame": 670,
+        "camera": "top",
+        "phase": "Final utensils cluster at holder; some extend across draining tray.",
+        "label": "Historical episode 840; frame 670; 44.667s; top camera. Final utensils cluster at holder; some extend across draining tray.",
+        "sha256": "573594453b89e07906aee9cf784cbdb2853f13a56772e12dcbe106fdc00d03c9"
+      }
+    ],
+    "source": {
+      "type": "archive",
+      "location": "astra_web_evidence_20260918/reference/icl/utensils_to_holder",
+      "revision": "astra_web_evidence_20260918_core.zip",
+      "manifest_sha256": "78621803bb9d29a2ae77050d2f5cd7ef0d70620d0aae752bfb91273bb7558a73",
+      "annotations_sha256": "18a2113e41361f7b770ec71e60df167684b0fc5ce5677b24ad4d6aa464790e12"
+    }
+  }
+]

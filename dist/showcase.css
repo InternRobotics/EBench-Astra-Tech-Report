@@ -165,3 +165,13 @@ main .overall-metric .metric-label{font-size:12px;line-height:1.5;letter-spacing
 .timing-measurements tbody tr:last-child>*{border-bottom:0}
 .protocol-scope td,.protocol-scope thead th{text-align:left;vertical-align:top;line-height:1.7}
 .protocol-scope tbody th{vertical-align:top;white-space:normal;width:30%}
+.icl-overview-copy{max-width:860px;margin-bottom:24px}
+.icl-overview-copy h3{font-size:24px!important;line-height:1.4;margin:0 0 12px!important;color:#243b60}
+.icl-overview-copy p{font-size:16px!important;line-height:1.8!important;color:#3f5674!important;margin:0!important}
+.icl-overview-sheet{margin:0}
+.icl-overview-sheet a{display:block;cursor:zoom-in}
+.icl-overview-sheet img{display:block;width:100%;height:auto;border:1px solid #e0e6ef;border-radius:5px}
+.icl-overview-sheet figcaption{font-size:12px;color:#617491;margin-top:12px}
+.icl-numeric-detail{margin:10px 0;color:#455d7e;font-size:13px}
+.icl-numeric-detail summary{cursor:pointer;padding-block:6px}
+.icl-album+.icl-frame-controls{margin-top:20px}
