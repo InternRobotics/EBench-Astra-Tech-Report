@@ -82,3 +82,10 @@ Remove the visible Introduction label. Preserve the opening prose as two paragra
 ## Reading order after setup revision
 
 Opening motivation → benchmark scope and headline SR/Score → Experiment Setup (including complete ICL package card) → Complete benchmark comparison → General Analysis and cases. The matrix and its supplementary-result links now live in #comparison, after #setup. #overall retains the headline chart and comparison-scope footnote. Do not move the full comparison ahead of the experiment explanation.
+
+
+## Frame-aligned ICL text and Matrix epigraph
+
+The ICL frame viewer pairs each original image with its immediately preceding text input, displayed verbatim in a dedicated Frame Prompt panel with one-based source block numbers. The shared task annotation remains available under “Shared task prompt”; it is distinct from frame-specific text and no authoring prompts are added. Thumbnails, next/previous and range selection all update the same pair.
+
+`dist/quote-effect.js` supplies a canvas digital-rain background confined to the Matrix quotation. Text stays centered in Allura with a right-aligned attribution. The animation has its own pause button, respects reduced-motion preference, and stops when offscreen or the document is hidden. The report body remains light.
