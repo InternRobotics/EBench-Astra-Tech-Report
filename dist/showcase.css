@@ -155,3 +155,11 @@ main .overall-metric .metric-label{font-size:12px;line-height:1.5;letter-spacing
 .safety-evidence .video-label span,.safety-evidence figcaption{font-size:12px;color:#546b8a}
 .conclusion-prose h3{margin-top:40px;font-size:25px;line-height:1.4;color:#253c60}
 @media(max-width:760px){.safety-evidence{grid-template-columns:1fr;gap:24px}.safety-case-copy h3{font-size:21px}.conclusion-prose h3{font-size:22px}}
+.timing-measurements{margin:22px 0;border:1px solid #dde5f1;border-radius:8px;overflow:auto}
+.timing-measurements table{width:100%;min-width:620px;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+.timing-measurements caption{text-align:left;padding:14px 16px;color:#506687;font-size:13px}
+.timing-measurements th,.timing-measurements td{padding:13px 16px;border-bottom:1px solid #e4eaf4;text-align:right;color:#2b4262}
+.timing-measurements thead th{background:#eff3fc;font-size:12px;font-weight:600;white-space:normal}
+.timing-measurements th:first-child{text-align:left}
+.timing-measurements tbody th{font-weight:500;white-space:nowrap}
+.timing-measurements tbody tr:last-child>*{border-bottom:0}

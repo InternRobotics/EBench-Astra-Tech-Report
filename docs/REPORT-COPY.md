@@ -51,7 +51,7 @@ The PDF/content audit was performed by a subagent and its final three wording co
 
 ## Author-directed conclusion and safety analysis (2026-09-19)
 
-The author supplied the conclusion's argument in conversation: complementary agent/on-device control; transferring planning, exploration, and recovery through intention imitation; converting exploratory experience into reusable knowledge/tools and RSI; and safety beyond simulator feasibility. The English adaptation is in `dist/index.html`, with selective emphasis and continuous prose. These are proposed research directions, not implemented or evaluated gains. No latency comparison, hardware damage measurement, or retained cross-episode learning is claimed.
+The author supplied the conclusion's argument in conversation: complementary agent/on-device control; transferring planning, exploration, and recovery through intention imitation; converting exploratory experience into reusable knowledge/tools and RSI; and safety beyond simulator feasibility. The English adaptation is in `dist/index.html`, with selective emphasis and continuous prose. Do not infer that a measurement is unavailable just because it was absent from the draft report. The subsequent author correction and execution-log analysis below replace the earlier blanket disclaimer about timing and hardware analysis.
 
 The supporting safety analysis follows emerging capabilities and precedes Case Studies. Its three interactive examples in `dist/research.js` reuse existing source-matched videos:
 
@@ -62,3 +62,21 @@ The supporting safety analysis follows emerging capabilities and precedes Case S
 Large pose corrections and coordination concerns follow the author's qualitative observations and `analysis/latex-review/analysis.tex`, Behavioral Implications. No unverified dishwasher-failure recording is relabeled as evidence: the existing selected dishwasher video is a successful episode. The older draft's broad bimanual-frequency and motor-damage claims are not represented as measured results.
 
 RPent's planner/VLA-tool architecture was verified against its official documentation: https://rpent.readthedocs.io/en/latest/rst_source/development/architecture.html (accessed 2026-09-19). Only this architectural relation is cited; no external performance claims are imported.
+
+## Timing and physical constraints: author correction and calculation
+
+The author clarified that the simulator frequency is 30 Hz and that timing/physical-constraint analysis should use logged timestamps, steps, joint states, URDF limits, and real-robot specifications. Removed the conclusion's blanket disclaimer and replaced the generic Scope and limitations popup with Evaluation protocol and execution measurements. The conclusion now calls for concrete timing and motion-limit analysis rather than suggesting such analysis requires physical deployment trials.
+
+`scripts/analyze-execution-timing.py` reads three selected main-cohort episodes directly from `astra_web_evidence_20260918_core.zip`. Reproduce with `python scripts/analyze-execution-timing.py astra_web_evidence_20260918_core.zip`. The output `dist/data/execution-timing.json` records source SHA256 hashes, the author-supplied frequency, calculations, and definitions. It publishes no raw prompts, host paths, or account identifiers.
+
+| Episode | Policy steps | Simulated seconds | Policy wall seconds | Longest action batch, simulated seconds |
+| --- | ---: | ---: | ---: | ---: |
+| apple_to_fruit_bowl_006 | 1041 | 34.70 | 729.84 | 2.13 |
+| collect_coffee_beans_013 | 3500 | 116.67 | 5050.40 | 6.40 |
+| utensils_to_holder_000 | 2000 | 66.67 | 2658.43 | 4.00 |
+
+All three have zero terminal-hold steps. The script verifies that recorded chunk execution and public-action step increments both sum to policy_physics_steps. Terminal chunks have executed_steps but no final joint-state observation; their steps count toward timing but they are excluded from joint finite differences. This is a three-case analysis, not a 510-episode aggregate.
+
+Policy wall duration includes the execution system as well as model processing. Pure inference requires appropriately bounded request/response timestamps and separation of tool wall time; wall duration minus simulated duration is not that measurement. The chunk time field alone is not a model-request start/end pair. The script does not label either metric as pure model latency.
+
+Joint displacement over the logged step interval yields segment-average angular velocity. The largest absolute segment averages are approximately 2.321, 1.889, and 1.902 rad/s, respectively. State samples are typically eight steps apart, so these are not instantaneous peaks. No matching evaluated-robot URDF/hardware limits or joint-name map has been incorporated into this calculation; it makes no numerical compliance/violation claim. The appendix explains how to perform that comparison once the exact configuration is aligned. Request-level latency decomposition and physical-limit ratios remain additional analyses, not grounds to declare the source logs unusable.
