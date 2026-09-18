@@ -89,3 +89,10 @@ Opening motivation → benchmark scope and headline SR/Score → Experiment Setu
 The ICL frame viewer pairs each original image with its immediately preceding text input, displayed verbatim in a dedicated Frame Prompt panel with one-based source block numbers. The shared task annotation remains available under “Shared task prompt”; it is distinct from frame-specific text and no authoring prompts are added. Thumbnails, next/previous and range selection all update the same pair.
 
 `dist/quote-effect.js` supplies a canvas digital-rain background confined to the Matrix quotation. Text stays centered in Allura with a right-aligned attribution. The animation has its own pause button, respects reduced-motion preference, and stops when offscreen or the document is hidden. The report body remains light.
+
+
+## Navigation and ICL album revision (2026-09-19)
+
+Shanghai AI Lab logo now precedes InternRobotics. The header stays sticky, including a second navigation row on phones. `report-navigation.js` provides the fixed left Contents toggle, current-section tracking, Escape collapse, and per-session preference. At >=1400 px an expanded outline reserves 230 px beside the body; on smaller screens it overlays and closes after selecting a link.
+
+The Matrix quote now uses a lighter blue background with green characters. The on-card pause button is removed at the author's request; reduced-motion, offscreen and visibility handling remain. ICL frames and original text have equal-width/equal-height panels on desktop, readable labels, and previous/next controls outside the pair, plus keyboard arrows. Phones stack the panels. Data and source wording remain unchanged.
