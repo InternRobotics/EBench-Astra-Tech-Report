@@ -106,3 +106,9 @@ A separate GPT-6-Astra instance at `high` reasoning effort reviews one training-
 ## Complete task-attribute filters
 
 The task heatmap and video library share a Task attribute selector with optgroups: Mobility (Mobile/Tabletop), Precision (Low/Medium/High), Task horizon (Short/Long). All seven options show counts computed from tasks.json. `matchesTaskGroup` uses the explicit field and value, so categories from different dimensions cannot be confused. The counts describe the complete task cohort; search and video-outcome filters may reduce the displayed results further.
+
+## Conclusion and safety revision (2026-09-19)
+
+The author supplied a new conclusion, titled “Conclusion and Insights: where shall we head to?”. Preserve its four directions: couple agents with on-device policies; transfer planning/exploration/recovery through intention imitation; turn experience into reusable tools and RSI; make safety part of execution. The RPent architectural reference links to official documentation. RSI, training-data efficiency, and hybrid benefits remain proposed directions rather than measured improvements.
+
+A Safety in execution subsection now follows emerging capabilities and precedes Case Studies, with a Contents link. Three keyboard-accessible tabs reuse coffee013, the qualitative Astra glasses recording, and apple006. Each separates recorded behavior from a prospective physical risk and a control question. Do not label glasses with a main-cohort seed or a score, and do not treat requested contact adjustments as verified contact. See REPORT-COPY.md for evidence provenance. Browser automation was unavailable during this revision; perform visual QA when its connection recovers.

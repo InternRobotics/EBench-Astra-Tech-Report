@@ -142,3 +142,16 @@ main .overall-metric .metric-label{font-size:12px;line-height:1.5;letter-spacing
 
 .icl-dialog .icl-intro{font-size:15px!important}.icl-dialog .icl-data-table th,.icl-dialog .icl-data-table td{font-size:13px!important}.icl-input-block p{font-size:14px!important}.icl-json{font-size:13px}
 @media(min-width:761px) and (max-width:1000px){.internrobotics-brand img{width:140px}.shanghai-ai-brand img{width:166px}.header nav{gap:15px}.header nav a{font-size:11px}}
+/* Safety evidence follows the analysis: one selected rollout alongside its interpretation. */
+#safety{background:#f6f8fd}
+.safety-evidence{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;align-items:start;padding-top:24px}
+.safety-case-copy h3{font-size:23px;line-height:1.35;margin:0 0 22px;color:#243957}
+.safety-case-copy dl{margin:0}
+.safety-case-copy dt{font-size:13px;font-weight:650;color:#344db1;margin:20px 0 8px}
+.safety-case-copy dd{margin:0;font-size:16px;line-height:1.8;color:#435b79}
+.safety-question{font-size:16px;line-height:1.75;margin:22px 0 0;padding-left:16px;border-left:2px solid #536aff;color:#263e65}
+.safety-source{margin-top:22px;max-width:850px}
+.safety-evidence .video-label strong{font-size:15px;color:#304766}
+.safety-evidence .video-label span,.safety-evidence figcaption{font-size:12px;color:#546b8a}
+.conclusion-prose h3{margin-top:40px;font-size:25px;line-height:1.4;color:#253c60}
+@media(max-width:760px){.safety-evidence{grid-template-columns:1fr;gap:24px}.safety-case-copy h3{font-size:21px}.conclusion-prose h3{font-size:22px}}

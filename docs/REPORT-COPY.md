@@ -25,7 +25,7 @@ Report dataset results first. The page begins with overall results and the full 
 
 `dist/narrative.js` contains edited analytical paragraphs. `dist/data/report-copy.json` preserves 46 extracted source paragraphs, their PDF pages, and the PDF SHA256 for editorial comparison; it is not automatically rendered. `scripts/extract-report-copy.py` regenerates that reference from the supplied PDF. It normalizes PDF line breaks, ligatures and unresolved bibliography markers. The PDF remains unchanged.
 
-The web adaptation retains claims and explanations relevant to the three questions, removes broken draft references, and links to the report or corresponding data. It does not invent a conclusion to the unfinished PDF §5. The report’s frame paragraph has a cup/pen-holder wording inconsistency; web copy describes grasp orientation, bimanual coordination, and placement without silently resolving that source inconsistency.
+The web adaptation retains claims and explanations relevant to the three questions, removes broken draft references, and links to the report or corresponding data. The conclusion was initially left provisional; the author supplied its substantive argument on 2026-09-19, and the current conclusion follows that argument (see below). The report’s frame paragraph has a cup/pen-holder wording inconsistency; web copy describes grasp orientation, bimanual coordination, and placement without silently resolving that source inconsistency.
 
 ## Added primary evidence: Apple006
 
@@ -48,3 +48,17 @@ The corresponding full-video archive recording is transcoded to H.264 in `dist/m
 - No claims of measured cross-episode learning, recursive self-improvement, general recovery superiority, or confirmed POC aggregate performance.
 
 The PDF/content audit was performed by a subagent and its final three wording corrections were applied: restrict the specialized-policy advantage to leading systems, describe failure patterns without claiming causal identification, and identify the apple failure as the first transport attempt rather than the start of the episode.
+
+## Author-directed conclusion and safety analysis (2026-09-19)
+
+The author supplied the conclusion's argument in conversation: complementary agent/on-device control; transferring planning, exploration, and recovery through intention imitation; converting exploratory experience into reusable knowledge/tools and RSI; and safety beyond simulator feasibility. The English adaptation is in `dist/index.html`, with selective emphasis and continuous prose. These are proposed research directions, not implemented or evaluated gains. No latency comparison, hardware damage measurement, or retained cross-episode learning is claimed.
+
+The supporting safety analysis follows emerging capabilities and precedes Case Studies. Its three interactive examples in `dist/research.js` reuse existing source-matched videos:
+
+- Coffee `collect_coffee_beans_013-web.mp4`: public calls 21 and 45–47 request spoon/finger contact adjustments; terminal Score 0.50 / SR 0. These requests do not prove measured surface height or successful contact. The risk of forceful table contact is an interpretation, not a recorded force measurement.
+- Glasses `astra-glasses.mp4`: the report's fine-manipulation comparison describes protruding temples and unfinished closure. Pinching/breakage is a possible real-world consequence, not observed damage. This selected case has no main-cohort seed attached and receives no fabricated score.
+- Apple `apple_to_fruit_bowl_006-web.mp4`: the public recovery notes and server-confirmed success demonstrate why eventual success alone can hide intermediate object loss. The explanation of base-motion slip is attributed to the agent, not established as an independent causal finding.
+
+Large pose corrections and coordination concerns follow the author's qualitative observations and `analysis/latex-review/analysis.tex`, Behavioral Implications. No unverified dishwasher-failure recording is relabeled as evidence: the existing selected dishwasher video is a successful episode. The older draft's broad bimanual-frequency and motor-damage claims are not represented as measured results.
+
+RPent's planner/VLA-tool architecture was verified against its official documentation: https://rpent.readthedocs.io/en/latest/rst_source/development/architecture.html (accessed 2026-09-19). Only this architectural relation is cited; no external performance claims are imported.
