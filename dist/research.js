@@ -32,10 +32,11 @@ function initBehavior(){
  document.querySelectorAll('[data-behavior]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#behavior-content video').forEach(v=>{v.pause();observer.unobserve(v);});document.querySelectorAll('[data-behavior]').forEach(x=>{x.setAttribute('aria-selected',String(x===b));x.tabIndex=x===b?0:-1;});draw(b.dataset.behavior);}));tabKeyboard($('.behavior-tabs'),'[data-behavior]');draw('apple');
 }
 function initDemoLibrary(){
+ $('#demo-group').innerHTML=taskGroupOptions();
  let page=0;const size=6,unique=tasks.map(t=>({task:t,demo:demos.find(d=>d.task===t.task)}));
  function draw(){
   const query=$('#demo-search').value.trim().toLowerCase(),group=$('#demo-group').value,outcome=$('#demo-outcome').value;
-  const filtered=unique.filter(({task:t,demo:d})=>d&&title(t.task).toLowerCase().includes(query)&&(group==='all'||[t.mobility,t.precision,t.horizon].includes(group))&&(outcome==='all'||(outcome==='success'?d.sr:!d.sr))),pages=Math.max(1,Math.ceil(filtered.length/size));page=Math.min(page,pages-1);
+  const filtered=unique.filter(({task:t,demo:d})=>d&&title(t.task).toLowerCase().includes(query)&&matchesTaskGroup(t,group)&&(outcome==='all'||(outcome==='success'?d.sr:!d.sr))),pages=Math.max(1,Math.ceil(filtered.length/size));page=Math.min(page,pages-1);
   $('#library-grid').querySelectorAll('video').forEach(v=>{v.pause();observer.unobserve(v);});
   $('#library-grid').innerHTML=filtered.slice(page*size,page*size+size).map(({task:t,demo:d})=>`<article class="library-item">${video(d.path,title(t.task),`<span>Selected episode ${d.seed}: <b>${d.sr?'success':'incomplete'}</b> · Score ${d.score.toFixed(2)}</span><span>Task SR <b>${pct(t['Astra (ICL)_sr'])}%</b> across ${t.episodes} episodes</span>`,`${t.mobility==='Mobile'?'Mobile':'Tabletop'} · ${t.precision.toLowerCase()} precision`)}</article>`).join('')||'<p>No tasks match these filters.</p>';
   $('#library-count').textContent=`${filtered.length} tasks · ${filtered.length? page*size+1:0}–${Math.min((page+1)*size,filtered.length)} shown`;

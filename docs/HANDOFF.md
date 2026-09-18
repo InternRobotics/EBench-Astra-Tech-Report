@@ -101,3 +101,8 @@ The Matrix quote now uses a lighter blue background with green characters. The o
 ## Author clarification: ICL preparation and POC trajectories
 
 A separate GPT-6-Astra instance at `high` reasoning effort reviews one training-set video trajectory per task and autonomously chooses the annotated keyframes and accompanying prompts. This provenance is now stated both in Experiment Setup and the ICL viewer; do not confuse it with the evaluation agent or publish authoring prompts. Format `high` as inline code. Composed POC tasks have no ground-truth trajectories, which is why their evaluation uses zero-shot rather than ICL. Atomic-skill training of comparison policies remains distinct from those unseen compositions. These details were explicitly supplied by the author on 2026-09-19.
+
+
+## Complete task-attribute filters
+
+The task heatmap and video library share a Task attribute selector with optgroups: Mobility (Mobile/Tabletop), Precision (Low/Medium/High), Task horizon (Short/Long). All seven options show counts computed from tasks.json. `matchesTaskGroup` uses the explicit field and value, so categories from different dimensions cannot be confused. The counts describe the complete task cohort; search and video-outcome filters may reduce the displayed results further.
