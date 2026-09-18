@@ -55,3 +55,15 @@ No external API credentials or account access are required. `.openai/` contains 
 Benchmark overview and Evaluation metrics links go to https://internrobotics.github.io/EBench-doc/getting-started/overview/; task exploration goes to https://internrobotics.github.io/EBench-doc/evaluation/task-showcase/. Report-specific comparison tables and ablations remain within this report. Keep the overall rate and secondary Score in one aligned typographic group, with the metric description above.
 
 Use **single-shot ICL** consistently in edited page copy (the introductory expansion remains “Single-shot In-Context Learning (ICL)”). KaTeX 0.16.22 is copied from Gauge into `dist/vendor/katex/` with fonts and MIT license. `dist/model-math.js` renders the model names as `\pi_{0}` and `\pi_{0.5}`, including newly inserted tables, case controls, captions and SVG chart labels. Canonical Pi0/Pi05 data keys remain unchanged.
+
+Reading hierarchy: retain selective semantic bold on decisive comparisons, failure patterns and action revisions; avoid uniformly emphasizing whole paragraphs. Both heatmaps use one shared absolute blue scale and choose black/white text from relative luminance, with a measured minimum contrast of 4.59:1 across 10,001 sampled values. Do not restore the previous fixed score threshold for text color.
+
+
+## Complete historical ICL packages (2026-09-18)
+
+- Setup now contains a compact visual card opening the actual reference input viewer. ICL case studies also link to their task package.
+- `dist/icl-viewer.js` loads `dist/data/icl-packages.json`: all 26 main-cohort seed-000 packages, 417 original text blocks and 365 original PNGs. Every input is retained in order, including numeric excerpts and historical/current boundary markers. Only image paths are relocated. Complete input tab and per-task JSON download preserve source precision; the overview table rounds numbers for readability.
+- Images are in `dist/media/icl/`; `docs/icl-assets.json` records the source archive, original data entries and hashes. `npm run validate` verifies every image hash and coverage. These assets total about 91 MB and load on demand.
+- User explicitly distinguishes actual supplied ICL data (show completely) from casually written authoring prompts (do not publish). Do not expose original-user-prompts, annotation-batch templates, or initial execution prompts as report appendices.
+- Source `episode` identifies the receiving evaluation run; historical source episodes are specified in the original annotations. Historical top-camera views are not live-policy observations. Demonstrations have no official source success labels.
+- Paired ICL appendix now separates the eight fresh pairs from the five historical dishwasher comparisons; displays both SR and Score, regressions, and terminal holding caveats from appendix.tex. No main-cohort aggregate is changed.

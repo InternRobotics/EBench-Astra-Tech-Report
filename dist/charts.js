@@ -37,10 +37,21 @@ function initTaskTable(){document.querySelectorAll('.task-explorer:not([data-tab
  const rows=tasks.filter(t=>title(t.task).toLowerCase().includes(query)&&(group==='all'||[t.mobility,t.precision,t.horizon].includes(group))).sort((a,b)=>{const delta=sortKey==='task'?a.task.localeCompare(b.task):Number(a[sortKey+'_'+metric])-Number(b[sortKey+'_'+metric]);return descending?-delta:delta;});
  root.querySelector('.task-count').textContent=`${rows.length} of ${tasks.length} tasks · select a column heading to sort`;
  const heading=(key,label)=>`<th scope="col"${key===sortKey?` aria-sort="${descending?'descending':'ascending'}"`:''}><button data-sort="${key}">${label}${key===sortKey?(descending?' ↓':' ↑'):''}</button></th>`;
- host.innerHTML=`<table class="task-results"><thead><tr>${heading('task','Task')}<th>N</th>${orderedModels.map(([key,label])=>heading(key,label)).join('')}<th>Video</th></tr></thead><tbody>${rows.map(t=>`<tr><th scope="row">${title(t.task)}</th><td>${t.episodes}</td>${orderedModels.map(([key,label])=>`<td title="${title(t.task)} · ${label}: ${metric==='sr'?(Number(t[key+'_sr'])*100).toFixed(2)+'%':Number(t[key+'_score']).toFixed(4)}" style="background:${heatColor(Number(t[key+'_'+metric]))};color:${Number(t[key+'_'+metric])>.55?'#fff':'#4d5973'}"${key==='Astra (ICL)'?' class="astra-cell"':''}>${metric==='sr'?(Number(t[key+'_sr'])*100).toFixed(2)+'%':Number(t[key+'_score']).toFixed(4)}</td>`).join('')}<td><button class="text-link" data-task-video="${t.task}">Watch ↗</button></td></tr>`).join('')||'<tr><td colspan="11">No matching tasks.</td></tr>'}</tbody></table>`;
+ host.innerHTML=`<table class="task-results"><thead><tr>${heading('task','Task')}<th>N</th>${orderedModels.map(([key,label])=>heading(key,label)).join('')}<th>Video</th></tr></thead><tbody>${rows.map(t=>`<tr><th scope="row">${title(t.task)}</th><td>${t.episodes}</td>${orderedModels.map(([key,label])=>`<td title="${title(t.task)} · ${label}: ${metric==='sr'?(Number(t[key+'_sr'])*100).toFixed(2)+'%':Number(t[key+'_score']).toFixed(4)}" style="background:${heatColor(Number(t[key+'_'+metric]))};color:${heatInk(Number(t[key+'_'+metric]))}"${key==='Astra (ICL)'?' class="astra-cell"':''}>${metric==='sr'?(Number(t[key+'_sr'])*100).toFixed(2)+'%':Number(t[key+'_score']).toFixed(4)}</td>`).join('')}<td><button class="text-link" data-task-video="${t.task}">Watch ↗</button></td></tr>`).join('')||'<tr><td colspan="11">No matching tasks.</td></tr>'}</tbody></table>`;
  };
  root.querySelector('.task-search').addEventListener('input',draw);root.querySelector('.task-metric').addEventListener('change',draw);root.querySelector('.task-group').addEventListener('change',draw);host.addEventListener('click',e=>{const b=e.target.closest('[data-sort]');if(!b)return;descending=b.dataset.sort===sortKey?!descending:b.dataset.sort!=='task';sortKey=b.dataset.sort;draw();host.querySelector(`[data-sort="${sortKey}"]`).focus();});draw();});}
 
 function chartAggregate(key,metric,field,group,subset){const model=reportFigures.models?.find(m=>m.id===key);if(model){const value=field?model.groups[group]?.[metric]:model[metric];if(value!==undefined)return value;}return subset.reduce((sum,t)=>sum+Number(t[key+'_'+metric]),0)/subset.length;}
 
-function heatColor(value){return `hsl(230 85% ${97-Math.max(0,Math.min(1,value))*62}%)`;}
+// Shared absolute scale for both heatmaps, with luminance-based text contrast.
+function heatRGB(value){
+ const stops=[[242,245,255],[187,201,251],[49,84,215],[39,62,178],[20,37,111]];
+ const position=Math.max(0,Math.min(1,value))*4,index=Math.min(3,Math.floor(position)),fraction=position-index;
+ return stops[index].map((channel,i)=>Math.round(channel+(stops[index+1][i]-channel)*fraction));
+}
+function heatColor(value){return `rgb(${heatRGB(value).join(',')})`;}
+function heatInk(value){
+ const linear=heatRGB(value).map(channel=>{const c=channel/255;return c<=.04045?c/12.92:((c+.055)/1.055)**2.4;});
+ const luminance=.2126*linear[0]+.7152*linear[1]+.0722*linear[2];
+ return 1.05/(luminance+.05)>=(luminance+.05)/.05?'#fff':'#000';
+}
