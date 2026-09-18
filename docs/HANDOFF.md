@@ -16,7 +16,7 @@ This is a dependency-free static site. `dist/` contains the authored website sou
 
 ## Current agreed presentation
 
-The masthead brand is **InterRobotics**. All user-facing model mentions use **GPT-6-Astra**, including charts, tables, controls and video captions. Canonical data key `Astra (ICL)` and existing asset filenames remain unchanged; normalize display labels rather than renaming source fields.
+The masthead pairs the official **InternRobotics** and **Shanghai AI Laboratory** logos. Use the original local assets in `dist/media/brand/`, preserving their proportions; see `docs/brand-assets.json` for provenance. The old “InterRobotics” spelling was incorrect. All user-facing model mentions use **GPT-6-Astra**, including charts, tables, controls and video captions. Canonical data key `Astra (ICL)` and existing asset filenames remain unchanged; normalize display labels rather than renaming source fields.
 
 The latest author direction prioritizes three research questions: Astra versus VLA/WAM capability differences, failure patterns and research implications, and exploration/correction/within-episode experience use. Present dataset results before analysis. Do not compress the report into slogans or restore it verbatim; preserve explanatory substance and connect claims to evidence. The 26-task rollout library is one collapsed case card, not a standalone benchmark-promotion section. Chart colors are blue/indigo/cool gray; mustard, olive and salmon were explicitly rejected.
 
@@ -53,3 +53,5 @@ All assets referenced by the running site are local and included in Git/LFS. Ori
 No external API credentials or account access are required. `.openai/` contains machine-specific site registration and is excluded from the remote handoff. Synchronizing this repository does not deploy the website.
 
 Benchmark overview and Evaluation metrics links go to https://internrobotics.github.io/EBench-doc/getting-started/overview/; task exploration goes to https://internrobotics.github.io/EBench-doc/evaluation/task-showcase/. Report-specific comparison tables and ablations remain within this report. Keep the overall rate and secondary Score in one aligned typographic group, with the metric description above.
+
+Use **single-shot ICL** consistently in edited page copy (the introductory expansion remains “Single-shot In-Context Learning (ICL)”). KaTeX 0.16.22 is copied from Gauge into `dist/vendor/katex/` with fonts and MIT license. `dist/model-math.js` renders the model names as `\pi_{0}` and `\pi_{0.5}`, including newly inserted tables, case controls, captions and SVG chart labels. Canonical Pi0/Pi05 data keys remain unchanged.
