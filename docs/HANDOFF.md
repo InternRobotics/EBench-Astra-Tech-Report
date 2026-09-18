@@ -77,3 +77,8 @@ The masthead title is “How Frontier Language Models Reshape Embodied Policies�
 ## Author copy revision 2
 
 Remove the visible Introduction label. Preserve the opening prose as two paragraphs (model context + frontier question; EBench rationale), linking the first prose mention of EBench to https://github.com/InternRobotics/EBench. Rename the results chapter Benchmark Results. Its opening now gives the 26-task / 510-episode evaluation scope and open-source leaderboard comparison before the enlarged SR and Score. Then report second place behind OpenWAM-α and introduce capability differences. Footnote 1 explains the author's exclusion of Amapbot Group due to missing reliable model description and references. The note defines report scope without changing benchmark data.
+
+
+## Reading order after setup revision
+
+Opening motivation → benchmark scope and headline SR/Score → Experiment Setup (including complete ICL package card) → Complete benchmark comparison → General Analysis and cases. The matrix and its supplementary-result links now live in #comparison, after #setup. #overall retains the headline chart and comparison-scope footnote. Do not move the full comparison ahead of the experiment explanation.

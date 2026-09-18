@@ -119,3 +119,6 @@ main .overall-metric .metric-label{font-size:12px;line-height:1.5;letter-spacing
 @font-face{font-family:"Allura";src:url("vendor/allura/Allura-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
 .opening-quote{padding:25px 32px 21px}.opening-quote blockquote p{font-family:"Allura","Segoe Script",cursive;font-size:32px;font-weight:400;line-height:1.55;letter-spacing:0;text-align:center;color:#354b6c}.opening-quote figcaption{margin-top:7px;font-size:14px;line-height:1.6;text-align:right;color:#5d708e}
 @media(max-width:760px){.opening-quote{padding:22px 19px 18px}.opening-quote blockquote p{font-size:28px;line-height:1.45}.opening-quote figcaption{font-size:13px;margin-top:10px}}
+
+/* Explain the protocol before expanding into the full benchmark matrix. */
+#comparison{background:#fff}#comparison #benchmark-matrix{margin-top:0;padding-top:0;border-top:0}
