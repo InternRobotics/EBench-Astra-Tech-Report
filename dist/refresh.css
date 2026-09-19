@@ -153,3 +153,40 @@ h2:hover .anchor-link,.anchor-link:focus-visible{opacity:1}
 .heat-legend{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px 12px;max-width:none;width:100%}
 .heat-legend>span:first-child{grid-column:1 / -1;margin-right:0}
 .heat-legend i{width:100%}
+
+/* Task explorer controls: metric segments and a grouped attribute menu. */
+.task-table-controls{display:grid;grid-template-columns:minmax(220px,1.3fr) auto minmax(220px,1fr);align-items:end;gap:16px;padding:20px 0;margin:12px 0 0}
+.task-table-controls .task-search-field,.task-control-field{display:flex;flex-direction:column;gap:8px;min-width:0}
+.task-table-controls .task-search-field,.task-control-label{font-size:13px;line-height:1.4;color:#536b8a}
+.task-search-box{position:relative;display:block}
+.task-search-box>svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:17px;height:17px;fill:none;stroke:#7184a0;stroke-width:1.5;pointer-events:none}
+.task-table-controls .task-search{width:100%;min-width:0;height:44px;padding:10px 34px 10px 40px;border:1px solid #cfd9e9;border-radius:10px;background:#f7f9fc;font:inherit;font-size:15px;color:#294366}
+.task-search::placeholder{color:#8191a9}
+.task-metric-switch{display:flex;gap:3px;padding:4px;border:1px solid #d8e0ed;border-radius:10px;background:#e3e9f2;height:44px;box-sizing:border-box}
+.task-metric-switch button{border:0;border-radius:7px;background:transparent;color:#5c708d;padding:5px 12px;font:inherit;font-size:14px;white-space:nowrap;cursor:pointer}
+.task-metric-switch button[aria-pressed=true]{background:#fff;color:#304dde;box-shadow:0 1px 4px #21385614}
+.task-metric-switch small{font:inherit;font-size:12px;margin-left:4px;color:inherit}
+.task-group-control{position:relative;min-width:0}
+.task-group-control summary{display:flex;align-items:center;gap:10px;min-height:44px;box-sizing:border-box;padding:9px 13px;border:1px solid #cfd9e9;border-radius:10px;list-style:none;background:#f7f9fc;color:#294366;font-size:15px;line-height:1.4;cursor:pointer}
+.task-group-control summary::-webkit-details-marker{display:none}
+.task-group-value{flex:1;min-width:0}
+.task-selected-count,.task-option-count{font-size:12px;font-variant-numeric:tabular-nums;color:#637995}
+.task-selected-count{padding:1px 7px;background:#e7edf6;border-radius:5px}
+.task-group-control summary>svg{width:16px;height:16px;fill:none;stroke:#627c9d;stroke-width:1.6;transition:transform .15s}
+.task-group-control[open] summary{border-color:#8799ef;background:#fff;box-shadow:0 0 0 3px #4058ef0c}
+.task-group-control[open] summary>svg{transform:rotate(180deg)}
+.task-group-menu{position:absolute;top:calc(100% + 8px);left:0;right:0;z-index:20;max-height:360px;overflow-y:auto;overscroll-behavior:contain;padding:6px;border:1px solid #d7e0ef;border-radius:12px;background:#fbfcff;box-shadow:0 14px 38px #25396326;scrollbar-width:thin;scrollbar-color:#bcc9e3 transparent}
+.task-option-group{border-top:1px solid #e5eaf3;margin-top:5px;padding-top:5px}
+.task-option-heading{display:block;padding:5px 10px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#7689a5}
+.task-group-menu button{display:flex;align-items:center;gap:10px;width:100%;padding:9px 10px;border:0;border-radius:7px;background:none;font:inherit;font-size:14px;text-align:left;line-height:1.3;color:#3c5578;cursor:pointer}
+.task-group-menu button>span:first-child{flex:1}
+.task-option-check{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.8;visibility:hidden}
+.task-group-menu button[aria-selected=true]{background:#eaf0ff;color:#304dd7}
+.task-group-menu button[aria-selected=true] .task-option-check{visibility:visible}
+.task-group-menu button:hover,.task-group-menu button:focus-visible{background:#edf1fa;outline:none}
+.task-group-menu button:focus-visible{box-shadow:inset 0 0 0 1px #8da0f1}
+.task-table-controls :is(input,summary,.task-metric-switch button):focus-visible{outline:2px solid #7a90f4;outline-offset:3px}
+@media(max-width:1000px){.task-table-controls{grid-template-columns:1fr 1fr}.task-table-controls .task-search-field{grid-column:1 / -1;width:100%}.task-metric-switch button{flex:1}}
+@media(max-width:520px){.task-table-controls{grid-template-columns:1fr;gap:14px}.task-group-menu{max-height:300px}.task-metric-switch button{font-size:15px}.task-group-control summary{font-size:15px}}
+
+.task-group-control[data-placement="above"] .task-group-menu{top:auto;bottom:calc(100% + 8px)}
