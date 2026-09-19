@@ -89,7 +89,7 @@
     },
     {
       "id": "fixed-low-medium",
-      "label": "Fixed · Low / Medium",
+      "label": "Tabletop · Low / Medium",
       "n": 3,
       "tasks": [
         "flip_cup_collect_cookies",
@@ -109,7 +109,7 @@
     },
     {
       "id": "fixed-high",
-      "label": "Fixed · High",
+      "label": "Tabletop · High",
       "n": 4,
       "tasks": [
         "collect_coffee_beans",

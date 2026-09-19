@@ -7,7 +7,7 @@ def build():
  names={'OpenWAM-Alpha':'OpenWAM-α','Astra (ICL)':'GPT-6-Astra','Qwen-RobotManip':'Qwen-RobotManip','Pi05':'π₀.₅','InternVLA-A1.5':'InternVLA-A1.5','Pi0':'π₀','GigaBrain-0.7':'GigaBrain-0.7','FastWAM':'Fast-WAM'}
  models=[{'id':k,'label':v} for k,v in names.items()];a='Astra (ICL)'
  groups=[]
- for id,label,pred in [('mobile-short','Mobile · Short',lambda t:t['mobility']=='Mobile' and t['horizon']=='Short Horizon'),('mobile-long','Mobile · Long',lambda t:t['mobility']=='Mobile' and t['horizon']=='Long Horizon'),('fixed-low-medium','Fixed · Low / Medium',lambda t:t['mobility']=='Fixed' and t['precision']!='High'),('fixed-high','Fixed · High',lambda t:t['mobility']=='Fixed' and t['precision']=='High')]:
+ for id,label,pred in [('mobile-short','Mobile · Short',lambda t:t['mobility']=='Mobile' and t['horizon']=='Short Horizon'),('mobile-long','Mobile · Long',lambda t:t['mobility']=='Mobile' and t['horizon']=='Long Horizon'),('fixed-low-medium','Tabletop · Low / Medium',lambda t:t['mobility']=='Fixed' and t['precision']!='High'),('fixed-high','Tabletop · High',lambda t:t['mobility']=='Fixed' and t['precision']=='High')]:
   rows=[t for t in tasks if pred(t)];groups.append({'id':id,'label':label,'n':len(rows),'tasks':[t['task'] for t in rows],'rates':{k:sum(float(t[k+'_sr']) for t in rows)/len(rows)*100 for k in names}})
  rows=[]
  for t in tasks:

@@ -671,7 +671,7 @@
     {
       "id": "mobility",
       "label": "Mobility",
-      "description": "Mobile versus fixed-base tasks",
+      "description": "Mobile versus tabletop tasks",
       "groups": [
         {
           "key": "Mobile",
@@ -680,7 +680,7 @@
         },
         {
           "key": "Fixed",
-          "label": "Fixed",
+          "label": "Tabletop",
           "tasks": 7
         }
       ]
