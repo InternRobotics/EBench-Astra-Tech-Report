@@ -241,3 +241,31 @@ h2:hover .anchor-link,.anchor-link:focus-visible{opacity:1}
 .case-study-content .poc-controls{margin-top:0}
 @media(max-width:1099px){.case-example-layout{grid-template-columns:145px minmax(0,1fr);gap:20px}}
 @media(max-width:760px){.case-study-section{padding:32px 0}.case-study-section>h3{font-size:25px}.case-study-content .case-heading h4{font-size:20px}.case-example-layout{grid-template-columns:1fr;gap:22px}.case-selector{position:static}.case-choice-list{grid-template-columns:repeat(2,minmax(0,1fr))}.case-study-content .case-insight{margin-top:24px}.toc-toggle{font-size:14px}}
+
+/* Compact header navigation, aligned with the institutional marks. */
+.header{padding-left:72px;position:sticky}
+.header .toc-toggle{position:absolute;left:20px;top:50%;transform:translateY(-50%);width:34px;height:34px;padding:5px;border:0;border-radius:4px;background:transparent;color:#c4d0e4;box-shadow:none}
+.header .toc-toggle:hover{background:#ffffff12;color:#fff}
+#report-toc-links{padding-top:22px}
+#report-toc-links a{font-size:15px}
+#report-toc-links .toc-subsection{font-size:14px}
+.case-recording-tabs{display:flex;align-items:stretch;gap:28px;overflow-x:auto;scrollbar-width:thin;border-bottom:1px solid #d8e0ee;margin:0 0 30px;padding:0;background:none}
+.case-recording-tabs button{flex:none;border:0;border-bottom:2px solid transparent;border-radius:0;background:none;box-shadow:none;padding:12px 0 15px;color:#8193ae;font-family:inherit;font-size:16px;line-height:1.5;cursor:pointer}
+.case-recording-tabs button[aria-pressed=true]{color:#3e52ed;border-bottom-color:#4a58ff}
+.case-recording-tabs button:hover{color:#3e52ed}
+.case-recording-tabs button:focus-visible{outline:2px solid #4a58ff;outline-offset:-2px}
+.case-study-content .case-description,.case-study-content .case-insight{max-width:850px;margin-left:auto;margin-right:auto}
+#study-limitations.study-limitations-link{font-size:16px;font-weight:400;line-height:1.5}
+#study-limitations.study-limitations-link span{font-size:inherit}
+footer strong{font-size:17px}footer p{font-size:15px;line-height:1.65;color:#a8b9d1}
+.report-reference-list{list-style:none;padding-left:0;counter-reset:reference}
+.report-reference-list li{position:relative;padding-left:34px;counter-increment:reference}
+.report-reference-list li:before{content:'[' counter(reference) ']';position:absolute;left:0;color:#516483}
+/* Constellation six: vector watermark inspired by Astra's galaxy identity. */
+.astra-watermark{position:absolute;right:-8%;top:-22%;width:min(1100px,105%);height:auto;z-index:-1;pointer-events:none;opacity:.24;animation:astra-drift 34s ease-in-out infinite alternate}
+#overall,#cases,#conclusion{background-image:url('media/brand/astra-constellation.svg');background-size:750px auto;background-repeat:no-repeat;background-position:right -340px top 60px;background-blend-mode:soft-light}
+#cases{background-position:left -440px top 180px}
+#conclusion{background-position:right -380px bottom 30px}
+@keyframes astra-drift{from{transform:translate3d(0,0,0) rotate(-9deg);opacity:.17}to{transform:translate3d(-20px,20px,0) rotate(5deg);opacity:.28}}
+@media(prefers-reduced-motion:reduce){.astra-watermark{animation:none;opacity:.22}}
+@media(max-width:760px){.header{padding-left:58px}.header .toc-toggle{left:14px;top:27px;width:30px;height:30px}.header .brand-lockup{gap:9px}.shanghai-ai-brand img{width:135px}.internrobotics-brand img{width:117px}.header nav{width:100%;justify-content:space-between;gap:12px}.case-recording-tabs{gap:23px}.case-recording-tabs button{font-size:15px}.astra-watermark{width:140%;max-width:none;right:-50%;top:0}footer p{font-size:14px}}

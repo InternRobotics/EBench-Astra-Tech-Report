@@ -167,3 +167,10 @@ The original fruit_015, apple_to_fruit_bowl_006 and collect_coffee_beans_013 beh
 Case Studies contains three always-visible sections: In-context learning, Adaptation and precision, and Compositional completion. The Contents outline includes all three. Task/video selection is local to each section, using a collapsible selector at the left (above the content on phones). Switching one section preserves the others. Keep the approved case prose and source recordings.
 
 Contents opens by default on each page load and uses a labelled button at the upper left; do not restore the mid-page arrow handle. Desktop layouts reserve space for the open outline. Inline source links inside report paragraphs inherit the surrounding font and spacing, rather than the small standalone reference-link style.
+
+
+## Navigation and presentation follow-up (2026-09-20)
+
+The author's newer preference replaces the left collapsible case selectors with horizontal underline tabs, matching the comparison matrix. All three case-study sections remain expanded. OpenWAM examples are labelled Rollout 1 and Rollout 2. The outline uses consistent title capitalization, Score and Ranking, and And instead of ampersands; the icon-only toggle now sits in the header's upper-left corner.
+
+References use numbered academic entries populated from the original RoboDojo citations; the author will supply updated BibTeX later. Study Limitations is a normal 16px link. The footer institution/date text is 15px, with duplicate entrance and return-to-top links removed. The floating return-to-top button is also removed. The hero includes a local SVG constellation-six watermark inspired by the Astra launch page, with gentle motion and a reduced-motion fallback; the light report body and data are unchanged.
