@@ -290,7 +290,7 @@ body .header{padding-left:252px;padding-right:28px;gap:20px}
 
 /* Paint chapter backgrounds edge to edge while retaining the reading offset. */
 
- body>.cosmos{padding-left:220px}
+ body>.cosmos{padding-inline:220px}
  body>main>.section{padding-left:252px}
  body>footer{padding-left:calc(220px + max(28px,calc((100% - 1180px)/2)));padding-right:max(28px,calc((100% - 1180px)/2))}
 
@@ -325,3 +325,13 @@ body>footer.report-footer{display:grid;grid-template-columns:minmax(240px,.85fr)
 .result-panel>.comparison-footnote{max-width:none;margin:18px 0 0;padding-top:14px}
 
 .report-footer .citation-prompt{margin:0 0 18px;padding:0;color:#dbe5f6;font:17px/1.6 "Times New Roman",Times,serif}
+
+/* Center the opening independently of the contents drawer. */
+.showcase-hero{max-width:1040px}
+.hero-copy{padding:52px 0 22px}
+.hero-copy h1{font-size:50px;line-height:1.16;letter-spacing:-1.5px;margin-bottom:22px}
+.hero-copy .report-subtitle{font-size:22px;margin-bottom:24px}
+body>main>#introduction{padding-inline:252px;padding-top:38px}
+
+.report-authors .authors{text-wrap:balance}
+.report-authors .author{white-space:nowrap}
