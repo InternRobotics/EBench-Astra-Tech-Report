@@ -12,8 +12,5 @@
  function markCurrent(){queued=false;const threshold=document.querySelector('.header').getBoundingClientRect().bottom+90;let active=sections[0];for(const section of sections){if(section.getBoundingClientRect().top<=threshold)active=section;else break;}for(const link of [...links,...document.querySelectorAll('.header nav a')]){if(link.hash==='#'+active.id)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');}}
  window.addEventListener('scroll',()=>{if(!queued){queued=true;requestAnimationFrame(markCurrent);}},{passive:true});
  window.addEventListener('resize',markCurrent);window.addEventListener('hashchange',markCurrent);
- function revealLimitations(){if(location.hash==='#study-limitations')document.querySelector('.limitations-card').open=true;}
- document.addEventListener('click',e=>{if(e.target.closest('a[href="#study-limitations"]'))document.querySelector('.limitations-card').open=true;});
- window.addEventListener('hashchange',revealLimitations);revealLimitations();
  setOpen(preferred??wide.matches);markCurrent();
 })();

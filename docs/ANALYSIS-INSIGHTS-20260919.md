@@ -14,16 +14,16 @@ The previous precision narrative is preserved unchanged. New fixed-base analysis
 
 ## Limitations
 
-A collapsed card at the end of the report, after Conclusion, covers quota-limited testing beyond the completed 26-task / 510-episode main run, coupled benchmark dimensions, missing cross-episode skill-accumulation comparisons, and harness integration results **not yet reported here**. It does not disclose unpublished plans or results. The text explicitly explains the role of execution demonstrations and logs in strengthening interpretations, alongside the limits of selected qualitative cases.
+A Study Limitations dialog, opened by a larger link beneath Conclusion, covers quota-limited testing beyond the completed 26-task / 510-episode main run, coupled benchmark dimensions, missing cross-episode skill-accumulation comparisons, and harness integration results **not yet reported here**. It does not disclose unpublished plans or results. The text explicitly explains the role of execution demonstrations and logs in strengthening interpretations, alongside the limits of selected qualitative cases.
 
 All high-precision tasks are fixed-base; all long-horizon tasks are mobile. Cross-group statistics make these overlaps visible but do not orthogonalize task geometry, scoring and manipulation requirements.
 
 ## Checks
 
-`npm run check` and `npm run validate` cover syntax, derived figures, source hashes, rank ties, category counts and existing data. Local Node VM interaction checks exercised subgroup selection, comparator changes, gap filters, perturbation readouts and seven/all-task failure views. New assets return HTTP 200. Static checks verify unique anchors and Limitations after Conclusion and collapsed by default.
+`npm run check` and `npm run validate` cover syntax, derived figures, source hashes, rank ties, category counts and existing data. Local Node VM interaction checks exercised subgroup selection, comparator changes, gap filters, perturbation readouts and seven/all-task failure views. New assets return HTTP 200. Static checks verify unique anchors and the Study Limitations entrance beneath Conclusion.
 
 The configured browser connection still returns a malformed response, so rendered screenshot inspection was unavailable.
 
-The final limitations card expands from its summary or when following the Limitations anchor. Its full text is retained; the default footer view shows only the title and a brief description.
+The inline footer card has been removed. The larger Study Limitations entrance opens the shared modal dialog; direct anchor links open that same dialog. The complete limitations text is retained in a template.
 
 The outcome overview and task-level failure distributions now form one continuous analysis before the precision/horizon examples, without repeated progress/failure headings. The task bars initially show seven discussed tasks; a bottom button reveals the remaining 19 and collapses them again. The initial seven retain their positions. A targeted interaction check verifies hidden/default state, both toggle directions and stable row order.
