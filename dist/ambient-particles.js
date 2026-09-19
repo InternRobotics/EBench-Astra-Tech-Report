@@ -4,7 +4,7 @@
  const ctx=canvas?.getContext('2d',{alpha:true});
  if(!ctx)return;
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
- const count=2100,tau=Math.PI*2;
+ const count=3300,tau=Math.PI*2;
  let seed=817,w=0,h=0,raf=0,last=0,time=0,logoEnd=1,robotStart=2,robotEnd=3;
  let logoMix=0,robotMix=0,targetLogo=0,targetRobot=0;
  const random=()=>{seed=seed*16807%2147483647;return(seed-1)/2147483646;};
@@ -41,8 +41,15 @@
   const a=arm+r*5.2+(random()-.5)*(.2+r*.55);
   return{x:Math.cos(a)*r*1.16,y:Math.sin(a)*r*.8};
  }).sort((a,b)=>Math.atan2(a.y,a.x)-Math.atan2(b.y,b.x));
- const points=galaxy.map((g,i)=>({g,l:logo[i],r:machine[i],size:.45+random()*1.05,phase:random()*tau,color:random()>.91?'148,119,87':random()>.45?'80,119,181':'104,132,189',alpha:.15+random()*.2}));
- const stars=Array.from({length:130},()=>({x:random(),y:random(),size:.4+random()*.7,phase:random()*tau}));
+ const points=galaxy.map((g,i)=>({g,l:logo[i],r:machine[i],size:random()>.965?2+random()*.65:.4+Math.pow(random(),1.7)*1.25,phase:random()*tau,color:random()>.94?'159,125,84':random()>.45?'67,110,184':'91,126,190',alpha:.24+random()*.28}));
+ const halos=new Map();
+ for(const color of new Set(points.map(p=>p.color))){
+  const sprite=document.createElement('canvas');sprite.width=sprite.height=48;
+  const glow=sprite.getContext('2d'),gradient=glow.createRadialGradient(24,24,0,24,24,24);
+  gradient.addColorStop(0,`rgba(${color},.5)`);gradient.addColorStop(.22,`rgba(${color},.22)`);gradient.addColorStop(.55,`rgba(${color},.06)`);gradient.addColorStop(1,`rgba(${color},0)`);
+  glow.fillStyle=gradient;glow.fillRect(0,0,48,48);halos.set(color,sprite);
+ }
+ const stars=Array.from({length:210},()=>({x:random(),y:random(),size:.45+random()*1.05,phase:random()*tau}));
  function measure(){
   const top=id=>{const el=document.getElementById(id);return el?el.getBoundingClientRect().top+window.scrollY:0;};
   logoEnd=Math.max(500,top('overall'));
@@ -66,14 +73,15 @@
   ctx.clearRect(0,0,w,h);
   const radius=Math.min(390,h*.47,w*.36),cx=w*.62+Math.sin(time*.08)*9,cy=h*.56+Math.cos(time*.07)*7;
   const angle=time*.013*(1-logoMix)-.22*(1-logoMix),cos=Math.cos(angle),sin=Math.sin(angle);
-  for(const s of stars){dot((s.x*w+time*1.2)%(w+4),s.y*h+Math.sin(time*.1+s.phase)*4,s.size,'101,131,181',.12);}
+  for(const s of stars){dot((s.x*w+time*1.2)%(w+4),s.y*h+Math.sin(time*.1+s.phase)*4,s.size,'85,122,181',.21);}
   for(const p of points){
    const gx=p.g.x*cos-p.g.y*sin,gy=p.g.x*sin+p.g.y*cos;
    const x=lerp(lerp(gx,p.l.x,logoMix),p.r.x,robotMix),y=lerp(lerp(gy,p.l.y,logoMix),p.r.y,robotMix);
    const dx=Math.sin(time*.24+p.phase)*1.6,dy=Math.cos(time*.2+p.phase)*1.6;
    const px=cx+x*radius+dx,py=cy+y*radius+dy,alpha=p.alpha*(.82+.18*Math.sin(time*.45+p.phase));
-   if(p.size>1.35)dot(px,py,p.size*3.5,p.color,alpha*.075);
+   if(p.size>1.55){const diameter=p.size*11;ctx.globalAlpha=alpha;ctx.drawImage(halos.get(p.color),px-diameter/2,py-diameter/2,diameter,diameter);ctx.globalAlpha=1;}
    dot(px,py,p.size,p.color,alpha);
+   if(p.size>2)dot(px,py,p.size*.2,'240,248,255',.65);
   }
   canvas.dataset.scene=robotMix>.98?'robot':robotMix>.02?'logo-to-robot':logoMix>.98?'gpt':logoMix>.02?'galaxy-to-logo':'galaxy';
  }

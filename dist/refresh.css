@@ -301,8 +301,16 @@ a.paper-citation:hover{text-decoration:underline}
 .report-reference-list li{font-size:14px;line-height:1.65;margin-bottom:15px}
 .report-reference-list a{overflow-wrap:anywhere}
 .report-reference-list li:target{background:#e3eaff;outline:8px solid #e3eaff}
-.report-citation .section-inner{max-width:800px}
-.report-citation{padding-top:0}
-.report-citation h2{font-size:26px;margin-bottom:20px}
-.report-citation pre{margin:0;padding:22px 24px;border:1px solid #d6dfec;border-radius:6px;background:#e7edf5;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.65}
-.report-citation code{font:13px/1.65 Consolas,monospace;color:#425a7a;background:none;padding:0}
+
+/* Citation shares the footer row; its code expands directly below the prompt. */
+body>footer.report-footer{display:grid;grid-template-columns:minmax(240px,.85fr) minmax(480px,1.5fr);gap:64px;align-items:start;padding-top:38px;padding-bottom:38px}
+.report-footer .footer-identity{margin:0}
+.report-footer .footer-identity strong{display:block;font-size:18px;line-height:1.5}
+.report-footer .footer-identity p{margin-top:12px;font-size:14px;line-height:1.7;color:#a8b9d1}
+.report-footer .report-citation{min-width:0;padding:0;margin:0}
+.report-citation summary{display:block;width:fit-content;list-style:none;padding:0 0 5px;border-bottom:1px solid #7287aa;color:#dbe5f6;font:17px/1.6 "Times New Roman",Times,serif;cursor:pointer}
+.report-citation summary::-webkit-details-marker{display:none}
+.report-citation summary:hover{color:#fff;border-color:#c4d3ed}
+.report-citation[open] summary{margin-bottom:18px}
+.report-citation pre{margin:0;padding:20px 22px;border:1px solid #3a4c68;border-radius:6px;background:#1b2a41;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.7}
+.report-citation code{font:12px/1.7 Consolas,monospace;color:#c4d5ed;background:none;padding:0}
