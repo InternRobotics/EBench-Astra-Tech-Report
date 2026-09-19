@@ -294,3 +294,15 @@ body .header{padding-left:252px;padding-right:28px;gap:20px}
  body>main>.section{padding-left:252px}
  body>footer{padding-left:calc(220px + max(28px,calc((100% - 1180px)/2)));padding-right:max(28px,calc((100% - 1180px)/2))}
 
+
+/* Scholarly citations: compact bibliography, body-sized inline references. */
+.report-prose a.paper-citation,a.paper-citation{display:inline;white-space:nowrap;font:inherit;vertical-align:baseline;margin:0;padding:0;color:#3657c5;text-decoration:none}
+a.paper-citation:hover{text-decoration:underline}
+.report-reference-list li{font-size:14px;line-height:1.65;margin-bottom:15px}
+.report-reference-list a{overflow-wrap:anywhere}
+.report-reference-list li:target{background:#e3eaff;outline:8px solid #e3eaff}
+.report-citation .section-inner{max-width:800px}
+.report-citation{padding-top:0}
+.report-citation h2{font-size:26px;margin-bottom:20px}
+.report-citation pre{margin:0;padding:22px 24px;border:1px solid #d6dfec;border-radius:6px;background:#e7edf5;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.65}
+.report-citation code{font:13px/1.65 Consolas,monospace;color:#425a7a;background:none;padding:0}
