@@ -131,9 +131,20 @@ main .overall-metric .metric-label{font-size:12px;line-height:1.5;letter-spacing
 
 /* Persistent navigation and a collapsible reading outline. */
 :root{--report-header-height:68px}html{scroll-padding-top:calc(var(--report-header-height) + 24px)}.header{position:sticky;top:0;z-index:60;height:var(--report-header-height);width:100%;box-shadow:0 2px 12px #12213b14}.header nav a[aria-current=location]{color:#fff;text-decoration:underline;text-underline-offset:6px}
-.report-toc{position:fixed;left:16px;top:calc(var(--report-header-height) + 20px);z-index:45;width:206px;background:rgba(250,252,255,.97);border:1px solid #dbe3f0;border-radius:9px;box-shadow:0 8px 25px #243e6810;overflow:hidden}.toc-toggle{display:flex;align-items:center;gap:9px;width:100%;padding:13px 14px;border:0;background:none;color:#314969;font-size:13px;font-weight:600;text-align:left}.toc-chevron{margin-left:auto;font-size:21px;line-height:1}.toc-toggle[aria-expanded=false] .toc-chevron{display:none}body[data-toc-open=false] .report-toc{width:110px}#report-toc-links{padding:0 8px 12px;max-height:calc(100dvh - var(--report-header-height) - 100px);overflow-y:auto}#report-toc-links a{display:block;padding:9px 11px;border-left:2px solid transparent;color:#536884;font-size:12px;line-height:1.5;border-radius:3px;text-decoration:none}#report-toc-links a:hover{background:#edf2fb;color:#2b4f9f}#report-toc-links a[aria-current=location]{background:#eaf0ff;border-left-color:#4566da;color:#2c4da9;font-weight:600}#report-toc-links .toc-subsection{padding-left:22px;font-size:11px}
-@media(min-width:1400px){body[data-toc-open=true]>.cosmos,body[data-toc-open=true]>main,body[data-toc-open=true]>footer{margin-left:230px}}
-@media(max-width:760px){:root{--report-header-height:104px}.header{height:var(--report-header-height);padding:10px 20px;flex-wrap:wrap;align-content:center;gap:10px}.header nav{display:flex;margin-left:0;width:100%;justify-content:space-between;gap:12px}.header nav a{font-size:11px;white-space:nowrap}.report-toc{left:10px;top:calc(var(--report-header-height) + 10px);box-shadow:0 7px 25px #1e355324}.toc-toggle{padding:10px 12px;font-size:12px}.showcase-hero .hero-copy{padding-top:60px}.brand-lockup{max-width:100%}}
+.report-toc{position:fixed;left:0;top:var(--report-header-height);bottom:0;z-index:45;width:244px;max-width:calc(100vw - 48px);background:#f8faff;border-right:1px solid #dbe3f0;transform:translateX(-100%);transition:transform .2s ease}
+body[data-toc-open=true] .report-toc{transform:translateX(0)}
+.toc-toggle{position:absolute;left:100%;top:calc(40% - 24px);display:grid;place-items:center;width:30px;height:48px;padding:0;border:1px solid #dbe3f0;border-left:0;border-radius:0 5px 5px 0;background:#f8faff;color:#4566b0;cursor:pointer}
+.toc-toggle:hover{background:#edf2ff;color:#284ba7}.toc-toggle:focus-visible{outline:2px solid #4566da;outline-offset:3px}
+.toc-chevron{font-family:ui-monospace,monospace;font-size:20px;font-weight:400;line-height:1}
+#report-toc-links{height:100%;padding:24px 14px 28px;overflow-y:auto;overscroll-behavior:contain}
+.toc-title{margin:0 12px 16px;color:#263f65;font-size:16px;font-weight:600}
+#report-toc-links a{display:block;padding:9px 12px;border-left:2px solid transparent;color:#536884;font-size:14px;line-height:1.5;text-decoration:none}
+#report-toc-links a:hover{background:#edf2fb;color:#2b4f9f}
+#report-toc-links a[aria-current=location]{background:#eaf0ff;border-left-color:#4566da;color:#2c4da9;font-weight:600}
+#report-toc-links .toc-subsection{padding-left:24px;font-size:13px}
+@media(min-width:1400px){body[data-toc-open=true]>.cosmos,body[data-toc-open=true]>main,body[data-toc-open=true]>footer{margin-left:244px}}
+@media(prefers-reduced-motion:reduce){.report-toc{transition:none}}
+@media(max-width:760px){:root{--report-header-height:104px}.header{height:var(--report-header-height);padding:10px 20px;flex-wrap:wrap;align-content:center;gap:10px}.header nav{display:flex;margin-left:0;width:100%;justify-content:space-between;gap:12px}.header nav a{font-size:11px;white-space:nowrap}.toc-toggle{width:36px;height:48px}.showcase-hero .hero-copy{padding-top:60px}.brand-lockup{max-width:100%}}
 /* Blue Matrix quotation, with green digital rain and no on-card control. */
 .opening-quote{background:#294b73;border-color:#46658a;border-left-color:#77b3ad;padding-bottom:23px}.opening-quote:after{background:radial-gradient(ellipse at 50% 45%,rgba(32,62,98,.78) 0%,rgba(32,62,98,.62) 30%,rgba(32,62,98,.07) 90%)}#introduction .opening-quote blockquote p{color:#f0f8f5}.opening-quote figcaption{color:#d2e2ea}
 /* One album spread: equal image/prompt panels, flanked by previous/next. */

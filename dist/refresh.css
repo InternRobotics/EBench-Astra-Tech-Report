@@ -106,7 +106,7 @@ h2:hover .anchor-link,.anchor-link:focus-visible{opacity:1}
 .timing-inline .fineprint{margin:8px 0 0}
 
 
-@media(max-width:760px){.report-toc{top:auto;bottom:16px;left:12px;right:auto;width:auto;max-width:calc(100% - 24px)}body[data-toc-open=false] .report-toc{width:auto}.toc-toggle{padding:10px 14px}#report-toc-links{max-height:min(60dvh,420px)}.back-to-top{right:14px;bottom:70px;width:38px;height:38px}.timing-inline{padding:16px}}
+@media(max-width:760px){.back-to-top{right:14px;bottom:70px;width:38px;height:38px}.timing-inline{padding:16px}}
 @media print{.reading-progress,.back-to-top,.report-toc{display:none!important}}
 
 .model-reference-entry{margin:12px 0 0;scroll-margin-top:100px}.model-reference-entry a{font-family:var(--sans);font-size:16px;font-weight:500;color:#3456ef;text-decoration:none}.model-reference-entry a:hover{text-decoration:underline;text-underline-offset:4px}
