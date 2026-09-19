@@ -36,6 +36,7 @@ const taskGroupDimensions=[
  {field:'precision',label:'Precision',values:[['Low','Low precision'],['Medium','Medium precision'],['High','High precision']]},
  {field:'horizon',label:'Task horizon',values:[['Short Horizon','Short horizon'],['Long Horizon','Long horizon']]}
 ];
+function taskGroupOptions(){return `<option value="all">All tasks (${tasks.length})</option>`+taskGroupDimensions.map(d=>`<optgroup label="${d.label}">${d.values.map(([value,label])=>`<option value="${d.field}:${value}">${label} (${tasks.filter(t=>t[d.field]===value).length})</option>`).join('')}</optgroup>`).join('');}
 function matchesTaskGroup(task,group){if(group==='all')return true;const [field,value]=group.split(':');return taskGroupDimensions.some(d=>d.field===field&&d.values.some(v=>v[0]===value))&&task[field]===value;}
 let taskControlId=0;
 function taskResultsMarkup(){

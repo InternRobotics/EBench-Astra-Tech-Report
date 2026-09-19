@@ -21,5 +21,10 @@ for(const file of files){
 }
 if(!fs.existsSync(path.join(destination,'index.html')))throw Error('Missing index.html');
 if(bytes>=1024**3)throw Error('Published website exceeds the GitHub Pages 1 GiB limit.');
+// Use one deployment version for every script and stylesheet.
+const release=process.env.GITHUB_RUN_ID?`pages-${process.env.GITHUB_RUN_ID}-${process.env.GITHUB_RUN_ATTEMPT||1}`:`preview-${Date.now()}`;
+const indexPath=path.join(destination,'index.html');
+const html=fs.readFileSync(indexPath,'utf8').replace(/((?:src|href)=")([^"]+\.(?:css|js))(?:\?[^"]*)?(")/g,(match,prefix,asset,suffix)=>/^(?:https?:|data:|\/\/)/.test(asset)?match:`${prefix}${asset}?v=${release}${suffix}`);
+fs.writeFileSync(indexPath,html);
 fs.writeFileSync(path.join(destination,'.nojekyll'),'');
 console.log(`Prepared ${files.length} files (${(bytes/1024**2).toFixed(1)} MiB), excluding unpublished PDFs.`);

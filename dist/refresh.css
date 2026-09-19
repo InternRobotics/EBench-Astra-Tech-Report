@@ -134,8 +134,8 @@ h2:hover .anchor-link,.anchor-link:focus-visible{opacity:1}
 /* Detail readouts appear only after a data point is selected. */
 .chart-readout:empty,.insight-readout:empty,.outcome-readout:empty,.episode-caption:empty{display:none}
 
-/* Match the author's preferred 150% reading scale on desktop. */
-@media(min-width:1200px){html{zoom:1.5}}
+/* Match the author's preferred 125% reading scale on desktop. */
+@media(min-width:1200px){html{zoom:1.25}}
 
 /* A single headline metric with a compact secondary score on its baseline. */
 #overall .metric-values{display:grid;grid-template-columns:max-content max-content;align-items:baseline;gap:12px 20px;white-space:normal}
@@ -190,3 +190,17 @@ h2:hover .anchor-link,.anchor-link:focus-visible{opacity:1}
 @media(max-width:520px){.task-table-controls{grid-template-columns:1fr;gap:14px}.task-group-menu{max-height:300px}.task-metric-switch button{font-size:15px}.task-group-control summary{font-size:15px}}
 
 .task-group-control[data-placement="above"] .task-group-menu{top:auto;bottom:calc(100% + 8px)}
+
+.report-references .section-inner{max-width:800px}.report-references h2{font-size:30px;margin-bottom:24px}.report-reference-list{padding-left:26px;margin:0;color:#455d7e}.report-reference-list li{padding-left:8px;margin:0 0 20px;font-size:16px;line-height:1.75}.report-reference-list li::marker{color:#6c7f9b}.report-reference-list cite{font-style:normal}.report-reference-list a{color:#3655c8;text-decoration:underline;text-decoration-color:#a9b7df;text-underline-offset:4px}
+
+.matrix-view-slot:empty,.matrix-metric[hidden]{display:none}
+.matrix-view-slot .shift-view-switch{margin:22px 0 0}
+.matrix-view-slot:not(:empty)+.matrix-metric{margin:14px 0 18px}
+#task-gap-analysis>h3{max-width:800px;margin-left:auto;margin-right:auto}
+.report-authors .authors{max-width:900px;font-size:18px;line-height:1.9}
+.report-authors .authors sup{font-size:11px}
+.report-authors .affiliations{font-size:15px;line-height:1.8;color:#627897}
+.report-authors .author-note{font-size:14px;line-height:1.7;color:#6b809c}
+@media(max-width:760px){.report-authors .authors{font-size:16px}.report-authors .affiliations{font-size:14px}.report-authors .author-note{font-size:13px}}
+
+.matrix-introduction{max-width:850px;margin:0 0 26px;font-size:16px;line-height:1.8;color:#455d7e}
