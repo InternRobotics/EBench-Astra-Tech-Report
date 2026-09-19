@@ -12,6 +12,6 @@
 
 No benchmark data or precision-analysis text was changed.
 
-## Author clarification pending
+## Input specification resolved by the author
 
-The author-supplied setup copy specifies joint states only as supplementary proprioception and the same three-view observations as the policies. The older protocol dialog and archived input documentation describe EEF/gripper/base state plus simulator timestep, with later camera subsets chosen by the agent. An asynchronous clarification was sent to the author. Do not silently rewrite either the author-supplied experimental specification or the archived records to reconcile this discrepancy.
+The author confirmed that the evaluation protocol takes precedence. The setup text now matches the archived protocol: RGB views from overview and wrist cameras; EEF poses, gripper state, base pose and simulator timestep; all three initial views and requested camera views on later calls. Joint states support execution and logging. The elapsed timestep is distinguished from the withheld maximum physics-step budget. The previous claim of strictly identical proprioceptive inputs across all systems has been removed.
