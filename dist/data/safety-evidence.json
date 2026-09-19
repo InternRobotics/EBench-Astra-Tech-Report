@@ -85,11 +85,11 @@
     }
   },
   {
-    "task": "apple_to_fruit_bowl",
+    "task": "collect_coffee_beans",
     "seed": "009",
     "sr": 0.0,
-    "score": 0.0,
-    "video": "media/cases/apple_to_fruit_bowl_009-web.mp4",
+    "score": 0.07143,
+    "video": "media/cases/collect_coffee_beans_009-web.mp4",
     "camera_order": [
       "overview",
       "left_wrist",
@@ -97,28 +97,110 @@
     ],
     "public_actions": [
       {
+        "call": "call_00005",
+        "reason": "Carry jar clear of edge then lower its mouth beside beans"
+      },
+      {
+        "call": "call_00006",
+        "reason": "Clear jar from table edge to recover upright alignment"
+      },
+      {
+        "call": "call_00007",
+        "reason": "Rotate held jar upright away from the edge"
+      },
+      {
+        "call": "call_00010",
+        "reason": "Retract jar from edge interference"
+      },
+      {
         "call": "call_00012",
-        "reason": "The apple slipped during the test; reopen, shift back and left toward its current center, and deepen side contact."
+        "reason": "Correct jar tilt in free space"
       },
       {
-        "call": "call_00017",
-        "reason": "The apple is no longer visible between the closed fingers; withdraw the open hand to locate it before another attempt."
+        "call": "call_00013",
+        "reason": "Orient jar opening upward"
       },
       {
-        "call": "call_00018",
-        "reason": "Back away from the table to inspect where the slipped apple landed."
+        "call": "call_00029",
+        "reason": "Turn spoon bowl toward beans while clear of table"
       },
       {
-        "call": "call_00019",
-        "reason": "Inspect beneath the near-right table edge for the fallen apple using a lower wrist viewpoint."
+        "call": "call_00030",
+        "reason": "Reorient spoon in reachable stages"
       },
       {
-        "call": "call_00026",
-        "reason": "Look low under the original apple location, past the table frame."
+        "call": "call_00034",
+        "reason": "Sweep beans toward jar mouth at edge"
       },
       {
-        "call": "call_00031",
-        "reason": "Search under the center of the dining table from the side, including areas hidden by the table frame."
+        "call": "call_00035",
+        "reason": "Clear spoon and inspect after edge contact"
+      },
+      {
+        "call": "call_00036",
+        "reason": "Regrasp spoon handle clear of displaced lid"
+      },
+      {
+        "call": "call_00039",
+        "reason": "Move grip onto overhanging handle away from tabletop collision"
+      }
+    ]
+  },
+  {
+    "task": "detergent",
+    "seed": "000",
+    "sr": 0.0,
+    "score": 0.33333,
+    "video": "media/cases/detergent_000-web.mp4",
+    "camera_order": [
+      "overview",
+      "left_wrist",
+      "right_wrist"
+    ],
+    "public_actions": [
+      {
+        "call": "call_00003",
+        "reason": "Back off slightly and align with the displaced green detergent body"
+      },
+      {
+        "call": "call_00004",
+        "reason": "Approach the now-horizontal green bottle from above"
+      },
+      {
+        "call": "call_00008",
+        "reason": "Recenter above the green body without dragging fingertips on the table"
+      },
+      {
+        "call": "call_00022",
+        "reason": "Relieve table contact before closing around the centered body"
+      },
+      {
+        "call": "call_00053",
+        "reason": "Recover the blue bottle from the basket's near edge with a top-down grasp"
+      },
+      {
+        "call": "call_00056",
+        "reason": "Lower fingers clear of the basket rim to engage the blue bottle"
+      },
+      {
+        "call": "call_00058",
+        "reason": "Approach the blue bottle at an angle from the free table edge to avoid basket-wall interference"
+      },
+      {
+        "call": "call_00068",
+        "reason": "Clear the basket-side collision and return the base to a free approach"
+      },
+      {
+        "call": "call_00089",
+        "reason": "Angle the side grasp downward so fingers reach the green bottle without the wrist hitting the table"
+      },
+      {
+        "call": "call_00094",
+        "reason": "Lift away from table constraints before reorienting"
+      },
+      {
+        "call": "call_00095",
+        "reason": "Reset wrist through a reachable neutral orientation"
       }
     ]
   }

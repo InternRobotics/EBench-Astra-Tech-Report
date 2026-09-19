@@ -1,7 +1,7 @@
 {
   "version": "2026-09-18",
-  "media_files": 51,
-  "total_bytes": 474139717,
+  "media_files": 53,
+  "total_bytes": 502713033,
   "files": [
     {
       "path": "dist/media/cases/apple_to_fruit_bowl_003-web.mp4",
@@ -34,9 +34,19 @@
       "sha256": "a7fd0ff71ee1ba48f3146ed94626e8348959993bf2a99bf7f89c834887324519"
     },
     {
+      "path": "dist/media/cases/collect_coffee_beans_009-web.mp4",
+      "bytes": 10845370,
+      "sha256": "5b7ebce6f68b0f4be88e995d6d5dc9542ef06578b470c55f122edd8ae6593da3"
+    },
+    {
       "path": "dist/media/cases/collect_coffee_beans_013-web.mp4",
       "bytes": 16174691,
       "sha256": "4e4f7a856058f681a036d440882ba156f78fff3a6d6befe98d1cc5c99c93876c"
+    },
+    {
+      "path": "dist/media/cases/detergent_000-web.mp4",
+      "bytes": 17727946,
+      "sha256": "c90bb57821786d831142753a4efdc134a083e3c0f281bf62b622bf0c54295bb8"
     },
     {
       "path": "dist/media/cases/dishwasher_009-web.mp4",

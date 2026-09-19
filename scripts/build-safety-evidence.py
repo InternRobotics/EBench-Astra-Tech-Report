@@ -1,4 +1,4 @@
-"""Extract the public records supporting the three safety videos."""
+"""Extract the public records supporting the safety videos."""
 import json
 import math
 import zipfile
@@ -8,7 +8,8 @@ ROOT = Path(__file__).resolve().parents[1]
 SELECTION = {
     "dishwasher_009": [6, 19, 21, 34, 42],
     "apple_to_fruit_bowl_003": [12, 13, 17, 24, 25],
-    "apple_to_fruit_bowl_009": [12, 17, 18, 19, 26, 31],
+    "collect_coffee_beans_009": [5, 6, 7, 10, 12, 13, 29, 30, 34, 35, 36, 39],
+    "detergent_000": [3, 4, 8, 22, 53, 56, 58, 68, 89, 94, 95],
 }
 outcomes = json.loads((ROOT / "dist/data/episodes.json").read_text(encoding="utf-8"))
 cases = []
@@ -52,4 +53,4 @@ with zipfile.ZipFile(ROOT / "astra_web_evidence_20260918_core.zip") as archive:
 (ROOT / "dist/data/safety-evidence.json").write_text(
     json.dumps(cases, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
 )
-print("Extracted three failed safety episodes and the measured EEF endpoint mismatch.")
+print("Extracted three primary safety episodes and one supporting failed episode and the measured EEF endpoint mismatch.")
