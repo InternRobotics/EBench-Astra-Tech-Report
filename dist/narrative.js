@@ -14,7 +14,7 @@ const reportNarrative = {
   ],
   "shifts": [
     "Across object, background, instruction and mixed perturbations, GPT-6-Astra records 44.17%, 50.77%, 44.62% and 46.15% success. Its <strong>6.60 percentage-point range is the smallest among eight systems</strong>, compared with 16.92 for OpenWAM-α and 21.53 for Qwen-RobotManip. It also <strong>ranks first in the mixed condition</strong>, with 60 successes out of 130, versus 58 for OpenWAM-α.",
-    "This stability is consistent with broadly useful visual and language priors. All four conditions include perturbations; the object condition covers 24 tasks and the others 26. Each task keeps the same historical reference package across its variations. The POC separately tests unseen task compositions."
+    "This result shows relatively consistent task success across the evaluated perturbations. The cluttered-scene and instruction-following cases illustrate how the agent uses visual and language context in these conditions. All four conditions include perturbations; the object condition covers 24 tasks and the others 26. Each task keeps the same historical reference package across its variations. The POC separately tests unseen task compositions."
   ],
   "precision": [
     "The sharpest failure pattern appears at the <strong>transition from coarse transport to precise contact</strong>. GPT-6-Astra’s success rate falls from 60.60% on low-precision tasks to 40.21% on medium-precision tasks and <strong>11.25% on high-precision tasks</strong>; its <strong>ranking drops from second to seventh</strong>. Every system finds the high-precision group harder, but GPT-6-Astra’s relative position deteriorates particularly strongly.",
@@ -23,7 +23,7 @@ const reportNarrative = {
   ],
   "horizon": [
     "GPT-6-Astra’s success rate falls from 53.60% on short tasks to <strong>28.10% on long tasks</strong>; <strong>OpenWAM-α reaches 51.43%</strong> on the long-horizon group. Detergent placement reaches 55% success with a partial Score of 0.8000; dishwasher execution reaches <strong>only 5% success with a Score of 0.5333</strong>. Intermediate progress repeatedly fails to become a completed procedure.",
-    "A retry can repair a local failure, but it can also <strong>spend the remaining execution budget or disturb an already achieved goal</strong>. The agent sees elapsed simulator time without an explicit numeric remaining-step budget. It receives its next observation only after the full action batch returns, so a retry may continue while the scene changes.",
+    "A retry can repair a local failure, but it can also <strong>spend the remaining execution budget or disturb an already achieved goal</strong>. Each retry uses part of the fixed physics-step budget. The next visual observation arrives after the full action batch returns, so grasp loss or contact changes within that batch can precede the next correction.",
     "This raises the question of <strong>how to recover without losing progress</strong>: when to inspect the scene and when to change the procedure. Bottle placement, shown below, illustrates a shared challenge: all eight systems have zero complete successes on that task."
   ],
   "behavior": [
