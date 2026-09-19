@@ -184,3 +184,6 @@ The author flagged the remaining letterboxed All three layout in the coffee-bean
 ## Stable outline collapse (2026-09-20)
 
 Collapsing Contents hides only the navigation panel. Desktop content keeps its 220px left gutter, and the header lockup stays at the same position and size in either state. The toggle uses three round dots and thick round-ended horizontal strokes. Do not recenter the page or move the brand when toggling the outline.
+
+
+The reserved Contents space is an internal content inset, not an outer page margin. Hero, chapter, and footer backgrounds span the full viewport, including the area behind a collapsed outline. The reading column and logos retain the same positions when toggling.

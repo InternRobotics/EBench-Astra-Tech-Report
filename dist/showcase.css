@@ -142,7 +142,7 @@ body[data-toc-open=true] .report-toc{transform:translateX(0)}
 #report-toc-links a:hover{background:#edf2fb;color:#2b4f9f}
 #report-toc-links a[aria-current=location]{background:#eaf0ff;border-left-color:#4566da;color:#2c4da9;font-weight:600}
 #report-toc-links .toc-subsection{padding-left:24px;font-size:13px}
-@media(min-width:1400px){body>.cosmos,body>main,body>footer{margin-left:244px}}
+
 @media(prefers-reduced-motion:reduce){.report-toc{transition:none}}
 @media(max-width:760px){:root{--report-header-height:104px}.header{height:var(--report-header-height);padding:10px 20px;flex-wrap:wrap;align-content:center;gap:10px}.header nav{display:flex;margin-left:0;width:100%;justify-content:space-between;gap:12px}.header nav a{font-size:11px;white-space:nowrap}.toc-toggle{width:36px;height:48px}.showcase-hero .hero-copy{padding-top:60px}.brand-lockup{max-width:100%}}
 /* Blue Matrix quotation, with green digital rain and no on-card control. */
