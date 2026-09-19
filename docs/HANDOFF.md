@@ -174,3 +174,8 @@ Contents opens by default on each page load and uses a labelled button at the up
 The author's newer preference replaces the left collapsible case selectors with horizontal underline tabs, matching the comparison matrix. All three case-study sections remain expanded. OpenWAM examples are labelled Rollout 1 and Rollout 2. The outline uses consistent title capitalization, Score and Ranking, and And instead of ampersands; the icon-only toggle now sits in the header's upper-left corner.
 
 References use numbered academic entries populated from the original RoboDojo citations; the author will supply updated BibTeX later. Study Limitations is a normal 16px link. The footer institution/date text is 15px, with duplicate entrance and return-to-top links removed. The floating return-to-top button is also removed. The hero includes a local SVG constellation-six watermark inspired by the Astra launch page, with gentle motion and a reduced-motion fallback; the light report body and data are unchanged.
+
+
+## Shared recording multiview (2026-09-20)
+
+The author flagged the remaining letterboxed All three layout in the coffee-bean behavior example. All stitched recordings in the shared evidence player now use Overview above Left wrist and Right wrist, with a common play/seek control. The new video-multiview.js crops three canvases from one decoded video; it respects cameraPosition() for overview-first and left-first source files. The source player's transparent box retains the entire viewport footprint so scrolling cannot pause a still-visible multiview. The existing episode interaction player remains unchanged.

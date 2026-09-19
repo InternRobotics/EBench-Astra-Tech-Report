@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node scripts/serve.mjs",
-    "check": "node --check dist/report-navigation.js && node --check dist/quote-effect.js && node --check dist/icl-viewer.js && node --check dist/model-math.js && node --check dist/narrative.js && node --check dist/app.js && node --check dist/charts.js && node --check dist/showcase.js && node --check dist/research.js && node --check scripts/serve.mjs && node --check dist/episode-viewer.js && node --check dist/analysis-insights.js && node --check dist/viz.js",
+    "check": "node --check dist/report-navigation.js && node --check dist/quote-effect.js && node --check dist/icl-viewer.js && node --check dist/model-math.js && node --check dist/narrative.js && node --check dist/video-multiview.js && node --check dist/app.js && node --check dist/charts.js && node --check dist/showcase.js && node --check dist/research.js && node --check scripts/serve.mjs && node --check dist/episode-viewer.js && node --check dist/analysis-insights.js && node --check dist/viz.js",
     "validate": "node scripts/validate-data.mjs && node scripts/validate-icl.mjs && node scripts/validate-episodes.mjs && node scripts/validate-insights.mjs && node scripts/validate-refresh.mjs && node scripts/validate-video-presentation.mjs && node scripts/validate-startup.mjs"
   }
 }

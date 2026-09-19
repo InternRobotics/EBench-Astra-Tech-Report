@@ -280,3 +280,19 @@ footer strong{font-size:17px}footer p{font-size:15px;line-height:1.65;color:#a8b
 .header nav a{font-size:15px;line-height:1.5}
 @media(min-width:1100px) and (max-width:1399px){body[data-toc-open=true] .header nav a{font-size:13px}}
 @media(max-width:760px){.header nav{margin-left:-38px;width:calc(100% + 38px);flex-shrink:0;gap:10px}.header nav a{font-size:12px}}
+
+/* Every stitched recording uses the same overview-above-wrists composition. */
+.recording-multiview,.recording-playback{display:none}
+.media-viewport.recording-all-views{background:transparent;overflow:hidden}
+.media-viewport.recording-all-views>video{position:absolute;inset:0;width:100%!important;height:100%!important;min-height:0!important;opacity:0;pointer-events:none}
+.recording-all-views .recording-multiview{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.recording-multiview>figure{position:relative;margin:0;min-width:0;border-radius:6px;overflow:hidden;background:#e0e7f1}
+.recording-multiview>figure:first-child{grid-column:1 / -1}
+.recording-multiview canvas{display:block;width:100%;height:auto;aspect-ratio:16/9}
+.evidence-video .recording-multiview figcaption{position:absolute;bottom:8px;left:8px;margin:0;padding:3px 8px;border-radius:4px;background:#152238bb;color:#f1f5fc;font-size:13px;line-height:1.5;pointer-events:none}
+.recording-all-views .recording-playback{display:flex;align-items:center;gap:12px;padding:12px 0 2px;background:transparent;color:#536985;font-size:14px}
+.recording-playback button{padding:6px 12px;border:1px solid #d2dbed;border-radius:5px;background:#eef2f8;color:#3652b7;font:inherit;cursor:pointer}
+.recording-playback input{flex:1;min-width:30px;accent-color:#4558ed}
+.recording-playback output{white-space:nowrap;font-variant-numeric:tabular-nums}
+.recording-all-views .video-start{top:32%}
+@media(max-width:760px){.recording-all-views .recording-multiview{gap:6px}.recording-all-views .recording-playback{gap:8px;font-size:13px}.evidence-video .recording-multiview figcaption{font-size:12px;bottom:5px;left:5px;padding:2px 6px}}
