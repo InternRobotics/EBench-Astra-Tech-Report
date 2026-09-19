@@ -130,3 +130,6 @@ h2:hover .anchor-link,.anchor-link:focus-visible{opacity:1}
 .video-label span,.case-videos .video-label span,.evidence-video figcaption,.safety-evidence .video-label span,.safety-evidence figcaption,.camera-controls,.camera-controls button,.stage-controls,.stage-controls button,.method-details a,.method-details button,.icl-overview-sheet figcaption,.icl-numeric-detail{font-size:14px;line-height:1.6}
 .viz-tip,.viz-tip b,.viz-tip em,.viz-tip small{font-size:14px;line-height:1.6}
 @media(max-width:760px){.hero-copy .eyebrow{font-size:12px}.report-authors .authors{font-size:14px}.report-authors .affiliations,.report-authors .author-note{font-size:12px}.hero-actions>a,.hero-primary,.coming-soon{font-size:13px}.coming-soon small,.motion-toggle{font-size:12px}.comparison-footnote p{font-size:13px}.matrix-tabs{gap:18px}}
+
+/* Detail readouts appear only after a data point is selected. */
+.chart-readout:empty,.insight-readout:empty,.outcome-readout:empty,.episode-caption:empty{display:none}

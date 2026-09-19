@@ -32,7 +32,7 @@ const reportNarrative = {
   ],
   "apple": [
     "GPT-6-Astra’s first transport attempt fails. The agent identifies a possible slip from the closed finger gap, moves its hand clear, and <strong>withdraws to obtain a wider view</strong> of the tabletop. After locating and regrasping the apple, its action note links a new transport strategy to the earlier failure: <strong>use the arm alone and avoid the previous base-motion slip</strong>.",
-    "The historical demonstration used a base shift between pickup and bowl placement. The agent changes that procedure using what happened in this episode, then <strong>completes the task with server-confirmed success</strong>. The public action notes connect its diagnosis to a different next attempt; the physical cause of the slip remains unverified."
+    "The historical demonstration used a base shift between pickup and bowl placement. The agent changes that procedure using what happened in this episode, then <strong>completes the task with server-confirmed success</strong>. Its action notes explicitly connect the earlier failure to the revised transport strategy."
   ],
   "coffee": [
     "In the coffee-bean episode, GPT-6-Astra revises its contact strategy. After requesting a spoon motion angled toward the tabletop, it switches to scraping with the fingers and adjusts the height and tilt. The episode ends with <strong>partial Score 0.50 and no complete success</strong>.",
@@ -57,7 +57,7 @@ const reportNarrative = {
     "Without a demonstration, GPT-6-Astra grasps and lifts the gear but leaves it outside the intended assembly position. With ICL, it brings the gear into the gap between the two existing gears, lowers it, releases it, and withdraws. The contrast concerns how to execute the operation: the <strong>placement geometry and sequence</strong> are central to completing the goal."
   ],
   "iclSummary": [
-    "The frame and gear examples show how a demonstration can guide grasp geometry and the operation sequence <strong>without parameter updates</strong>. The paired experiments below provide a small quantitative comparison, separate from these videos and the main benchmark."
+    "The frame and gear examples show how a demonstration can guide grasp geometry and the operation sequence <strong>without parameter updates</strong>. Eight matched episode pairs compare completion with and without the demonstration."
   ]
 };
 const narrativeHTML=key=>reportNarrative[key].map(p=>`<p>${p}</p>`).join('');
