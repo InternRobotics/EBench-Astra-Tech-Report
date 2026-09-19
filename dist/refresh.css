@@ -109,6 +109,23 @@ h2:hover .anchor-link,.anchor-link:focus-visible{opacity:1}
 @media(max-width:760px){.report-toc{top:auto;bottom:16px;left:12px;right:auto;width:auto;max-width:calc(100% - 24px)}body[data-toc-open=false] .report-toc{width:auto}.toc-toggle{padding:10px 14px}#report-toc-links{max-height:min(60dvh,420px)}.back-to-top{right:14px;bottom:70px;width:38px;height:38px}.timing-inline{padding:16px}}
 @media print{.reading-progress,.back-to-top,.report-toc{display:none!important}}
 
-.model-reference-entry{margin:24px 0 30px;padding:16px 0;border-top:1px solid #e0e6f0;border-bottom:1px solid #e0e6f0;scroll-margin-top:100px}.model-reference-entry .appendix-link{font-family:var(--sans);font-size:20px;font-weight:500;letter-spacing:normal}.model-reference-entry>span{display:block;margin-top:7px;font-size:13px;color:#607797}
+.model-reference-entry{margin:12px 0 0;scroll-margin-top:100px}.model-reference-entry a{font-family:var(--sans);font-size:16px;font-weight:500;color:#3456ef;text-decoration:none}.model-reference-entry a:hover{text-decoration:underline;text-underline-offset:4px}
 
 .model-references{list-style:none;padding:0;margin:24px 0 32px}.model-references li{padding:18px 0;border-bottom:1px solid #e0e6f0}.model-references li:first-child{padding-top:0}.model-references strong{font-size:17px;color:#253e64}.model-references li p{margin:6px 0 10px;font-size:14px;line-height:1.65}.model-references cite{font-style:normal}.model-reference-links{display:flex;flex-wrap:wrap;gap:8px 22px}.model-reference-links a{font-size:13px;text-underline-offset:3px}
+
+/* Readable secondary text; captions and controls must not become microtype. */
+.eyebrow,.component-kicker{font-size:13px;line-height:1.6;letter-spacing:.09em;color:#526887}
+#overall .result-summary>.eyebrow{font-size:15px;line-height:1.65;max-width:none;margin-bottom:22px}
+#overall .metric-label{font-size:15px;color:#455d7e}
+.result-panel-header{gap:18px;flex-wrap:wrap;align-items:center}
+.result-panel-header h4{font-size:19px;line-height:1.4;margin-top:5px}
+.result-panel .component-kicker{font-size:12px;letter-spacing:.07em}
+.result-summary .fineprint,.fineprint,.comparison-footnote p,.result-panel .chart-readout,.result-panel .report-chart figcaption,.chart-readout,.report-chart figcaption,.figure-caption,.viz-figure figcaption,.viz-caption{font-size:14px;line-height:1.7;color:#526887}
+.view-switch button,.chart-metrics button,.report-chart .chart-series button,.profile-note,.viz-legend,.field-controls,.field-controls .seg button,.field-summary span,.matrix-tabs button,.matrix-metric button,.results-extra>.appendix-link,.explorer-links button,.explorer-links>a{font-size:14px;line-height:1.5}
+.view-switch button,.chart-metrics button{padding:7px 12px}
+.report-chart .chart-series{gap:9px 12px;flex-wrap:wrap}
+.leaderboard th,.leaderboard td{font-size:14px}
+.model-references li p{font-size:16px}.model-reference-links a{font-size:15px}
+.video-label span,.case-videos .video-label span,.evidence-video figcaption,.safety-evidence .video-label span,.safety-evidence figcaption,.camera-controls,.camera-controls button,.stage-controls,.stage-controls button,.method-details a,.method-details button,.icl-overview-sheet figcaption,.icl-numeric-detail{font-size:14px;line-height:1.6}
+.viz-tip,.viz-tip b,.viz-tip em,.viz-tip small{font-size:14px;line-height:1.6}
+@media(max-width:760px){.hero-copy .eyebrow{font-size:12px}.report-authors .authors{font-size:14px}.report-authors .affiliations,.report-authors .author-note{font-size:12px}.hero-actions>a,.hero-primary,.coming-soon{font-size:13px}.coming-soon small,.motion-toggle{font-size:12px}.comparison-footnote p{font-size:13px}.matrix-tabs{gap:18px}}
