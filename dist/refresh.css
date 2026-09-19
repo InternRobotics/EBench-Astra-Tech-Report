@@ -137,15 +137,15 @@ h2:hover .anchor-link,.anchor-link:focus-visible{opacity:1}
 /* Match the author's preferred 150% reading scale on desktop. */
 @media(min-width:1200px){html{zoom:1.5}}
 
-/* Labels share a row; the primary success rate and secondary Score align below. */
-#overall .metric-values{display:grid;grid-template-columns:max-content max-content;grid-template-rows:auto auto;align-items:baseline;gap:12px 24px;white-space:normal}
-#overall .metric-primary,#overall .metric-score{display:grid;grid-row:span 2;grid-template-rows:subgrid;align-items:baseline;row-gap:12px}
-#overall .metric-label{margin:0;line-height:1.5;font-size:15px;letter-spacing:0;color:#455d7e}
-#overall .metric-score{border:0;padding:0;gap:12px;color:#455d7e}
-#overall .metric-score>.metric-label{font-size:15px}
-#overall .metric-success,#overall .metric-score b{align-self:baseline;font-variant-numeric:tabular-nums;line-height:1}
-#overall .metric-score b{font-size:28px;font-weight:500;letter-spacing:-.4px;color:#3c557e}
-@media(max-width:370px){#overall .metric-values{column-gap:16px}#overall .metric-label,#overall .metric-score>.metric-label{font-size:14px}#overall .metric-score b{font-size:25px}}
+/* A single headline metric with a compact secondary score on its baseline. */
+#overall .metric-values{display:grid;grid-template-columns:max-content max-content;align-items:baseline;gap:12px 20px;white-space:normal}
+#overall .metric-primary{display:contents}
+#overall .metric-primary>.metric-label{grid-column:1 / -1;margin:0;line-height:1.5;font-size:15px;letter-spacing:0;color:#455d7e}
+#overall .metric-success{grid-row:2;line-height:1;font-variant-numeric:tabular-nums}
+#overall .metric-score{grid-row:2;display:inline-flex;align-items:baseline;gap:7px;border:0;padding:0;white-space:nowrap}
+#overall .metric-score b{font-size:25px;font-weight:500;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.4px;color:#3c557e}
+#overall .metric-score>.metric-label{margin:0;font-size:14px;font-weight:400;line-height:1;color:#617594}
+@media(max-width:370px){#overall .metric-values{column-gap:14px}#overall .metric-score b{font-size:23px}#overall .metric-score>.metric-label{font-size:13px}}
 
 @media(min-width:1200px) and (max-width:1499px){.header{gap:20px;padding-inline:20px}.brand-lockup{gap:12px}.shanghai-ai-brand img{width:164px}.internrobotics-brand img{width:138px}.header nav{gap:18px}.header nav a{white-space:nowrap}}
 
