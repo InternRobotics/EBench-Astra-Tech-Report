@@ -160,3 +160,10 @@ The author accepts repetition inside dialogs and expandable views; keep those ex
 Emerging capabilities ends with one observation-based sentence; the RSI research discussion remains in Conclusion. The teacup/glasses complementarity statement appears once in the Case Studies introduction, rather than being reinjected under both tabs. Full interactions, safety cases, precision analysis, cross-groups and the seven-task outcome expansion are preserved. Range-view output and interaction readouts were checked against all 32 original condition values and eight ranges; no benchmark data changed.
 
 The original fruit_015, apple_to_fruit_bowl_006 and collect_coffee_beans_013 behavior recordings are stitched overview / left wrist / right wrist. Their generic camera controls map Center to the first pane and Left to the second, with Right unchanged. This asset-specific correction also applies when the recordings appear in Safety. Other video layouts and the already-correct full interaction viewer are unchanged. Frame extraction confirmed all three layouts.
+
+
+## Expanded case-study structure (2026-09-20)
+
+Case Studies contains three always-visible sections: In-context learning, Adaptation and precision, and Compositional completion. The Contents outline includes all three. Task/video selection is local to each section, using a collapsible selector at the left (above the content on phones). Switching one section preserves the others. Keep the approved case prose and source recordings.
+
+Contents opens by default on each page load and uses a labelled button at the upper left; do not restore the mid-page arrow handle. Desktop layouts reserve space for the open outline. Inline source links inside report paragraphs inherit the surrounding font and spacing, rather than the small standalone reference-link style.

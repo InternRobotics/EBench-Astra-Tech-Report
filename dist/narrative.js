@@ -75,13 +75,13 @@ function updateLimitNarrative(kind){
  story.innerHTML=narrativeHTML(kind);
  story.classList.add('report-prose');
 }
-function updateCaseNarrative(){
+function updateCaseNarrative(activeCase,area){
  if(activeCase==='poc')return;
  const key=activeCase==='icl'?(iclTask==='frame'?'iclFrame':'iclGear'):adaptTask==='glasses'?'fine':'recovery';
- const description=$('#case-content .case-description');
+ const description=area.querySelector('.case-description');
  const prose=document.createElement('div');prose.className='case-description report-prose';
  prose.innerHTML=narrativeHTML(key);description.replaceWith(prose);
- const insight=$('#case-content .case-insight');
+ const insight=area.querySelector('.case-insight');
  insight.querySelector('p').remove();
  if(activeCase==='icl')insight.insertAdjacentHTML('afterbegin',narrativeHTML('iclSummary'));
  if(activeCase==='adapt')insight.insertAdjacentHTML('afterbegin',narrativeHTML('adaptSummary'));

@@ -204,3 +204,40 @@ h2:hover .anchor-link,.anchor-link:focus-visible{opacity:1}
 @media(max-width:760px){.report-authors .authors{font-size:16px}.report-authors .affiliations{font-size:14px}.report-authors .author-note{font-size:13px}}
 
 .matrix-introduction{max-width:850px;margin:0 0 26px;font-size:16px;line-height:1.8;color:#455d7e}
+
+/* Inline citations retain the paragraph's typography and word spacing. */
+.report-prose p a.source-link{display:inline;font:inherit;letter-spacing:inherit;margin:0;padding:0;vertical-align:baseline;color:#3657c5;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+/* The outline is open on entry; its labelled control remains at the top left. */
+.toc-toggle{position:fixed;left:16px;top:calc(var(--report-header-height) + 12px);z-index:61;display:flex;gap:10px;align-items:center;justify-content:center;width:auto;height:36px;padding:0 13px;border:1px solid #d5ddea;border-radius:6px;background:#eef1f6;color:#304c7d;font-family:inherit;font-size:15px;line-height:1.2;box-shadow:0 2px 6px #263c5e08}
+.toc-menu-icon{font-family:Arial,sans-serif;font-size:15px}
+.report-toc{width:220px}
+#report-toc-links{padding:64px 12px 24px}
+#report-toc-links .toc-title{display:none}
+#report-toc-links a{padding:7px 12px}
+#report-toc-links .toc-subsection{font-size:13px;line-height:1.45}
+@media(min-width:1100px){body[data-toc-open=true]>.cosmos,body[data-toc-open=true]>main,body[data-toc-open=true]>footer{margin-left:220px}}
+/* Case themes are successive report sections; only their recordings switch. */
+.case-study-section{padding:48px 0 56px;border-top:1px solid #d9e1ed;scroll-margin-top:0}
+.case-study-section>h3{margin:0 0 30px;font-size:29px;line-height:1.3;color:#1b2e48;font-weight:600}
+.case-study-content .case-heading{max-width:none;margin:0;display:block}
+.case-study-content .case-heading h4{margin:0;font-size:22px;line-height:1.5;color:#47678c;font-weight:500}
+.case-study-content .case-description{margin:22px 0 30px;max-width:850px}
+.case-example-layout{display:grid;grid-template-columns:164px minmax(0,1fr);gap:28px;align-items:start}
+.case-example-body{min-width:0}
+.case-selector{position:sticky;top:calc(var(--report-header-height) + 24px);border:1px solid #d7dfed;border-radius:8px;background:#f4f6fa;overflow:hidden}
+.case-selector summary{display:flex;justify-content:space-between;align-items:center;padding:13px 14px;cursor:pointer;font-size:15px;color:#36517a;list-style:none}
+.case-selector summary::-webkit-details-marker{display:none}
+.case-selector-mark:after{content:'+';font-size:20px;font-family:Arial,sans-serif;font-weight:400}
+.case-selector[open] .case-selector-mark:after{content:'−'}
+.case-choice-list{display:grid;gap:5px;padding:0 7px 8px;background:transparent}
+.case-choice-list button{width:100%;min-height:48px;border:0;border-radius:5px;padding:11px 10px;text-align:left;font:inherit;font-size:15px;line-height:1.45;background:transparent;color:#657c9b;cursor:pointer}
+.case-choice-list button:hover{background:#e9edf6;color:#3657ba}
+.case-choice-list button[aria-pressed=true]{background:#e5ebfc;color:#3354cd;box-shadow:inset 3px 0 #5064ed}
+.case-selector summary:focus-visible,.case-choice-list button:focus-visible{outline:2px solid #5064ed;outline-offset:-3px}
+.case-study-content .case-insight{max-width:850px;margin:28px 0 0 auto}
+.case-study-content .case-videos{gap:18px}
+.case-study-content .demo-toolbar{margin:0 0 20px;flex-wrap:wrap}
+.case-study-content .video-label{flex-wrap:wrap;gap:5px}
+.case-study-content .poc-controls{margin-top:0}
+@media(max-width:1099px){.case-example-layout{grid-template-columns:145px minmax(0,1fr);gap:20px}}
+@media(max-width:760px){.case-study-section{padding:32px 0}.case-study-section>h3{font-size:25px}.case-study-content .case-heading h4{font-size:20px}.case-example-layout{grid-template-columns:1fr;gap:22px}.case-selector{position:static}.case-choice-list{grid-template-columns:repeat(2,minmax(0,1fr))}.case-study-content .case-insight{margin-top:24px}.toc-toggle{font-size:14px}}
