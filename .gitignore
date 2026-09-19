@@ -2,6 +2,7 @@ analysis/
 *.zip
 .sites-runtime/
 node_modules/
+_site/
 .env*
 
 backups/

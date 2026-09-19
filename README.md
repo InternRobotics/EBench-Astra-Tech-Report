@@ -19,6 +19,10 @@ npm run validate
 
 ## Current website
 
+GitHub Pages deployment is prepared but intentionally manual until the repository is transferred to **InternRobotics**. After transfer, confirm Settings → Pages uses **GitHub Actions**, then run **Deploy report to GitHub Pages** from the Actions tab on `main`. The expected address, if the repository name is retained, is `https://internrobotics.github.io/Ebench-Astra-Tech-Report/`.
+
+The workflow downloads the website's Git LFS videos, validates the report, and publishes the tracked `dist/` assets. The unfinished PDF is excluded. `node scripts/prepare-pages.mjs` prepares the same artifact locally in a fresh `_site/` directory. Asset paths are relative so the website can run under either owner's repository path; the deployment URL is supplied by GitHub Pages rather than hardcoded in the workflow. Pushes alone do not publish the site.
+
 - Light reading surfaces, dark navigation/footer accents, a small animated star field limited to the masthead, and restored author/affiliation information.
 - Evaluation Entrance links to the official evaluation landing page. The arXiv button is explicitly Coming soon; the current PDF is available separately.
 - Overall performance appears first. Rounded SVG bars, all-eight-system benchmark matrices, a sortable 26-task heatmap, SR/Score controls, and distribution-shift tables are interactive.
