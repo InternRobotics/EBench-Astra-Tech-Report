@@ -31,3 +31,7 @@ Browser screenshot verification was unavailable because the configured browser c
 The demo card now sits in Experiment Setup. Muted looping playback starts when at least 25% of the video viewport is visible; leaving the viewport or hiding the browser tab pauses it. Interaction text follows the encoded video clock. Explicit pause and expanded log details suspend autoplay; case changes start a fresh playback state. The right-hand panel has a stable scrollable height to avoid shifting the page as calls change.
 
 Node VM checks cover viewport/tab visibility, manual pause persistence, log inspection, call jumps, single-action stopping and case changes. HTML nesting checks verify the demo belongs to Setup.
+
+## Main video camera mapping
+
+All 27 `media/demos/` recordings were checked using extracted frames. The 26 three-view composites use overview, left wrist, right wrist ordering; the additional peg-in-hole failure recording is a single view and receives no crop controls. The generic player now applies that ordering to the complete main-demo directory as well as the previously verified behavior/safety clips. Center selects the overview strip (left in the source composite); Left selects the left-wrist strip (middle in the composite). Other comparison videos retain their existing mapping. `validate-video-presentation.mjs` covers lazy and loaded video sources and checks that outcome labels are rendered once, without episode IDs in ordinary video headings.
