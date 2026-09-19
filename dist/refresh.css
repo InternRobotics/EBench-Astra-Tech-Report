@@ -106,7 +106,7 @@ h2:hover .anchor-link,.anchor-link:focus-visible{opacity:1}
 .timing-inline .fineprint{margin:8px 0 0}
 
 
-@media(max-width:760px){.back-to-top{right:14px;bottom:70px;width:38px;height:38px}.timing-inline{padding:16px}}
+
 @media print{.reading-progress,.back-to-top,.report-toc{display:none!important}}
 
 .model-reference-entry{margin:12px 0 0;scroll-margin-top:100px}.model-reference-entry a{font-family:var(--sans);font-size:16px;font-weight:500;color:#3456ef;text-decoration:none}.model-reference-entry a:hover{text-decoration:underline;text-underline-offset:4px}
@@ -129,13 +129,13 @@ h2:hover .anchor-link,.anchor-link:focus-visible{opacity:1}
 .model-references li p{font-size:16px}.model-reference-links a{font-size:15px}
 .video-label > span,.case-videos .video-label > span,.evidence-video figcaption,.safety-evidence .video-label > span,.safety-evidence figcaption,.camera-controls,.camera-controls button,.stage-controls,.stage-controls button,.method-details a,.method-details button,.icl-overview-sheet figcaption,.icl-numeric-detail{font-size:14px;line-height:1.6}
 .viz-tip,.viz-tip b,.viz-tip em,.viz-tip small{font-size:14px;line-height:1.6}
-@media(max-width:760px){.hero-copy .eyebrow{font-size:12px}.report-authors .authors{font-size:14px}.report-authors .affiliations,.report-authors .author-note{font-size:12px}.hero-actions>a,.hero-primary,.coming-soon{font-size:13px}.coming-soon small,.motion-toggle{font-size:12px}.comparison-footnote p{font-size:13px}.matrix-tabs{gap:18px}}
+
 
 /* Detail readouts appear only after a data point is selected. */
 .chart-readout:empty,.insight-readout:empty,.outcome-readout:empty,.episode-caption:empty{display:none}
 
 /* Match the author's preferred 125% reading scale on desktop. */
-@media(min-width:1200px){html{zoom:1.25}}
+html{zoom:1.25}
 
 /* A single headline metric with a compact secondary score on its baseline. */
 #overall .metric-values{display:grid;grid-template-columns:max-content max-content;align-items:baseline;gap:12px 20px;white-space:normal}
@@ -145,9 +145,9 @@ h2:hover .anchor-link,.anchor-link:focus-visible{opacity:1}
 #overall .metric-score{grid-row:2;display:inline-flex;align-items:baseline;gap:7px;border:0;padding:0;white-space:nowrap}
 #overall .metric-score b{font-size:25px;font-weight:500;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.4px;color:#3c557e}
 #overall .metric-score>.metric-label{margin:0;font-size:14px;font-weight:400;line-height:1;color:#617594}
-@media(max-width:370px){#overall .metric-values{column-gap:14px}#overall .metric-score b{font-size:23px}#overall .metric-score>.metric-label{font-size:13px}}
 
-@media(min-width:1200px) and (max-width:1499px){.header{gap:20px;padding-inline:20px}.brand-lockup{gap:12px}.shanghai-ai-brand img{width:164px}.internrobotics-brand img{width:138px}.header nav{gap:18px}.header nav a{white-space:nowrap}}
+
+
 
 /* Let the scale span the same width as the comparison table. */
 .heat-legend{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px 12px;max-width:none;width:100%}
@@ -186,8 +186,8 @@ h2:hover .anchor-link,.anchor-link:focus-visible{opacity:1}
 .task-group-menu button:hover,.task-group-menu button:focus-visible{background:#edf1fa;outline:none}
 .task-group-menu button:focus-visible{box-shadow:inset 0 0 0 1px #8da0f1}
 .task-table-controls :is(input,summary,.task-metric-switch button):focus-visible{outline:2px solid #7a90f4;outline-offset:3px}
-@media(max-width:1000px){.task-table-controls{grid-template-columns:1fr 1fr}.task-table-controls .task-search-field{grid-column:1 / -1;width:100%}.task-metric-switch button{flex:1}}
-@media(max-width:520px){.task-table-controls{grid-template-columns:1fr;gap:14px}.task-group-menu{max-height:300px}.task-metric-switch button{font-size:15px}.task-group-control summary{font-size:15px}}
+
+
 
 .task-group-control[data-placement="above"] .task-group-menu{top:auto;bottom:calc(100% + 8px)}
 
@@ -201,7 +201,7 @@ h2:hover .anchor-link,.anchor-link:focus-visible{opacity:1}
 .report-authors .authors sup{font-size:11px}
 .report-authors .affiliations{font-size:15px;line-height:1.8;color:#627897}
 .report-authors .author-note{font-size:14px;line-height:1.7;color:#6b809c}
-@media(max-width:760px){.report-authors .authors{font-size:16px}.report-authors .affiliations{font-size:14px}.report-authors .author-note{font-size:13px}}
+
 
 .matrix-introduction{max-width:850px;margin:0 0 26px;font-size:16px;line-height:1.8;color:#455d7e}
 
@@ -239,8 +239,8 @@ h2:hover .anchor-link,.anchor-link:focus-visible{opacity:1}
 .case-study-content .demo-toolbar{margin:0 0 20px;flex-wrap:wrap}
 .case-study-content .video-label{flex-wrap:wrap;gap:5px}
 .case-study-content .poc-controls{margin-top:0}
-@media(max-width:1099px){.case-example-layout{grid-template-columns:145px minmax(0,1fr);gap:20px}}
-@media(max-width:760px){.case-study-section{padding:32px 0}.case-study-section>h3{font-size:25px}.case-study-content .case-heading h4{font-size:20px}.case-example-layout{grid-template-columns:1fr;gap:22px}.case-selector{position:static}.case-choice-list{grid-template-columns:repeat(2,minmax(0,1fr))}.case-study-content .case-insight{margin-top:24px}.toc-toggle{font-size:14px}}
+
+
 
 /* Compact header navigation, aligned with the institutional marks. */
 .header{padding-left:72px;position:sticky}
@@ -261,25 +261,16 @@ footer strong{font-size:17px}footer p{font-size:15px;line-height:1.65;color:#a8b
 .report-reference-list{list-style:none;padding-left:0;counter-reset:reference}
 .report-reference-list li{position:relative;padding-left:34px;counter-increment:reference}
 .report-reference-list li:before{content:'[' counter(reference) ']';position:absolute;left:0;color:#516483}
-/* Constellation six: vector watermark inspired by Astra's galaxy identity. */
-.astra-watermark{position:absolute;right:-8%;top:-22%;width:min(1100px,105%);height:auto;z-index:-1;pointer-events:none;opacity:.24;animation:astra-drift 34s ease-in-out infinite alternate}
-#overall,#cases,#conclusion{background-image:url('media/brand/astra-constellation.svg');background-size:750px auto;background-repeat:no-repeat;background-position:right -340px top 60px;background-blend-mode:soft-light}
-#cases{background-position:left -440px top 180px}
-#conclusion{background-position:right -380px bottom 30px}
-@keyframes astra-drift{from{transform:translate3d(0,0,0) rotate(-9deg);opacity:.17}to{transform:translate3d(-20px,20px,0) rotate(5deg);opacity:.28}}
-@media(prefers-reduced-motion:reduce){.astra-watermark{animation:none;opacity:.22}}
-@media(max-width:760px){.header{padding-left:58px}.header .toc-toggle{left:14px;top:27px;width:30px;height:30px}.header .brand-lockup{gap:9px}.shanghai-ai-brand img{width:135px}.internrobotics-brand img{width:117px}.header nav{width:100%;justify-content:space-between;gap:12px}.case-recording-tabs{gap:23px}.case-recording-tabs button{font-size:15px}.astra-watermark{width:140%;max-width:none;right:-50%;top:0}footer p{font-size:14px}}
-
 /* Align the institutional lockup with the report column, separate from the menu. */
 .header .toc-toggle{left:18px;width:42px;height:42px;padding:6px;border-radius:6px;color:#e0e8f6}
 .header .toc-toggle svg{width:30px;height:30px;flex:none}
-@media(min-width:1100px){body .header{padding-left:252px;padding-right:28px;gap:20px}}
-@media(min-width:1100px) and (max-width:1399px){body .header .brand-lockup{gap:10px}body .shanghai-ai-brand img{width:146px}body .internrobotics-brand img{width:122px}body .header nav{gap:12px}body .header nav a{font-size:11px;white-space:nowrap}}
-@media(max-width:760px){.header .toc-toggle{left:10px;top:27px;width:38px;height:38px;padding:5px}.header .toc-toggle svg{width:28px;height:28px}}
+body .header{padding-left:252px;padding-right:28px;gap:20px}
+
+
 
 .header nav a{font-size:15px;line-height:1.5}
-@media(min-width:1100px) and (max-width:1399px){body .header nav a{font-size:13px}}
-@media(max-width:760px){.header nav{margin-left:-38px;width:calc(100% + 38px);flex-shrink:0;gap:10px}.header nav a{font-size:12px}}
+
+
 
 /* Every stitched recording uses the same overview-above-wrists composition. */
 .recording-multiview,.recording-playback{display:none}
@@ -295,11 +286,11 @@ footer strong{font-size:17px}footer p{font-size:15px;line-height:1.65;color:#a8b
 .recording-playback input{flex:1;min-width:30px;accent-color:#4558ed}
 .recording-playback output{white-space:nowrap;font-variant-numeric:tabular-nums}
 .recording-all-views .video-start{top:32%}
-@media(max-width:760px){.recording-all-views .recording-multiview{gap:6px}.recording-all-views .recording-playback{gap:8px;font-size:13px}.evidence-video .recording-multiview figcaption{font-size:12px;bottom:5px;left:5px;padding:2px 6px}}
+
 
 /* Paint chapter backgrounds edge to edge while retaining the reading offset. */
-@media(min-width:1100px){
+
  body>.cosmos{padding-left:220px}
  body>main>.section{padding-left:252px}
  body>footer{padding-left:calc(220px + max(28px,calc((100% - 1180px)/2)));padding-right:max(28px,calc((100% - 1180px)/2))}
-}
+

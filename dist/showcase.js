@@ -1,36 +1,11 @@
 function initShowcase(){
  document.addEventListener('click',e=>{const link=e.target.closest('[data-open-case]');if(link){if(link.dataset.openCase==='mobile'){document.getElementById('mobile').scrollIntoView({behavior:'smooth'});return;}openSelectedCase(link.dataset.openCase);}const limit=e.target.closest('[data-limit]');if(limit){document.querySelectorAll('#limits-content video').forEach(v=>{v.pause();observer.unobserve(v);});renderLimits(limit.dataset.limit);document.querySelectorAll('[data-limit]').forEach(b=>b.setAttribute('aria-pressed',String(b===limit)));}});
- drawStarfield();
  if(location.hash){const target=document.getElementById(location.hash.slice(1));if(target)requestAnimationFrame(()=>target.scrollIntoView());}
 }
 function enhanceCaseControls(area){const trio=area.querySelector('.evidence-trio');
  const tools=document.createElement('div');tools.className='demo-toolbar';tools.innerHTML=(trio?'<div class="focus-switch" aria-label="Focus a model"><span>VIEW</span><button data-focus="all" aria-pressed="true">Compare all</button><button data-focus="0" aria-pressed="false">GPT-6-Astra</button><button data-focus="1" aria-pressed="false">π₀.₅</button><button data-focus="2" aria-pressed="false">OpenWAM</button></div>':'')+'<button class="case-play" aria-pressed="false">Play all ▷</button>';
  const videos=area.querySelector('.case-videos');videos.before(tools);
  tools.addEventListener('click',async e=>{const focus=e.target.closest('[data-focus]');if(focus){trio.dataset.focus=focus.dataset.focus;tools.querySelectorAll('[data-focus]').forEach(b=>b.setAttribute('aria-pressed',String(b===focus)));trio.querySelectorAll('.evidence-video').forEach((fig,i)=>{const hidden=focus.dataset.focus!=='all'&&+focus.dataset.focus!==i;fig.hidden=hidden;if(hidden)fig.querySelector('video').pause();});}const play=e.target.closest('.case-play');if(play){const visible=[...area.querySelectorAll('.evidence-video:not([hidden]) video')],start=visible.every(v=>v.paused);for(const v of visible){if(start){v.muted=true;try{await v.play();}catch{v.controls=true;}}else v.pause();}play.textContent=start?'Pause all Ⅱ':'Play all ▷';play.setAttribute('aria-pressed',String(start));}});
-}
-function drawStarfield(){
- const canvas=document.getElementById('starfield'),ctx=canvas.getContext('2d',{alpha:true});
- const reduced=matchMedia('(prefers-reduced-motion: reduce)');let enabled=!reduced.matches,raf=0,w=0,h=0,last=0,clock=0,scroll=window.scrollY,seed=817;
- let targetX=0,targetY=0,pointerX=0,pointerY=0,stars=[],galaxy=[];
- const random=()=>{seed=(seed*16807)%2147483647;return(seed-1)/2147483646;};
- function resize(){w=canvas.parentElement.clientWidth;h=canvas.parentElement.clientHeight;const dpr=Math.min(devicePixelRatio||1,1.5);canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);seed=817;
-  stars=Array.from({length:Math.min(190,Math.round(w*h/6200))},()=>({x:random()*w,y:random()*h,z:.3+random()*.9,r:.3+random()*1.15,phase:random()*6.28,speed:.25+random()*.7,tint:random()}));
-  galaxy=Array.from({length:w<600?360:780},()=>{const radius=28+Math.pow(random(),.68)*Math.min(w*.48,560),arm=Math.floor(random()*3)*Math.PI*2/3,angle=arm+radius*.017+(random()-.5)*.48;return{radius,angle,z:(random()-.5)*radius*.16,size:.3+random()*.95,alpha:.12+random()*.46,tint:random()};});render();
- }
- function dot(x,y,r,color){ctx.beginPath();ctx.fillStyle=color;ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();}
- function render(){ctx.clearRect(0,0,w,h);const intro=Math.max(0,1-scroll/(h*.95)),px=pointerX,py=pointerY,sceneHeight=Math.min(h,860);
-  // The soft light field moves separately from stars, creating depth without image assets.
-  const glow=ctx.createRadialGradient(w*.53+px*20,sceneHeight*.4+py*12,0,w*.53,sceneHeight*.4,w*.62);glow.addColorStop(0,`rgba(150,179,245,${.12*intro})`);glow.addColorStop(.45,`rgba(176,201,251,${.1*intro})`);glow.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=glow;ctx.fillRect(0,0,w,h);
-  for(const s of stars){const x=((s.x+clock*s.z*2+px*s.z*15)%(w+10)+w+10)%(w+10)-5,y=((s.y+clock*s.z*.8+py*s.z*11-scroll*s.z*.025)%(h+10)+h+10)%(h+10)-5;const alpha=(.28+.23*Math.sin(clock*s.speed+s.phase))*(intro*.66+.27),rgb=s.tint>.95?'120,104,172':s.tint>.65?'89,117,184':'75,102,171';dot(x,y,s.r,`rgba(${rgb},${alpha})`);if(s.r>1.3){dot(x,y,s.r*3.5,`rgba(${rgb},${alpha*.055})`);}}
-  if(intro>0){const rotation=clock*.016+px*.13,cx=w*.51+px*23,cy=sceneHeight*.46+py*16,tilt=.35+py*.075;
-   for(const s of galaxy){const a=s.angle+rotation,x=Math.cos(a)*s.radius,y=Math.sin(a)*s.radius*tilt+s.z;const rx=x*Math.cos(-.3)-y*Math.sin(-.3),ry=x*Math.sin(-.3)+y*Math.cos(-.3);const color=s.tint>.94?'129,114,191':s.tint>.63?'106,145,226':'113,142,211';dot(cx+rx,cy+ry,s.size,`rgba(${color},${s.alpha*intro*.82})`);}
-  }
- }
- function frame(now){raf=0;if(!enabled||document.hidden)return;const elapsed=Math.min((now-last)/1000,.08);if(now-last>=1000/30){clock+=elapsed;last=now;pointerX+=(targetX-pointerX)*.035;pointerY+=(targetY-pointerY)*.035;if(scroll<h)render();}raf=requestAnimationFrame(frame);}
- function sync(){cancelAnimationFrame(raf);raf=0;canvas.dataset.motion=enabled&&!document.hidden?'running':'paused';if(enabled&&!document.hidden){last=performance.now();raf=requestAnimationFrame(frame);}else render();}
- reduced.addEventListener('change',()=>{enabled=!reduced.matches;sync();});document.addEventListener('visibilitychange',sync);
- window.addEventListener('pointermove',e=>{if(e.pointerType==='touch')return;targetX=e.clientX/w-.5;targetY=e.clientY/h-.5;},{passive:true});document.documentElement.addEventListener('pointerleave',()=>{targetX=0;targetY=0;});
- window.addEventListener('scroll',()=>{scroll=window.scrollY;if(!enabled)render();},{passive:true});window.addEventListener('resize',resize);resize();sync();
 }
 function kitComparisonTable(kind){const general=kind==='generalization',groups=general?['object','background','instruction','mix']:['Low','Medium','High','Mobile','Fixed','Short Horizon','Long Horizon'],labels=general?['Object','Background','Instruction','Mixed']:['Low','Medium','High','Mobile','Tabletop','Short','Long'];
  const cell=(v,best,metric='sr')=>`<td>${v===best?'<strong>':''}${metric==='sr'?(v*100).toFixed(2)+'%':v.toFixed(4)}${v===best?'</strong>':''}</td>`;
