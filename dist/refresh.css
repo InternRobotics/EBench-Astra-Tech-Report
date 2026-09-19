@@ -325,3 +325,5 @@ body>footer.report-footer{display:grid;grid-template-columns:minmax(240px,.85fr)
 .footer-marks img{display:block;width:240px;max-width:100%;height:auto;opacity:.85}
 .footer-marks a:last-child img{width:190px}
 .footer-marks a:hover img{opacity:1}
+
+.result-panel>.comparison-footnote{max-width:none;margin:18px 0 0;padding-top:14px}
