@@ -4,11 +4,11 @@
  if(!root)return;
  const escape=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const time=value=>`${Math.floor(value/60)}:${String(Math.floor(value%60)).padStart(2,'0')}`;
- let entries=[],episode,index=0,request=0,segmentEnd=null,visibilityObserver,inView=false,userPaused=false;
+ let entries=[],episode,index=0,request=0,segmentEnd=null,visibilityObserver,inView=false,userPaused=false,stopFrames=()=>{};
  const get=async path=>{const r=await fetch(path);if(!r.ok)throw Error('Episode data unavailable');return r.json();};
  const actionName=call=>call.arguments.reason || `${call.arguments.opening===0?'Close':call.arguments.opening===1?'Open':'Adjust'} the ${call.arguments.side} gripper`;
  async function load(id){
-  const token=++request;visibilityObserver?.disconnect();inView=false;root.querySelector('video')?.pause();
+  const token=++request;stopFrames();visibilityObserver?.disconnect();inView=false;root.querySelector('video')?.pause();
   root.innerHTML='<p role="status">Loading the episode…</p>';
   try{
    const data=await get(`data/episodes/${id}.json`);if(token!==request)return;
@@ -19,13 +19,20 @@
   root.innerHTML=`<div class="episode-picker" aria-label="Choose an episode">${entries.map(e=>`<button data-episode="${e.id}" aria-pressed="${e.id===episode.id}">${escape(e.title)}</button>`).join('')}</div>
    <div class="episode-heading"><div><h4>${escape(episode.instruction)}</h4><p>${escape(episode.description)}</p></div><span class="episode-outcome">${episode.result.sr?'Successful':'Incomplete'}<small>Final score ${episode.result.score.toFixed(1)}</small></span></div>
    <div class="episode-bookmarks" aria-label="Key moments">${episode.bookmarks.map(b=>`<button data-call="${b.call-1}">${escape(b.label)}</button>`).join('')}</div>
-   <div class="episode-stage"><div class="episode-screen"><div class="episode-cameras" aria-label="Video camera"><button data-episode-camera="0" aria-pressed="true">Overview</button><button data-episode-camera="1" aria-pressed="false">Left wrist</button><button data-episode-camera="2" aria-pressed="false">Right wrist</button><button data-episode-camera="all" aria-pressed="false">All views</button></div><div class="episode-viewport"><video data-camera-ready="true" data-custom-controls="true" preload="metadata" muted loop playsinline src="${escape(episode.video)}" aria-label="Recorded execution: ${escape(episode.instruction)}"></video></div><div class="episode-playback"><button data-play aria-label="Play episode">Play</button><input data-seek type="range" min="0" max="${episode.duration}" step="0.01" value="0" aria-label="Video position"><output data-time>0:00 / ${time(episode.duration)}</output><label>Speed<select data-speed aria-label="Playback speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label></div><p class="episode-caption" role="status"></p></div><div class="episode-interaction"><div class="episode-step-nav"><button data-prev aria-label="Previous interaction">←</button><span data-counter></span><button data-next aria-label="Next interaction">→</button></div><div data-interaction></div></div></div>
+   <div class="episode-stage"><div class="episode-screen"><div class="episode-cameras" aria-label="Video camera"><button data-episode-camera="0" aria-pressed="true">Overview</button><button data-episode-camera="1" aria-pressed="false">Left wrist</button><button data-episode-camera="2" aria-pressed="false">Right wrist</button><button data-episode-camera="all" aria-pressed="false">All views</button></div><div class="episode-viewport"><video data-camera-ready="true" data-custom-controls="true" preload="metadata" muted loop playsinline src="${escape(episode.video)}" aria-label="Recorded execution: ${escape(episode.instruction)}"></video><div class="episode-multiview">${["Overview","Left wrist","Right wrist"].map((label,i)=>`<figure><canvas data-camera-tile="${i}" role="img" aria-label="${label} camera"></canvas><figcaption>${label}</figcaption></figure>`).join('')}</div></div><div class="episode-playback"><button data-play aria-label="Play episode">Play</button><input data-seek type="range" min="0" max="${episode.duration}" step="0.01" value="0" aria-label="Video position"><output data-time>0:00 / ${time(episode.duration)}</output><label>Speed<select data-speed aria-label="Playback speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label></div><p class="episode-caption" role="status"></p></div><div class="episode-interaction"><div class="episode-step-nav"><button data-prev aria-label="Previous interaction">←</button><span data-counter></span><button data-next aria-label="Next interaction">→</button></div><div data-interaction></div></div></div>
    <details class="episode-log"><summary>Full interaction timeline · ${episode.calls.length} calls</summary><ol>${episode.calls.map((c,i)=>`<li><button data-call="${i}"><time>${time(c.video_start)}</time><span>${escape(actionName(c))}</span></button></li>`).join('')}</ol></details>
    <div class="episode-source-links"><button class="appendix-link" data-icl-package="${escape(episode.task)}">Historical ICL input ↗</button><a href="data/episodes/${episode.id}.json" download>Download public interaction log</a></div>
    <details class="episode-log"><summary>Initial task prompt</summary><div class="episode-prompt">${episode.initial_prompt.split('\n').filter(Boolean).map(p=>`<p>${escape(p)}</p>`).join('')}</div></details>
 `;
   const video=root.querySelector('video');
   video.muted=true;video.defaultMuted=true;video.loop=true;
+  let frameHandle=null;
+  const useVideoFrames=typeof video.requestVideoFrameCallback==='function';
+  stopFrames=()=>{if(frameHandle!==null){if(useVideoFrames)video.cancelVideoFrameCallback(frameHandle);else cancelAnimationFrame(frameHandle);frameHandle=null;}};
+  const frame=()=>{frameHandle=null;if(!video.isConnected)return;drawViews(video);if(!video.paused)frameHandle=useVideoFrames?video.requestVideoFrameCallback(frame):requestAnimationFrame(frame);};
+  video.addEventListener('play',()=>{stopFrames();frame();});
+  video.addEventListener('pause',()=>{stopFrames();drawViews(video);});
+  for(const event of ['loadeddata','seeked'])video.addEventListener(event,()=>drawViews(video));
   video.addEventListener('timeupdate',()=>{
    if(segmentEnd!==null&&video.currentTime>=segmentEnd){userPaused=true;video.pause();video.currentTime=segmentEnd;segmentEnd=null;}
    root.querySelector('[data-seek]').value=video.currentTime;
@@ -39,6 +46,15 @@
   visibilityObserver=new IntersectionObserver(([entry])=>{inView=entry.isIntersecting&&entry.intersectionRatio>=0.25;syncPlayback();},{threshold:[0,0.25]});
   visibilityObserver.observe(root.querySelector('.episode-viewport'));
   video.addEventListener('canplay',syncPlayback);
+ }
+ // Every tile is cropped from the same decoded frame, so the cameras cannot drift.
+ function drawViews(video){
+  if(video.readyState<2||!video.isConnected||!video.parentElement.classList.contains('all-views'))return;
+  const width=video.videoWidth/3,height=video.videoHeight;
+  root.querySelectorAll('[data-camera-tile]').forEach(canvas=>{
+   if(canvas.width!==width||canvas.height!==height){canvas.width=width;canvas.height=height;}
+   canvas.getContext('2d').drawImage(video,Number(canvas.dataset.cameraTile)*width,0,width,height,0,0,width,height);
+  });
  }
  function renderCall(){
   const c=episode.calls[index],reason=c.arguments.reason,result=c.response.episode_results[0];
@@ -70,6 +86,7 @@
   if(b.hasAttribute('data-episode-camera')){
    const all=b.dataset.episodeCamera==='all';root.querySelector('.episode-viewport').classList.toggle('all-views',all);
    video.style.transform=all?'none':`translateX(-${Number(b.dataset.episodeCamera)*100/3}%)`;
+   if(all)drawViews(video);
    root.querySelectorAll('[data-episode-camera]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
   }
  });
