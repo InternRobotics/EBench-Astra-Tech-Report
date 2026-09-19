@@ -147,3 +147,5 @@ References were checked against official repositories, project pages and arXiv. 
 Model references are now directly discoverable from the header and Contents via #model-references, plus a prominent entry in Experiment Setup. The former matrix-footnote entry is removed. The shared dialog opens with the eight citations before metric provenance. Hash links open it directly, including on initial load.
 
 Model References entry moved to immediately below the EBench leaderboard paragraph in Benchmark Results, as a simple text link. Removed the separate Experiment Setup block and header item; Contents links to the new position. Secondary HTML captions and controls are enlarged to 13–15px, with readable contrast; main metric definitions use 15px and the model-comparison heading 19px.
+
+Matrix quote animation uses only Latin letters and digits, with mostly green streams and occasional red streams (~1/23 passes). The hero Pause motion button and its JS dependency are removed; animation still honors reduced-motion preferences and tab visibility.

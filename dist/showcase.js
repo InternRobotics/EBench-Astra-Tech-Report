@@ -14,7 +14,7 @@ function enhanceCaseControls(){const area=$('#case-content'),trio=area.querySele
  if(activeCase==='icl'){const frame=iclTask==='frame';const summary=document.createElement('div');summary.className='paired-summary';summary.innerHTML=`<div><span>EXPLORATORY PAIRED EXPERIMENT</span><strong>${frame?'Frame manipulation':'Gear installation'}</strong></div><p><b>0 / 4</b><span>Zero-shot successes</span></p><i>→</i><p><b>${frame?'2':'1'} / 4</b><span>ICL successes</span></p><small>Four fresh paired seeds.<br>Separate from the selected videos.</small>`;area.querySelector('.case-insight').before(summary);const mini=document.createElement('div');mini.className='paired-mini';mini.innerHTML=`<div class="paired-mini-chart" data-dumbbells="${frame?'frame_against_pen_holder':'install_gear'}"></div><div class="viz-legend"><span><i class="hollow"></i>Zero-shot Score</span><span><i class="filled"></i>Single-shot ICL Score</span><span>✓ marks a terminal success</span></div><p class="viz-caption">Four matched seeds; the same demonstration is switched on or off with identical guidance and resource settings.</p>`;summary.after(mini);drawFigures(mini);}
 }
 function drawStarfield(){
- const canvas=document.getElementById('starfield'),ctx=canvas.getContext('2d',{alpha:true}),toggle=document.querySelector('.motion-toggle');
+ const canvas=document.getElementById('starfield'),ctx=canvas.getContext('2d',{alpha:true});
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');let enabled=!reduced.matches,raf=0,w=0,h=0,last=0,clock=0,scroll=window.scrollY,seed=817;
  let targetX=0,targetY=0,pointerX=0,pointerY=0,stars=[],galaxy=[];
  const random=()=>{seed=(seed*16807)%2147483647;return(seed-1)/2147483646;};
@@ -32,8 +32,8 @@ function drawStarfield(){
   }
  }
  function frame(now){raf=0;if(!enabled||document.hidden)return;const elapsed=Math.min((now-last)/1000,.08);if(now-last>=1000/30){clock+=elapsed;last=now;pointerX+=(targetX-pointerX)*.035;pointerY+=(targetY-pointerY)*.035;if(scroll<h)render();}raf=requestAnimationFrame(frame);}
- function sync(){cancelAnimationFrame(raf);raf=0;toggle.setAttribute('aria-pressed',String(enabled));toggle.setAttribute('aria-label',enabled?'Pause starfield animation':'Play starfield animation');toggle.innerHTML=enabled?'<span aria-hidden="true">Ⅱ</span> Pause motion':'<span aria-hidden="true">▷</span> Play motion';canvas.dataset.motion=enabled&&!document.hidden?'running':'paused';if(enabled&&!document.hidden){last=performance.now();raf=requestAnimationFrame(frame);}else render();}
- toggle.addEventListener('click',()=>{enabled=!enabled;sync();});reduced.addEventListener('change',()=>{enabled=!reduced.matches;sync();});document.addEventListener('visibilitychange',sync);
+ function sync(){cancelAnimationFrame(raf);raf=0;canvas.dataset.motion=enabled&&!document.hidden?'running':'paused';if(enabled&&!document.hidden){last=performance.now();raf=requestAnimationFrame(frame);}else render();}
+ reduced.addEventListener('change',()=>{enabled=!reduced.matches;sync();});document.addEventListener('visibilitychange',sync);
  window.addEventListener('pointermove',e=>{if(e.pointerType==='touch')return;targetX=e.clientX/w-.5;targetY=e.clientY/h-.5;},{passive:true});document.documentElement.addEventListener('pointerleave',()=>{targetX=0;targetY=0;});
  window.addEventListener('scroll',()=>{scroll=window.scrollY;if(!enabled)render();},{passive:true});window.addEventListener('resize',resize);resize();sync();
 }

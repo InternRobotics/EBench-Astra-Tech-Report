@@ -3,16 +3,19 @@
  const quote=document.querySelector('.opening-quote'),canvas=quote?.querySelector('.matrix-rain');
  if(!canvas)return;
  const ctx=canvas.getContext('2d');if(!ctx)return;
- const reduced=matchMedia('(prefers-reduced-motion: reduce)'),glyphs='アイウエオカキクケコサシスセソタチツテトナニヌネノ012345789';
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)'),glyphs='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
  let enabled=!reduced.matches,visible=false,width=0,height=0,raf=0,last=0,time=0;
  function draw(){
   ctx.clearRect(0,0,width,height);ctx.font='14px ui-monospace, monospace';ctx.textAlign='center';
   for(let col=0;col<Math.ceil(width/19);col++){
-   const speed=11+(col*17%23),offset=(time*speed+col*41)%(height+180)-90;
+   const speed=11+(col*17%23),travel=time*speed+col*41,cycle=Math.floor(travel/(height+180)),offset=travel%(height+180)-90;
+   const red=(col*7+cycle*11)%23===5;
    for(let row=0;row<13;row++){
     const y=offset-row*17;if(y<0||y>height+14)continue;
     const index=(col*13+row*7+Math.floor(time*.6))%glyphs.length;
-    ctx.fillStyle=row===0?'rgba(186,255,209,.65)':`rgba(61,199,121,${.42*(1-row/13)})`;
+    ctx.fillStyle=red
+     ?(row===0?'rgba(255,181,190,.7)':`rgba(225,74,96,${.48*(1-row/13)})`)
+     :(row===0?'rgba(186,255,209,.65)':`rgba(61,199,121,${.42*(1-row/13)})`);
     ctx.fillText(glyphs[index],col*19+8,y);
    }
   }
