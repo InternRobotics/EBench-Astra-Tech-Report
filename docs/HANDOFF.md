@@ -179,3 +179,8 @@ References use numbered academic entries populated from the original RoboDojo ci
 ## Shared recording multiview (2026-09-20)
 
 The author flagged the remaining letterboxed All three layout in the coffee-bean behavior example. All stitched recordings in the shared evidence player now use Overview above Left wrist and Right wrist, with a common play/seek control. The new video-multiview.js crops three canvases from one decoded video; it respects cameraPosition() for overview-first and left-first source files. The source player's transparent box retains the entire viewport footprint so scrolling cannot pause a still-visible multiview. The existing episode interaction player remains unchanged.
+
+
+## Stable outline collapse (2026-09-20)
+
+Collapsing Contents hides only the navigation panel. Desktop content keeps its 220px left gutter, and the header lockup stays at the same position and size in either state. The toggle uses three round dots and thick round-ended horizontal strokes. Do not recenter the page or move the brand when toggling the outline.
