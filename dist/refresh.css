@@ -148,3 +148,8 @@ h2:hover .anchor-link,.anchor-link:focus-visible{opacity:1}
 @media(max-width:370px){#overall .metric-values{column-gap:16px}#overall .metric-label,#overall .metric-score>.metric-label{font-size:14px}#overall .metric-score b{font-size:25px}}
 
 @media(min-width:1200px) and (max-width:1499px){.header{gap:20px;padding-inline:20px}.brand-lockup{gap:12px}.shanghai-ai-brand img{width:164px}.internrobotics-brand img{width:138px}.header nav{gap:18px}.header nav a{white-space:nowrap}}
+
+/* Let the scale span the same width as the comparison table. */
+.heat-legend{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px 12px;max-width:none;width:100%}
+.heat-legend>span:first-child{grid-column:1 / -1;margin-right:0}
+.heat-legend i{width:100%}
