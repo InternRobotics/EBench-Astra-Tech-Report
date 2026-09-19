@@ -34,37 +34,18 @@
   while(points.length<count){const x=random()*180,y=random()*180;if(ctx.isPointInPath(path,x,y)&&(!cutout||!ctx.isPointInPath(cutout,x,y)))points.push({x:(x-90)/scale,y:(y-90)/scale});}
   return points.sort((a,b)=>Math.atan2(a.y,a.x)-Math.atan2(b.y,b.x));
  }
- const arms=new Path2D();
- function link(x1,y1,x2,y2,width){
-  const angle=Math.atan2(y2-y1,x2-x1),dx=Math.sin(angle)*width/2,dy=Math.cos(angle)*width/2;
-  arms.moveTo(x1+dx,y1-dy);arms.lineTo(x2+dx,y2-dy);arms.lineTo(x2-dx,y2+dy);arms.lineTo(x1-dx,y1+dy);arms.closePath();
- }
- for(const side of [-1,1]){
-  const x=v=>90+side*v;
-  arms.roundRect(x(51)-17,139,34,12,4);
-  link(x(51),139,x(64),102,11);link(x(64),102,x(40),62,12);link(x(40),62,x(18),80,9);
-  for(const [px,py] of [[x(51),137],[x(64),102],[x(40),62]]){arms.moveTo(px+8,py);arms.arc(px,py,8,0,tau);}
-  link(x(18),80,x(13),93,5);link(x(18),80,x(30),88,5);link(x(30),88,x(24),101,5);
- }
- arms.roundRect(80,93,20,22,3);
- const logo=samples(blossom,null,62),machine=samples(robot,robotCutout,75),manipulators=samples(arms,null,75);
- const polarSort=points=>points.sort((a,b)=>Math.atan2(a.y,a.x)-Math.atan2(b.y,b.x));
- const orbits=polarSort(Array.from({length:count},()=>{
-  const ring=Math.floor(random()*3),angle=random()*tau,rotation=ring*Math.PI/3;
-  const x=Math.cos(angle)*(.93+(random()-.5)*.045),y=Math.sin(angle)*(.31+(random()-.5)*.06);
-  return{x:x*Math.cos(rotation)-y*Math.sin(rotation),y:x*Math.sin(rotation)+y*Math.cos(rotation)};
- }));
- const nebula=polarSort(Array.from({length:count},()=>{
-  const angle=random()*tau,r=.57+.2*Math.sin(angle*3)+(random()-.5)*.23;
-  return{x:Math.cos(angle)*r*1.18,y:Math.sin(angle)*r};
- }));
+ const logo=samples(blossom,null,62),machine=samples(robot,robotCutout,75);
  const galaxy=Array.from({length:count},()=>{
-  const r=Math.pow(random(),.72),arm=Math.floor(random()*4)*tau/4;
+  if(random()<.28){
+   const r=Math.min(.3,.11*Math.sqrt(-2*Math.log(Math.max(random(),.00001)))),a=random()*tau;
+   return{x:Math.cos(a)*r,y:Math.sin(a)*r*.78};
+  }
+  const r=.09+Math.pow(random(),.72)*.91,arm=Math.floor(random()*4)*tau/4;
   const a=arm+r*5.2+(random()-.5)*(.2+r*.55);
   return{x:Math.cos(a)*r*1.16,y:Math.sin(a)*r*.8};
  }).sort((a,b)=>Math.atan2(a.y,a.x)-Math.atan2(b.y,b.x));
- const shapes={galaxy,gpt:logo,robot:machine,arms:manipulators,orbits,nebula};
- const sequence=['galaxy','gpt','robot','arms','orbits','nebula','orbits','galaxy','nebula'];
+ const shapes={galaxy,gpt:logo,robot:machine};
+ const sequence=['galaxy','gpt','robot','galaxy','gpt','robot','galaxy','gpt','robot'];
  const points=galaxy.map((g,i)=>({index:i,size:random()>.965?2+random()*.65:.4+Math.pow(random(),1.7)*1.25,phase:random()*tau,color:random()>.94?'159,125,84':random()>.45?'67,110,184':'91,126,190',alpha:.24+random()*.28}));
  const halos=new Map();
  for(const color of new Set(points.map(p=>p.color))){
@@ -77,7 +58,7 @@
  function measure(){
   const header=document.querySelector('.header').getBoundingClientRect().height;
   const top=id=>Math.max(0,document.getElementById(id).getBoundingClientRect().top+window.scrollY-header);
-  // Revisit astronomical forms between the case studies and the closing sections.
+  // Repeat the three approved motifs across the report chapters.
   stops=[0,top('overall'),top('findings'),top('limits'),top('safety'),top('case-adapt'),top('case-poc'),top('conclusion'),top('references')];
   for(let i=1;i<stops.length;i++)stops[i]=Math.max(stops[i],stops[i-1]+1);
   progress();
@@ -106,9 +87,18 @@
   const step=Math.min(Math.floor(phase),sequence.length-1),mix=phase-step;
   const fromName=sequence[step],toName=sequence[Math.min(step+1,sequence.length-1)];
   const from=shapes[fromName],to=shapes[toName];
-  const rotation=name=>name==='galaxy'?time*.013-.22:name==='orbits'?time*.008:name==='nebula'?time*.009:0;
+  const rotation=name=>name==='galaxy'?time*.013-.22:0;
   const a=rotation(fromName),b=rotation(toName),ca=Math.cos(a),sa=Math.sin(a),cb=Math.cos(b),sb=Math.sin(b);
   for(const s of stars){dot((s.x*w+time*1.2)%(w+4),s.y*h+Math.sin(time*.1+s.phase)*4,s.size,'85,122,181',.17);}
+  const galaxyWeight=(fromName==='galaxy'?1-mix:0)+(toName==='galaxy'?mix:0);
+  if(galaxyWeight>0){
+   const core=ctx.createRadialGradient(cx,cy,0,cx,cy,radius*.25);
+   core.addColorStop(0,`rgba(255,255,255,${.8*galaxyWeight})`);
+   core.addColorStop(.15,`rgba(236,247,255,${.64*galaxyWeight})`);
+   core.addColorStop(.42,`rgba(130,171,226,${.22*galaxyWeight})`);
+   core.addColorStop(1,'rgba(130,171,226,0)');
+   ctx.fillStyle=core;ctx.fillRect(cx-radius*.25,cy-radius*.25,radius*.5,radius*.5);
+  }
   for(const p of points){
    const f=from[p.index],t=to[p.index];
    const x=lerp(f.x*ca-f.y*sa,t.x*cb-t.y*sb,mix),y=lerp(f.x*sa+f.y*ca,t.x*sb+t.y*cb,mix);
