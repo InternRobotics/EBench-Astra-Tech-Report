@@ -6,15 +6,15 @@ const reportNarrative = {
 ],
  overall: [
   'With one historical demonstration per task, GPT-6-Astra <strong>ranks second among eight systems</strong> on both success rate and partial-completion Score. OpenWAM-α leads by <strong>8.59 percentage points</strong> in success rate. This establishes that general-purpose multimodal control can compete with specialized policies under task-specific context; it does not establish that the agent approach dominates robot-specific training.',
-  'The aggregate hides a more informative split. GPT-6-Astra is close to OpenWAM-α on mobile manipulation and leads on selected object-placement tasks, but falls much further behind on <strong>precision-sensitive and long-horizon execution</strong>. We therefore read the benchmark together with trajectories: <strong>selecting an appropriate goal, repairing a disrupted state, and physically completing an operation are distinct capabilities</strong>.'
+  'The aggregate hides a more informative split. GPT-6-Astra <strong>leads all eight systems on the 12 mobile, short-horizon tasks</strong>, but falls much further behind on <strong>fixed-base and long-horizon execution</strong>. We therefore read the benchmark together with trajectories: <strong>selecting an appropriate goal, repairing a disrupted state, and physically completing an operation are distinct capabilities</strong>.'
  ],
  mobile: [
-  'GPT-6-Astra reaches <strong>56.58% success across 19 mobile tasks</strong>, <strong>only 3.60 percentage points below OpenWAM-α</strong>. On seven tabletop tasks, its success rate drops to <strong>20.00%, versus 42.14%</strong> for OpenWAM-α. GPT-6-Astra’s relative strength appears when reaching and manipulating an object also requires working across a larger space and adjusting the robot’s viewpoint.',
+  'Splitting mobile tasks by horizon reveals GPT-6-Astra’s strongest result: <strong>73.19% success on 12 mobile, short-horizon tasks—the highest among all eight systems</strong>, ahead of OpenWAM-α at 65.28% by <strong>7.92 percentage points</strong>. On the seven mobile, long-horizon tasks, the ordering reverses: GPT-6-Astra reaches 28.10%, versus 51.43% for OpenWAM-α. The pooled mobile result of 56.58% therefore conceals a substantial advantage in one subgroup and a substantial deficit in the other.',
   'The task-level results sharpen this picture. GPT-6-Astra completes all 20 remote-to-holder episodes, versus 65% success for OpenWAM-α. On bookmark placement, it reaches <strong>90%, compared with 55%</strong> for the next-best system, π₀.₅. The bookmark scene requires selecting the intended target amid clutter. These are strong end-to-end results consistent with useful visual grounding and spatial reasoning; the evaluation does not separately isolate recognition, localization, or the benefit of exploration.'
  ],
  shifts: [
-  'Changing objects, backgrounds, instructions, and all three together gives GPT-6-Astra success rates of 44.17%, 50.77%, 44.62%, and 46.15%. It remains competitive, but the ranking changes with the perturbation. Its first-place mixed-condition result is <strong>only two successes ahead of OpenWAM-α out of 130 episodes</strong>.',
-  'This is <strong>robustness within demonstrated task definitions</strong>: each task retains the same reference package across its variations. Unseen task composition asks a different question and is evaluated separately in the POC. Keeping these settings distinct matters when interpreting “generalization.”'
+  'Across object, background, instruction and mixed perturbations, GPT-6-Astra records 44.17%, 50.77%, 44.62% and 46.15% success. Its <strong>6.60 percentage-point range is the smallest among eight systems</strong>, compared with 16.92 for OpenWAM-α and 21.53 for Qwen-RobotManip. It also <strong>ranks first in the mixed condition</strong>, with 60 successes out of 130, versus 58 for OpenWAM-α. The combination of a narrow observed range and competitive absolute performance is a notable robustness result.',
+  'This pattern is <strong>consistent with broadly useful visual and language priors</strong>, while the evaluation does not isolate the source of that robustness. These are four perturbation conditions, not a clean-to-perturbed performance drop; the object condition covers 24 tasks, whereas the others cover 26. Each task retains its historical reference package across variations. Unseen task composition is a separate question, evaluated in the POC.'
  ],
  precision: [
   'The sharpest failure pattern appears at the <strong>transition from coarse transport to precise contact</strong>. GPT-6-Astra’s success rate falls from 60.60% on low-precision tasks to 40.21% on medium-precision tasks and <strong>11.25% on high-precision tasks</strong>; its <strong>ranking drops from second to seventh</strong>. Every system finds the high-precision group harder, but GPT-6-Astra’s relative position deteriorates particularly strongly.',
@@ -93,7 +93,9 @@ function initNarrative(){
  document.querySelectorAll('[data-narrative]').forEach(el=>el.innerHTML=narrativeHTML(el.dataset.narrative));
  $('#mobile-content .finding-story').innerHTML=narrativeHTML('mobile');
  $('#mobile-content .finding-story').classList.add('report-prose');
- $('#mobile-content').insertAdjacentHTML('beforeend',`<div class="report-prose shift-analysis"><h3>Robustness to changed scenes is not unseen-task composition</h3>${narrativeHTML('shifts')}<button class="appendix-link" data-appendix="generalization">Compare the four perturbation settings ↗</button></div>`);
+ $('#mobile-content').insertAdjacentHTML('beforeend',`<div class="report-prose shift-analysis"><h3>The narrowest performance spread across perturbations</h3>${narrativeHTML('shifts')}<div id="perturbation-ranges"></div><button class="appendix-link" data-appendix="generalization">Compare the four perturbation settings ↗</button></div>`);
+ $('#mobile-content .shift-analysis').before($('#cross-group-analysis'));
+ initAnalysisInsights();
  const library=$('#video-library');
  library.addEventListener('toggle',()=>{if(!library.open)library.querySelectorAll('video').forEach(v=>v.pause());});
 }
