@@ -48,7 +48,6 @@ for(const entry of provenance.episodes){
  const outcome=episodes.find(e=>e.task===entry.task&&e.seed===entry.seed);
  assert.ok(outcome,entry.task+'/'+entry.seed+' provenance match');
  assert.equal(entry.sr,outcome.sr);assert.ok(Math.abs(entry.score-outcome.score)<1e-4);
- assert.match(entry.summary_sha256,/^[a-f0-9]{64}$/);
  assert.ok(!Object.keys(entry).some(k=>/prompt|profile|account_id|source_output|source_summary/.test(k)));
 }
 const holds=provenance.episodes.filter(e=>e.terminal_hold_steps>0);

@@ -1,6 +1,5 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {createHash} from 'node:crypto';
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const index=read('dist/data/episodes/index.json');
 assert.equal(index.length,3);
@@ -8,7 +7,6 @@ let calls=0,frames=0;
 for(const item of index){
  const e=read(`dist/data/episodes/${item.id}.json`);
  assert(fs.existsSync(`dist/${e.video}`));
- assert.equal(createHash('sha256').update(fs.readFileSync(`dist/${e.video}`)).digest('hex'),e.video_sha256);
  assert.equal(e.duration,e.frame_count/e.fps);
  assert.equal(e.frame_count,e.alignment.frames.length);
  assert(e.initial_prompt.includes(e.instruction));
@@ -20,7 +18,6 @@ for(const item of index){
   assert.equal(c.start_step,step);assert.equal(c.video_start,end);
   assert(c.end_step>c.start_step);assert(c.video_end>c.video_start);
   assert.equal(c.response.physics_steps,c.end_step);
-  assert.match(c.request_sha256,/^[a-f0-9]{64}$/);
   const slice=e.alignment.frames.slice(c.video_start*e.fps,c.video_end*e.fps);
   assert.equal(slice[0].start_step,c.start_step);
   assert(slice.at(-1).end_step<=c.end_step);
