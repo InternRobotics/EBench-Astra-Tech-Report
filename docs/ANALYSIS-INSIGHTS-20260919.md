@@ -25,3 +25,5 @@ All high-precision tasks are fixed-base; all long-horizon tasks are mobile. Cros
 The configured browser connection still returns a malformed response, so rendered screenshot inspection was unavailable.
 
 The final limitations card expands from its summary or when following the Limitations anchor. Its full text is retained; the default footer view shows only the title and a brief description.
+
+The outcome overview and task-level failure distributions now form one continuous analysis before the precision/horizon examples, without repeated progress/failure headings. The task bars initially show seven discussed tasks; a bottom button reveals the remaining 19 and collapses them again. The initial seven retain their positions. A targeted interaction check verifies hidden/default state, both toggle directions and stable row order.
