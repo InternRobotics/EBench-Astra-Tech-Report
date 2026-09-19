@@ -1,6 +1,6 @@
 # Whole-episode interaction viewer
 
-The Case studies section now includes three complete archived **public tool-call sequences**, the runtime initial prompt, and a link to each task's existing historical ICL package:
+An interactive demonstration card in Experiment Setup includes three complete archived **public tool-call sequences**, the runtime initial prompt, and a link to each task's existing historical ICL package:
 
 | Episode | Calls | Encoded frames | Terminal outcome |
 | --- | ---: | ---: | --- |
@@ -25,3 +25,9 @@ Run `scripts/build-episode-interactions.py` with Python; it reads the core archi
 `npm run validate` verifies all 140 calls, contiguous call/video intervals, 947 frames, media hashes, task/ICL links and terminal outcomes. `npm run check` checks JavaScript syntax. A local Node VM interaction check additionally exercised switching episodes, selecting calls, video-following text, single-action stopping, camera selection and gripper labels. HTTP checks confirmed the new assets load and video byte-range requests return 206.
 
 Browser screenshot verification was unavailable because the configured browser connection returned a malformed response. No visual inspection of the rendered page is claimed.
+
+## Playback and placement update
+
+The demo card now sits in Experiment Setup. Muted looping playback starts when at least 25% of the video viewport is visible; leaving the viewport or hiding the browser tab pauses it. Interaction text follows the encoded video clock. Explicit pause and expanded log details suspend autoplay; case changes start a fresh playback state. The right-hand panel has a stable scrollable height to avoid shifting the page as calls change.
+
+Node VM checks cover viewport/tab visibility, manual pause persistence, log inspection, call jumps, single-action stopping and case changes. HTML nesting checks verify the demo belongs to Setup.
