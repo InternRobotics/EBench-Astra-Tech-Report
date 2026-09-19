@@ -335,3 +335,5 @@ body>main>#introduction{padding-inline:252px;padding-top:38px}
 
 .report-authors .authors{text-wrap:balance}
 .report-authors .author{white-space:nowrap}
+
+.case-videos .video-label strong{font-size:18px;line-height:1.5;color:#395577}
