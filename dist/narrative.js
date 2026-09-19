@@ -42,21 +42,27 @@ const reportNarrative = {
     "The episode still ends incomplete with <strong>Score 0.60</strong>. This distinguishes <strong>selecting the requested destination from completing the physical task</strong>."
   ],
   "recovery": [
-    "GPT-6-Astra first targets the teacup’s handle and adjusts its wrist and gripper through successive attempts before securing the cup and teapot. Subsequent manipulation displaces the cup after it has been placed on the saucer. The agent later returns, re-establishes a grasp and carries it back toward the saucer: <strong>a previously achieved requirement becomes a goal again</strong>.",
-    "In the π₀.₅ rollout, repeated approach and retraction leave the cup transfer unresolved. OpenWAM moves the teapot onto the tray while leaving the cup off the saucer. The comparison shows the agent <strong>redirecting execution toward the disrupted state</strong>."
+    "In the teacup task, GPT-6-Astra initially targets the handle region and adjusts its wrist and gripper configuration across successive attempts before securing the teacup and teapot. This behavior is consistent with affordance-informed grasp selection and replanning.",
+    "After initially placing the cup on the saucer, subsequent manipulation displaces it. GPT-6-Astra later revisits the cup, re-establishes a grasp, and carries it back toward the saucer, demonstrating a response to an invalidated state rather than simply continuing the preceding action sequence.",
+    "In contrast, π₀.₅ performs repeated approach and retraction motions without completing the cup transfer. OpenWAM attempts to grasp the cup but failed, then moves the teapot onto the tray while leaving the cup off the saucer. The contrast therefore concerns not only object-handling ability, but whether ongoing execution is redirected to resolve unmet or disrupted task requirements."
   ],
   "fine": [
-    "Glasses packing shows the complementary advantage of specialized policies. GPT-6-Astra performs the coarse bimanual transfer, but subsequent folding leaves the temples protruding from the case. Further corrective contacts leave the obstruction unresolved, and <strong>lid closure remains unfinished</strong>.",
-    "π₀.₅ places the glasses and folds the temples into a more compact state, although its lid remains open. <strong>OpenWAM additionally closes the lid</strong>. In these examples, <strong>accurate folding and alignment decide completion</strong>. Together with the teacup case, this separates revising a plan from executing it precisely."
+    "The glasses packing task exposes a different limitation. GPT-6-Astra successfully performs the coarse bimanual transfer, while the breakdown occurs during the subsequent adjustments needed to fold the temples and close the lid. The temples remain protruding after manipulation, obstructing closure, and further corrective contacts do not resolve the packing problem.",
+    "This rollout indicates the distinction between making planning toward a task goal and satisfying its final requirements: GPT-6-Astra completes the initial placement but struggles with the precise folding and alignment needed for closure.",
+    "In the π₀.₅ rollout, the glasses are placed in the case and the temples are folded into a more compact state, although the lid remains open at the end. OpenWAM additionally completes lid closure after the folding sequence. These results highlight more accurate execution of the fine-grained manipulation by the specialized policies."
+  ],
+  "adaptSummary": [
+    "Together, the two tasks reveal complementary capability: GPT-6-Astra exhibits affordance-directed grasp selection, iterative adjustment, and recovery behavior, whereas the specialized policies execute the precision task more accurately. Broad task understanding and observation-conditioned revision do not by themselves guarantee precise physical execution; conversely, successful execution of a familiar action trajectory does not necessarily entail recovery when a task requirement remains unmet."
   ],
   "iclFrame": [
-    "Without a demonstration, GPT-6-Astra reaches and moves the frame, but repeated changes in approach and wrist orientation do not complete the manipulation. With ICL, it adopts a more appropriate grasp and coordinates both grippers to perform the placement. The demonstration contributes <strong>operational geometry and a division of labor between the arms</strong>, beyond simply naming the target object."
+    "In the photo-frame task, zero-shot execution demonstrates reaching and moving the target, repeatedly adjusts its approach and wrist orientation without completing the required manipulation. After observing a demonstration, GPT-6-Astra adopts a more appropriate grasp orientation and coordinates both grippers to manipulate the frame, then positions the frame over the cup."
   ],
   "iclGear": [
-    "Without a demonstration, GPT-6-Astra grasps and lifts the gear but leaves it outside the intended assembly position. With ICL, it brings the gear into the gap between the two existing gears, lowers it, releases it, and withdraws. The contrast concerns how to execute the operation: the <strong>placement geometry and sequence</strong> are central to completing the goal."
+    "In the gear installation task, zero-shot execution likewise demonstrates basic object-handling ability: GPT-6-Astra grasps and lifts the gear, but its placement attempts leave the gear outside the intended assembly position, and installation remains incomplete. With ICL, it positions the gear in the gap between the two existing gears, lowers it into place, releases it, and withdraws the gripper, leaving the gear installed."
   ],
   "iclSummary": [
-    "The frame and gear examples show how a demonstration can guide grasp geometry and the operation sequence <strong>without parameter updates</strong>. Eight matched episode pairs compare completion with and without the demonstration."
+    "The frame and gear examples show how a demonstration can guide grasp geometry and the operation sequence <strong>without parameter updates</strong>. Eight matched episode pairs compare completion with and without the demonstration.",
+    "Together, these cases suggest that in-context learning can supply task-specific geometric and procedural cues that help translate high-level task intent into executable interaction strategies. Their value lies not merely in clarifying what to manipulate, but in guiding how to grasp, bimanual coordinate, and place objects precisely to satisfy the task objective."
   ]
 };
 const narrativeHTML=key=>reportNarrative[key].map(p=>`<p>${p}</p>`).join('');
@@ -67,13 +73,14 @@ function updateLimitNarrative(kind){
 }
 function updateCaseNarrative(){
  if(activeCase==='poc')return;
- const key=activeCase==='icl'?(iclTask==='frame'?'iclFrame':'iclGear'):activeCase;
+ const key=activeCase==='icl'?(iclTask==='frame'?'iclFrame':'iclGear'):adaptTask==='glasses'?'fine':'recovery';
  const description=$('#case-content .case-description');
  const prose=document.createElement('div');prose.className='case-description report-prose';
  prose.innerHTML=narrativeHTML(key);description.replaceWith(prose);
  const insight=$('#case-content .case-insight');
  insight.querySelector('p').remove();
  if(activeCase==='icl')insight.insertAdjacentHTML('afterbegin',narrativeHTML('iclSummary'));
+ if(activeCase==='adapt')insight.insertAdjacentHTML('afterbegin',narrativeHTML('adaptSummary'));
 }
 function updateBehaviorNarrative(key){
  const story=$('#behavior-content .behavior-evidence>div');

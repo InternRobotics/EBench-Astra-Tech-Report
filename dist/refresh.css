@@ -3,7 +3,7 @@
 
 /* Reading progress, back-to-top, anchors */
 .reading-progress{position:fixed;left:0;top:0;height:3px;width:100%;background:linear-gradient(90deg,var(--accent),#7d95ff);transform-origin:0 50%;transform:scaleX(0);z-index:80;pointer-events:none}
-.back-to-top{position:fixed;right:22px;bottom:22px;width:42px;height:42px;border-radius:50%;border:1px solid #cfd8ea;background:#fff;color:#2d4bd1;font-size:18px;box-shadow:var(--shadow-soft);opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .25s,transform .25s;z-index:50}
+.back-to-top{position:fixed;right:22px;bottom:22px;width:42px;height:42px;border-radius:50%;border:1px solid #cfd8ea;background:#f5f6f8;color:#2d4bd1;font-size:18px;box-shadow:var(--shadow-soft);opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .25s,transform .25s;z-index:50}
 .back-to-top.is-visible{opacity:1;transform:none;pointer-events:auto}
 .back-to-top:hover{background:var(--accent-soft)}
 .anchor-link{margin-left:10px;font-size:.55em;font-weight:500;color:#9fb0d0;text-decoration:none;opacity:0;transition:opacity .18s;vertical-align:middle}
@@ -19,7 +19,7 @@ h2:hover .anchor-link,.anchor-link:focus-visible{opacity:1}
 .viz-tip small{display:block;margin-top:6px;padding-top:6px;border-top:1px solid #2c3d5c;color:#9fb0cf;font-size:11px;line-height:1.5}
 
 /* SVG figure primitives */
-.viz-svg{display:block;width:100%;height:auto;font-family:"Segoe UI",Arial,Helvetica,sans-serif;font-size:12px}
+.viz-svg{display:block;width:100%;height:auto;font-family:"Times New Roman",Times,serif;font-size:12px}
 .viz-svg text{fill:#526580}
 .viz-grid{stroke:#e6ebf4;stroke-width:1}
 .viz-zero{stroke:#7f8fb0;stroke-width:1.2}
@@ -65,26 +65,26 @@ h2:hover .anchor-link,.anchor-link:focus-visible{opacity:1}
 .viz-figure figcaption,.viz-caption{font-size:11.5px;line-height:1.7;color:#7c8ba6;margin-top:10px}
 
 /* Capability profile charts: legend chips highlight instead of hide */
-.report-chart .chart-series button{display:inline-flex;align-items:center;gap:7px;padding:4px 10px;border-radius:999px;border:1px solid transparent;background:#f3f5fa;color:#71809a;font-size:11px;transition:background .15s,color .15s,border-color .15s}
+.report-chart .chart-series button{display:inline-flex;align-items:center;gap:7px;padding:4px 10px;border-radius:999px;border:1px solid transparent;background:#e6eaf1;color:#71809a;font-size:11px;transition:background .15s,color .15s,border-color .15s}
 .report-chart .chart-series button i{width:8px;height:8px;border-radius:50%;background:var(--series);opacity:.45}
-.report-chart .chart-series button[aria-pressed=true]{background:#fff;border-color:#c9d3ea;color:#243756;box-shadow:0 1px 3px rgba(20,33,58,.08)}
+.report-chart .chart-series button[aria-pressed=true]{background:#f5f6f8;border-color:#c9d3ea;color:#243756;box-shadow:0 1px 3px rgba(20,33,58,.08)}
 .report-chart .chart-series button[aria-pressed=true] i{opacity:1}
 .report-chart .chart-series button:hover{color:#243756}
 .profile-note{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:11px;color:#8a99b5;margin:6px 0 0}
 .profile-note i{display:inline-block;width:10px;height:10px;border-radius:50%;border:1.2px dashed #3456ef;vertical-align:-1px;margin-right:5px}
-.chart-ci{margin-left:auto;font-size:10.5px;color:#71809a;background:#f3f5fa;border:1px solid transparent;border-radius:999px;padding:3px 10px}
-.chart-ci[aria-pressed=true]{background:#fff;border-color:#c9d3ea;color:#243756}
+.chart-ci{margin-left:auto;font-size:10.5px;color:#71809a;background:#e6eaf1;border:1px solid transparent;border-radius:999px;padding:3px 10px}
+.chart-ci[aria-pressed=true]{background:#f5f6f8;border-color:#c9d3ea;color:#243756}
 .chart-heading{gap:10px;flex-wrap:wrap}
 
 
 /* Benchmark matrix: fourth view */
 .matrix-tabs button{transition:color .15s,border-color .15s}
 .field-controls{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;margin:18px 0 6px;font-size:11.5px;color:#71809a}
-.field-controls .seg{display:inline-flex;gap:2px;background:#f1f4fa;border-radius:6px;padding:3px}
+.field-controls .seg{display:inline-flex;gap:2px;background:#e4e8f0;border-radius:6px;padding:3px}
 .field-controls .seg button{background:none;border:0;border-radius:4px;padding:4px 10px;font-size:11px;color:#71809a}
-.field-controls .seg button[aria-pressed=true]{background:#fff;color:#2d4bd1;box-shadow:0 1px 3px rgba(20,33,58,.1)}
+.field-controls .seg button[aria-pressed=true]{background:#f5f6f8;color:#2d4bd1;box-shadow:0 1px 3px rgba(20,33,58,.1)}
 .field-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:6px 0 16px}
-.field-summary div{padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:#fbfcfe}
+.field-summary div{padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:#f0f2f5}
 .field-summary b{display:block;font-size:22px;font-weight:600;letter-spacing:-.6px;color:var(--ink)}
 .field-summary span{font-size:11px;color:#6b7a92;line-height:1.5;display:block}
 .field-summary .pos b{color:var(--accent)}.field-summary .neg b{color:var(--navy)}
@@ -99,7 +99,7 @@ h2:hover .anchor-link,.anchor-link:focus-visible{opacity:1}
 .icl-pair-chart{margin:20px 0 6px}
 
 /* Timing figure in the Safety section and the appendix */
-.timing-inline{max-width:800px;margin:34px auto 0;padding:22px 24px;border:1px solid var(--line);border-radius:10px;background:#fbfcfe}
+.timing-inline{max-width:800px;margin:34px auto 0;padding:22px 24px;border:1px solid var(--line);border-radius:10px;background:#f0f2f5}
 .timing-inline h4{margin:0 0 4px;font-size:15px;color:#243756}
 .timing-inline p.lede{margin:0 0 12px;font-size:13px;color:#5b6d8c}
 .timing-chart{margin:6px 0 4px}
