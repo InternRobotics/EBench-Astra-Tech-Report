@@ -1,0 +1,1481 @@
+{
+  "id": "apple_to_fruit_bowl_006",
+  "task": "apple_to_fruit_bowl",
+  "seed": "006",
+  "title": "Recovering a slipped apple",
+  "description": "A changed transport strategy follows a failed grasp. The episode ends in success.",
+  "instruction": "Move the apple from the dining table into the fruit bowl.",
+  "result": {
+    "sr": 1.0,
+    "score": 1.0
+  },
+  "video": "media/cases/apple_to_fruit_bowl_006-web.mp4",
+  "duration": 32.5,
+  "fps": 4,
+  "frame_count": 130,
+  "video_sha256": "7ec89f51f119f4913f5bd790659ba3f71088a540b2c8f80eb4b2c0ce43ed2d4e",
+  "physics_steps": 1041,
+  "physics_hz": 30,
+  "bookmarks": [
+    {
+      "call": 1,
+      "label": "First grasp"
+    },
+    {
+      "call": 9,
+      "label": "Transport"
+    },
+    {
+      "call": 10,
+      "label": "Slip detected"
+    },
+    {
+      "call": 17,
+      "label": "Revised strategy"
+    },
+    {
+      "call": 20,
+      "label": "Final result"
+    }
+  ],
+  "initial_prompt": "Complete this single task yourself using the tools: Move the apple from the dining table into the fruit bowl.\nRobot: manip/lift2/R5a, two arms and a movable planar base. Left arm is left in the overlook view. EEF poses are local to each arm's planner base: +X forward, +Y robot-left, +Z up; quaternion order wxyz. Fingers extend along tool +X and open along tool Y. Wrist cameras move/rotate with the hands. Measured local EEF z is not height above the tabletop. There is no supplied depth, object pose or camera calibration. Only RGB and measured robot EEF/gripper/base state are available. Base observed yaw is radians; tool command yaw is degrees. You have one continuous conversation and may choose any continuous EEF target, both arms, base motion and waypoint batching. Use execute_eef sequentially, not parallel calls. Use observations to judge motion and object manipulation. The server determines task success independently. Do not start another episode. Resource limits: unlimited tool calls, physics deadline enforced by the server; no hard token limit; resource reminders start after 2,000,000 cumulative tokens. Resource reminders ask you to reduce unnecessary token use while continuing useful work. Select only useful camera views after the initial observation to control resource use. When finished, state the observed outcome concisely.\nManipulation guidance: after visually aligning, close at a stationary pose and allow settling. A nonzero finger gap on the table is contact evidence, not proof of a secure grasp. Test each grasp by lifting only 0.01 m first, using motion_steps=16 or more, then hold 8..16 steps and request the active wrist plus overlook views. Keep orientation and base fixed during this test. Check both finger gap and RGB to confirm the object rises with the gripper before further lifting or transport. If it remains on the table or slips, lower and adjust local contact depth/centering using current images. There is no fixed limit on failed grasp attempts; retry or change approach within the remaining experiment budgets. Avoid large instantaneous target jumps while holding an object; use motion_steps for controlled transport. Total steps per waypoint must remain <=64 and includes the ramp. Use only the active wrist for local corrections, adding overlook when establishing alignment, testing grasp, or verifying placement.\nRGB inputs are downsampled: overlook 640x360, wrist 384x288; no crop or object annotation.",
+  "calls": [
+    {
+      "number": 1,
+      "id": "call_00001",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Approach the apple with the right hand open and orient the fingers downward, staying above the table.",
+        "waypoints": [
+          {
+            "base_xy_yaw_deg": [
+              0.15,
+              0,
+              0
+            ],
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.22,
+                0,
+                0.14
+              ],
+              "quaternion_wxyz": [
+                0.70710678,
+                0,
+                0.70710678,
+                0
+              ],
+              "gripper_m": [
+                0.044,
+                0.044
+              ]
+            },
+            "steps": 64,
+            "motion_steps": 48
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 1,
+        "physics_steps": 64,
+        "episode_results": []
+      },
+      "start_step": 0,
+      "end_step": 64,
+      "video_start": 0.0,
+      "video_end": 2.0,
+      "request_sha256": "3efeec86936fddd1f117c0b4d69a671d85bbd53589630004e8b90447619ea65f"
+    },
+    {
+      "number": 2,
+      "id": "call_00002",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "right_wrist"
+        ],
+        "reason": "Shift the open downward gripper forward and slightly left to center over the apple.",
+        "waypoints": [
+          {
+            "base_xy_yaw_deg": null,
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.29,
+                0.025,
+                0.14
+              ],
+              "quaternion_wxyz": [
+                0.70710678,
+                0,
+                0.70710678,
+                0
+              ],
+              "gripper_m": [
+                0.044,
+                0.044
+              ]
+            },
+            "steps": 40,
+            "motion_steps": 32
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 2,
+        "physics_steps": 104,
+        "episode_results": []
+      },
+      "start_step": 64,
+      "end_step": 104,
+      "video_start": 2.0,
+      "video_end": 3.25,
+      "request_sha256": "8e0e283fd929249a8e90bb4bade8480be070bf7fc1887e31c52bd6e2e091acbf"
+    },
+    {
+      "number": 3,
+      "id": "call_00003",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Refine apple alignment while lowering the open hand toward a pre-grasp height.",
+        "waypoints": [
+          {
+            "base_xy_yaw_deg": null,
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.35,
+                -0.025,
+                0.1
+              ],
+              "quaternion_wxyz": [
+                0.70710678,
+                0,
+                0.70710678,
+                0
+              ],
+              "gripper_m": [
+                0.044,
+                0.044
+              ]
+            },
+            "steps": 48,
+            "motion_steps": 36
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 3,
+        "physics_steps": 152,
+        "episode_results": []
+      },
+      "start_step": 104,
+      "end_step": 152,
+      "video_start": 3.25,
+      "video_end": 4.75,
+      "request_sha256": "dfb3527e941769133a91d18fba9f40ea99c6e35ff24bf41c73fd9d91d6a6aa7f"
+    },
+    {
+      "number": 4,
+      "id": "call_00004",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "right_wrist"
+        ],
+        "reason": "Center the apple between the fingers and descend gradually toward contact.",
+        "waypoints": [
+          {
+            "base_xy_yaw_deg": null,
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.33,
+                -0.065,
+                0.05
+              ],
+              "quaternion_wxyz": [
+                0.70710678,
+                0,
+                0.70710678,
+                0
+              ],
+              "gripper_m": [
+                0.044,
+                0.044
+              ]
+            },
+            "steps": 48,
+            "motion_steps": 36
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 4,
+        "physics_steps": 200,
+        "episode_results": []
+      },
+      "start_step": 152,
+      "end_step": 200,
+      "video_start": 4.75,
+      "video_end": 6.25,
+      "request_sha256": "ece6a748c06c08ada5d3ae9aef733f3743743c80b22fbd3475e07876ec5e07c1"
+    },
+    {
+      "number": 5,
+      "id": "call_00005",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Make a small final alignment and lower the fingers around the apple before closing.",
+        "waypoints": [
+          {
+            "base_xy_yaw_deg": null,
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.35,
+                -0.08,
+                0.02
+              ],
+              "quaternion_wxyz": [
+                0.70710678,
+                0,
+                0.70710678,
+                0
+              ],
+              "gripper_m": [
+                0.044,
+                0.044
+              ]
+            },
+            "steps": 48,
+            "motion_steps": 36
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 5,
+        "physics_steps": 248,
+        "episode_results": []
+      },
+      "start_step": 200,
+      "end_step": 248,
+      "video_start": 6.25,
+      "video_end": 7.75,
+      "request_sha256": "f3613029675c449bd3c90da5cfd661145858a28cce1c41cc342309b6cd4f2bb8"
+    },
+    {
+      "number": 6,
+      "id": "call_00006",
+      "tool": "set_gripper",
+      "arguments": {
+        "cameras": [
+          "right_wrist"
+        ],
+        "opening": 0,
+        "side": "right",
+        "steps": 32
+      },
+      "response": {
+        "success": true,
+        "waypoints": 6,
+        "physics_steps": 280,
+        "episode_results": []
+      },
+      "start_step": 248,
+      "end_step": 280,
+      "video_start": 7.75,
+      "video_end": 8.75,
+      "request_sha256": "aa051ff7b7253a1c5d00e6686d33d2c521bb56d571374505ab19ba796145a1b0"
+    },
+    {
+      "number": 7,
+      "id": "call_00007",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Test the grasp with a 1 cm vertical lift, keeping orientation and base fixed, then hold to check whether the apple follows.",
+        "waypoints": [
+          {
+            "base_xy_yaw_deg": null,
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.34998,
+                -0.07995,
+                0.03002
+              ],
+              "quaternion_wxyz": [
+                0.7071467543452754,
+                0.00018999912794400388,
+                0.707066754712457,
+                0.00018999912794400388
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "steps": 32,
+            "motion_steps": 20
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 7,
+        "physics_steps": 312,
+        "episode_results": []
+      },
+      "start_step": 280,
+      "end_step": 312,
+      "video_start": 8.75,
+      "video_end": 9.75,
+      "request_sha256": "600e94e5726fc886fcea58a75c342805f1af74a79140c8478e08be4a0df7b2d0"
+    },
+    {
+      "number": 8,
+      "id": "call_00008",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "The apple remained fixed between the fingers during the test lift; raise it clear of the tabletop for transport.",
+        "waypoints": [
+          {
+            "base_xy_yaw_deg": null,
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.34997,
+                -0.07991,
+                0.19
+              ],
+              "quaternion_wxyz": [
+                0.707221672510511,
+                0.00036000085136702015,
+                0.7069916719665821,
+                0.0003900009223142718
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "steps": 64,
+            "motion_steps": 48
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 8,
+        "physics_steps": 376,
+        "episode_results": []
+      },
+      "start_step": 312,
+      "end_step": 376,
+      "video_start": 9.75,
+      "video_end": 11.75,
+      "request_sha256": "f71b990dc22174da13a4d2fc67411611e262c37ff19c497ac65906b9e9a0c32f"
+    },
+    {
+      "number": 9,
+      "id": "call_00009",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Carry the lifted apple toward the fruit bowl with a slow base translation, holding the hand pose and orientation fixed.",
+        "waypoints": [
+          {
+            "base_xy_yaw_deg": [
+              0.25,
+              -0.32,
+              0
+            ],
+            "left": null,
+            "right": null,
+            "steps": 64,
+            "motion_steps": 56
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 9,
+        "physics_steps": 440,
+        "episode_results": []
+      },
+      "start_step": 376,
+      "end_step": 440,
+      "video_start": 11.75,
+      "video_end": 13.75,
+      "request_sha256": "210106f0ef0b87ef1e1deed98af4e812c996ccdd0c726b655516f89070681fae"
+    },
+    {
+      "number": 10,
+      "id": "call_00010",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "The finger gap closed during transport, indicating the apple slipped. Move the empty hand clear to locate the apple before retrying.",
+        "waypoints": [
+          {
+            "base_xy_yaw_deg": null,
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.18,
+                -0.08,
+                0.25
+              ],
+              "quaternion_wxyz": [
+                0.70710678,
+                0,
+                0.70710678,
+                0
+              ],
+              "gripper_m": [
+                0.044,
+                0.044
+              ]
+            },
+            "steps": 56,
+            "motion_steps": 40
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 10,
+        "physics_steps": 496,
+        "episode_results": []
+      },
+      "start_step": 440,
+      "end_step": 496,
+      "video_start": 13.75,
+      "video_end": 15.5,
+      "request_sha256": "60935c8b323f5416a23b43e4f5e80499d205a1c58ab984cc0283a13a756ca0c0"
+    },
+    {
+      "number": 11,
+      "id": "call_00011",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Withdraw to a wider view of the tabletop to locate the slipped apple without disturbing the bowl.",
+        "waypoints": [
+          {
+            "base_xy_yaw_deg": [
+              0.05,
+              0,
+              0
+            ],
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.1002,
+                0,
+                0.16349
+              ],
+              "quaternion_wxyz": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "gripper_m": [
+                0.044,
+                0.044
+              ]
+            },
+            "steps": 64,
+            "motion_steps": 56
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 11,
+        "physics_steps": 560,
+        "episode_results": []
+      },
+      "start_step": 496,
+      "end_step": 560,
+      "video_start": 15.5,
+      "video_end": 17.5,
+      "request_sha256": "1a50b9f8b4fd003f9b2168a9b186f792576447439264b68ff18e0dcf7337cfb6"
+    },
+    {
+      "number": 12,
+      "id": "call_00012",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "The apple is on the table near its original position. Re-approach for a deeper, better-centered grasp.",
+        "waypoints": [
+          {
+            "base_xy_yaw_deg": [
+              0.15,
+              0,
+              0
+            ],
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.35,
+                -0.06,
+                0.06
+              ],
+              "quaternion_wxyz": [
+                0.70710678,
+                0,
+                0.70710678,
+                0
+              ],
+              "gripper_m": [
+                0.044,
+                0.044
+              ]
+            },
+            "steps": 64,
+            "motion_steps": 52
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 12,
+        "physics_steps": 624,
+        "episode_results": []
+      },
+      "start_step": 560,
+      "end_step": 624,
+      "video_start": 17.5,
+      "video_end": 19.5,
+      "request_sha256": "b192674d7cc9b682cc55d25bc76f7f8598d61059ffd40d5a20ba8cca1a6b3a42"
+    },
+    {
+      "number": 13,
+      "id": "call_00013",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "right_wrist"
+        ],
+        "reason": "Lower the open fingers farther around the apple and refine the contact position.",
+        "waypoints": [
+          {
+            "base_xy_yaw_deg": null,
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.36,
+                -0.064,
+                -0.005
+              ],
+              "quaternion_wxyz": [
+                0.70710678,
+                0,
+                0.70710678,
+                0
+              ],
+              "gripper_m": [
+                0.044,
+                0.044
+              ]
+            },
+            "steps": 56,
+            "motion_steps": 44
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 13,
+        "physics_steps": 680,
+        "episode_results": []
+      },
+      "start_step": 624,
+      "end_step": 680,
+      "video_start": 19.5,
+      "video_end": 21.25,
+      "request_sha256": "41ca7c6038929b561fed54449abc701a194edb3514dcb702c1898f4c6e8e24bf"
+    },
+    {
+      "number": 14,
+      "id": "call_00014",
+      "tool": "set_gripper",
+      "arguments": {
+        "cameras": [
+          "right_wrist"
+        ],
+        "opening": 0,
+        "side": "right",
+        "steps": 40
+      },
+      "response": {
+        "success": true,
+        "waypoints": 14,
+        "physics_steps": 720,
+        "episode_results": []
+      },
+      "start_step": 680,
+      "end_step": 720,
+      "video_start": 21.25,
+      "video_end": 22.5,
+      "request_sha256": "9a88b0f6ba66af10a178039224e089939d3c6a1cd3710ab35d1a9f9d0dbf950b"
+    },
+    {
+      "number": 15,
+      "id": "call_00015",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Test the deeper grasp using only a 1 cm vertical lift and a settling hold, with fixed orientation and base.",
+        "waypoints": [
+          {
+            "base_xy_yaw_deg": null,
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.35998,
+                -0.06394,
+                0.00501
+              ],
+              "quaternion_wxyz": [
+                0.7070717185399004,
+                0.00028000068054248107,
+                0.707141718710036,
+                0.00031000075345774693
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "steps": 36,
+            "motion_steps": 24
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 15,
+        "physics_steps": 756,
+        "episode_results": []
+      },
+      "start_step": 720,
+      "end_step": 756,
+      "video_start": 22.5,
+      "video_end": 23.75,
+      "request_sha256": "a47d3082001434bcfce34f1d6baafe6d96e13531a5caa421182df352d6b4ba21"
+    },
+    {
+      "number": 16,
+      "id": "call_00016",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "The apple follows the test lift with a stable gap. Raise it slowly, keeping the deeper grasp intact.",
+        "waypoints": [
+          {
+            "base_xy_yaw_deg": null,
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.35998,
+                -0.06388,
+                0.15
+              ],
+              "quaternion_wxyz": [
+                0.7071465532700273,
+                0.0005299974167193869,
+                0.7070665536599564,
+                0.0005999970755313814
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "steps": 64,
+            "motion_steps": 56
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 16,
+        "physics_steps": 820,
+        "episode_results": []
+      },
+      "start_step": 756,
+      "end_step": 820,
+      "video_start": 23.75,
+      "video_end": 25.75,
+      "request_sha256": "6d5d10a78ff1a8b36674161e9ba4532fc316e850267d9d15a8bdc7c2867ae1af"
+    },
+    {
+      "number": 17,
+      "id": "call_00017",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Carry the apple a short distance left and forward using the arm alone, avoiding the earlier base-motion slip.",
+        "waypoints": [
+          {
+            "base_xy_yaw_deg": null,
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.395,
+                0.055,
+                0.15
+              ],
+              "quaternion_wxyz": [
+                0.7072462769239486,
+                0.0007699959465980069,
+                0.7069662783979129,
+                0.000889995314898995
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "steps": 64,
+            "motion_steps": 56
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 17,
+        "physics_steps": 884,
+        "episode_results": []
+      },
+      "start_step": 820,
+      "end_step": 884,
+      "video_start": 25.75,
+      "video_end": 27.75,
+      "request_sha256": "e8172f94a85603d122bc3643655f57cdd4623e80d6f916c20129d6132806d9f6"
+    },
+    {
+      "number": 18,
+      "id": "call_00018",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "right_wrist"
+        ],
+        "reason": "Continue the slow, fixed-base transport toward the bowl while monitoring the grasp.",
+        "waypoints": [
+          {
+            "base_xy_yaw_deg": null,
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.43,
+                0.175,
+                0.15
+              ],
+              "quaternion_wxyz": [
+                0.7073108117810846,
+                0.0010100011591789957,
+                0.7069008113105267,
+                0.0012800014690585292
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "steps": 64,
+            "motion_steps": 56
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 18,
+        "physics_steps": 948,
+        "episode_results": []
+      },
+      "start_step": 884,
+      "end_step": 948,
+      "video_start": 27.75,
+      "video_end": 29.75,
+      "request_sha256": "d55a9f4a0e407a75b06e0b30880ec765bf8d8c0bc93e3a13d4a49bed2870e322"
+    },
+    {
+      "number": 19,
+      "id": "call_00019",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Bring the held apple above the bowl and inspect the placement alignment before descending.",
+        "waypoints": [
+          {
+            "base_xy_yaw_deg": null,
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.455,
+                0.295,
+                0.15
+              ],
+              "quaternion_wxyz": [
+                0.707420153439448,
+                0.0013100002841390924,
+                0.7067901533028009,
+                0.0016400003557161156
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "steps": 64,
+            "motion_steps": 56
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 19,
+        "physics_steps": 1012,
+        "episode_results": []
+      },
+      "start_step": 948,
+      "end_step": 1012,
+      "video_start": 29.75,
+      "video_end": 31.75,
+      "request_sha256": "744f339694f531eba874e5e336f91a0779d78b4961455d7d85a160ccfe4f8bd5"
+    },
+    {
+      "number": 20,
+      "id": "call_00020",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Make a small, slow base correction to center the apple over the bowl while avoiding further arm extension.",
+        "waypoints": [
+          {
+            "base_xy_yaw_deg": [
+              0.185,
+              -0.065,
+              0
+            ],
+            "left": null,
+            "right": null,
+            "steps": 64,
+            "motion_steps": 56
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 20,
+        "physics_steps": 1041,
+        "episode_results": [
+          {
+            "sr": 1.0,
+            "score": 1.0
+          }
+        ]
+      },
+      "start_step": 1012,
+      "end_step": 1041,
+      "video_start": 31.75,
+      "video_end": 32.5,
+      "request_sha256": "9a1c0f8a137351e4fd79706a3d03dcf1533d7068cf2874a852d5769f17b03ce9"
+    }
+  ],
+  "source": {
+    "archive": "astra_web_evidence_20260918_core.zip",
+    "path": "evidence/main/episodes/apple_to_fruit_bowl_006/",
+    "sha256": {
+      "episode_summary.json": "ab16696790b20270f517f0244a56a326cd541d9897587437b6abafb1d0e459ba",
+      "public-action-records.json": "5a6159bd3ff1d6790677e591cfd0a5953b6297f113c29121aa7692dfb24348aa",
+      "waypoints.jsonl": "aec3de1e7d2c344cf399ced0af7ac97c3e6b691f884416003c1a44f8cdce9195",
+      "policy-initial_prompt.txt": "94b23088c4d35ffe6a30ed325f8091b93a433e266aef76eb8cae14b0f7a7adbe"
+    }
+  },
+  "alignment": {
+    "method": "Recorded nonterminal execution chunks in order, one video frame per returned state; frame counts checked against each encoded video. The terminal result has no additional video frame.",
+    "frames": [
+      {
+        "start_step": 0,
+        "end_step": 8
+      },
+      {
+        "start_step": 8,
+        "end_step": 16
+      },
+      {
+        "start_step": 16,
+        "end_step": 24
+      },
+      {
+        "start_step": 24,
+        "end_step": 32
+      },
+      {
+        "start_step": 32,
+        "end_step": 40
+      },
+      {
+        "start_step": 40,
+        "end_step": 48
+      },
+      {
+        "start_step": 48,
+        "end_step": 56
+      },
+      {
+        "start_step": 56,
+        "end_step": 64
+      },
+      {
+        "start_step": 64,
+        "end_step": 72
+      },
+      {
+        "start_step": 72,
+        "end_step": 80
+      },
+      {
+        "start_step": 80,
+        "end_step": 88
+      },
+      {
+        "start_step": 88,
+        "end_step": 96
+      },
+      {
+        "start_step": 96,
+        "end_step": 104
+      },
+      {
+        "start_step": 104,
+        "end_step": 112
+      },
+      {
+        "start_step": 112,
+        "end_step": 120
+      },
+      {
+        "start_step": 120,
+        "end_step": 128
+      },
+      {
+        "start_step": 128,
+        "end_step": 136
+      },
+      {
+        "start_step": 136,
+        "end_step": 144
+      },
+      {
+        "start_step": 144,
+        "end_step": 152
+      },
+      {
+        "start_step": 152,
+        "end_step": 160
+      },
+      {
+        "start_step": 160,
+        "end_step": 168
+      },
+      {
+        "start_step": 168,
+        "end_step": 176
+      },
+      {
+        "start_step": 176,
+        "end_step": 184
+      },
+      {
+        "start_step": 184,
+        "end_step": 192
+      },
+      {
+        "start_step": 192,
+        "end_step": 200
+      },
+      {
+        "start_step": 200,
+        "end_step": 208
+      },
+      {
+        "start_step": 208,
+        "end_step": 216
+      },
+      {
+        "start_step": 216,
+        "end_step": 224
+      },
+      {
+        "start_step": 224,
+        "end_step": 232
+      },
+      {
+        "start_step": 232,
+        "end_step": 240
+      },
+      {
+        "start_step": 240,
+        "end_step": 248
+      },
+      {
+        "start_step": 248,
+        "end_step": 256
+      },
+      {
+        "start_step": 256,
+        "end_step": 264
+      },
+      {
+        "start_step": 264,
+        "end_step": 272
+      },
+      {
+        "start_step": 272,
+        "end_step": 280
+      },
+      {
+        "start_step": 280,
+        "end_step": 288
+      },
+      {
+        "start_step": 288,
+        "end_step": 296
+      },
+      {
+        "start_step": 296,
+        "end_step": 304
+      },
+      {
+        "start_step": 304,
+        "end_step": 312
+      },
+      {
+        "start_step": 312,
+        "end_step": 320
+      },
+      {
+        "start_step": 320,
+        "end_step": 328
+      },
+      {
+        "start_step": 328,
+        "end_step": 336
+      },
+      {
+        "start_step": 336,
+        "end_step": 344
+      },
+      {
+        "start_step": 344,
+        "end_step": 352
+      },
+      {
+        "start_step": 352,
+        "end_step": 360
+      },
+      {
+        "start_step": 360,
+        "end_step": 368
+      },
+      {
+        "start_step": 368,
+        "end_step": 376
+      },
+      {
+        "start_step": 376,
+        "end_step": 384
+      },
+      {
+        "start_step": 384,
+        "end_step": 392
+      },
+      {
+        "start_step": 392,
+        "end_step": 400
+      },
+      {
+        "start_step": 400,
+        "end_step": 408
+      },
+      {
+        "start_step": 408,
+        "end_step": 416
+      },
+      {
+        "start_step": 416,
+        "end_step": 424
+      },
+      {
+        "start_step": 424,
+        "end_step": 432
+      },
+      {
+        "start_step": 432,
+        "end_step": 440
+      },
+      {
+        "start_step": 440,
+        "end_step": 448
+      },
+      {
+        "start_step": 448,
+        "end_step": 456
+      },
+      {
+        "start_step": 456,
+        "end_step": 464
+      },
+      {
+        "start_step": 464,
+        "end_step": 472
+      },
+      {
+        "start_step": 472,
+        "end_step": 480
+      },
+      {
+        "start_step": 480,
+        "end_step": 488
+      },
+      {
+        "start_step": 488,
+        "end_step": 496
+      },
+      {
+        "start_step": 496,
+        "end_step": 504
+      },
+      {
+        "start_step": 504,
+        "end_step": 512
+      },
+      {
+        "start_step": 512,
+        "end_step": 520
+      },
+      {
+        "start_step": 520,
+        "end_step": 528
+      },
+      {
+        "start_step": 528,
+        "end_step": 536
+      },
+      {
+        "start_step": 536,
+        "end_step": 544
+      },
+      {
+        "start_step": 544,
+        "end_step": 552
+      },
+      {
+        "start_step": 552,
+        "end_step": 560
+      },
+      {
+        "start_step": 560,
+        "end_step": 568
+      },
+      {
+        "start_step": 568,
+        "end_step": 576
+      },
+      {
+        "start_step": 576,
+        "end_step": 584
+      },
+      {
+        "start_step": 584,
+        "end_step": 592
+      },
+      {
+        "start_step": 592,
+        "end_step": 600
+      },
+      {
+        "start_step": 600,
+        "end_step": 608
+      },
+      {
+        "start_step": 608,
+        "end_step": 616
+      },
+      {
+        "start_step": 616,
+        "end_step": 624
+      },
+      {
+        "start_step": 624,
+        "end_step": 632
+      },
+      {
+        "start_step": 632,
+        "end_step": 640
+      },
+      {
+        "start_step": 640,
+        "end_step": 648
+      },
+      {
+        "start_step": 648,
+        "end_step": 656
+      },
+      {
+        "start_step": 656,
+        "end_step": 664
+      },
+      {
+        "start_step": 664,
+        "end_step": 672
+      },
+      {
+        "start_step": 672,
+        "end_step": 680
+      },
+      {
+        "start_step": 680,
+        "end_step": 688
+      },
+      {
+        "start_step": 688,
+        "end_step": 696
+      },
+      {
+        "start_step": 696,
+        "end_step": 704
+      },
+      {
+        "start_step": 704,
+        "end_step": 712
+      },
+      {
+        "start_step": 712,
+        "end_step": 720
+      },
+      {
+        "start_step": 720,
+        "end_step": 728
+      },
+      {
+        "start_step": 728,
+        "end_step": 736
+      },
+      {
+        "start_step": 736,
+        "end_step": 744
+      },
+      {
+        "start_step": 744,
+        "end_step": 752
+      },
+      {
+        "start_step": 752,
+        "end_step": 756
+      },
+      {
+        "start_step": 756,
+        "end_step": 764
+      },
+      {
+        "start_step": 764,
+        "end_step": 772
+      },
+      {
+        "start_step": 772,
+        "end_step": 780
+      },
+      {
+        "start_step": 780,
+        "end_step": 788
+      },
+      {
+        "start_step": 788,
+        "end_step": 796
+      },
+      {
+        "start_step": 796,
+        "end_step": 804
+      },
+      {
+        "start_step": 804,
+        "end_step": 812
+      },
+      {
+        "start_step": 812,
+        "end_step": 820
+      },
+      {
+        "start_step": 820,
+        "end_step": 828
+      },
+      {
+        "start_step": 828,
+        "end_step": 836
+      },
+      {
+        "start_step": 836,
+        "end_step": 844
+      },
+      {
+        "start_step": 844,
+        "end_step": 852
+      },
+      {
+        "start_step": 852,
+        "end_step": 860
+      },
+      {
+        "start_step": 860,
+        "end_step": 868
+      },
+      {
+        "start_step": 868,
+        "end_step": 876
+      },
+      {
+        "start_step": 876,
+        "end_step": 884
+      },
+      {
+        "start_step": 884,
+        "end_step": 892
+      },
+      {
+        "start_step": 892,
+        "end_step": 900
+      },
+      {
+        "start_step": 900,
+        "end_step": 908
+      },
+      {
+        "start_step": 908,
+        "end_step": 916
+      },
+      {
+        "start_step": 916,
+        "end_step": 924
+      },
+      {
+        "start_step": 924,
+        "end_step": 932
+      },
+      {
+        "start_step": 932,
+        "end_step": 940
+      },
+      {
+        "start_step": 940,
+        "end_step": 948
+      },
+      {
+        "start_step": 948,
+        "end_step": 956
+      },
+      {
+        "start_step": 956,
+        "end_step": 964
+      },
+      {
+        "start_step": 964,
+        "end_step": 972
+      },
+      {
+        "start_step": 972,
+        "end_step": 980
+      },
+      {
+        "start_step": 980,
+        "end_step": 988
+      },
+      {
+        "start_step": 988,
+        "end_step": 996
+      },
+      {
+        "start_step": 996,
+        "end_step": 1004
+      },
+      {
+        "start_step": 1004,
+        "end_step": 1012
+      },
+      {
+        "start_step": 1012,
+        "end_step": 1020
+      },
+      {
+        "start_step": 1020,
+        "end_step": 1028
+      },
+      {
+        "start_step": 1028,
+        "end_step": 1036
+      }
+    ]
+  },
+  "scope": "Complete archived public tool-call sequence and initial task prompt. Response summaries are preserved; the execution video is not a reconstruction of all model input images."
+}

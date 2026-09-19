@@ -1,0 +1,4955 @@
+{
+  "id": "collect_coffee_beans_013",
+  "task": "collect_coffee_beans",
+  "seed": "013",
+  "title": "Exploring contact",
+  "description": "The agent changes tools and contact poses, but does not complete the task.",
+  "instruction": "Fill the jar with all the coffee beans and then close it with the lid.",
+  "result": {
+    "sr": 0.0,
+    "score": 0.5
+  },
+  "video": "media/cases/collect_coffee_beans_013-web.mp4",
+  "duration": 109.25,
+  "fps": 4,
+  "frame_count": 437,
+  "video_sha256": "4e4f7a856058f681a036d440882ba156f78fff3a6d6befe98d1cc5c99c93876c",
+  "physics_steps": 3500,
+  "physics_hz": 30,
+  "bookmarks": [
+    {
+      "call": 1,
+      "label": "Position the jar"
+    },
+    {
+      "call": 21,
+      "label": "Spoon contact"
+    },
+    {
+      "call": 30,
+      "label": "Switch to fingers"
+    },
+    {
+      "call": 46,
+      "label": "Adjust contact"
+    },
+    {
+      "call": 54,
+      "label": "Final result"
+    }
+  ],
+  "initial_prompt": "Complete this single task yourself using the tools: Fill the jar with all the coffee beans and then close it with the lid.\nRobot: manip/lift2/R5a, two arms and a movable planar base. Left arm is left in the overlook view. EEF poses are local to each arm's planner base: +X forward, +Y robot-left, +Z up; quaternion order wxyz. Fingers extend along tool +X and open along tool Y. Wrist cameras move/rotate with the hands. Measured local EEF z is not height above the tabletop. There is no supplied depth, object pose or camera calibration. Only RGB and measured robot EEF/gripper/base state are available. Base observed yaw is radians; tool command yaw is degrees. You have one continuous conversation and may choose any continuous EEF target, both arms, base motion and waypoint batching. Use execute_eef sequentially, not parallel calls. Use observations to judge motion and object manipulation. The server determines task success independently. Do not start another episode. Resource limits: unlimited tool calls, physics deadline enforced by the server; no hard token limit; resource reminders start after 2,000,000 cumulative tokens. Resource reminders ask you to reduce unnecessary token use while continuing useful work. Select only useful camera views after the initial observation to control resource use. When finished, state the observed outcome concisely.\nManipulation guidance: after visually aligning, close at a stationary pose and allow settling. A nonzero finger gap on the table is contact evidence, not proof of a secure grasp. Test each grasp by lifting only 0.01 m first, using motion_steps=16 or more, then hold 8..16 steps and request the active wrist plus overlook views. Keep orientation and base fixed during this test. Check both finger gap and RGB to confirm the object rises with the gripper before further lifting or transport. If it remains on the table or slips, lower and adjust local contact depth/centering using current images. There is no fixed limit on failed grasp attempts; retry or change approach within the remaining experiment budgets. Avoid large instantaneous target jumps while holding an object; use motion_steps for controlled transport. Total steps per waypoint must remain <=64 and includes the ramp. Use only the active wrist for local corrections, adding overlook when establishing alignment, testing grasp, or verifying placement.\nRGB inputs are downsampled: overlook 640x360, wrist 384x288; no crop or object annotation.",
+  "calls": [
+    {
+      "number": 1,
+      "id": "call_00001",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "left_wrist"
+        ],
+        "reason": "Approach jar with open left fingers, adapting to live jar position",
+        "waypoints": [
+          {
+            "left": {
+              "xyz_m": [
+                0.225,
+                -0.075,
+                0.195
+              ],
+              "quaternion_wxyz": [
+                0.982,
+                0,
+                0.075,
+                -0.173
+              ],
+              "gripper_m": [
+                0.044,
+                0.044
+              ]
+            },
+            "right": null,
+            "base_xy_yaw_deg": null,
+            "steps": 48,
+            "motion_steps": 40
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 1,
+        "physics_steps": 48,
+        "episode_results": []
+      },
+      "start_step": 0,
+      "end_step": 48,
+      "video_start": 0.0,
+      "video_end": 1.5,
+      "request_sha256": "5dbd344875677bf6aa84a42efad138f3635b105642afa248c4297d649b56317f"
+    },
+    {
+      "number": 2,
+      "id": "call_00002",
+      "tool": "set_gripper",
+      "arguments": {
+        "side": "left",
+        "opening": 0,
+        "steps": 24,
+        "cameras": [
+          "left_wrist"
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 2,
+        "physics_steps": 72,
+        "episode_results": []
+      },
+      "start_step": 48,
+      "end_step": 72,
+      "video_start": 1.5,
+      "video_end": 2.25,
+      "request_sha256": "6d5163553348c1e6cacee92f213e1bdf84e8cc7bf05faf1256146ecff49c1a3f"
+    },
+    {
+      "number": 3,
+      "id": "call_00003",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "left_wrist"
+        ],
+        "reason": "Test jar grasp with one centimetre lift and settling",
+        "waypoints": [
+          {
+            "left": {
+              "xyz_m": [
+                0.22499,
+                -0.07496,
+                0.20501
+              ],
+              "quaternion_wxyz": [
+                0.98211,
+                2e-05,
+                0.07497,
+                -0.17275
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "right": null,
+            "base_xy_yaw_deg": null,
+            "steps": 32,
+            "motion_steps": 20
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 3,
+        "physics_steps": 104,
+        "episode_results": []
+      },
+      "start_step": 72,
+      "end_step": 104,
+      "video_start": 2.25,
+      "video_end": 3.25,
+      "request_sha256": "c0a9ddf17a63b5e81c6fa38d488b0d04cf7aabce5b2b5c39d3501bdfab17aa66"
+    },
+    {
+      "number": 4,
+      "id": "call_00004",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "left_wrist"
+        ],
+        "reason": "Carry jar back clear of tabletop, then position mouth beneath bean pile at edge",
+        "waypoints": [
+          {
+            "left": {
+              "xyz_m": [
+                0.13,
+                -0.175,
+                0.22
+              ],
+              "quaternion_wxyz": [
+                0.98211,
+                2e-05,
+                0.07497,
+                -0.17275
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "right": null,
+            "base_xy_yaw_deg": null,
+            "steps": 56,
+            "motion_steps": 48
+          },
+          {
+            "left": {
+              "xyz_m": [
+                0.13,
+                -0.175,
+                0.105
+              ],
+              "quaternion_wxyz": [
+                0.98211,
+                2e-05,
+                0.07497,
+                -0.17275
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "right": null,
+            "base_xy_yaw_deg": null,
+            "steps": 48,
+            "motion_steps": 40
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 5,
+        "physics_steps": 208,
+        "episode_results": []
+      },
+      "start_step": 104,
+      "end_step": 208,
+      "video_start": 3.25,
+      "video_end": 6.5,
+      "request_sha256": "7f1bd4679bbdd1e701fa912e75e1226a7febfe71735b4d1811e3cf47f2977664"
+    },
+    {
+      "number": 5,
+      "id": "call_00005",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Align jar just below edge and approach spoon handle from above",
+        "waypoints": [
+          {
+            "left": {
+              "xyz_m": [
+                0.16,
+                -0.163,
+                0.105
+              ],
+              "quaternion_wxyz": [
+                0.98211,
+                2e-05,
+                0.07497,
+                -0.17275
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "right": {
+              "xyz_m": [
+                0.32,
+                0.083,
+                0.32
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0.044,
+                0.044
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 56,
+            "motion_steps": 48
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 6,
+        "physics_steps": 264,
+        "episode_results": []
+      },
+      "start_step": 208,
+      "end_step": 264,
+      "video_start": 6.5,
+      "video_end": 8.25,
+      "request_sha256": "87965956d8f57e7140dc7ae596149cd39768965dce6797d7038d9521fb44c03e"
+    },
+    {
+      "number": 6,
+      "id": "call_00006",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "right_wrist"
+        ],
+        "reason": "Lower open fingers around spoon handle",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.329,
+                0.083,
+                0.277
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0.044,
+                0.044
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 40,
+            "motion_steps": 32
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 7,
+        "physics_steps": 304,
+        "episode_results": []
+      },
+      "start_step": 264,
+      "end_step": 304,
+      "video_start": 8.25,
+      "video_end": 9.5,
+      "request_sha256": "556a3155d9678acf3de4bb80f1e2ca3c7def1d9bb8a7cb9afc75ed14f8a6c38f"
+    },
+    {
+      "number": 7,
+      "id": "call_00007",
+      "tool": "set_gripper",
+      "arguments": {
+        "side": "right",
+        "opening": 0,
+        "steps": 24,
+        "cameras": [
+          "right_wrist"
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 8,
+        "physics_steps": 328,
+        "episode_results": []
+      },
+      "start_step": 304,
+      "end_step": 328,
+      "video_start": 9.5,
+      "video_end": 10.25,
+      "request_sha256": "aea6fe46d06e91ba4125635c575beb96790e7282e0fd34916fdbc3960a691e63"
+    },
+    {
+      "number": 8,
+      "id": "call_00008",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Test spoon grasp with small vertical lift",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.32904,
+                0.08302,
+                0.28702
+              ],
+              "quaternion_wxyz": [
+                0.707,
+                5e-05,
+                0.70722,
+                5e-05
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 32,
+            "motion_steps": 20
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 9,
+        "physics_steps": 360,
+        "episode_results": []
+      },
+      "start_step": 328,
+      "end_step": 360,
+      "video_start": 10.25,
+      "video_end": 11.25,
+      "request_sha256": "53407b00c2731cd71c880ab34bf2b28a612de8613f6a362bc6a25c826a5a4510"
+    },
+    {
+      "number": 9,
+      "id": "call_00009",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "right_wrist"
+        ],
+        "reason": "Release holder contact and recenter on exposed spoon handle behind it",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.329,
+                0.083,
+                0.277
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 24,
+            "motion_steps": 16
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.295,
+                0.072,
+                0.285
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0.044,
+                0.044
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 32,
+            "motion_steps": 24
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 11,
+        "physics_steps": 416,
+        "episode_results": []
+      },
+      "start_step": 360,
+      "end_step": 416,
+      "video_start": 11.25,
+      "video_end": 13.0,
+      "request_sha256": "af5e230eb46d64cb9f331d84f899aa22d6ca02c87cdea608a5a00598c3e2947b"
+    },
+    {
+      "number": 10,
+      "id": "call_00010",
+      "tool": "set_gripper",
+      "arguments": {
+        "side": "right",
+        "opening": 0,
+        "steps": 24,
+        "cameras": [
+          "right_wrist"
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 12,
+        "physics_steps": 440,
+        "episode_results": []
+      },
+      "start_step": 416,
+      "end_step": 440,
+      "video_start": 13.0,
+      "video_end": 13.75,
+      "request_sha256": "b303c94f319b7d2f3192fdbc9dac102accd3bcdb866246d5443142a7a1fd3a93"
+    },
+    {
+      "number": 11,
+      "id": "call_00011",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Test grasp of spoon handle by lifting one centimetre",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.29504,
+                0.07201,
+                0.29501
+              ],
+              "quaternion_wxyz": [
+                0.70704,
+                2e-05,
+                0.70717,
+                -2e-05
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 32,
+            "motion_steps": 20
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 13,
+        "physics_steps": 472,
+        "episode_results": []
+      },
+      "start_step": 440,
+      "end_step": 472,
+      "video_start": 13.75,
+      "video_end": 14.75,
+      "request_sha256": "192a55b419dd28ae18ce8a527dba9878cc3be2aabd9ee9f1924842fc927efde3"
+    },
+    {
+      "number": 12,
+      "id": "call_00012",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Lift secured spoon clear and turn bowl toward bean pile",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.295,
+                0.072,
+                0.365
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 40,
+            "motion_steps": 32
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.32,
+                0.115,
+                0.365
+              ],
+              "quaternion_wxyz": [
+                0.5,
+                -0.5,
+                0.5,
+                0.5
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 48,
+            "motion_steps": 40
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 15,
+        "physics_steps": 560,
+        "episode_results": []
+      },
+      "start_step": 472,
+      "end_step": 560,
+      "video_start": 14.75,
+      "video_end": 17.5,
+      "request_sha256": "186c0b1d42bcb1a49fc7f28810e44817c0672c17ec3d91583835515f1b197d7c"
+    },
+    {
+      "number": 13,
+      "id": "call_00013",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "right_wrist"
+        ],
+        "reason": "Reacquire spoon farther along handle above holder, after it slipped",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.313,
+                0.084,
+                0.305
+              ],
+              "quaternion_wxyz": [
+                0.766044,
+                0,
+                0.642788,
+                0
+              ],
+              "gripper_m": [
+                0.044,
+                0.044
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 48,
+            "motion_steps": 40
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 16,
+        "physics_steps": 608,
+        "episode_results": []
+      },
+      "start_step": 560,
+      "end_step": 608,
+      "video_start": 17.5,
+      "video_end": 19.0,
+      "request_sha256": "9316d163cc3e92d71175be27c58af837e1c973ddfe95f9c835464ab9c1472ef1"
+    },
+    {
+      "number": 14,
+      "id": "call_00014",
+      "tool": "set_gripper",
+      "arguments": {
+        "side": "right",
+        "opening": 0,
+        "steps": 24,
+        "cameras": [
+          "right_wrist"
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 17,
+        "physics_steps": 632,
+        "episode_results": []
+      },
+      "start_step": 608,
+      "end_step": 632,
+      "video_start": 19.0,
+      "video_end": 19.75,
+      "request_sha256": "e60d2be7b53a52544be58dea62c14ffd2768515b4f9409a2ff628a5cfe0eef07"
+    },
+    {
+      "number": 15,
+      "id": "call_00015",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "right_wrist"
+        ],
+        "reason": "Adjust spoon contact depth downward",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.313,
+                0.084,
+                0.284
+              ],
+              "quaternion_wxyz": [
+                0.766044,
+                0,
+                0.642788,
+                0
+              ],
+              "gripper_m": [
+                0.044,
+                0.044
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 32,
+            "motion_steps": 24
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 18,
+        "physics_steps": 664,
+        "episode_results": []
+      },
+      "start_step": 632,
+      "end_step": 664,
+      "video_start": 19.75,
+      "video_end": 20.75,
+      "request_sha256": "f475abcaeaa4ff9d94c95110a535b6151beffb56582b3cff90613adbe85d8dd2"
+    },
+    {
+      "number": 16,
+      "id": "call_00016",
+      "tool": "set_gripper",
+      "arguments": {
+        "side": "right",
+        "opening": 0,
+        "steps": 24,
+        "cameras": [
+          "right_wrist"
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 19,
+        "physics_steps": 688,
+        "episode_results": []
+      },
+      "start_step": 664,
+      "end_step": 688,
+      "video_start": 20.75,
+      "video_end": 21.5,
+      "request_sha256": "2e06a4c375c6f97fba0ac9fe475172b9d3eb269a13d4bb5271e8889e8ff6e489"
+    },
+    {
+      "number": 17,
+      "id": "call_00017",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Test adjusted spoon grasp with small lift and hold",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.31302,
+                0.08401,
+                0.29405
+              ],
+              "quaternion_wxyz": [
+                0.76596,
+                3e-05,
+                0.64289,
+                0
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 32,
+            "motion_steps": 20
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 20,
+        "physics_steps": 720,
+        "episode_results": []
+      },
+      "start_step": 688,
+      "end_step": 720,
+      "video_start": 21.5,
+      "video_end": 22.5,
+      "request_sha256": "387ce9e83f6ae1512b2c36b05ace26ac071784613f23015183b386fb7241b5c8"
+    },
+    {
+      "number": 18,
+      "id": "call_00018",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Lift spoon clear of holder slowly while monitoring grip",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.313,
+                0.084,
+                0.324
+              ],
+              "quaternion_wxyz": [
+                0.766044,
+                0,
+                0.642788,
+                0
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 48,
+            "motion_steps": 36
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 21,
+        "physics_steps": 768,
+        "episode_results": []
+      },
+      "start_step": 720,
+      "end_step": 768,
+      "video_start": 22.5,
+      "video_end": 24.0,
+      "request_sha256": "78375c7dc3d94f235feab2d331d3980d250bc9d33f88f922a7cfe8d1141b4e2c"
+    },
+    {
+      "number": 19,
+      "id": "call_00019",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Turn held spoon bowl left and bring it behind beans",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.345,
+                0.145,
+                0.345
+              ],
+              "quaternion_wxyz": [
+                0.541675,
+                -0.454519,
+                0.454519,
+                0.541675
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 56,
+            "motion_steps": 48
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 22,
+        "physics_steps": 824,
+        "episode_results": []
+      },
+      "start_step": 768,
+      "end_step": 824,
+      "video_start": 24.0,
+      "video_end": 25.75,
+      "request_sha256": "d19325f9204d0abe0676aaba7b9a7f766d4997707d9c1976b3f14cbb24424bd8"
+    },
+    {
+      "number": 20,
+      "id": "call_00020",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Lower spoon bowl behind coffee beans for controlled sweep toward jar",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.337,
+                0.16,
+                0.302
+              ],
+              "quaternion_wxyz": [
+                0.541675,
+                -0.454519,
+                0.454519,
+                0.541675
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 48,
+            "motion_steps": 40
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 23,
+        "physics_steps": 872,
+        "episode_results": []
+      },
+      "start_step": 824,
+      "end_step": 872,
+      "video_start": 25.75,
+      "video_end": 27.25,
+      "request_sha256": "0000ded1a5dede2a04f952b998a7ccec9779343abb439cfe369683efa7f11fca"
+    },
+    {
+      "number": 21,
+      "id": "call_00021",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Angle spoon edge down to tabletop behind beans",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.337,
+                0.16,
+                0.282
+              ],
+              "quaternion_wxyz": [
+                0.541675,
+                -0.454519,
+                0.454519,
+                0.541675
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 32,
+            "motion_steps": 24
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 24,
+        "physics_steps": 904,
+        "episode_results": []
+      },
+      "start_step": 872,
+      "end_step": 904,
+      "video_start": 27.25,
+      "video_end": 28.25,
+      "request_sha256": "21689cd3caf1b851c7cc4c30b08f1d81ad3ee67df4ea10d006ae03d23e9c7598"
+    },
+    {
+      "number": 22,
+      "id": "call_00022",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Sweep beans gently toward jar opening at table edge",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.287,
+                0.16,
+                0.282
+              ],
+              "quaternion_wxyz": [
+                0.541675,
+                -0.454519,
+                0.454519,
+                0.541675
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 56,
+            "motion_steps": 48
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 25,
+        "physics_steps": 960,
+        "episode_results": []
+      },
+      "start_step": 904,
+      "end_step": 960,
+      "video_start": 28.25,
+      "video_end": 30.0,
+      "request_sha256": "f498172f4dcaff41356869cbf0db47843e1306bde1509c673b9abc10bac020cb"
+    },
+    {
+      "number": 23,
+      "id": "call_00023",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "left_wrist"
+        ],
+        "reason": "Raise spoon to inspect transfer and remaining beans",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.287,
+                0.16,
+                0.332
+              ],
+              "quaternion_wxyz": [
+                0.541675,
+                -0.454519,
+                0.454519,
+                0.541675
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 40,
+            "motion_steps": 32
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 26,
+        "physics_steps": 1000,
+        "episode_results": []
+      },
+      "start_step": 960,
+      "end_step": 1000,
+      "video_start": 30.0,
+      "video_end": 31.25,
+      "request_sha256": "b864fe84f6e1acef6f3870af833fc10da53b8aefb6a65db9a9b25dc380730c2e"
+    },
+    {
+      "number": 24,
+      "id": "call_00024",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Reposition spoon behind remaining beans and lower sweeping edge",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.347,
+                0.16,
+                0.33
+              ],
+              "quaternion_wxyz": [
+                0.541675,
+                -0.454519,
+                0.454519,
+                0.541675
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 40,
+            "motion_steps": 32
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.347,
+                0.16,
+                0.255
+              ],
+              "quaternion_wxyz": [
+                0.541675,
+                -0.454519,
+                0.454519,
+                0.541675
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 48,
+            "motion_steps": 40
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 28,
+        "physics_steps": 1088,
+        "episode_results": []
+      },
+      "start_step": 1000,
+      "end_step": 1088,
+      "video_start": 31.25,
+      "video_end": 34.0,
+      "request_sha256": "50b8e982e7907bdd66cca60a32821a531038b2a55137181fbd6b498fdb675c0d"
+    },
+    {
+      "number": 25,
+      "id": "call_00025",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Raise hand away from lid and tip spoon bowl down to table",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.347,
+                0.16,
+                0.315
+              ],
+              "quaternion_wxyz": [
+                0.454519,
+                -0.541675,
+                0.541675,
+                0.454519
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 48,
+            "motion_steps": 40
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 29,
+        "physics_steps": 1136,
+        "episode_results": []
+      },
+      "start_step": 1088,
+      "end_step": 1136,
+      "video_start": 34.0,
+      "video_end": 35.5,
+      "request_sha256": "53e560339e3d0b60c1be19a19d1e13bc3e6668d84ef05ef74ea2f785af8af76e"
+    },
+    {
+      "number": 26,
+      "id": "call_00026",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Set accidental lid contact down and release to regrasp spoon cleanly",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.347,
+                0.16,
+                0.28
+              ],
+              "quaternion_wxyz": [
+                0.541675,
+                -0.454519,
+                0.454519,
+                0.541675
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 32,
+            "motion_steps": 24
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.347,
+                0.16,
+                0.28
+              ],
+              "quaternion_wxyz": [
+                0.541675,
+                -0.454519,
+                0.454519,
+                0.541675
+              ],
+              "gripper_m": [
+                0.044,
+                0.044
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 24,
+            "motion_steps": 0
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.32,
+                0.065,
+                0.36
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0.044,
+                0.044
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 48,
+            "motion_steps": 40
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 32,
+        "physics_steps": 1240,
+        "episode_results": []
+      },
+      "start_step": 1136,
+      "end_step": 1240,
+      "video_start": 35.5,
+      "video_end": 38.75,
+      "request_sha256": "28941e1e6b3801305b4ce1e2db6f59fbc56ef0c505ff648a03f3147d6f6ac8de"
+    },
+    {
+      "number": 27,
+      "id": "call_00027",
+      "tool": "set_gripper",
+      "arguments": {
+        "side": "right",
+        "opening": 1,
+        "steps": 48,
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 33,
+        "physics_steps": 1288,
+        "episode_results": []
+      },
+      "start_step": 1240,
+      "end_step": 1288,
+      "video_start": 38.75,
+      "video_end": 40.25,
+      "request_sha256": "11d6bd6f7ffdfca24f705cf4d57747c6bb2c2f5669c08f8676b62d958b692c79"
+    },
+    {
+      "number": 28,
+      "id": "call_00028",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Support lid and spoon on tabletop and slide open fingers away",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.38,
+                0.055,
+                0.28
+              ],
+              "quaternion_wxyz": [
+                0.766044,
+                0,
+                0.642788,
+                0
+              ],
+              "gripper_m": [
+                0.044,
+                0.044
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 56,
+            "motion_steps": 48
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.25,
+                0.055,
+                0.29
+              ],
+              "quaternion_wxyz": [
+                0.766044,
+                0,
+                0.642788,
+                0
+              ],
+              "gripper_m": [
+                0.044,
+                0.044
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 56,
+            "motion_steps": 48
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 35,
+        "physics_steps": 1400,
+        "episode_results": []
+      },
+      "start_step": 1288,
+      "end_step": 1400,
+      "video_start": 40.25,
+      "video_end": 43.75,
+      "request_sha256": "37cba42bbb6bf16eb4e7371ae33cdd502dbb61f401c1170ac21c06c7db18754c"
+    },
+    {
+      "number": 29,
+      "id": "call_00029",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "right_wrist"
+        ],
+        "reason": "Approach spoon handle at its new position clear of lid",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.338,
+                0.025,
+                0.285
+              ],
+              "quaternion_wxyz": [
+                0.766044,
+                0,
+                0.642788,
+                0
+              ],
+              "gripper_m": [
+                0.044,
+                0.044
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 48,
+            "motion_steps": 40
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 36,
+        "physics_steps": 1448,
+        "episode_results": []
+      },
+      "start_step": 1400,
+      "end_step": 1448,
+      "video_start": 43.75,
+      "video_end": 45.25,
+      "request_sha256": "5f3fe4239b029a920935d33af74be39f07d0e8043b8cb32f2bb8c54b33a9d75b"
+    },
+    {
+      "number": 30,
+      "id": "call_00030",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Use empty closed fingertips to gather the two separated remaining beans without disturbing lid",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.352,
+                0.257,
+                0.31
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 48,
+            "motion_steps": 40
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.352,
+                0.257,
+                0.243
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 40,
+            "motion_steps": 32
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 38,
+        "physics_steps": 1536,
+        "episode_results": []
+      },
+      "start_step": 1448,
+      "end_step": 1536,
+      "video_start": 45.25,
+      "video_end": 48.0,
+      "request_sha256": "90e47796e06cd2437a339d7b05a908dbc2f52143e81a0c184dc19042c1fa3547"
+    },
+    {
+      "number": 31,
+      "id": "call_00031",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Park entangled utensil and lid away from beans, fully release and withdraw",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.46,
+                0.06,
+                0.32
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 56,
+            "motion_steps": 48
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.46,
+                0.06,
+                0.3
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0.044,
+                0.044
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 40,
+            "motion_steps": 24
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.25,
+                0.06,
+                0.34
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0.044,
+                0.044
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 56,
+            "motion_steps": 48
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 41,
+        "physics_steps": 1688,
+        "episode_results": []
+      },
+      "start_step": 1536,
+      "end_step": 1688,
+      "video_start": 48.0,
+      "video_end": 52.75,
+      "request_sha256": "edc7b878318994ef6f37f5cf5c8d4137ccec092fda364474187442aed82ed3c8"
+    },
+    {
+      "number": 32,
+      "id": "call_00032",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Position now-empty fingertips behind rightmost remaining bean",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.351,
+                0.257,
+                0.3
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 48,
+            "motion_steps": 40
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.351,
+                0.257,
+                0.255
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 32,
+            "motion_steps": 24
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 43,
+        "physics_steps": 1768,
+        "episode_results": []
+      },
+      "start_step": 1688,
+      "end_step": 1768,
+      "video_start": 52.75,
+      "video_end": 55.25,
+      "request_sha256": "53ada27068fdc8300977f694c7f343ac208b3029c065571ecf922912220a4fd8"
+    },
+    {
+      "number": 33,
+      "id": "call_00033",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Guide separated bean toward jar with slow fingertip sweep",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.285,
+                0.269,
+                0.264
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 64,
+            "motion_steps": 56
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.285,
+                0.269,
+                0.31
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 32,
+            "motion_steps": 24
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 45,
+        "physics_steps": 1864,
+        "episode_results": []
+      },
+      "start_step": 1768,
+      "end_step": 1864,
+      "video_start": 55.25,
+      "video_end": 58.25,
+      "request_sha256": "9af8a5731abd860ca3224f99b941893171722e208516622456311746c5fb1d0b"
+    },
+    {
+      "number": 34,
+      "id": "call_00034",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "right_wrist"
+        ],
+        "reason": "Correct lateral alignment behind the right bean",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.366,
+                0.24,
+                0.31
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 40,
+            "motion_steps": 32
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.366,
+                0.24,
+                0.267
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 32,
+            "motion_steps": 24
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 47,
+        "physics_steps": 1936,
+        "episode_results": []
+      },
+      "start_step": 1864,
+      "end_step": 1936,
+      "video_start": 58.25,
+      "video_end": 60.5,
+      "request_sha256": "d41f10b7315cda7d4f8759d13b2711d38d00a9bec59fcdacd93cc08aaccce2c6"
+    },
+    {
+      "number": 35,
+      "id": "call_00035",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "right_wrist"
+        ],
+        "reason": "Push right bean back toward edge along its centerline",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.324,
+                0.24,
+                0.267
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 48,
+            "motion_steps": 40
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 48,
+        "physics_steps": 1984,
+        "episode_results": []
+      },
+      "start_step": 1936,
+      "end_step": 1984,
+      "video_start": 60.5,
+      "video_end": 62.0,
+      "request_sha256": "a961948a07f863ab57b7218decf077debdf21d4ebc294d472b2de11ef736b697"
+    },
+    {
+      "number": 36,
+      "id": "call_00036",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "left_wrist"
+        ],
+        "reason": "Center jar below right bean and finish its sweep over edge",
+        "waypoints": [
+          {
+            "left": {
+              "xyz_m": [
+                0.16,
+                -0.178,
+                0.105
+              ],
+              "quaternion_wxyz": [
+                0.98211,
+                2e-05,
+                0.07497,
+                -0.17275
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "right": null,
+            "base_xy_yaw_deg": null,
+            "steps": 32,
+            "motion_steps": 24
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.282,
+                0.24,
+                0.267
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 48,
+            "motion_steps": 40
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.275,
+                0.21,
+                0.33
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 32,
+            "motion_steps": 24
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 51,
+        "physics_steps": 2096,
+        "episode_results": []
+      },
+      "start_step": 1984,
+      "end_step": 2096,
+      "video_start": 62.0,
+      "video_end": 65.5,
+      "request_sha256": "eeb3b93c22d9993f1492cf4e21494603fe9707b7fb5fdfebc334d72070d63ffa"
+    },
+    {
+      "number": 37,
+      "id": "call_00037",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "right_wrist"
+        ],
+        "reason": "Align a small pinch directly around the remaining right bean",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.335,
+                0.252,
+                0.278
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0.012,
+                0.012
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 40,
+            "motion_steps": 32
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 52,
+        "physics_steps": 2136,
+        "episode_results": []
+      },
+      "start_step": 2096,
+      "end_step": 2136,
+      "video_start": 65.5,
+      "video_end": 66.75,
+      "request_sha256": "42ea5e54929205462ae3785dfa29623649ffefcee4bcec6293d5b79e7735933f"
+    },
+    {
+      "number": 38,
+      "id": "call_00038",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "right_wrist"
+        ],
+        "reason": "Lower fingertips to bean contact depth",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.335,
+                0.252,
+                0.269
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0.012,
+                0.012
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 24,
+            "motion_steps": 16
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 53,
+        "physics_steps": 2160,
+        "episode_results": []
+      },
+      "start_step": 2136,
+      "end_step": 2160,
+      "video_start": 66.75,
+      "video_end": 67.5,
+      "request_sha256": "ed647d1710d9b2ee04de8d470823148dae36e4ad473608cac26f5dd0fa8a38be"
+    },
+    {
+      "number": 39,
+      "id": "call_00039",
+      "tool": "set_gripper",
+      "arguments": {
+        "side": "right",
+        "opening": 0,
+        "steps": 24,
+        "cameras": [
+          "right_wrist"
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 54,
+        "physics_steps": 2184,
+        "episode_results": []
+      },
+      "start_step": 2160,
+      "end_step": 2184,
+      "video_start": 67.5,
+      "video_end": 68.25,
+      "request_sha256": "18ac5031b41bff9b642f36460a96381fbe94e583fd6ced73cf0e91c08cf1f86c"
+    },
+    {
+      "number": 40,
+      "id": "call_00040",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "right_wrist"
+        ],
+        "reason": "Center fingertip ends over bean rather than behind it",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.318,
+                0.251,
+                0.276
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0.012,
+                0.012
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 32,
+            "motion_steps": 24
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 55,
+        "physics_steps": 2216,
+        "episode_results": []
+      },
+      "start_step": 2184,
+      "end_step": 2216,
+      "video_start": 68.25,
+      "video_end": 69.25,
+      "request_sha256": "141676c4aa306fcdf8d2eb8a6b3d1e5ef472d346a527baec8dfedf1595f2130c"
+    },
+    {
+      "number": 41,
+      "id": "call_00041",
+      "tool": "set_gripper",
+      "arguments": {
+        "side": "right",
+        "opening": 0,
+        "steps": 24,
+        "cameras": [
+          "right_wrist"
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 56,
+        "physics_steps": 2240,
+        "episode_results": []
+      },
+      "start_step": 2216,
+      "end_step": 2240,
+      "video_start": 69.25,
+      "video_end": 70.0,
+      "request_sha256": "c75cfaac8ef0b9b63ea878cd41b6c4afce7f6b59ad29d8c9ea3c85d786376618"
+    },
+    {
+      "number": 42,
+      "id": "call_00042",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "right_wrist"
+        ],
+        "reason": "Deepen centered bean pinch slightly",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.318,
+                0.251,
+                0.267
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0.012,
+                0.012
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 24,
+            "motion_steps": 16
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 57,
+        "physics_steps": 2264,
+        "episode_results": []
+      },
+      "start_step": 2240,
+      "end_step": 2264,
+      "video_start": 70.0,
+      "video_end": 70.75,
+      "request_sha256": "89a2c73cc87b3249d753b2de97614531d1eb56faac24b61194f31e4b71da59fb"
+    },
+    {
+      "number": 43,
+      "id": "call_00043",
+      "tool": "set_gripper",
+      "arguments": {
+        "side": "right",
+        "opening": 0,
+        "steps": 24,
+        "cameras": [
+          "right_wrist"
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 58,
+        "physics_steps": 2288,
+        "episode_results": []
+      },
+      "start_step": 2264,
+      "end_step": 2288,
+      "video_start": 70.75,
+      "video_end": 71.5,
+      "request_sha256": "a44fa62ecd9df674c916e7744af1dc208cca438255f08ffe7d3543fe37456510"
+    },
+    {
+      "number": 44,
+      "id": "call_00044",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Use broad side of horizontal fingers as a scraper behind remaining beans",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.37,
+                0.15,
+                0.31
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0,
+                0.707107
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 48,
+            "motion_steps": 40
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.37,
+                0.15,
+                0.16
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0,
+                0.707107
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 48,
+            "motion_steps": 40
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 60,
+        "physics_steps": 2384,
+        "episode_results": []
+      },
+      "start_step": 2288,
+      "end_step": 2384,
+      "video_start": 71.5,
+      "video_end": 74.5,
+      "request_sha256": "f6536639ef3a6a74f7e804248351202a1c7ad81411a9793e49ff788e6f40064c"
+    },
+    {
+      "number": 45,
+      "id": "call_00045",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "left_wrist"
+        ],
+        "reason": "Sweep remaining beans with broad finger sides into the jar",
+        "waypoints": [
+          {
+            "left": {
+              "xyz_m": [
+                0.16,
+                -0.166,
+                0.105
+              ],
+              "quaternion_wxyz": [
+                0.98211,
+                2e-05,
+                0.07497,
+                -0.17275
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "right": {
+              "xyz_m": [
+                0.295,
+                0.15,
+                0.15
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0,
+                0.707107
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 64,
+            "motion_steps": 56
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.295,
+                0.15,
+                0.26
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0,
+                0.707107
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 40,
+            "motion_steps": 32
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 62,
+        "physics_steps": 2488,
+        "episode_results": []
+      },
+      "start_step": 2384,
+      "end_step": 2488,
+      "video_start": 74.5,
+      "video_end": 77.75,
+      "request_sha256": "97313e76bd549f4b489f4a5b9c53192a2e9dbd424c21e3f2c79a1d1d1fce69c9"
+    },
+    {
+      "number": 46,
+      "id": "call_00046",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "left_wrist"
+        ],
+        "reason": "Lower scraping edge to actual tabletop height and repeat sweep",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.365,
+                0.15,
+                0.245
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0,
+                0.707107
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 32,
+            "motion_steps": 24
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.365,
+                0.15,
+                0.125
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0,
+                0.707107
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 40,
+            "motion_steps": 32
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.29,
+                0.15,
+                0.125
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0,
+                0.707107
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 64,
+            "motion_steps": 56
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.29,
+                0.15,
+                0.25
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0,
+                0.707107
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 40,
+            "motion_steps": 32
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 66,
+        "physics_steps": 2664,
+        "episode_results": []
+      },
+      "start_step": 2488,
+      "end_step": 2664,
+      "video_start": 77.75,
+      "video_end": 83.25,
+      "request_sha256": "3f027df13e182209113add2fc1517082678af3b3c6778bc63fa901310edc5e11"
+    },
+    {
+      "number": 47,
+      "id": "call_00047",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "left_wrist"
+        ],
+        "reason": "Tilt fingertips down to reach beans while keeping palm above tabletop",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.366,
+                0.155,
+                0.23
+              ],
+              "quaternion_wxyz": [
+                0.683013,
+                -0.183013,
+                0.183013,
+                0.683013
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 40,
+            "motion_steps": 32
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.366,
+                0.155,
+                0.19
+              ],
+              "quaternion_wxyz": [
+                0.683013,
+                -0.183013,
+                0.183013,
+                0.683013
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 32,
+            "motion_steps": 24
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.292,
+                0.155,
+                0.19
+              ],
+              "quaternion_wxyz": [
+                0.683013,
+                -0.183013,
+                0.183013,
+                0.683013
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 64,
+            "motion_steps": 56
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.292,
+                0.155,
+                0.29
+              ],
+              "quaternion_wxyz": [
+                0.683013,
+                -0.183013,
+                0.183013,
+                0.683013
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 32,
+            "motion_steps": 24
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 70,
+        "physics_steps": 2832,
+        "episode_results": []
+      },
+      "start_step": 2664,
+      "end_step": 2832,
+      "video_start": 83.25,
+      "video_end": 88.5,
+      "request_sha256": "42c00e71294570cb38e8c24687edf5de5ad7e01d5150088550cebe6a446b890f"
+    },
+    {
+      "number": 48,
+      "id": "call_00048",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Align the low scraper tip laterally with right bean before sweeping",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.355,
+                0.125,
+                0.235
+              ],
+              "quaternion_wxyz": [
+                0.683013,
+                -0.183013,
+                0.183013,
+                0.683013
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 32,
+            "motion_steps": 24
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.355,
+                0.125,
+                0.194
+              ],
+              "quaternion_wxyz": [
+                0.683013,
+                -0.183013,
+                0.183013,
+                0.683013
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 32,
+            "motion_steps": 24
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 72,
+        "physics_steps": 2896,
+        "episode_results": []
+      },
+      "start_step": 2832,
+      "end_step": 2896,
+      "video_start": 88.5,
+      "video_end": 90.5,
+      "request_sha256": "0d7105ec122aa77f8ad8927fd2e085adbfa06d3d6ab3dd5da15f6df749e36068"
+    },
+    {
+      "number": 49,
+      "id": "call_00049",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "right_wrist",
+          "left_wrist"
+        ],
+        "reason": "Sweep aligned tip across right bean toward jar",
+        "waypoints": [
+          {
+            "left": {
+              "xyz_m": [
+                0.16,
+                -0.183,
+                0.105
+              ],
+              "quaternion_wxyz": [
+                0.98211,
+                2e-05,
+                0.07497,
+                -0.17275
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "right": {
+              "xyz_m": [
+                0.29,
+                0.118,
+                0.193
+              ],
+              "quaternion_wxyz": [
+                0.683013,
+                -0.183013,
+                0.183013,
+                0.683013
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 64,
+            "motion_steps": 56
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 73,
+        "physics_steps": 2960,
+        "episode_results": []
+      },
+      "start_step": 2896,
+      "end_step": 2960,
+      "video_start": 90.5,
+      "video_end": 92.5,
+      "request_sha256": "d3ae30a8df79df02287c18b7213aa3558614a147d757ff0980a0813a9cd8d0f8"
+    },
+    {
+      "number": 50,
+      "id": "call_00050",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "left_wrist"
+        ],
+        "reason": "Center jar below last bean and sweep it over edge with aligned fingertip",
+        "waypoints": [
+          {
+            "left": {
+              "xyz_m": [
+                0.16,
+                -0.136,
+                0.105
+              ],
+              "quaternion_wxyz": [
+                0.98211,
+                2e-05,
+                0.07497,
+                -0.17275
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "right": {
+              "xyz_m": [
+                0.342,
+                0.17,
+                0.26
+              ],
+              "quaternion_wxyz": [
+                0.683013,
+                -0.183013,
+                0.183013,
+                0.683013
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 48,
+            "motion_steps": 40
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.342,
+                0.17,
+                0.193
+              ],
+              "quaternion_wxyz": [
+                0.683013,
+                -0.183013,
+                0.183013,
+                0.683013
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 32,
+            "motion_steps": 24
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.277,
+                0.17,
+                0.193
+              ],
+              "quaternion_wxyz": [
+                0.683013,
+                -0.183013,
+                0.183013,
+                0.683013
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 64,
+            "motion_steps": 56
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.24,
+                0.09,
+                0.31
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 48,
+            "motion_steps": 40
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 77,
+        "physics_steps": 3152,
+        "episode_results": []
+      },
+      "start_step": 2960,
+      "end_step": 3152,
+      "video_start": 92.5,
+      "video_end": 98.5,
+      "request_sha256": "09e50c09253152791cfc2fc60198215ad806e2adbace4ab388aeb3e38b3029e9"
+    },
+    {
+      "number": 51,
+      "id": "call_00051",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "left_wrist"
+        ],
+        "reason": "Withdraw filled jar from under edge, lift and place upright on tabletop",
+        "waypoints": [
+          {
+            "left": {
+              "xyz_m": [
+                0.095,
+                -0.136,
+                0.105
+              ],
+              "quaternion_wxyz": [
+                0.98211,
+                2e-05,
+                0.07497,
+                -0.17275
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "right": null,
+            "base_xy_yaw_deg": null,
+            "steps": 40,
+            "motion_steps": 32
+          },
+          {
+            "left": {
+              "xyz_m": [
+                0.095,
+                -0.136,
+                0.245
+              ],
+              "quaternion_wxyz": [
+                0.98211,
+                2e-05,
+                0.07497,
+                -0.17275
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "right": null,
+            "base_xy_yaw_deg": null,
+            "steps": 48,
+            "motion_steps": 40
+          },
+          {
+            "left": {
+              "xyz_m": [
+                0.255,
+                -0.136,
+                0.245
+              ],
+              "quaternion_wxyz": [
+                0.98211,
+                2e-05,
+                0.07497,
+                -0.17275
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "right": null,
+            "base_xy_yaw_deg": null,
+            "steps": 56,
+            "motion_steps": 48
+          },
+          {
+            "left": {
+              "xyz_m": [
+                0.255,
+                -0.136,
+                0.192
+              ],
+              "quaternion_wxyz": [
+                0.98211,
+                2e-05,
+                0.07497,
+                -0.17275
+              ],
+              "gripper_m": [
+                0,
+                0
+              ]
+            },
+            "right": null,
+            "base_xy_yaw_deg": null,
+            "steps": 40,
+            "motion_steps": 32
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 81,
+        "physics_steps": 3336,
+        "episode_results": []
+      },
+      "start_step": 3152,
+      "end_step": 3336,
+      "video_start": 98.5,
+      "video_end": 104.25,
+      "request_sha256": "1b1218297d820fb264542a3252ce1056a19db47e829f10a7f8e84ed280919216"
+    },
+    {
+      "number": 52,
+      "id": "call_00052",
+      "tool": "set_gripper",
+      "arguments": {
+        "side": "left",
+        "opening": 1,
+        "steps": 24,
+        "cameras": [
+          "left_wrist"
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 82,
+        "physics_steps": 3360,
+        "episode_results": []
+      },
+      "start_step": 3336,
+      "end_step": 3360,
+      "video_start": 104.25,
+      "video_end": 105.0,
+      "request_sha256": "ea3c01599a5ad3616c28ff85d435472d43c0d2fd97233e9d6ddee1f2cc5f6f6c"
+    },
+    {
+      "number": 53,
+      "id": "call_00053",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "overlook",
+          "right_wrist"
+        ],
+        "reason": "Withdraw left hand and approach upright lid with base positioned for reach",
+        "waypoints": [
+          {
+            "left": {
+              "xyz_m": [
+                0.1,
+                0,
+                0.2
+              ],
+              "quaternion_wxyz": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "gripper_m": [
+                0.044,
+                0.044
+              ]
+            },
+            "right": {
+              "xyz_m": [
+                0.3,
+                0.18,
+                0.34
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0.044,
+                0.044
+              ]
+            },
+            "base_xy_yaw_deg": null,
+            "steps": 48,
+            "motion_steps": 40
+          },
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.397,
+                0.18,
+                0.33
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0.044,
+                0.044
+              ]
+            },
+            "base_xy_yaw_deg": [
+              0.12,
+              0,
+              0
+            ],
+            "steps": 56,
+            "motion_steps": 48
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 84,
+        "physics_steps": 3464,
+        "episode_results": []
+      },
+      "start_step": 3360,
+      "end_step": 3464,
+      "video_start": 105.0,
+      "video_end": 108.25,
+      "request_sha256": "7ae75f1532697a66f8559557cb81aeeb4b8f8abf40c5572da7caf51c0d4e8e63"
+    },
+    {
+      "number": 54,
+      "id": "call_00054",
+      "tool": "execute_eef",
+      "arguments": {
+        "cameras": [
+          "right_wrist"
+        ],
+        "reason": "Center open gripper above tilted lid with reachable base placement",
+        "waypoints": [
+          {
+            "left": null,
+            "right": {
+              "xyz_m": [
+                0.335,
+                0.18,
+                0.325
+              ],
+              "quaternion_wxyz": [
+                0.707107,
+                0,
+                0.707107,
+                0
+              ],
+              "gripper_m": [
+                0.044,
+                0.044
+              ]
+            },
+            "base_xy_yaw_deg": [
+              0.22,
+              0,
+              0
+            ],
+            "steps": 48,
+            "motion_steps": 40
+          }
+        ]
+      },
+      "response": {
+        "success": true,
+        "waypoints": 85,
+        "physics_steps": 3500,
+        "episode_results": [
+          {
+            "sr": 0.0,
+            "score": 0.5
+          }
+        ]
+      },
+      "start_step": 3464,
+      "end_step": 3500,
+      "video_start": 108.25,
+      "video_end": 109.25,
+      "request_sha256": "a0b8e641ef2bc01433fb0cd71b854cad12af67428d1c1b99938ee00620f43f46"
+    }
+  ],
+  "source": {
+    "archive": "astra_web_evidence_20260918_core.zip",
+    "path": "evidence/main/episodes/collect_coffee_beans_013/",
+    "sha256": {
+      "episode_summary.json": "e43a4876394e82cb44ecd4ff91a22f21045dd12355502f56f6e77beb48d2900c",
+      "public-action-records.json": "575a7017c1ae6be4ea5a0e6da20ef7e3b67062afb815c53e71bd359208c8cf83",
+      "waypoints.jsonl": "35b383b4fb423e27002791139ccb7cacb25d3199699d6ef16e975fa910697350",
+      "policy-initial_prompt.txt": "441816777f522adf03e4e9190ceec712f5cec9f51e4c9f9ada7bd70f2b24f797"
+    }
+  },
+  "alignment": {
+    "method": "Recorded nonterminal execution chunks in order, one video frame per returned state; frame counts checked against each encoded video. The terminal result has no additional video frame.",
+    "frames": [
+      {
+        "start_step": 0,
+        "end_step": 8
+      },
+      {
+        "start_step": 8,
+        "end_step": 16
+      },
+      {
+        "start_step": 16,
+        "end_step": 24
+      },
+      {
+        "start_step": 24,
+        "end_step": 32
+      },
+      {
+        "start_step": 32,
+        "end_step": 40
+      },
+      {
+        "start_step": 40,
+        "end_step": 48
+      },
+      {
+        "start_step": 48,
+        "end_step": 56
+      },
+      {
+        "start_step": 56,
+        "end_step": 64
+      },
+      {
+        "start_step": 64,
+        "end_step": 72
+      },
+      {
+        "start_step": 72,
+        "end_step": 80
+      },
+      {
+        "start_step": 80,
+        "end_step": 88
+      },
+      {
+        "start_step": 88,
+        "end_step": 96
+      },
+      {
+        "start_step": 96,
+        "end_step": 104
+      },
+      {
+        "start_step": 104,
+        "end_step": 112
+      },
+      {
+        "start_step": 112,
+        "end_step": 120
+      },
+      {
+        "start_step": 120,
+        "end_step": 128
+      },
+      {
+        "start_step": 128,
+        "end_step": 136
+      },
+      {
+        "start_step": 136,
+        "end_step": 144
+      },
+      {
+        "start_step": 144,
+        "end_step": 152
+      },
+      {
+        "start_step": 152,
+        "end_step": 160
+      },
+      {
+        "start_step": 160,
+        "end_step": 168
+      },
+      {
+        "start_step": 168,
+        "end_step": 176
+      },
+      {
+        "start_step": 176,
+        "end_step": 184
+      },
+      {
+        "start_step": 184,
+        "end_step": 192
+      },
+      {
+        "start_step": 192,
+        "end_step": 200
+      },
+      {
+        "start_step": 200,
+        "end_step": 208
+      },
+      {
+        "start_step": 208,
+        "end_step": 216
+      },
+      {
+        "start_step": 216,
+        "end_step": 224
+      },
+      {
+        "start_step": 224,
+        "end_step": 232
+      },
+      {
+        "start_step": 232,
+        "end_step": 240
+      },
+      {
+        "start_step": 240,
+        "end_step": 248
+      },
+      {
+        "start_step": 248,
+        "end_step": 256
+      },
+      {
+        "start_step": 256,
+        "end_step": 264
+      },
+      {
+        "start_step": 264,
+        "end_step": 272
+      },
+      {
+        "start_step": 272,
+        "end_step": 280
+      },
+      {
+        "start_step": 280,
+        "end_step": 288
+      },
+      {
+        "start_step": 288,
+        "end_step": 296
+      },
+      {
+        "start_step": 296,
+        "end_step": 304
+      },
+      {
+        "start_step": 304,
+        "end_step": 312
+      },
+      {
+        "start_step": 312,
+        "end_step": 320
+      },
+      {
+        "start_step": 320,
+        "end_step": 328
+      },
+      {
+        "start_step": 328,
+        "end_step": 336
+      },
+      {
+        "start_step": 336,
+        "end_step": 344
+      },
+      {
+        "start_step": 344,
+        "end_step": 352
+      },
+      {
+        "start_step": 352,
+        "end_step": 360
+      },
+      {
+        "start_step": 360,
+        "end_step": 368
+      },
+      {
+        "start_step": 368,
+        "end_step": 376
+      },
+      {
+        "start_step": 376,
+        "end_step": 384
+      },
+      {
+        "start_step": 384,
+        "end_step": 392
+      },
+      {
+        "start_step": 392,
+        "end_step": 400
+      },
+      {
+        "start_step": 400,
+        "end_step": 408
+      },
+      {
+        "start_step": 408,
+        "end_step": 416
+      },
+      {
+        "start_step": 416,
+        "end_step": 424
+      },
+      {
+        "start_step": 424,
+        "end_step": 432
+      },
+      {
+        "start_step": 432,
+        "end_step": 440
+      },
+      {
+        "start_step": 440,
+        "end_step": 448
+      },
+      {
+        "start_step": 448,
+        "end_step": 456
+      },
+      {
+        "start_step": 456,
+        "end_step": 464
+      },
+      {
+        "start_step": 464,
+        "end_step": 472
+      },
+      {
+        "start_step": 472,
+        "end_step": 480
+      },
+      {
+        "start_step": 480,
+        "end_step": 488
+      },
+      {
+        "start_step": 488,
+        "end_step": 496
+      },
+      {
+        "start_step": 496,
+        "end_step": 504
+      },
+      {
+        "start_step": 504,
+        "end_step": 512
+      },
+      {
+        "start_step": 512,
+        "end_step": 520
+      },
+      {
+        "start_step": 520,
+        "end_step": 528
+      },
+      {
+        "start_step": 528,
+        "end_step": 536
+      },
+      {
+        "start_step": 536,
+        "end_step": 544
+      },
+      {
+        "start_step": 544,
+        "end_step": 552
+      },
+      {
+        "start_step": 552,
+        "end_step": 560
+      },
+      {
+        "start_step": 560,
+        "end_step": 568
+      },
+      {
+        "start_step": 568,
+        "end_step": 576
+      },
+      {
+        "start_step": 576,
+        "end_step": 584
+      },
+      {
+        "start_step": 584,
+        "end_step": 592
+      },
+      {
+        "start_step": 592,
+        "end_step": 600
+      },
+      {
+        "start_step": 600,
+        "end_step": 608
+      },
+      {
+        "start_step": 608,
+        "end_step": 616
+      },
+      {
+        "start_step": 616,
+        "end_step": 624
+      },
+      {
+        "start_step": 624,
+        "end_step": 632
+      },
+      {
+        "start_step": 632,
+        "end_step": 640
+      },
+      {
+        "start_step": 640,
+        "end_step": 648
+      },
+      {
+        "start_step": 648,
+        "end_step": 656
+      },
+      {
+        "start_step": 656,
+        "end_step": 664
+      },
+      {
+        "start_step": 664,
+        "end_step": 672
+      },
+      {
+        "start_step": 672,
+        "end_step": 680
+      },
+      {
+        "start_step": 680,
+        "end_step": 688
+      },
+      {
+        "start_step": 688,
+        "end_step": 696
+      },
+      {
+        "start_step": 696,
+        "end_step": 704
+      },
+      {
+        "start_step": 704,
+        "end_step": 712
+      },
+      {
+        "start_step": 712,
+        "end_step": 720
+      },
+      {
+        "start_step": 720,
+        "end_step": 728
+      },
+      {
+        "start_step": 728,
+        "end_step": 736
+      },
+      {
+        "start_step": 736,
+        "end_step": 744
+      },
+      {
+        "start_step": 744,
+        "end_step": 752
+      },
+      {
+        "start_step": 752,
+        "end_step": 760
+      },
+      {
+        "start_step": 760,
+        "end_step": 768
+      },
+      {
+        "start_step": 768,
+        "end_step": 776
+      },
+      {
+        "start_step": 776,
+        "end_step": 784
+      },
+      {
+        "start_step": 784,
+        "end_step": 792
+      },
+      {
+        "start_step": 792,
+        "end_step": 800
+      },
+      {
+        "start_step": 800,
+        "end_step": 808
+      },
+      {
+        "start_step": 808,
+        "end_step": 816
+      },
+      {
+        "start_step": 816,
+        "end_step": 824
+      },
+      {
+        "start_step": 824,
+        "end_step": 832
+      },
+      {
+        "start_step": 832,
+        "end_step": 840
+      },
+      {
+        "start_step": 840,
+        "end_step": 848
+      },
+      {
+        "start_step": 848,
+        "end_step": 856
+      },
+      {
+        "start_step": 856,
+        "end_step": 864
+      },
+      {
+        "start_step": 864,
+        "end_step": 872
+      },
+      {
+        "start_step": 872,
+        "end_step": 880
+      },
+      {
+        "start_step": 880,
+        "end_step": 888
+      },
+      {
+        "start_step": 888,
+        "end_step": 896
+      },
+      {
+        "start_step": 896,
+        "end_step": 904
+      },
+      {
+        "start_step": 904,
+        "end_step": 912
+      },
+      {
+        "start_step": 912,
+        "end_step": 920
+      },
+      {
+        "start_step": 920,
+        "end_step": 928
+      },
+      {
+        "start_step": 928,
+        "end_step": 936
+      },
+      {
+        "start_step": 936,
+        "end_step": 944
+      },
+      {
+        "start_step": 944,
+        "end_step": 952
+      },
+      {
+        "start_step": 952,
+        "end_step": 960
+      },
+      {
+        "start_step": 960,
+        "end_step": 968
+      },
+      {
+        "start_step": 968,
+        "end_step": 976
+      },
+      {
+        "start_step": 976,
+        "end_step": 984
+      },
+      {
+        "start_step": 984,
+        "end_step": 992
+      },
+      {
+        "start_step": 992,
+        "end_step": 1000
+      },
+      {
+        "start_step": 1000,
+        "end_step": 1008
+      },
+      {
+        "start_step": 1008,
+        "end_step": 1016
+      },
+      {
+        "start_step": 1016,
+        "end_step": 1024
+      },
+      {
+        "start_step": 1024,
+        "end_step": 1032
+      },
+      {
+        "start_step": 1032,
+        "end_step": 1040
+      },
+      {
+        "start_step": 1040,
+        "end_step": 1048
+      },
+      {
+        "start_step": 1048,
+        "end_step": 1056
+      },
+      {
+        "start_step": 1056,
+        "end_step": 1064
+      },
+      {
+        "start_step": 1064,
+        "end_step": 1072
+      },
+      {
+        "start_step": 1072,
+        "end_step": 1080
+      },
+      {
+        "start_step": 1080,
+        "end_step": 1088
+      },
+      {
+        "start_step": 1088,
+        "end_step": 1096
+      },
+      {
+        "start_step": 1096,
+        "end_step": 1104
+      },
+      {
+        "start_step": 1104,
+        "end_step": 1112
+      },
+      {
+        "start_step": 1112,
+        "end_step": 1120
+      },
+      {
+        "start_step": 1120,
+        "end_step": 1128
+      },
+      {
+        "start_step": 1128,
+        "end_step": 1136
+      },
+      {
+        "start_step": 1136,
+        "end_step": 1144
+      },
+      {
+        "start_step": 1144,
+        "end_step": 1152
+      },
+      {
+        "start_step": 1152,
+        "end_step": 1160
+      },
+      {
+        "start_step": 1160,
+        "end_step": 1168
+      },
+      {
+        "start_step": 1168,
+        "end_step": 1176
+      },
+      {
+        "start_step": 1176,
+        "end_step": 1184
+      },
+      {
+        "start_step": 1184,
+        "end_step": 1192
+      },
+      {
+        "start_step": 1192,
+        "end_step": 1200
+      },
+      {
+        "start_step": 1200,
+        "end_step": 1208
+      },
+      {
+        "start_step": 1208,
+        "end_step": 1216
+      },
+      {
+        "start_step": 1216,
+        "end_step": 1224
+      },
+      {
+        "start_step": 1224,
+        "end_step": 1232
+      },
+      {
+        "start_step": 1232,
+        "end_step": 1240
+      },
+      {
+        "start_step": 1240,
+        "end_step": 1248
+      },
+      {
+        "start_step": 1248,
+        "end_step": 1256
+      },
+      {
+        "start_step": 1256,
+        "end_step": 1264
+      },
+      {
+        "start_step": 1264,
+        "end_step": 1272
+      },
+      {
+        "start_step": 1272,
+        "end_step": 1280
+      },
+      {
+        "start_step": 1280,
+        "end_step": 1288
+      },
+      {
+        "start_step": 1288,
+        "end_step": 1296
+      },
+      {
+        "start_step": 1296,
+        "end_step": 1304
+      },
+      {
+        "start_step": 1304,
+        "end_step": 1312
+      },
+      {
+        "start_step": 1312,
+        "end_step": 1320
+      },
+      {
+        "start_step": 1320,
+        "end_step": 1328
+      },
+      {
+        "start_step": 1328,
+        "end_step": 1336
+      },
+      {
+        "start_step": 1336,
+        "end_step": 1344
+      },
+      {
+        "start_step": 1344,
+        "end_step": 1352
+      },
+      {
+        "start_step": 1352,
+        "end_step": 1360
+      },
+      {
+        "start_step": 1360,
+        "end_step": 1368
+      },
+      {
+        "start_step": 1368,
+        "end_step": 1376
+      },
+      {
+        "start_step": 1376,
+        "end_step": 1384
+      },
+      {
+        "start_step": 1384,
+        "end_step": 1392
+      },
+      {
+        "start_step": 1392,
+        "end_step": 1400
+      },
+      {
+        "start_step": 1400,
+        "end_step": 1408
+      },
+      {
+        "start_step": 1408,
+        "end_step": 1416
+      },
+      {
+        "start_step": 1416,
+        "end_step": 1424
+      },
+      {
+        "start_step": 1424,
+        "end_step": 1432
+      },
+      {
+        "start_step": 1432,
+        "end_step": 1440
+      },
+      {
+        "start_step": 1440,
+        "end_step": 1448
+      },
+      {
+        "start_step": 1448,
+        "end_step": 1456
+      },
+      {
+        "start_step": 1456,
+        "end_step": 1464
+      },
+      {
+        "start_step": 1464,
+        "end_step": 1472
+      },
+      {
+        "start_step": 1472,
+        "end_step": 1480
+      },
+      {
+        "start_step": 1480,
+        "end_step": 1488
+      },
+      {
+        "start_step": 1488,
+        "end_step": 1496
+      },
+      {
+        "start_step": 1496,
+        "end_step": 1504
+      },
+      {
+        "start_step": 1504,
+        "end_step": 1512
+      },
+      {
+        "start_step": 1512,
+        "end_step": 1520
+      },
+      {
+        "start_step": 1520,
+        "end_step": 1528
+      },
+      {
+        "start_step": 1528,
+        "end_step": 1536
+      },
+      {
+        "start_step": 1536,
+        "end_step": 1544
+      },
+      {
+        "start_step": 1544,
+        "end_step": 1552
+      },
+      {
+        "start_step": 1552,
+        "end_step": 1560
+      },
+      {
+        "start_step": 1560,
+        "end_step": 1568
+      },
+      {
+        "start_step": 1568,
+        "end_step": 1576
+      },
+      {
+        "start_step": 1576,
+        "end_step": 1584
+      },
+      {
+        "start_step": 1584,
+        "end_step": 1592
+      },
+      {
+        "start_step": 1592,
+        "end_step": 1600
+      },
+      {
+        "start_step": 1600,
+        "end_step": 1608
+      },
+      {
+        "start_step": 1608,
+        "end_step": 1616
+      },
+      {
+        "start_step": 1616,
+        "end_step": 1624
+      },
+      {
+        "start_step": 1624,
+        "end_step": 1632
+      },
+      {
+        "start_step": 1632,
+        "end_step": 1640
+      },
+      {
+        "start_step": 1640,
+        "end_step": 1648
+      },
+      {
+        "start_step": 1648,
+        "end_step": 1656
+      },
+      {
+        "start_step": 1656,
+        "end_step": 1664
+      },
+      {
+        "start_step": 1664,
+        "end_step": 1672
+      },
+      {
+        "start_step": 1672,
+        "end_step": 1680
+      },
+      {
+        "start_step": 1680,
+        "end_step": 1688
+      },
+      {
+        "start_step": 1688,
+        "end_step": 1696
+      },
+      {
+        "start_step": 1696,
+        "end_step": 1704
+      },
+      {
+        "start_step": 1704,
+        "end_step": 1712
+      },
+      {
+        "start_step": 1712,
+        "end_step": 1720
+      },
+      {
+        "start_step": 1720,
+        "end_step": 1728
+      },
+      {
+        "start_step": 1728,
+        "end_step": 1736
+      },
+      {
+        "start_step": 1736,
+        "end_step": 1744
+      },
+      {
+        "start_step": 1744,
+        "end_step": 1752
+      },
+      {
+        "start_step": 1752,
+        "end_step": 1760
+      },
+      {
+        "start_step": 1760,
+        "end_step": 1768
+      },
+      {
+        "start_step": 1768,
+        "end_step": 1776
+      },
+      {
+        "start_step": 1776,
+        "end_step": 1784
+      },
+      {
+        "start_step": 1784,
+        "end_step": 1792
+      },
+      {
+        "start_step": 1792,
+        "end_step": 1800
+      },
+      {
+        "start_step": 1800,
+        "end_step": 1808
+      },
+      {
+        "start_step": 1808,
+        "end_step": 1816
+      },
+      {
+        "start_step": 1816,
+        "end_step": 1824
+      },
+      {
+        "start_step": 1824,
+        "end_step": 1832
+      },
+      {
+        "start_step": 1832,
+        "end_step": 1840
+      },
+      {
+        "start_step": 1840,
+        "end_step": 1848
+      },
+      {
+        "start_step": 1848,
+        "end_step": 1856
+      },
+      {
+        "start_step": 1856,
+        "end_step": 1864
+      },
+      {
+        "start_step": 1864,
+        "end_step": 1872
+      },
+      {
+        "start_step": 1872,
+        "end_step": 1880
+      },
+      {
+        "start_step": 1880,
+        "end_step": 1888
+      },
+      {
+        "start_step": 1888,
+        "end_step": 1896
+      },
+      {
+        "start_step": 1896,
+        "end_step": 1904
+      },
+      {
+        "start_step": 1904,
+        "end_step": 1912
+      },
+      {
+        "start_step": 1912,
+        "end_step": 1920
+      },
+      {
+        "start_step": 1920,
+        "end_step": 1928
+      },
+      {
+        "start_step": 1928,
+        "end_step": 1936
+      },
+      {
+        "start_step": 1936,
+        "end_step": 1944
+      },
+      {
+        "start_step": 1944,
+        "end_step": 1952
+      },
+      {
+        "start_step": 1952,
+        "end_step": 1960
+      },
+      {
+        "start_step": 1960,
+        "end_step": 1968
+      },
+      {
+        "start_step": 1968,
+        "end_step": 1976
+      },
+      {
+        "start_step": 1976,
+        "end_step": 1984
+      },
+      {
+        "start_step": 1984,
+        "end_step": 1992
+      },
+      {
+        "start_step": 1992,
+        "end_step": 2000
+      },
+      {
+        "start_step": 2000,
+        "end_step": 2008
+      },
+      {
+        "start_step": 2008,
+        "end_step": 2016
+      },
+      {
+        "start_step": 2016,
+        "end_step": 2024
+      },
+      {
+        "start_step": 2024,
+        "end_step": 2032
+      },
+      {
+        "start_step": 2032,
+        "end_step": 2040
+      },
+      {
+        "start_step": 2040,
+        "end_step": 2048
+      },
+      {
+        "start_step": 2048,
+        "end_step": 2056
+      },
+      {
+        "start_step": 2056,
+        "end_step": 2064
+      },
+      {
+        "start_step": 2064,
+        "end_step": 2072
+      },
+      {
+        "start_step": 2072,
+        "end_step": 2080
+      },
+      {
+        "start_step": 2080,
+        "end_step": 2088
+      },
+      {
+        "start_step": 2088,
+        "end_step": 2096
+      },
+      {
+        "start_step": 2096,
+        "end_step": 2104
+      },
+      {
+        "start_step": 2104,
+        "end_step": 2112
+      },
+      {
+        "start_step": 2112,
+        "end_step": 2120
+      },
+      {
+        "start_step": 2120,
+        "end_step": 2128
+      },
+      {
+        "start_step": 2128,
+        "end_step": 2136
+      },
+      {
+        "start_step": 2136,
+        "end_step": 2144
+      },
+      {
+        "start_step": 2144,
+        "end_step": 2152
+      },
+      {
+        "start_step": 2152,
+        "end_step": 2160
+      },
+      {
+        "start_step": 2160,
+        "end_step": 2168
+      },
+      {
+        "start_step": 2168,
+        "end_step": 2176
+      },
+      {
+        "start_step": 2176,
+        "end_step": 2184
+      },
+      {
+        "start_step": 2184,
+        "end_step": 2192
+      },
+      {
+        "start_step": 2192,
+        "end_step": 2200
+      },
+      {
+        "start_step": 2200,
+        "end_step": 2208
+      },
+      {
+        "start_step": 2208,
+        "end_step": 2216
+      },
+      {
+        "start_step": 2216,
+        "end_step": 2224
+      },
+      {
+        "start_step": 2224,
+        "end_step": 2232
+      },
+      {
+        "start_step": 2232,
+        "end_step": 2240
+      },
+      {
+        "start_step": 2240,
+        "end_step": 2248
+      },
+      {
+        "start_step": 2248,
+        "end_step": 2256
+      },
+      {
+        "start_step": 2256,
+        "end_step": 2264
+      },
+      {
+        "start_step": 2264,
+        "end_step": 2272
+      },
+      {
+        "start_step": 2272,
+        "end_step": 2280
+      },
+      {
+        "start_step": 2280,
+        "end_step": 2288
+      },
+      {
+        "start_step": 2288,
+        "end_step": 2296
+      },
+      {
+        "start_step": 2296,
+        "end_step": 2304
+      },
+      {
+        "start_step": 2304,
+        "end_step": 2312
+      },
+      {
+        "start_step": 2312,
+        "end_step": 2320
+      },
+      {
+        "start_step": 2320,
+        "end_step": 2328
+      },
+      {
+        "start_step": 2328,
+        "end_step": 2336
+      },
+      {
+        "start_step": 2336,
+        "end_step": 2344
+      },
+      {
+        "start_step": 2344,
+        "end_step": 2352
+      },
+      {
+        "start_step": 2352,
+        "end_step": 2360
+      },
+      {
+        "start_step": 2360,
+        "end_step": 2368
+      },
+      {
+        "start_step": 2368,
+        "end_step": 2376
+      },
+      {
+        "start_step": 2376,
+        "end_step": 2384
+      },
+      {
+        "start_step": 2384,
+        "end_step": 2392
+      },
+      {
+        "start_step": 2392,
+        "end_step": 2400
+      },
+      {
+        "start_step": 2400,
+        "end_step": 2408
+      },
+      {
+        "start_step": 2408,
+        "end_step": 2416
+      },
+      {
+        "start_step": 2416,
+        "end_step": 2424
+      },
+      {
+        "start_step": 2424,
+        "end_step": 2432
+      },
+      {
+        "start_step": 2432,
+        "end_step": 2440
+      },
+      {
+        "start_step": 2440,
+        "end_step": 2448
+      },
+      {
+        "start_step": 2448,
+        "end_step": 2456
+      },
+      {
+        "start_step": 2456,
+        "end_step": 2464
+      },
+      {
+        "start_step": 2464,
+        "end_step": 2472
+      },
+      {
+        "start_step": 2472,
+        "end_step": 2480
+      },
+      {
+        "start_step": 2480,
+        "end_step": 2488
+      },
+      {
+        "start_step": 2488,
+        "end_step": 2496
+      },
+      {
+        "start_step": 2496,
+        "end_step": 2504
+      },
+      {
+        "start_step": 2504,
+        "end_step": 2512
+      },
+      {
+        "start_step": 2512,
+        "end_step": 2520
+      },
+      {
+        "start_step": 2520,
+        "end_step": 2528
+      },
+      {
+        "start_step": 2528,
+        "end_step": 2536
+      },
+      {
+        "start_step": 2536,
+        "end_step": 2544
+      },
+      {
+        "start_step": 2544,
+        "end_step": 2552
+      },
+      {
+        "start_step": 2552,
+        "end_step": 2560
+      },
+      {
+        "start_step": 2560,
+        "end_step": 2568
+      },
+      {
+        "start_step": 2568,
+        "end_step": 2576
+      },
+      {
+        "start_step": 2576,
+        "end_step": 2584
+      },
+      {
+        "start_step": 2584,
+        "end_step": 2592
+      },
+      {
+        "start_step": 2592,
+        "end_step": 2600
+      },
+      {
+        "start_step": 2600,
+        "end_step": 2608
+      },
+      {
+        "start_step": 2608,
+        "end_step": 2616
+      },
+      {
+        "start_step": 2616,
+        "end_step": 2624
+      },
+      {
+        "start_step": 2624,
+        "end_step": 2632
+      },
+      {
+        "start_step": 2632,
+        "end_step": 2640
+      },
+      {
+        "start_step": 2640,
+        "end_step": 2648
+      },
+      {
+        "start_step": 2648,
+        "end_step": 2656
+      },
+      {
+        "start_step": 2656,
+        "end_step": 2664
+      },
+      {
+        "start_step": 2664,
+        "end_step": 2672
+      },
+      {
+        "start_step": 2672,
+        "end_step": 2680
+      },
+      {
+        "start_step": 2680,
+        "end_step": 2688
+      },
+      {
+        "start_step": 2688,
+        "end_step": 2696
+      },
+      {
+        "start_step": 2696,
+        "end_step": 2704
+      },
+      {
+        "start_step": 2704,
+        "end_step": 2712
+      },
+      {
+        "start_step": 2712,
+        "end_step": 2720
+      },
+      {
+        "start_step": 2720,
+        "end_step": 2728
+      },
+      {
+        "start_step": 2728,
+        "end_step": 2736
+      },
+      {
+        "start_step": 2736,
+        "end_step": 2744
+      },
+      {
+        "start_step": 2744,
+        "end_step": 2752
+      },
+      {
+        "start_step": 2752,
+        "end_step": 2760
+      },
+      {
+        "start_step": 2760,
+        "end_step": 2768
+      },
+      {
+        "start_step": 2768,
+        "end_step": 2776
+      },
+      {
+        "start_step": 2776,
+        "end_step": 2784
+      },
+      {
+        "start_step": 2784,
+        "end_step": 2792
+      },
+      {
+        "start_step": 2792,
+        "end_step": 2800
+      },
+      {
+        "start_step": 2800,
+        "end_step": 2808
+      },
+      {
+        "start_step": 2808,
+        "end_step": 2816
+      },
+      {
+        "start_step": 2816,
+        "end_step": 2824
+      },
+      {
+        "start_step": 2824,
+        "end_step": 2832
+      },
+      {
+        "start_step": 2832,
+        "end_step": 2840
+      },
+      {
+        "start_step": 2840,
+        "end_step": 2848
+      },
+      {
+        "start_step": 2848,
+        "end_step": 2856
+      },
+      {
+        "start_step": 2856,
+        "end_step": 2864
+      },
+      {
+        "start_step": 2864,
+        "end_step": 2872
+      },
+      {
+        "start_step": 2872,
+        "end_step": 2880
+      },
+      {
+        "start_step": 2880,
+        "end_step": 2888
+      },
+      {
+        "start_step": 2888,
+        "end_step": 2896
+      },
+      {
+        "start_step": 2896,
+        "end_step": 2904
+      },
+      {
+        "start_step": 2904,
+        "end_step": 2912
+      },
+      {
+        "start_step": 2912,
+        "end_step": 2920
+      },
+      {
+        "start_step": 2920,
+        "end_step": 2928
+      },
+      {
+        "start_step": 2928,
+        "end_step": 2936
+      },
+      {
+        "start_step": 2936,
+        "end_step": 2944
+      },
+      {
+        "start_step": 2944,
+        "end_step": 2952
+      },
+      {
+        "start_step": 2952,
+        "end_step": 2960
+      },
+      {
+        "start_step": 2960,
+        "end_step": 2968
+      },
+      {
+        "start_step": 2968,
+        "end_step": 2976
+      },
+      {
+        "start_step": 2976,
+        "end_step": 2984
+      },
+      {
+        "start_step": 2984,
+        "end_step": 2992
+      },
+      {
+        "start_step": 2992,
+        "end_step": 3000
+      },
+      {
+        "start_step": 3000,
+        "end_step": 3008
+      },
+      {
+        "start_step": 3008,
+        "end_step": 3016
+      },
+      {
+        "start_step": 3016,
+        "end_step": 3024
+      },
+      {
+        "start_step": 3024,
+        "end_step": 3032
+      },
+      {
+        "start_step": 3032,
+        "end_step": 3040
+      },
+      {
+        "start_step": 3040,
+        "end_step": 3048
+      },
+      {
+        "start_step": 3048,
+        "end_step": 3056
+      },
+      {
+        "start_step": 3056,
+        "end_step": 3064
+      },
+      {
+        "start_step": 3064,
+        "end_step": 3072
+      },
+      {
+        "start_step": 3072,
+        "end_step": 3080
+      },
+      {
+        "start_step": 3080,
+        "end_step": 3088
+      },
+      {
+        "start_step": 3088,
+        "end_step": 3096
+      },
+      {
+        "start_step": 3096,
+        "end_step": 3104
+      },
+      {
+        "start_step": 3104,
+        "end_step": 3112
+      },
+      {
+        "start_step": 3112,
+        "end_step": 3120
+      },
+      {
+        "start_step": 3120,
+        "end_step": 3128
+      },
+      {
+        "start_step": 3128,
+        "end_step": 3136
+      },
+      {
+        "start_step": 3136,
+        "end_step": 3144
+      },
+      {
+        "start_step": 3144,
+        "end_step": 3152
+      },
+      {
+        "start_step": 3152,
+        "end_step": 3160
+      },
+      {
+        "start_step": 3160,
+        "end_step": 3168
+      },
+      {
+        "start_step": 3168,
+        "end_step": 3176
+      },
+      {
+        "start_step": 3176,
+        "end_step": 3184
+      },
+      {
+        "start_step": 3184,
+        "end_step": 3192
+      },
+      {
+        "start_step": 3192,
+        "end_step": 3200
+      },
+      {
+        "start_step": 3200,
+        "end_step": 3208
+      },
+      {
+        "start_step": 3208,
+        "end_step": 3216
+      },
+      {
+        "start_step": 3216,
+        "end_step": 3224
+      },
+      {
+        "start_step": 3224,
+        "end_step": 3232
+      },
+      {
+        "start_step": 3232,
+        "end_step": 3240
+      },
+      {
+        "start_step": 3240,
+        "end_step": 3248
+      },
+      {
+        "start_step": 3248,
+        "end_step": 3256
+      },
+      {
+        "start_step": 3256,
+        "end_step": 3264
+      },
+      {
+        "start_step": 3264,
+        "end_step": 3272
+      },
+      {
+        "start_step": 3272,
+        "end_step": 3280
+      },
+      {
+        "start_step": 3280,
+        "end_step": 3288
+      },
+      {
+        "start_step": 3288,
+        "end_step": 3296
+      },
+      {
+        "start_step": 3296,
+        "end_step": 3304
+      },
+      {
+        "start_step": 3304,
+        "end_step": 3312
+      },
+      {
+        "start_step": 3312,
+        "end_step": 3320
+      },
+      {
+        "start_step": 3320,
+        "end_step": 3328
+      },
+      {
+        "start_step": 3328,
+        "end_step": 3336
+      },
+      {
+        "start_step": 3336,
+        "end_step": 3344
+      },
+      {
+        "start_step": 3344,
+        "end_step": 3352
+      },
+      {
+        "start_step": 3352,
+        "end_step": 3360
+      },
+      {
+        "start_step": 3360,
+        "end_step": 3368
+      },
+      {
+        "start_step": 3368,
+        "end_step": 3376
+      },
+      {
+        "start_step": 3376,
+        "end_step": 3384
+      },
+      {
+        "start_step": 3384,
+        "end_step": 3392
+      },
+      {
+        "start_step": 3392,
+        "end_step": 3400
+      },
+      {
+        "start_step": 3400,
+        "end_step": 3408
+      },
+      {
+        "start_step": 3408,
+        "end_step": 3416
+      },
+      {
+        "start_step": 3416,
+        "end_step": 3424
+      },
+      {
+        "start_step": 3424,
+        "end_step": 3432
+      },
+      {
+        "start_step": 3432,
+        "end_step": 3440
+      },
+      {
+        "start_step": 3440,
+        "end_step": 3448
+      },
+      {
+        "start_step": 3448,
+        "end_step": 3456
+      },
+      {
+        "start_step": 3456,
+        "end_step": 3464
+      },
+      {
+        "start_step": 3464,
+        "end_step": 3472
+      },
+      {
+        "start_step": 3472,
+        "end_step": 3480
+      },
+      {
+        "start_step": 3480,
+        "end_step": 3488
+      },
+      {
+        "start_step": 3488,
+        "end_step": 3496
+      }
+    ]
+  },
+  "scope": "Complete archived public tool-call sequence and initial task prompt. Response summaries are preserved; the execution video is not a reconstruction of all model input images."
+}
