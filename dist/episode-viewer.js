@@ -23,7 +23,7 @@
    <details class="episode-log"><summary>Full interaction timeline · ${episode.calls.length} calls</summary><ol>${episode.calls.map((c,i)=>`<li><button data-call="${i}"><time>${time(c.video_start)}</time><span>${escape(actionName(c))}</span></button></li>`).join('')}</ol></details>
    <div class="episode-source-links"><button class="appendix-link" data-icl-package="${escape(episode.task)}">Historical ICL input ↗</button><a href="data/episodes/${episode.id}.json" download>Download public interaction log</a></div>
    <details class="episode-log"><summary>Initial task prompt</summary><div class="episode-prompt">${episode.initial_prompt.split('\n').filter(Boolean).map(p=>`<p>${escape(p)}</p>`).join('')}</div></details>
-   <details class="episode-log episode-method"><summary>How the log and video are aligned</summary><p>All ${episode.calls.length} archived public tool calls are included, in order, with their original arguments and returned summaries. Video frames are paired in order with ${episode.frame_count} execution chunks that returned a robot state; the frame counts match. The terminal result adds no video frame. Simulation time uses 30 Hz; video playback time is a separate clock.</p><p>The quoted text is the model’s public action explanation. The video shows recorded execution, rather than every image supplied to the model. A successful tool response means the command ran; task completion is reported separately by the evaluator.</p></details>`;
+`;
   const video=root.querySelector('video');
   video.muted=true;video.defaultMuted=true;video.loop=true;
   video.addEventListener('timeupdate',()=>{

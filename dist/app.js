@@ -70,7 +70,7 @@ document.addEventListener('click',e=>{const link=e.target.closest('a[href^="#"]'
 
 function decorateAppendix(key){
  const body=$('#appendix-body');
- if(key==='generalization')body.querySelector('h2').insertAdjacentHTML('afterend','<div class="viz-figure" data-slopes data-viz-linked></div><div class="viz-legend"><span>Lines connect the four controlled conditions for each system. Hover a line to isolate it; GPT-6-Astra and OpenWAM-α are emphasized.</span></div>');
+ if(key==='generalization')body.querySelector('h2').insertAdjacentHTML('afterend','<div class="viz-figure" data-slopes data-viz-linked></div><div class="viz-legend"><span>Success rates across four perturbation conditions. GPT-6-Astra has the smallest observed range across conditions (6.60 percentage points), while OpenWAM-α leads under object, background and instruction perturbations. The comparison distinguishes consistency across conditions from absolute task success.</span></div>');
  if(key==='ablation'){const findings=body.querySelector('.icl-pair-findings');if(findings)findings.insertAdjacentHTML('beforebegin','<div class="icl-pair-chart" data-dumbbells="fresh"></div><div class="viz-legend"><span><i class="hollow"></i>Zero-shot Score</span><span><i class="filled"></i>Single-shot ICL Score</span><span>✓ marks a terminal success</span></div>');const hist=body.querySelector('.icl-context>p');if(hist)hist.insertAdjacentHTML('afterend','<div data-dumbbells="historical"></div>');}
 }
 function drawFigures(root=document){
