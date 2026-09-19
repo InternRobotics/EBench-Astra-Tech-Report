@@ -149,3 +149,5 @@ Model references are now directly discoverable from the header and Contents via 
 Model References entry moved to immediately below the EBench leaderboard paragraph in Benchmark Results, as a simple text link. Removed the separate Experiment Setup block and header item; Contents links to the new position. Secondary HTML captions and controls are enlarged to 13–15px, with readable contrast; main metric definitions use 15px and the model-comparison heading 19px.
 
 Matrix quote animation uses only Latin letters and digits, with mostly green streams and occasional red streams (~1/23 passes). The hero Pause motion button and its JS dependency are removed; animation still honors reduced-motion preferences and tab visibility.
+
+The duplicated task-gap chart below “Second overall, with sharply different strengths” is removed. Its named-model comparator, four cross-group filters and task-name ordering are merged into Complete benchmark comparison → GPT-6-Astra vs. field, alongside existing best/median references and SR/Score controls. The narrative retains its ranking interpretation and a link that selects the shared field tab.

@@ -11,6 +11,12 @@ for(const width of [340,760]){
  const groups=['Low','Medium','High'].map(g=>({label:g,values:Object.fromEntries(data.models.map(m=>[m.id,m.groups[g].sr]))}));context.viz.dotStrip(host,{groups,title:'Precision'});check(host);assert.equal(walk(host).filter(n=>n.attrs?.['data-model']).length,24);
  const tied=Object.fromEntries(data.models.map((m,i)=>[m.id,i<2?0.9:0.2]));context.viz.dotStrip(host,{groups:[{label:'Tie',values:tied}],title:'Tie'});assert.equal(walk(host).filter(n=>n.attrs?.class==='viz-best-ring').length,2);assert.equal(walk(host).filter(n=>n.attrs?.['data-tip']?.includes('rank 1 of 8')).length,2);
  const rows=context.viz.astraVersusField(host,{tasks});check(host);assert.equal(rows.filter(r=>r.delta>1e-9).length,5);assert.equal(rows.filter(r=>Math.abs(r.delta)<1e-9).length,4);assert.equal(rows.find(r=>r.task.task==='dishwasher').delta,-.85);
+ const mobileShort=tasks.filter(t=>t.mobility==='Mobile'&&t.horizon==='Short Horizon');assert.equal(mobileShort.length,12);
+ for(const reference of data.models.filter(m=>m.id!=='Astra (ICL)').map(m=>m.id)){
+  const filtered=context.viz.astraVersusField(host,{tasks:mobileShort,reference,metric:'score',order:'task'});check(host);assert.equal(filtered.length,12);
+  assert.deepEqual(Array.from(filtered,r=>r.task.task),mobileShort.map(t=>t.task).sort((a,b)=>a.localeCompare(b)));
+  for(const r of filtered)assert.equal(r.delta,Number(r.task['Astra (ICL)_score'])-Number(r.task[reference+'_score']));
+ }
  context.viz.perturbationSlopes(host,{models:data.models});check(host);assert.equal(walk(host).filter(n=>n.attrs?.['data-model']).length,8);
  context.viz.pairedDumbbells(host,{pairs:ablations.pairs});check(host);assert.equal(walk(host).filter(n=>n.attrs?.class==='viz-pair-icl').length,ablations.pairs.length);
  context.viz.timingBars(host,{episodes:timing.episodes});check(host);assert.equal(walk(host).filter(n=>n.attrs?.class==='viz-time-wall').length,3);

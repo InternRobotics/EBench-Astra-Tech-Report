@@ -154,20 +154,21 @@
  /* =====================================================================================
     3. Astra versus the strongest other system, task by task (diverging bars).
     ===================================================================================== */
- function astraVersusField(host, {tasks, metric = 'sr', reference = 'best'}) {
+ function astraVersusField(host, {tasks, metric = 'sr', reference = 'best', order = 'gap'}) {
   const models = palette();
   const key = m => `${m.id}_${metric}`;
   const rows = tasks.map(t => {
    const others = models.filter(m => m.id !== ASTRA).map(m => ({...m, value: Number(t[key(m)])}));
    const sorted = others.slice().sort((a, b) => b.value - a.value);
-   const ref = reference === 'best' ? {...sorted[0],label:sorted.filter(m=>Math.abs(m.value-sorted[0].value)<1e-9).map(m=>m.label).join(', ')} : {label: 'median of others', value: sorted[Math.floor(sorted.length / 2)].value};
+   const ref = reference === 'best' ? {...sorted[0],label:sorted.filter(m=>Math.abs(m.value-sorted[0].value)<1e-9).map(m=>m.label).join(', ')} : reference === 'median' ? {label: 'median of others', value: sorted[Math.floor(sorted.length / 2)].value} : others.find(m=>m.id===reference);
    const astra = Number(t[key({id: ASTRA})]);
    return {task: t, astra, ref, others: sorted, delta: astra - ref.value};
-  }).sort((a, b) => b.delta - a.delta || b.astra - a.astra);
+  }).sort((a, b) => order === 'task' ? a.task.task.localeCompare(b.task.task) : b.delta - a.delta || b.astra - a.astra);
   const width = Math.max(340, Math.min(1000, host.clientWidth || 760));
   const narrow = width < 560, labelW = narrow ? 128 : 200, rowH = narrow ? 24 : 27, top = 40;
   const height = top + rows.length * rowH + 30;
-  const svg = svgRoot(width, height, `GPT-6-Astra minus the ${reference === 'best' ? 'best other system' : 'median other system'}, per task`);
+  const referenceLabel=reference==='best'?'best other system':reference==='median'?'median of others':models.find(m=>m.id===reference).label;
+  const svg = svgRoot(width, height, `GPT-6-Astra minus ${referenceLabel}, per task`);
   const plotL = labelW + 8, plotR = width - 60, mid = (plotL + plotR) / 2, half = (plotR - plotL) / 2;
   const scale = d => mid + d * half;
   for (const tickVal of (narrow ? [-1, -0.5, 0, 0.5, 1] : [-1, -0.5, 0, 0.5, 1])) {
@@ -175,7 +176,7 @@
    svg.append(el('line', {x1: x, x2: x, y1: top - 8, y2: height - 22, class: tickVal === 0 ? 'viz-zero' : 'viz-grid'}));
    if (labelled) svg.append(el('text', {x, y: top - 14, 'text-anchor': 'middle', class: 'viz-axis'}, metric === 'sr' ? `${tickVal > 0 ? '+' : ''}${tickVal * 100}${narrow ? '' : ' pp'}` : `${tickVal > 0 ? '+' : ''}${tickVal.toFixed(1)}`));
   }
-  svg.append(el('text', {x: plotL, y: height - 6, class: 'viz-axis-note'}, `← ${reference === 'best' ? 'best other system' : 'median other'} ahead`));
+  svg.append(el('text', {x: plotL, y: height - 6, class: 'viz-axis-note'}, '← Comparator ahead'));
   svg.append(el('text', {x: plotR, y: height - 6, 'text-anchor': 'end', class: 'viz-axis-note'}, 'GPT-6-Astra ahead →'));
   rows.forEach((r, i) => {
    const y = top + i * rowH + rowH / 2, w = Math.abs(r.delta) * half, positive = r.delta > 0, zero = Math.abs(r.delta) < 1e-9;
