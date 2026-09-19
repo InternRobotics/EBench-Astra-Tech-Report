@@ -74,7 +74,7 @@ function updateCaseNarrative(){
  prose.innerHTML=narrativeHTML(key);description.replaceWith(prose);
  const insight=$('#case-content .case-insight');
  insight.querySelector('p').remove();
- insight.insertAdjacentHTML('afterbegin',activeCase==='icl'?narrativeHTML('iclSummary'):'<p>GPT-6-Astra’s grasp revision and goal recovery, and the specialized policies’ more accurate fine manipulation, point to <strong>complementary capabilities</strong>. A future system needs both a way to reconsider what remains to be done and a way to carry out the required contact reliably.</p>');
+ if(activeCase==='icl')insight.insertAdjacentHTML('afterbegin',narrativeHTML('iclSummary'));
 }
 function updateBehaviorNarrative(key){
  const story=$('#behavior-content .behavior-evidence>div');
@@ -93,7 +93,7 @@ function initNarrative(){
  document.querySelectorAll('[data-narrative]').forEach(el=>el.innerHTML=narrativeHTML(el.dataset.narrative));
  $('#mobile-content .finding-story').innerHTML=narrativeHTML('mobile');
  $('#mobile-content .finding-story').classList.add('report-prose');
- $('#mobile-content').insertAdjacentHTML('beforeend',`<div class="report-prose shift-analysis"><h3>The narrowest performance spread across perturbations</h3>${narrativeHTML('shifts')}<div id="perturbation-ranges"></div><button class="appendix-link" data-appendix="generalization">Compare the four perturbation settings ↗</button></div>`);
+ $('#mobile-content').insertAdjacentHTML('beforeend',`<div class="report-prose shift-analysis"><h3>The narrowest performance spread across perturbations</h3>${narrativeHTML('shifts')}<a class="appendix-link" href="#comparison" data-matrix-link="shifts" data-matrix-view="range">Compare perturbation ranges ↗</a></div>`);
  $('#mobile-content .shift-analysis').before($('#cross-group-analysis'));
  initAnalysisInsights();
  const library=$('#video-library');

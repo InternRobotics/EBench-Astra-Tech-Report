@@ -151,3 +151,10 @@ Model References entry moved to immediately below the EBench leaderboard paragra
 Matrix quote animation uses only Latin letters and digits, with mostly green streams and occasional red streams (~1/23 passes). The hero Pause motion button and its JS dependency are removed; animation still honors reduced-motion preferences and tab visibility.
 
 The duplicated task-gap chart below “Second overall, with sharply different strengths” is removed. Its named-model comparator, four cross-group filters and task-name ordering are merged into Complete benchmark comparison → GPT-6-Astra vs. field, alongside existing best/median references and SR/Score controls. The narrative retains its ranking interpretation and a link that selects the shared field tab.
+
+
+## Analysis consolidation after review (2026-09-19)
+
+The author accepts repetition inside dialogs and expandable views; keep those existing resources. Main-page cleanup removes the Featured demonstrations carousel (its teacup, frame and bookmark videos remain in their original evidence sections), moves the perturbation range chart into Distribution shifts as a Numerical comparison / Success-rate ranges switch, and links the analysis directly to that range view. The generalization appendix and All systems & task groups dialog are retained.
+
+Emerging capabilities ends with one observation-based sentence; the RSI research discussion remains in Conclusion. The teacup/glasses complementarity statement appears once in the Case Studies introduction, rather than being reinjected under both tabs. Full interactions, safety cases, precision analysis, cross-groups and the seven-task outcome expansion are preserved. Range-view output and interaction readouts were checked against all 32 original condition values and eight ranges; no benchmark data changed.

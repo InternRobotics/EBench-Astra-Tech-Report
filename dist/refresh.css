@@ -110,6 +110,7 @@ h2:hover .anchor-link,.anchor-link:focus-visible{opacity:1}
 @media print{.reading-progress,.back-to-top,.report-toc{display:none!important}}
 
 .model-reference-entry{margin:12px 0 0;scroll-margin-top:100px}.model-reference-entry a{font-family:var(--sans);font-size:16px;font-weight:500;color:#3456ef;text-decoration:none}.model-reference-entry a:hover{text-decoration:underline;text-underline-offset:4px}
+.shift-view-switch{display:inline-flex;flex-wrap:wrap;margin:8px 0 24px}.matrix-perturbation-ranges{margin-top:4px}
 
 .model-references{list-style:none;padding:0;margin:24px 0 32px}.model-references li{padding:18px 0;border-bottom:1px solid #e0e6f0}.model-references li:first-child{padding-top:0}.model-references strong{font-size:17px;color:#253e64}.model-references li p{margin:6px 0 10px;font-size:14px;line-height:1.65}.model-references cite{font-style:normal}.model-reference-links{display:flex;flex-wrap:wrap;gap:8px 22px}.model-reference-links a{font-size:13px;text-underline-offset:3px}
 
