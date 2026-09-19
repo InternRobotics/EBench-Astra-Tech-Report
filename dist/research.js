@@ -73,7 +73,7 @@ function initSafetyEvidence(){
   panel.querySelectorAll('video').forEach(v=>{v.pause();observer.unobserve(v);});
   const item=cases[key];
   panel.setAttribute('aria-labelledby','safety-tab-'+key);
-  panel.innerHTML=`<div class="safety-evidence"><div class="safety-case-copy"><h3>${item.title}</h3><dl><dt>Observed in the rollout</dt><dd>${item.observation}</dd><dt>Safety implication</dt><dd>${item.risk}</dd></dl><p class="safety-question"><strong>${item.question}</strong></p></div>${video('media/cases/'+item.path,item.label,'',item.result)}</div><p class="fineprint safety-source">${item.source}</p>`;
+  panel.innerHTML=`<div class="safety-evidence"><div class="safety-case-copy"><h3>${item.title}</h3><dl><dt>Observed in the rollout</dt><dd>${item.observation}</dd><dt>Safety implication</dt><dd>${item.risk}</dd></dl><p class="safety-question"><strong>${item.question}</strong></p></div>${video('media/cases/'+item.path,item.label,'',item.result)}</div>`;
   tabs.querySelectorAll('[data-safety]').forEach(b=>{const selected=b.dataset.safety===key;b.setAttribute('aria-selected',String(selected));b.tabIndex=selected?0:-1;});
   initVideos();
  }
