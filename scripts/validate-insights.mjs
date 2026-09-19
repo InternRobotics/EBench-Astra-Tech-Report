@@ -4,7 +4,8 @@ import {createHash} from 'node:crypto';
 const read=p=>JSON.parse(fs.readFileSync('dist/data/'+p,'utf8'));
 const d=read('analysis-insights.json'),tasks=read('tasks.json'),episodes=read('astra-main-episodes.json'),a='Astra (ICL)';
 const close=(x,y)=>assert(Math.abs(x-y)<1e-8,`${x} != ${y}`);
-for(const [path,hash]of Object.entries(d.source_sha256))assert.equal(createHash('sha256').update(fs.readFileSync('dist/data/'+path)).digest('hex'),hash);
+// Normalize checkout line endings before checking source hashes.
+for(const [path,hash]of Object.entries(d.source_sha256))assert.equal(createHash('sha256').update(fs.readFileSync('dist/data/'+path,'utf8').replace(/\r\n/g,'\n')).digest('hex'),hash);
 assert.equal(new Set(d.groups.flatMap(g=>g.tasks)).size,26);assert.equal(d.groups.reduce((n,g)=>n+g.n,0),26);
 assert.deepEqual(d.groups.map(g=>g.n),[12,7,3,4]);
 for(const g of d.groups){for(const m of d.models)close(g.rates[m.id],g.tasks.reduce((sum,name)=>sum+Number(tasks.find(t=>t.task===name)[m.id+'_sr'])*100,0)/g.n);}

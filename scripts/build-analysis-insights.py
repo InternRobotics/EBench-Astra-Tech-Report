@@ -19,7 +19,7 @@ def build():
   selected=[g for g in general if g['System']==source];assert len(selected)==4,(source,len(selected))
   conditions=[{'label':g['Condition'],'sr':float(g['SR (%)']),'tasks':int(g['Tasks']),'episodes':int(g['Episodes'])} for g in selected]
   shifts.append({'id':k,'label':label,'conditions':conditions,'range':max(g['sr'] for g in conditions)-min(g['sr'] for g in conditions)})
- result={'models':models,'groups':groups,'tasks':rows,'perturbations':shifts,'source_sha256':{f:hashlib.sha256((D/f).read_bytes()).hexdigest() for f in ['tasks.json','astra-main-episodes.json','report-generalization.csv']}}
+ result={'models':models,'groups':groups,'tasks':rows,'perturbations':shifts,'source_sha256':{f:hashlib.sha256((D/f).read_bytes().replace(b'\r\n',b'\n')).hexdigest() for f in ['tasks.json','astra-main-episodes.json','report-generalization.csv']}}
  (D/'analysis-insights.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  print('Recomputed 4 cross-groups, 26 task gaps/outcome distributions and 8 perturbation ranges.')
 if __name__=='__main__':build()

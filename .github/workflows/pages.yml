@@ -1,7 +1,6 @@
 name: Deploy report to GitHub Pages
 
 on:
-  # Run after the repository is transferred to InternRobotics.
   workflow_dispatch:
 
 permissions:
