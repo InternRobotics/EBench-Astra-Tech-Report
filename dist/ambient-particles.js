@@ -5,8 +5,7 @@
  if(!ctx)return;
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
  const count=3300,tau=Math.PI*2;
- let seed=817,w=0,h=0,raf=0,last=0,time=0,logoEnd=1,robotStart=2,robotEnd=3;
- let logoMix=0,robotMix=0,targetLogo=0,targetRobot=0;
+ let seed=817,w=0,h=0,raf=0,last=0,time=0,phase=0,targetPhase=0,stops=[];
  const random=()=>{seed=seed*16807%2147483647;return(seed-1)/2147483646;};
  const smooth=v=>{const t=Math.max(0,Math.min(1,v));return t*t*(3-2*t);};
  const lerp=(a,b,t)=>a+(b-a)*t;
@@ -35,13 +34,38 @@
   while(points.length<count){const x=random()*180,y=random()*180;if(ctx.isPointInPath(path,x,y)&&(!cutout||!ctx.isPointInPath(cutout,x,y)))points.push({x:(x-90)/scale,y:(y-90)/scale});}
   return points.sort((a,b)=>Math.atan2(a.y,a.x)-Math.atan2(b.y,b.x));
  }
- const logo=samples(blossom,null,62),machine=samples(robot,robotCutout,75);
+ const arms=new Path2D();
+ function link(x1,y1,x2,y2,width){
+  const angle=Math.atan2(y2-y1,x2-x1),dx=Math.sin(angle)*width/2,dy=Math.cos(angle)*width/2;
+  arms.moveTo(x1+dx,y1-dy);arms.lineTo(x2+dx,y2-dy);arms.lineTo(x2-dx,y2+dy);arms.lineTo(x1-dx,y1+dy);arms.closePath();
+ }
+ for(const side of [-1,1]){
+  const x=v=>90+side*v;
+  arms.roundRect(x(51)-17,139,34,12,4);
+  link(x(51),139,x(64),102,11);link(x(64),102,x(40),62,12);link(x(40),62,x(18),80,9);
+  for(const [px,py] of [[x(51),137],[x(64),102],[x(40),62]]){arms.moveTo(px+8,py);arms.arc(px,py,8,0,tau);}
+  link(x(18),80,x(13),93,5);link(x(18),80,x(30),88,5);link(x(30),88,x(24),101,5);
+ }
+ arms.roundRect(80,93,20,22,3);
+ const logo=samples(blossom,null,62),machine=samples(robot,robotCutout,75),manipulators=samples(arms,null,75);
+ const polarSort=points=>points.sort((a,b)=>Math.atan2(a.y,a.x)-Math.atan2(b.y,b.x));
+ const orbits=polarSort(Array.from({length:count},()=>{
+  const ring=Math.floor(random()*3),angle=random()*tau,rotation=ring*Math.PI/3;
+  const x=Math.cos(angle)*(.93+(random()-.5)*.045),y=Math.sin(angle)*(.31+(random()-.5)*.06);
+  return{x:x*Math.cos(rotation)-y*Math.sin(rotation),y:x*Math.sin(rotation)+y*Math.cos(rotation)};
+ }));
+ const nebula=polarSort(Array.from({length:count},()=>{
+  const angle=random()*tau,r=.57+.2*Math.sin(angle*3)+(random()-.5)*.23;
+  return{x:Math.cos(angle)*r*1.18,y:Math.sin(angle)*r};
+ }));
  const galaxy=Array.from({length:count},()=>{
   const r=Math.pow(random(),.72),arm=Math.floor(random()*4)*tau/4;
   const a=arm+r*5.2+(random()-.5)*(.2+r*.55);
   return{x:Math.cos(a)*r*1.16,y:Math.sin(a)*r*.8};
  }).sort((a,b)=>Math.atan2(a.y,a.x)-Math.atan2(b.y,b.x));
- const points=galaxy.map((g,i)=>({g,l:logo[i],r:machine[i],size:random()>.965?2+random()*.65:.4+Math.pow(random(),1.7)*1.25,phase:random()*tau,color:random()>.94?'159,125,84':random()>.45?'67,110,184':'91,126,190',alpha:.24+random()*.28}));
+ const shapes={galaxy,gpt:logo,robot:machine,arms:manipulators,orbits,nebula};
+ const sequence=['galaxy','gpt','robot','arms','orbits','nebula','orbits','galaxy','nebula'];
+ const points=galaxy.map((g,i)=>({index:i,size:random()>.965?2+random()*.65:.4+Math.pow(random(),1.7)*1.25,phase:random()*tau,color:random()>.94?'159,125,84':random()>.45?'67,110,184':'91,126,190',alpha:.24+random()*.28}));
  const halos=new Map();
  for(const color of new Set(points.map(p=>p.color))){
   const sprite=document.createElement('canvas');sprite.width=sprite.height=48;
@@ -51,16 +75,23 @@
  }
  const stars=Array.from({length:210},()=>({x:random(),y:random(),size:.45+random()*1.05,phase:random()*tau}));
  function measure(){
-  const top=id=>{const el=document.getElementById(id);return el?el.getBoundingClientRect().top+window.scrollY:0;};
-  logoEnd=Math.max(500,top('overall'));
-  robotStart=Math.max(logoEnd+600,top('comparison'));
-  robotEnd=Math.max(robotStart+600,top('findings'));
+  const header=document.querySelector('.header').getBoundingClientRect().height;
+  const top=id=>Math.max(0,document.getElementById(id).getBoundingClientRect().top+window.scrollY-header);
+  // Revisit astronomical forms between the case studies and the closing sections.
+  stops=[0,top('overall'),top('findings'),top('limits'),top('safety'),top('case-adapt'),top('case-poc'),top('conclusion'),top('references')];
+  for(let i=1;i<stops.length;i++)stops[i]=Math.max(stops[i],stops[i-1]+1);
   progress();
  }
  function progress(){
-  targetLogo=smooth((window.scrollY-80)/(logoEnd-80));
-  targetRobot=smooth((window.scrollY-robotStart)/(robotEnd-robotStart));
-  if(reduced.matches){logoMix=targetLogo;robotMix=targetRobot;render();}
+  const scroll=window.scrollY;let i=0;
+  while(i<stops.length-1&&scroll>=stops[i+1])i++;
+  if(i===stops.length-1)targetPhase=i;
+  else{
+   const fraction=(scroll-stops[i])/(stops[i+1]-stops[i]);
+   // Each shape settles briefly before a continuous transition to the next.
+   targetPhase=i+smooth((fraction-(i===0?0:.42))/(i===0?1:.58));
+  }
+  if(reduced.matches){phase=targetPhase;render();}
  }
  function resize(){
   w=canvas.clientWidth;h=canvas.clientHeight;
@@ -71,30 +102,34 @@
  function dot(x,y,r,color,alpha){ctx.beginPath();ctx.fillStyle=`rgba(${color},${alpha})`;ctx.arc(x,y,r,0,tau);ctx.fill();}
  function render(){
   ctx.clearRect(0,0,w,h);
-  const radius=Math.min(390,h*.47,w*.36),cx=w*.62+Math.sin(time*.08)*9,cy=h*.56+Math.cos(time*.07)*7;
-  const angle=time*.013*(1-logoMix)-.22*(1-logoMix),cos=Math.cos(angle),sin=Math.sin(angle);
-  for(const s of stars){dot((s.x*w+time*1.2)%(w+4),s.y*h+Math.sin(time*.1+s.phase)*4,s.size,'85,122,181',.21);}
+  const radius=Math.min(390,h*.47,w*.36),cx=w*.76+Math.sin(time*.08)*9,cy=h*.56+Math.cos(time*.07)*7;
+  const step=Math.min(Math.floor(phase),sequence.length-1),mix=phase-step;
+  const fromName=sequence[step],toName=sequence[Math.min(step+1,sequence.length-1)];
+  const from=shapes[fromName],to=shapes[toName];
+  const rotation=name=>name==='galaxy'?time*.013-.22:name==='orbits'?time*.008:name==='nebula'?time*.009:0;
+  const a=rotation(fromName),b=rotation(toName),ca=Math.cos(a),sa=Math.sin(a),cb=Math.cos(b),sb=Math.sin(b);
+  for(const s of stars){dot((s.x*w+time*1.2)%(w+4),s.y*h+Math.sin(time*.1+s.phase)*4,s.size,'85,122,181',.17);}
   for(const p of points){
-   const gx=p.g.x*cos-p.g.y*sin,gy=p.g.x*sin+p.g.y*cos;
-   const x=lerp(lerp(gx,p.l.x,logoMix),p.r.x,robotMix),y=lerp(lerp(gy,p.l.y,logoMix),p.r.y,robotMix);
+   const f=from[p.index],t=to[p.index];
+   const x=lerp(f.x*ca-f.y*sa,t.x*cb-t.y*sb,mix),y=lerp(f.x*sa+f.y*ca,t.x*sb+t.y*cb,mix);
    const dx=Math.sin(time*.24+p.phase)*1.6,dy=Math.cos(time*.2+p.phase)*1.6;
-   const px=cx+x*radius+dx,py=cy+y*radius+dy,alpha=p.alpha*(.82+.18*Math.sin(time*.45+p.phase));
+   const px=cx+x*radius+dx,py=cy+y*radius+dy,alpha=p.alpha*.82*(.82+.18*Math.sin(time*.45+p.phase));
    if(p.size>1.55){const diameter=p.size*11;ctx.globalAlpha=alpha;ctx.drawImage(halos.get(p.color),px-diameter/2,py-diameter/2,diameter,diameter);ctx.globalAlpha=1;}
    dot(px,py,p.size,p.color,alpha);
-   if(p.size>2)dot(px,py,p.size*.2,'240,248,255',.65);
+   if(p.size>2)dot(px,py,p.size*.2,'240,248,255',.53);
   }
-  canvas.dataset.scene=robotMix>.98?'robot':robotMix>.02?'logo-to-robot':logoMix>.98?'gpt':logoMix>.02?'galaxy-to-logo':'galaxy';
+  canvas.dataset.scene=mix<.02?fromName:mix>.98?toName:fromName+'-to-'+toName;
  }
  function frame(now){
   raf=0;if(document.hidden||reduced.matches)return;
-  if(now-last>=1000/30){const dt=Math.min((now-last)/1000,.1);last=now;time+=dt;const ease=1-Math.exp(-dt*7);logoMix=lerp(logoMix,targetLogo,ease);robotMix=lerp(robotMix,targetRobot,ease);render();}
+  if(now-last>=1000/30){const dt=Math.min((now-last)/1000,.1);last=now;time+=dt;const ease=1-Math.exp(-dt*7);phase=lerp(phase,targetPhase,ease);render();}
   raf=requestAnimationFrame(frame);
  }
- function sync(){cancelAnimationFrame(raf);raf=0;if(!document.hidden&&!reduced.matches){last=performance.now();raf=requestAnimationFrame(frame);}else{logoMix=targetLogo;robotMix=targetRobot;render();}}
+ function sync(){cancelAnimationFrame(raf);raf=0;if(!document.hidden&&!reduced.matches){last=performance.now();raf=requestAnimationFrame(frame);}else{phase=targetPhase;render();}}
  window.addEventListener('scroll',progress,{passive:true});
  window.addEventListener('resize',resize);
  document.addEventListener('visibilitychange',sync);
  reduced.addEventListener('change',sync);
  new ResizeObserver(measure).observe(document.querySelector('main'));
- resize();logoMix=targetLogo;robotMix=targetRobot;sync();
+ resize();phase=targetPhase;sync();
 })();
