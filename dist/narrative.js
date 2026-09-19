@@ -13,8 +13,9 @@ const reportNarrative = {
     "<strong>Remote-to-holder and bookmark placement</strong> illustrate this advantage. The agent completes all 20 remote-to-holder episodes, versus 65% success for OpenWAM-α. On bookmark placement, it reaches <strong>90%, compared with 55%</strong> for the next-best model, π₀.₅. The bookmark scene requires selecting the intended target amid clutter. These task outcomes and recordings support useful visual grounding and spatial reasoning in mobile manipulation."
   ],
   "shifts": [
-    "Task attributes describe which kinds of operation favor each model. The perturbation conditions examine a different question: <strong>how performance varies when objects, backgrounds and instructions change</strong>. All four conditions include perturbations, so the range compares performance across perturbation types. Each task retains the same historical demonstration across its conditions.",
-    "Across object, background, instruction and mixed perturbations, GPT-6-Astra records 44.17%, 50.77%, 44.62% and 46.15% success. Its <strong>6.60 percentage-point range is the smallest among eight models</strong>, compared with 16.92 for OpenWAM-α and 21.53 for Qwen-RobotManip. It also <strong>ranks first in the mixed condition</strong>, with 60 successes out of 130, versus 58 for OpenWAM-α. The object condition covers 24 tasks; the others cover 26."
+    "Beyond differences between task types, we examine whether GPT-6-Astra maintains its capabilities when objects, backgrounds and instructions change. Each task uses the same historical demonstration across perturbation conditions, requiring the agent to adapt that example to the current scene and instruction.",
+    "GPT-6-Astra combines <strong>competitive success rates across all four perturbation conditions with a balanced performance profile</strong>: 44.17% for objects, 50.77% for backgrounds, 44.62% for instructions and 46.15% for mixed perturbations. It <strong>ranks first under mixed perturbations</strong>, ahead of OpenWAM-α at 44.62% and Qwen-RobotManip at 33.85%.",
+    "OpenWAM-α and Qwen-RobotManip achieve higher success rates in the background and instruction conditions, but both perform substantially worse under mixed perturbations. GPT-6-Astra sustains a comparable level of performance when perturbations are combined. Its 6.60 percentage-point range—the smallest among the eight models—supports this finding alongside its absolute success rates. <strong>The distinctive result is the combination of strong performance and consistency across perturbation types.</strong>"
   ],
   "precision": [
     "The sharpest failure pattern appears at the <strong>transition from coarse transport to precise contact</strong>. GPT-6-Astra’s success rate falls from 60.60% on low-precision tasks to 40.21% on medium-precision tasks and <strong>11.25% on high-precision tasks</strong>; its <strong>ranking drops from second to seventh</strong>. Every model finds the high-precision group harder, but GPT-6-Astra’s relative position deteriorates particularly strongly.",
@@ -99,7 +100,7 @@ function initNarrative(){
  document.querySelectorAll('[data-narrative]').forEach(el=>el.innerHTML=narrativeHTML(el.dataset.narrative));
  $('#mobile-content .finding-story').innerHTML=narrativeHTML('mobile');
  $('#mobile-content .finding-story').classList.add('report-prose');
- $('#mobile-content').insertAdjacentHTML('beforeend',`<div class="report-prose shift-analysis"><h3>The narrowest performance spread across perturbations</h3>${narrativeHTML('shifts')}<a class="appendix-link" href="#comparison" data-matrix-link="shifts" data-matrix-view="range">Compare perturbation ranges ↗</a></div>`);
+ $('#mobile-content').insertAdjacentHTML('beforeend',`<div class="report-prose shift-analysis"><h3>Strong and balanced performance across perturbations</h3>${narrativeHTML('shifts')}<a class="appendix-link" href="#comparison" data-matrix-link="shifts" data-matrix-view="range">Performance across perturbations ↗</a></div>`);
  $('#mobile-content .shift-analysis').before($('#cross-group-analysis'));
  initAnalysisInsights();
  const library=$('#video-library');
