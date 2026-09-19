@@ -40,7 +40,7 @@ Promise.all(['tasks','demo-videos','ablations','report-figures'].map(n=>fetch('d
 // These original interaction recordings are stitched overview / left wrist / right wrist.
 function cameraPosition(video,view){
  const file=(video.currentSrc||video.getAttribute('src')||video.dataset.src||'').split(/[?#]/)[0].split('/').pop();
- const overviewFirst=['fruit_015-web.mp4','apple_to_fruit_bowl_006-web.mp4','collect_coffee_beans_013-web.mp4'].includes(file);
+ const overviewFirst=['dishwasher_009-web.mp4','apple_to_fruit_bowl_003-web.mp4','apple_to_fruit_bowl_009-web.mp4','fruit_015-web.mp4','apple_to_fruit_bowl_006-web.mp4','collect_coffee_beans_013-web.mp4'].includes(file);
  return overviewFirst?({left:'center',center:'left',right:'right',all:'all'}[view]||view):view;
 }
 function enhanceCameraView(v){if(v.videoWidth/v.videoHeight<4||v.dataset.cameraReady)return;v.dataset.cameraReady='true';v.dataset.view=cameraPosition(v,'center');const bar=document.createElement('div');bar.className='camera-controls';bar.setAttribute('aria-label','Recording view');bar.innerHTML='<span>Camera view</span>'+[['left','Left'],['center','Center'],['right','Right'],['all','All three']].map(([key,name])=>`<button data-camera="${key}" aria-pressed="${key==='center'}">${name}</button>`).join('');(v.closest('.media-viewport')||v).insertAdjacentElement('afterend',bar);}

@@ -26,6 +26,19 @@ const apple=read('apple-recovery-evidence'),appleEpisode=episodes.find(e=>e.task
 assert.equal(appleEpisode.sr,apple.server_result.sr);assert.equal(appleEpisode.score,apple.server_result.score);
 assert.deepEqual(apple.actions.map(a=>a.call),['call_00010','call_00011','call_00017']);
 const html=fs.readFileSync(path.join(root,'index.html'),'utf8');assert.ok(html.indexOf('id="overall"')<html.indexOf('id="setup"'));assert.ok(html.includes('https://internrobotics.shlab.org.cn/eval/landing-page'));
+const safety=read('safety-evidence');
+assert.equal(safety.length,3);
+for(const entry of safety){
+ const outcome=episodes.find(e=>e.task===entry.task&&e.seed===entry.seed);
+ assert.ok(outcome);assert.equal(outcome.sr,0);assert.equal(entry.sr,0);assert.equal(entry.score,outcome.score);
+ assert.ok(fs.statSync(path.join(root,entry.video)).size>10000);
+ assert.deepEqual(entry.camera_order,['overview','left_wrist','right_wrist']);
+ assert.ok(entry.public_actions.length>0);
+}
+const missed=safety.find(e=>e.task==='apple_to_fruit_bowl'&&e.seed==='003').missed_target;
+assert.ok(Math.abs(Math.hypot(...missed.target_xyz_m.map((v,i)=>v-missed.achieved_xyz_m[i]))-missed.distance_m)<1e-12);
+assert.equal(missed.distance_m.toFixed(2),'0.51');
+console.log('Validated: three failed safety recordings match cohort outcomes; EEF endpoint mismatch recomputes to 0.51 m.');
 const provenance=read('evaluation-provenance');
 assert.equal(provenance.episodes.length,510);
 assert.equal(new Set(provenance.episodes.map(e=>e.task+'/'+e.seed)).size,510);

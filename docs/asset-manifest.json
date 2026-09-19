@@ -1,12 +1,22 @@
 {
   "version": "2026-09-18",
-  "media_files": 47,
-  "total_bytes": 444225910,
+  "media_files": 51,
+  "total_bytes": 474139717,
   "files": [
+    {
+      "path": "dist/media/cases/apple_to_fruit_bowl_003-web.mp4",
+      "bytes": 8369615,
+      "sha256": "a852bd209dfa882fa5560a7cd30ef89d32a3e9d1a5165875722f9c723980c17a"
+    },
     {
       "path": "dist/media/cases/apple_to_fruit_bowl_006-web.mp4",
       "bytes": 4025055,
       "sha256": "7ec89f51f119f4913f5bd790659ba3f71088a540b2c8f80eb4b2c0ce43ed2d4e"
+    },
+    {
+      "path": "dist/media/cases/apple_to_fruit_bowl_009-web.mp4",
+      "bytes": 9017594,
+      "sha256": "f970d1c1c0d94ebf52aee1a7461f5edfb1bdf993246e500fc3cca574206db4cd"
     },
     {
       "path": "dist/media/cases/astra-glasses.mp4",
@@ -27,6 +37,11 @@
       "path": "dist/media/cases/collect_coffee_beans_013-web.mp4",
       "bytes": 16174691,
       "sha256": "4e4f7a856058f681a036d440882ba156f78fff3a6d6befe98d1cc5c99c93876c"
+    },
+    {
+      "path": "dist/media/cases/dishwasher_009-web.mp4",
+      "bytes": 12526598,
+      "sha256": "1ab368a6106436b60a72c7e4255ae3b94a3fef9de62e7891d343ac87b43036d6"
     },
     {
       "path": "dist/media/cases/fruit_015-web.mp4",
