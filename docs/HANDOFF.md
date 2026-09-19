@@ -136,3 +136,10 @@ Read-only source checkout: securityCFS/IN-MANU, branch research/robot-agent-harn
 `dist/data/icl-overviews.json` pairs each original overview with an exact Observed sequence/technique excerpt from that task's supplied context. Per-frame annotations are matched through the source image path, frame and camera, rather than inferred from neighboring UI text or a caption regex. The data records overview/image hashes and source revision/manifest hashes. Generate with `python scripts/build-icl-overviews.py analysis/IN-MANU astra_web_evidence_20260918_core.zip`. The actual `icl-packages.json` is unchanged, and its download remains the original complete input.
 
 Validation covers 26 overview hashes, 365 frame/image/caption associations, and context membership of all overview descriptions. Render-function checks also exercised every overview, keyframe, and full-prompt view; live HTTP checks confirmed all 26 JPEGs. Browser automation remains unavailable, so no browser screenshot QA was claimed.
+
+
+## Model references and chart simplification (2026-09-19)
+
+Removed all “View numerical data” expanders and their duplicate tables from charts. The full comparison matrix, metric controls and hover/focus values remain. The existing sources dialog now includes citations for all eight models and official repository links for the seven comparison systems. GPT-6-Astra links to OpenAI’s official release; no verified public model repository was found, so no SDK or Codex repository is substituted.
+
+References were checked against official repositories, project pages and arXiv. InternVLA-A1.5’s official project page links to the A-series repository; its BibTeX names an A1.5 repository that currently returns “Repository not found”, so the working project-page GitHub link is used. The A1.5 paper links directly to the PDF on the official project site. GigaBrain-0.7 code is in open-gigaai/giga-brain-0 (the repository README identifies version 0.7). No benchmark data changed.
