@@ -167,7 +167,7 @@
   const width = Math.max(340, Math.min(1000, host.clientWidth || 760));
   const narrow = width < 560, labelW = narrow ? 128 : 200, rowH = narrow ? 24 : 27, top = 40;
   const height = top + rows.length * rowH + 30;
-  const referenceLabel=reference==='best'?'best other system':reference==='median'?'median of others':models.find(m=>m.id===reference).label;
+  const referenceLabel=reference==='best'?'best other model':reference==='median'?'median of others':models.find(m=>m.id===reference).label;
   const svg = svgRoot(width, height, `GPT-6-Astra minus ${referenceLabel}, per task`);
   const plotL = labelW + 8, plotR = width - 60, mid = (plotL + plotR) / 2, half = (plotR - plotL) / 2;
   const scale = d => mid + d * half;
@@ -196,7 +196,7 @@
  }
 
  /* =====================================================================================
-    4. Perturbation slope chart: four controlled conditions, eight systems.
+    4. Perturbation slope chart: four controlled conditions, eight models.
     ===================================================================================== */
  function perturbationSlopes(host, {models, metric = 'sr', highlight = [ASTRA, 'OpenWAM-Alpha']}) {
   const conditions = [['object', 'Object'], ['background', 'Background'], ['instruction', 'Instruction'], ['mix', 'Mixed']];
