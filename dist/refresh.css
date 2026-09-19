@@ -337,3 +337,18 @@ body>main>#introduction{padding-inline:252px;padding-top:38px}
 .report-authors .author{white-space:nowrap}
 
 .case-videos .video-label strong{font-size:18px;line-height:1.5;color:#395577}
+
+/* Keep dialog chrome inside the viewport at the report's 125% scale. */
+#appendix-dialog,#appendix-dialog.icl-dialog{max-width:calc((100vw - 48px)/1.25);max-height:calc((100dvh - 48px)/1.25);overflow:hidden}
+#appendix-dialog[open]{display:flex;flex-direction:column}
+#appendix-dialog .dialog-heading{position:relative;flex:0 0 auto;gap:24px;padding:12px 20px;color:#445a76;font-size:12px;letter-spacing:.06em;background:#e8edf5}
+#appendix-body{min-height:0;overflow:auto;overscroll-behavior:contain}
+#appendix-dialog .close-dialog{display:inline-flex;align-items:center;justify-content:center;gap:9px;flex-shrink:0;min-height:40px;padding:6px 14px;border:1px solid #344d70;border-radius:7px;background:#24364f;color:#fff;font:16px/1.4 "Times New Roman",Times,serif;letter-spacing:0;cursor:pointer}
+#appendix-dialog .close-dialog span{font:28px/1 Arial,sans-serif}
+#appendix-dialog .close-dialog:hover{background:#345174}
+#appendix-dialog .close-dialog:focus-visible{outline:3px solid #5471e8;outline-offset:3px}
+
+/* Black reading text; links and data encodings retain their own colors. */
+main p:not(.eyebrow):not(.fineprint):not(.figure-caption):not(.insight-note),main .report-prose li,#appendix-body p,#appendix-body .report-prose li{color:#000!important}
+main :is(.report-prose,.finding-story,.case-description,.case-insight) :is(strong,b){color:inherit}
+#introduction .opening-quote blockquote p{color:#f0f8f5!important}
