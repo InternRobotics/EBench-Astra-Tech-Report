@@ -29,3 +29,9 @@ The footer expansion card is removed. A larger **Study Limitations** button bene
 All existing JSON data and `narrative.js` are unchanged. `npm run check` and `npm run validate` include the adopted visualization module. `scripts/validate-refresh.mjs` renders SVG trees at 340/760 px and verifies eight-system coverage, tied ranks, field deltas, paired-score counts and finite, nonnegative geometry. Targeted checks retain the seven-task expansion behavior and episode autoplay/interaction synchronization. HTML nesting and preservation of the limitations text were checked.
 
 Browser screenshot QA remains unavailable because the configured browser connection returns a malformed response. Fable's earlier screenshots do not establish visual correctness of this selectively integrated version.
+
+## Subsequent content cleanup
+
+Following the author's request and an independent redundancy review, the duplicate Safety timing figure is removed; the recorded execution timing dialog retains the three computed episode results and concise metric definitions. Unperformed URDF/hardware-limit comparison methods are removed from the report, together with reader-facing hash links and a duplicate ICL entry. Hashes remain in source assets for validation. Qualitative safety videos remain, with descriptions limited to recorded events and their safety implications. Coffee and fruit commentary now describes observations instead of giving editorial instructions. Video table links use “Video link” in the normal text font.
+
+No report data or precision analysis changed. Syntax, data, ICL, episode alignment, insight and SVG checks pass after this cleanup.

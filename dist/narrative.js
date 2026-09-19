@@ -36,11 +36,11 @@ const reportNarrative = {
  ],
  coffee: [
   'The coffee-bean episode exposes both an attempt at contact correction and its limit. After the recorded request to angle the spoon toward the tabletop, later requests adjust the height and tilt of a finger-based scraping motion. GPT-6-Astra is revising how it interacts with the scene, although the episode ends with <strong>partial Score 0.50 and no complete success</strong>.',
-  'The prompt already warns that local end-effector z is not table height, and the demonstration supplies a spoon-based collection procedure. The interesting behavior is the <strong>subsequent adaptation during execution</strong>; it should not be presented as an independently invented strategy or a verified measurement of the tabletop. A useful next evaluation would ask whether these adjustments reduce contact error and lead to completion.'
+  'The input already supplies height guidance and a spoon-based collection procedure. GPT-6-Astra’s contribution in this episode is <strong>adapting that procedure during execution</strong>: changing the scraping surface, then revising its height and tilt. Those revisions do not lead to complete collection.'
  ],
  fruit: [
   'The live task asks for a milkshake in the cup, whereas the historical example places fruit in a large jug. GPT-6-Astra’s recorded action explicitly chooses the small cup. This shows the importance of <strong>interpreting a demonstration as a procedure with object roles</strong>, rather than automatically replaying its destination.',
-  'The reference itself instructs GPT-6-Astra to defer to the live task, so the choice is not evidence of rejecting guidance. The episode remains incomplete with Score 0.60. <strong>Task interpretation and physical completion</strong> must both be examined: neither the stated intention nor the terminal score establishes that choosing the cup caused the failure.'
+  'GPT-6-Astra follows the reference’s instruction to prioritize the live task, but the episode ends incomplete with <strong>Score 0.60</strong>. The rollout separates <strong>task interpretation from physical completion</strong>: selecting the requested destination is only one part of carrying out the task.'
  ],
  recovery: [
   'GPT-6-Astra first targets the teacup’s handle region and adjusts its wrist and gripper through successive attempts before securing the cup and teapot. After the cup is initially placed on the saucer, subsequent manipulation displaces it. GPT-6-Astra later returns, re-establishes a grasp, and carries it back toward the saucer. The significant event is <strong>a previously achieved requirement becoming a goal again</strong>.',
