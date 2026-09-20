@@ -352,3 +352,6 @@ body>main>#introduction{padding-inline:252px;padding-top:38px}
 main p:not(.eyebrow):not(.fineprint):not(.figure-caption):not(.insight-note),main .report-prose li,#appendix-body p,#appendix-body .report-prose li{color:#000!important}
 main :is(.report-prose,.finding-story,.case-description,.case-insight) :is(strong,b){color:inherit}
 #introduction .opening-quote blockquote p{color:#f0f8f5!important}
+
+/* Slightly tighter lines within prose; paragraph spacing stays intact. */
+main .report-prose,main .report-prose p,#introduction .report-prose p,main .finding-story p,main .case-insight p,main .insight-block>p,main .section-inner>p,main .section-heading>p,#overall .benchmark-opening>p,#study-limitations p,#appendix-body .report-prose p{line-height:1.7}
