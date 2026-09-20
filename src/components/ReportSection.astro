@@ -1,7 +1,12 @@
 ---
-interface Props { id:string; class?:string; html:string; }
-const {id,class:className,html}=Astro.props;
+interface Props {
+  id: string;
+  class?: string;
+  html: string;
+}
+const { id, class: className, html } = Astro.props;
 ---
-<section id={id} class:list={['section',className]}>
+
+<section id={id} class:list={['section', className]}>
   <div class="section-inner" set:html={html} />
 </section>

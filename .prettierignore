@@ -1,0 +1,8 @@
+dist/
+docs/
+_site-next/
+node_modules/
+.generated/
+.astro/
+package-lock.json
+src/content/report.json
