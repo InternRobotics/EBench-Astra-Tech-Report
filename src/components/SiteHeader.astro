@@ -1,3 +1,7 @@
+---
+import { icon } from '../lib/icons.js';
+---
+
 <header class="header">
   <button
     class="toc-toggle"
@@ -6,19 +10,7 @@
     aria-expanded="true"
     aria-controls="report-toc-links"
   >
-    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <g fill="currentColor">
-        <circle cx="3.5" cy="5.5" r="1.7"></circle>
-        <circle cx="3.5" cy="12" r="1.7"></circle>
-        <circle cx="3.5" cy="18.5" r="1.7"></circle>
-      </g>
-      <path
-        d="M9 5.5h12M9 12h12M9 18.5h12"
-        stroke="currentColor"
-        stroke-width="2.8"
-        stroke-linecap="round"
-      ></path>
-    </svg>
+    <Fragment set:html={icon('menu')} />
   </button>
   <div class="brand-lockup" aria-label="Shanghai AI Laboratory and InternRobotics">
     <a
@@ -54,8 +46,8 @@
   </nav>
 </header>
 
-<style is:global>
-  @layer layout {
+<style>
+  @layer components {
     .header {
       position: sticky;
       top: 0;
@@ -83,7 +75,7 @@
       border: 0;
     }
 
-    .toc-toggle svg {
+    .toc-toggle :global(svg) {
       width: 2rem;
       height: 2rem;
     }
@@ -140,6 +132,38 @@
     .header nav a[aria-current] {
       color: white;
       text-decoration: underline;
+    }
+    @media (max-width: 85rem) {
+      .header {
+        grid-template-columns: 4rem minmax(0, 1fr);
+        padding-inline: 0.75rem;
+        gap: 1rem;
+      }
+    }
+    @media (max-width: 85rem) {
+      .toc-toggle {
+        margin: 0;
+      }
+    }
+    @media (max-width: 85rem) {
+      .brand-lockup {
+        max-width: 32rem;
+      }
+    }
+    @media (max-width: 85rem) {
+      .header nav {
+        display: none;
+      }
+    }
+    @media (max-width: 40rem) {
+      .brand-lockup {
+        gap: 0.75rem;
+      }
+    }
+    @media print {
+      .header {
+        display: none;
+      }
     }
   }
 </style>

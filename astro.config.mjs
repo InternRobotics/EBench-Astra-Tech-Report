@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import { reportRuntime } from './integrations/report-runtime.mjs';
 
 export default defineConfig({
   output: 'static',
@@ -8,5 +9,5 @@ export default defineConfig({
   site: 'https://securitycfs.github.io',
   base: process.env.REPORT_BASE || '/',
   server: { host: '127.0.0.1', port: 4322 },
-  vite: { build: { assetsInlineLimit: 0 } },
+  vite: { plugins: [reportRuntime()], build: { assetsInlineLimit: 0 } },
 });

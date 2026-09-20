@@ -1,4 +1,4 @@
-@layer reset, widgets, theme, layout, adaptive;
+@layer reset, widgets, theme, layout, components, adaptive;
 
 @import './reset.css';
 @import './widgets.css' layer(widgets);

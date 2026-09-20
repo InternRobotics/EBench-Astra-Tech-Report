@@ -106,17 +106,15 @@ test('tables, cases, video stages, and references retain their interactions', as
       )
       .toBeGreaterThan(0);
   } catch (error) {
-    const state = await page
-      .locator('#case-adapt video')
-      .evaluateAll((videos) =>
-        videos.map((v: HTMLVideoElement) => ({
-          paused: v.paused,
-          time: v.currentTime,
-          ready: v.readyState,
-          error: v.error?.message,
-          source: v.currentSrc,
-        })),
-      );
+    const state = await page.locator('#case-adapt video').evaluateAll((videos) =>
+      videos.map((v: HTMLVideoElement) => ({
+        paused: v.paused,
+        time: v.currentTime,
+        ready: v.readyState,
+        error: v.error?.message,
+        source: v.currentSrc,
+      })),
+    );
     throw new Error(JSON.stringify(state) + '\n' + error);
   }
   await expect(page.locator('.citation-prompt')).toHaveText(
@@ -125,15 +123,15 @@ test('tables, cases, video stages, and references retain their interactions', as
   await expect(page.locator('.report-reference-list li')).toHaveCount(9);
 });
 for (const dpr of [1, 1.25, 2])
-  test(`DPR ${dpr}: narrow window restores to the same layout`, async ({ browser }) => {
+  test(`DPR ${dpr}: narrow window restores to the same layout`, async ({ browser, baseURL }) => {
     const context = await browser.newContext({
+      baseURL,
       deviceScaleFactor: dpr,
       viewport: { width: 1440, height: 1000 },
       reducedMotion: 'reduce',
     });
     const page = await context.newPage();
-    await page.goto('http://127.0.0.1:4321/');
-    await page.evaluate(() => document.fonts.ready);
+    await ready(page);
     const initial = await geometry(page);
     await page.setViewportSize({ width: 720, height: 700 });
     await page.setViewportSize({ width: 1440, height: 1000 });

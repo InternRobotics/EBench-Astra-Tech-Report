@@ -17,9 +17,31 @@
     --rail-width: 15rem;
     --gutter: 2rem;
     --header-height: 5rem;
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+    --radius-sm: 0.5rem;
+    --radius-lg: 1rem;
+    --surface: #f8fafc;
     --text: 1.25rem;
-    --small: 1.171875rem;
+    --small: 1rem;
+    --motion-duration: 220ms;
+    --motion-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .report-icon {
+    display: inline-block;
+    flex: none;
+    width: 1.15em;
+    height: 1.15em;
+    vertical-align: -0.15em;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
   }
   body {
     font: var(--text)/1.65 var(--font-body);

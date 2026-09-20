@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "dev": "node scripts/prepare-frontend.mjs && astro dev",
     "check": "node --check src/scripts/ambient-particles.js && node --check src/scripts/report-navigation.js && node --check src/scripts/quote-effect.js && node --check src/scripts/icl-viewer.js && node --check src/scripts/model-math.js && node --check src/scripts/narrative.js && node --check src/scripts/video-multiview.js && node --check src/scripts/app.js && node --check src/scripts/charts.js && node --check src/scripts/showcase.js && node --check src/scripts/research.js && node --check src/scripts/episode-viewer.js && node --check src/scripts/analysis-insights.js && node --check src/scripts/viz.js",
     "validate": "node scripts/validate-data.mjs && node scripts/validate-icl.mjs && node scripts/validate-episodes.mjs && node scripts/validate-insights.mjs && node scripts/validate-refresh.mjs && node scripts/validate-video-presentation.mjs && node scripts/validate-startup.mjs",

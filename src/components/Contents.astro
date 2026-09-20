@@ -37,8 +37,8 @@
   </nav>
 </aside>
 
-<style is:global>
-  @layer layout {
+<style>
+  @layer components {
     .report-toc {
       position: fixed;
       inset: var(--header-height) auto 0 0;
@@ -82,9 +82,20 @@
       display: none;
     }
 
-    body[data-toc-open='false'] .report-toc {
+    :global(body[data-toc-open='false']) .report-toc {
       visibility: hidden;
       pointer-events: none;
+    }
+    @media (max-width: 85rem) {
+      .report-toc {
+        box-shadow: 1rem 0 2rem #15234020;
+        width: 17rem;
+      }
+    }
+    @media print {
+      .report-toc {
+        display: none;
+      }
     }
   }
 </style>
