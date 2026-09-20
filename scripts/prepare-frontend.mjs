@@ -29,15 +29,5 @@ for (const file of files) {
     continue;
   fs.copyFileSync(file, target);
 }
-const order = JSON.parse(fs.readFileSync('src/scripts/order.json', 'utf8'));
-const code = order
-  .map((file) => `/* ${file} */\n${fs.readFileSync('src/scripts/' + file, 'utf8')}`)
-  .join('\n;\n');
-fs.writeFileSync(
-  '.generated/runtime.js',
-  `import katex from 'katex';\nimport { icon as reportIcon } from '../src/lib/icons.js';\n${code}`,
-);
-const previousRuntime = path.join(destination, 'report-runtime.js');
-if (fs.existsSync(previousRuntime)) fs.unlinkSync(previousRuntime);
 fs.writeFileSync(path.join(destination, '.nojekyll'), '');
-console.log(`Prepared ${files.length} research assets and ${order.length} interaction modules.`);
+console.log(`Prepared ${files.length} research assets.`);
