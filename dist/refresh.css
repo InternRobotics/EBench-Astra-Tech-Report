@@ -12,20 +12,20 @@ h2:hover .anchor-link,.anchor-link:focus-visible{opacity:1}
 
 
 /* Tooltip shared by every figure */
-.viz-tip{position:fixed;left:0;top:0;z-index:90;max-width:300px;padding:10px 12px;background:#152238;color:#e9eefb;border-radius:8px;font-size:15px;line-height:1.55;box-shadow:0 12px 30px rgba(8,16,32,.35);pointer-events:none;transform:translate(-9999px,-9999px)}
+.viz-tip{position:fixed;left:0;top:0;z-index:90;max-width:300px;padding:10px 12px;background:#152238;color:#e9eefb;border-radius:8px;font-size:18.75px;line-height:1.55;box-shadow:0 12px 30px rgba(8,16,32,.35);pointer-events:none;transform:translate(-9999px,-9999px)}
 .viz-tip b{display:block;font-size:15.625px;color:#fff;margin-bottom:2px}
 .viz-tip em{display:block;font-style:normal;font-weight:700;color:#bcc9ff;font-size:16.25px;margin-top:2px}
 .viz-tip span{display:block;color:#c5cfe4}
 .viz-tip small{display:block;margin-top:6px;padding-top:6px;border-top:1px solid #2c3d5c;color:#9fb0cf;font-size:13.75px;line-height:1.5}
 
 /* SVG figure primitives */
-.viz-svg{display:block;width:100%;height:auto;font-family:"Times New Roman",Times,serif;font-size:15px}
+.viz-svg{display:block;width:100%;height:auto;font-family:"Times New Roman",Times,serif;font-size:18.75px}
 .viz-svg text{fill:#526580}
 .viz-grid{stroke:#e6ebf4;stroke-width:1}
 .viz-zero{stroke:#7f8fb0;stroke-width:1.2}
 .viz-axis{font-size:13.75px;fill:#8a99b5}
 .viz-axis-note{font-size:13.125px;fill:#8a99b5;letter-spacing:.04em}
-.viz-label{font-size:15px;fill:#3b4c68}
+.viz-label{font-size:18.75px;fill:#3b4c68}
 .viz-value{font-size:14.375px;fill:#2f4160;font-weight:600}
 .viz-row-title{font-size:15.625px;font-weight:700;fill:#243756}
 .viz-row-sub{font-size:13.125px;fill:#8a99b5}
@@ -38,7 +38,7 @@ h2:hover .anchor-link,.anchor-link:focus-visible{opacity:1}
 .viz-dot.is-dim{opacity:.28}
 .viz-best-ring{fill:none;stroke:#3456ef;stroke-width:1.2;stroke-dasharray:2 2.5;opacity:.7}
 .viz-astra-label{font-size:14.375px;font-weight:700;fill:#3456ef}
-.viz-math{font-size:15px;color:#3b4c68}
+.viz-math{font-size:18.75px;color:#3b4c68}
 .viz-track{fill:#f1f4fa}
 .viz-ci{stroke:#14213a;stroke-width:1.2;opacity:.55}
 .viz-diverge{cursor:pointer}.viz-diverge:focus{outline:none}
@@ -120,7 +120,7 @@ h2:hover .anchor-link,.anchor-link:focus-visible{opacity:1}
 #overall .metric-label{font-size:18.75px;color:#455d7e}
 .result-panel-header{gap:18px;flex-wrap:wrap;align-items:center}
 .result-panel-header h4{font-size:23.75px;line-height:1.4;margin-top:5px}
-.result-panel .component-kicker{font-size:15px;letter-spacing:.07em}
+.result-panel .component-kicker{font-size:18.75px;letter-spacing:.07em}
 .result-summary .fineprint,.fineprint,.comparison-footnote p,.result-panel .chart-readout,.result-panel .report-chart figcaption,.chart-readout,.report-chart figcaption,.figure-caption,.viz-figure figcaption,.viz-caption{font-size:17.5px;line-height:1.7;color:#526887}
 .view-switch button,.chart-metrics button,.report-chart .chart-series button,.profile-note,.viz-legend,.field-controls,.field-controls .seg button,.field-summary span,.matrix-tabs button,.matrix-metric button,.results-extra>.appendix-link,.explorer-links button,.explorer-links>a{font-size:17.5px;line-height:1.5}
 .view-switch button,.chart-metrics button{padding:7px 12px}
@@ -165,12 +165,12 @@ html{zoom:1}
 .task-metric-switch{display:flex;gap:3px;padding:4px;border:1px solid #d8e0ed;border-radius:10px;background:#e3e9f2;height:44px;box-sizing:border-box}
 .task-metric-switch button{border:0;border-radius:7px;background:transparent;color:#5c708d;padding:5px 12px;font:inherit;font-size:17.5px;white-space:nowrap;cursor:pointer}
 .task-metric-switch button[aria-pressed=true]{background:#fff;color:#304dde;box-shadow:0 1px 4px #21385614}
-.task-metric-switch small{font:inherit;font-size:15px;margin-left:4px;color:inherit}
+.task-metric-switch small{font:inherit;font-size:18.75px;margin-left:4px;color:inherit}
 .task-group-control{position:relative;min-width:0}
 .task-group-control summary{display:flex;align-items:center;gap:10px;min-height:44px;box-sizing:border-box;padding:9px 13px;border:1px solid #cfd9e9;border-radius:10px;list-style:none;background:#f7f9fc;color:#294366;font-size:18.75px;line-height:1.4;cursor:pointer}
 .task-group-control summary::-webkit-details-marker{display:none}
 .task-group-value{flex:1;min-width:0}
-.task-selected-count,.task-option-count{font-size:15px;font-variant-numeric:tabular-nums;color:#637995}
+.task-selected-count,.task-option-count{font-size:18.75px;font-variant-numeric:tabular-nums;color:#637995}
 .task-selected-count{padding:1px 7px;background:#e7edf6;border-radius:5px}
 .task-group-control summary>svg{width:16px;height:16px;fill:none;stroke:#627c9d;stroke-width:1.6;transition:transform .15s}
 .task-group-control[open] summary{border-color:#8799ef;background:#fff;box-shadow:0 0 0 3px #4058ef0c}
@@ -290,7 +290,7 @@ body .header{padding-left:252px;padding-right:28px;gap:20px}
 
 /* Paint chapter backgrounds edge to edge while retaining the reading offset. */
 
- body>.cosmos{padding-inline:220px}
+ body>.cosmos{padding-left:252px;padding-right:32px}
  body>main>.section{padding-left:252px}
  body>footer{padding-left:calc(220px + max(28px,calc((100% - 1180px)/2)));padding-right:max(28px,calc((100% - 1180px)/2))}
 
@@ -309,7 +309,7 @@ body>footer.report-footer{display:grid;grid-template-columns:minmax(240px,.85fr)
 .report-footer .footer-identity p{margin-top:12px;font-size:17.5px;line-height:1.7;color:#a8b9d1}
 .report-footer .report-citation{min-width:0;padding:0;margin:0}
 .report-citation pre{margin:0;padding:20px 22px;border:1px solid #3a4c68;border-radius:6px;background:#1b2a41;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.7}
-.report-citation code{font:15px/1.7 Consolas,monospace;color:#c4d5ed;background:none;padding:0}
+.report-citation code{font:18.75px/1.7 Consolas,monospace;color:#c4d5ed;background:none;padding:0}
 
 .report-footer .footer-identity{align-self:stretch;display:flex;flex-direction:column}
 .footer-resource-links{display:flex;gap:24px;margin-top:24px;font-size:17.5px;line-height:1.6}
@@ -327,7 +327,7 @@ body>footer.report-footer{display:grid;grid-template-columns:minmax(240px,.85fr)
 .report-footer .citation-prompt{margin:0 0 18px;padding:0;color:#dbe5f6;font:21.25px/1.6 "Times New Roman",Times,serif}
 
 /* Center the opening independently of the contents drawer. */
-.showcase-hero{max-width:1040px}
+.showcase-hero{max-width:var(--shell)}
 .hero-copy{padding:52px 0 22px}
 .hero-copy h1{font-size:62.5px;line-height:1.16;letter-spacing:-1.5px;margin-bottom:22px}
 .hero-copy .report-subtitle{font-size:27.5px;margin-bottom:24px}
@@ -341,7 +341,7 @@ body>main>#introduction{padding-left:252px;padding-right:32px;padding-top:38px}
 /* Keep dialog chrome inside the viewport at the report's normal scale. */
 #appendix-dialog,#appendix-dialog.icl-dialog{max-width:calc(100vw - 48px);max-height:calc(100dvh - 48px);overflow:hidden}
 #appendix-dialog[open]{display:flex;flex-direction:column}
-#appendix-dialog .dialog-heading{position:relative;flex:0 0 auto;gap:24px;padding:12px 20px;color:#445a76;font-size:15px;letter-spacing:.06em;background:#e8edf5}
+#appendix-dialog .dialog-heading{position:relative;flex:0 0 auto;gap:24px;padding:12px 20px;color:#445a76;font-size:18.75px;letter-spacing:.06em;background:#e8edf5}
 #appendix-body{min-height:0;overflow:auto;overscroll-behavior:contain}
 #appendix-dialog .close-dialog{display:inline-flex;align-items:center;justify-content:center;gap:9px;flex-shrink:0;min-height:40px;padding:6px 14px;border:1px solid #344d70;border-radius:7px;background:#24364f;color:#fff;font:20px/1.4 "Times New Roman",Times,serif;letter-spacing:0;cursor:pointer}
 #appendix-dialog .close-dialog span{font:35px/1 Arial,sans-serif}
@@ -361,7 +361,7 @@ main .report-prose,main .report-prose p,#introduction .report-prose p,main .find
 .insight-table thead th[scope="colgroup"]{border-bottom:1px solid #aebdd0;padding-bottom:8px}
 .insight-table thead th[rowspan]{vertical-align:middle}
 
-/* Article chapters share a single reading edge; the title masthead stays centered. */
+/* The masthead and article chapters share one content column. */
 body>main>.section>.section-inner{max-width:var(--shell)!important}
 main .section-heading,main .section-heading>p,#overall .benchmark-opening,#overall .benchmark-opening>p{max-width:none;margin-left:0;margin-right:0;text-align:left}
 main .section-inner :is(h2,h3,h4){text-align:left}
