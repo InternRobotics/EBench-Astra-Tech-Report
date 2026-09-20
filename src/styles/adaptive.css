@@ -1,0 +1,154 @@
+@layer adaptive {
+  @media (max-width: 85rem) {
+    .header {
+      grid-template-columns: 4rem minmax(0, 1fr);
+      padding-inline: 0.75rem;
+      gap: 1rem;
+    }
+    .toc-toggle {
+      margin: 0;
+    }
+    .brand-lockup {
+      max-width: 32rem;
+    }
+    .header nav {
+      display: none;
+    }
+    .report-page {
+      margin-left: 0;
+    }
+    .report-toc {
+      box-shadow: 1rem 0 2rem #15234020;
+      width: 17rem;
+    }
+  }
+  @media (max-width: 60rem) {
+    :root {
+      --gutter: 1.5rem;
+    }
+    .showcase-hero {
+      padding-top: 3rem;
+    }
+    .hero-copy h1 {
+      font-size: 2.75rem;
+    }
+    .hero-copy h1 br {
+      display: none;
+    }
+    .hero-copy h1 em {
+      display: block;
+      margin-top: 0.3em;
+    }
+    .result-layout,
+    .finding-grid,
+    .behavior-evidence,
+    .safety-layout,
+    .episode-stage {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .finding-map {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .episode-interaction {
+      border-left: 0;
+      border-top: 1px solid var(--line);
+      padding: 1.25rem 0 0;
+    }
+    .evidence-trio,
+    #library-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .report-footer {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  @media (max-width: 40rem) {
+    :root {
+      --gutter: 1rem;
+      --header-height: 4.5rem;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+    h3 {
+      font-size: 1.625rem;
+    }
+    .hero-copy h1 {
+      font-size: 2.25rem;
+    }
+    .hero-copy .report-subtitle {
+      font-size: 1.375rem;
+    }
+    .authors {
+      font-size: 1.25rem;
+    }
+    .section {
+      padding-block: 2.5rem;
+    }
+    .brand-lockup {
+      gap: 0.75rem;
+    }
+    .opening-quote {
+      padding: 1.5rem 1rem;
+    }
+    .opening-quote blockquote p {
+      font-size: 2rem;
+    }
+    .evidence-pair,
+    .evidence-trio,
+    .case-videos,
+    .poc-videos,
+    .outcome-layout,
+    #library-grid,
+    .icl-package-card {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .episode-demo-card {
+      padding: 1rem;
+    }
+    .failure-depth-row {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.4rem;
+    }
+    .stage-strip {
+      justify-content: start;
+    }
+    #appendix-body {
+      padding: 1rem;
+    }
+    .report-footer {
+      gap: 2rem;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      scroll-behavior: auto;
+      animation: none;
+      transition: none;
+    }
+  }
+  @media print {
+    .header,
+    .report-toc,
+    #ambient-particles,
+    .video-start {
+      display: none;
+    }
+    .report-page {
+      margin: 0;
+    }
+    .section-inner {
+      width: 100%;
+    }
+    .section {
+      break-inside: avoid;
+      padding-block: 1rem;
+    }
+    .report-footer {
+      background: white;
+      color: black;
+    }
+  }
+}

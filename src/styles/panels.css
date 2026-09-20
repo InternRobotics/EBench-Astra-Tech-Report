@@ -1,0 +1,93 @@
+/* Episode demo, ICL card, method links */
+@layer layout {
+  .episode-demo-card {
+    margin: 2.5rem 0 0;
+    padding: 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+    background: #f5f7fa;
+  }
+  .episode-demo-card > h3 {
+    margin-top: 0;
+  }
+  .episode-stage {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+  }
+  .episode-interaction {
+    min-width: 0;
+    max-height: 35rem;
+    overflow: auto;
+    padding-left: 1.25rem;
+    border-left: 2px solid var(--line);
+  }
+  .episode-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .episode-heading h4 {
+    font-size: 1.5rem;
+  }
+  .episode-outcome {
+    font-size: var(--small);
+  }
+  .episode-picker {
+    gap: 1.25rem;
+  }
+  .episode-viewport {
+    position: relative;
+    min-width: 0;
+    contain: paint;
+  }
+  .episode-playback {
+    flex-wrap: wrap;
+    font-size: 1rem;
+  }
+  .episode-cameras {
+    flex-wrap: wrap;
+  }
+  .episode-playback input {
+    flex: 1 1 6rem;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .icl-package-card {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+    gap: 1.5rem;
+    text-align: left;
+    margin-top: 2rem;
+    padding: 1.25rem;
+  }
+  .icl-card-preview {
+    display: flex;
+    gap: 0.5rem;
+    min-width: 0;
+    align-items: center;
+  }
+  .icl-card-preview img {
+    width: calc(50% - 0.25rem);
+    height: auto;
+  }
+  .icl-card-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 0;
+  }
+  .icl-card-copy .eyebrow {
+    display: none;
+  }
+  .method-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    font-size: var(--small);
+  }
+}

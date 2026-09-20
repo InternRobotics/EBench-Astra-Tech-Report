@@ -26,14 +26,14 @@ code {
 }
 
 .report-subtitle {
-  font-size: 1.640625rem;
+  font-size: 1.625rem;
   font-weight: 400;
   color: #697985;
   margin-bottom: 27px;
 }
 
 .fineprint {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   line-height: 1.7;
   color: #526887;
   margin: 13px 0 22px;
@@ -44,7 +44,7 @@ code {
   background: none;
   border: 0;
   color: var(--purple);
-  font-size: 1.015625rem;
+  font-size: 1rem;
   text-align: left;
 }
 
@@ -67,7 +67,7 @@ code {
 
 .button {
   color: var(--purple);
-  font-size: 1.015625rem;
+  font-size: 1rem;
   display: inline-block;
 }
 
@@ -151,7 +151,7 @@ code {
 }
 
 .result-panel-header h4 {
-  font-size: 1.484375rem;
+  font-size: 1.5rem;
   margin: 4px 0 0;
   line-height: 1.4;
   margin-top: 5px;
@@ -180,7 +180,7 @@ code {
 .view-switch button {
   border: 0;
   background: none;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   padding: 7px 12px;
   border-radius: 5px;
   color: #7a8a96;
@@ -190,7 +190,7 @@ code {
 .chart-metrics button {
   border: 0;
   background: none;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   padding: 7px 12px;
   border-radius: 5px;
   color: #7a8a96;
@@ -225,12 +225,12 @@ table {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  font-size: 1.015625rem;
+  font-size: 1rem;
   font-variant-numeric: tabular-nums;
 }
 
 th {
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
   font-weight: 500;
   color: #8a98a3;
   padding: 12px 10px;
@@ -284,7 +284,7 @@ tr.highlight td {
 
 .result-panel .fineprint {
   margin: 14px 6px;
-  font-size: 0.78125rem;
+  font-size: 0.75rem;
   line-height: 1.6;
 }
 
@@ -319,14 +319,14 @@ tr.highlight td {
 }
 
 .chart-heading h4 {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   font-weight: 600;
   margin: 0;
   color: #587191;
 }
 
 .chart-heading > span {
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
   color: #8a99a5;
 }
 
@@ -346,7 +346,7 @@ tr.highlight td {
   background: none;
   padding: 3px 0;
   border-radius: 0;
-  font-size: 0.78125rem;
+  font-size: 0.75rem;
   color: #a0aec4;
   line-height: 1.4;
 }
@@ -402,7 +402,7 @@ tr.highlight td {
 }
 
 .chart-readout {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   color: #526887;
   min-height: 18px;
   margin: 8px 0 10px;
@@ -412,7 +412,7 @@ tr.highlight td {
 }
 
 .report-chart figcaption {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   line-height: 1.7;
   color: #526887;
   border-top: 1px solid #edf1f4;
@@ -438,7 +438,7 @@ tr.highlight td {
   align-items: center;
   justify-content: space-between;
   padding: 0 0 17px;
-  font-size: 0.703125rem;
+  font-size: 0.75rem;
   color: #8fa5c3;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -451,7 +451,7 @@ tr.highlight td {
   border: 0;
   border-radius: 5px;
   background: #e0e6ef;
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
   padding: 6px 12px;
   color: #607fa7;
 }
@@ -496,7 +496,7 @@ tr.highlight td {
 }
 
 .video-label strong {
-  font-size: 1.015625rem;
+  font-size: 1rem;
   font-weight: 500;
   line-height: 1.5;
   color: #527294;
@@ -510,7 +510,7 @@ tr.highlight td {
   line-height: 1.6;
   text-align: right;
   max-width: 49%;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
 }
 
 .evidence-video video {
@@ -523,7 +523,7 @@ tr.highlight td {
 }
 
 .evidence-video figcaption {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   line-height: 1.6;
   color: #879ebd;
   padding: 13px 0 0;
@@ -536,7 +536,7 @@ tr.highlight td {
   align-items: center;
   flex-wrap: wrap;
   padding: 9px 0 0;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   line-height: 1.6;
 }
 
@@ -546,7 +546,7 @@ tr.highlight td {
 }
 
 .camera-controls button {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   background: none;
   border: 0;
   border-radius: 0;
@@ -584,7 +584,7 @@ video[data-view='all'] {
 }
 
 .video-error {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   padding: 12px;
   color: #9f5353;
 }
@@ -604,7 +604,7 @@ video[data-view='all'] {
 }
 
 .case-heading h3 {
-  font-size: 1.796875rem;
+  font-size: 1.75rem;
   font-weight: 500;
   margin: 0;
   color: #47678c;
@@ -623,7 +623,7 @@ video[data-view='all'] {
   border: 0;
   border-radius: 4px;
   background: none;
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
   color: #8a9dbb;
   padding: 6px 12px;
 }
@@ -634,7 +634,7 @@ video[data-view='all'] {
 }
 
 .case-description {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   line-height: 1.8;
   color: #5c6f89;
   max-width: 1040px;
@@ -657,13 +657,13 @@ video[data-view='all'] {
 
 .case-videos .video-label strong {
   color: #395577;
-  font-size: 1.40625rem;
+  font-size: 1.375rem;
   line-height: 1.5;
 }
 
 .case-videos .video-label > span {
   color: #9bafcb;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   line-height: 1.6;
 }
 
@@ -697,14 +697,14 @@ video[data-view='all'] {
 
 .case-insight p {
   color: #7c96b8;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   margin: 0 0 14px;
   line-height: 1.85;
 }
 
 .case-insight > .appendix-link {
   color: #5672b4;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
 }
 
 .stage-controls {
@@ -713,7 +713,7 @@ video[data-view='all'] {
   gap: 17px;
   flex-wrap: wrap;
   margin-top: 20px;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   max-width: 1040px;
   margin: 24px auto 0;
   line-height: 1.6;
@@ -730,7 +730,7 @@ video[data-view='all'] {
   border-radius: 0;
   color: #8ea7cd;
   padding: 5px 0;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   border-bottom: 1px solid transparent;
   line-height: 1.6;
 }
@@ -759,13 +759,13 @@ video[data-view='all'] {
   background: #eaeff2;
   padding: 16px 25px;
   border-bottom: 1px solid #e2e9ef;
-  font-size: 0.78125rem;
+  font-size: 0.75rem;
   letter-spacing: 0.1em;
   color: #8b9daa;
 }
 
 .close-dialog {
-  font-size: 1.953125rem;
+  font-size: 2rem;
   line-height: 1;
   border: 0;
   background: none;
@@ -787,12 +787,12 @@ video[data-view='all'] {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  font-size: 0.78125rem;
+  font-size: 0.75rem;
   color: #8a9fbe;
 }
 
 .task-table-controls input {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   padding: 8px 11px;
   border: 1px solid #dbe4f2;
   border-radius: 6px;
@@ -804,7 +804,7 @@ video[data-view='all'] {
 }
 
 .task-table-controls select {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   padding: 8px 11px;
   border: 1px solid #dbe4f2;
   border-radius: 6px;
@@ -814,7 +814,7 @@ video[data-view='all'] {
 }
 
 .task-results {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   min-width: 1170px;
   border-collapse: separate;
   border-spacing: 4px 4px;
@@ -822,7 +822,7 @@ video[data-view='all'] {
 }
 
 .task-results th {
-  font-size: 0.78125rem;
+  font-size: 0.75rem;
   border: 0;
   white-space: normal;
   text-align: center;
@@ -868,7 +868,7 @@ blockquote {
   padding: 12px 18px;
   background: #e8eef1;
   color: #637d91;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
 }
 
 .media-viewport {
@@ -914,7 +914,7 @@ blockquote {
 }
 
 .eyebrow {
-  font-size: 1.015625rem;
+  font-size: 1rem;
   letter-spacing: 0.09em;
   color: #526887;
   line-height: 1.6;
@@ -930,11 +930,11 @@ blockquote {
   border-radius: 6px;
   background: #eceff5;
   color: #7383a0;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
 }
 
 .coming-soon small {
-  font-size: 0.703125rem;
+  font-size: 0.75rem;
   background: #dee4ee;
   color: #8b9aba;
   padding: 2px 6px;
@@ -942,12 +942,12 @@ blockquote {
 }
 
 .result-summary > p:not(.eyebrow) {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   color: #71829b;
 }
 
 .result-summary > .eyebrow {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   line-height: 1.65;
   letter-spacing: 0;
   text-transform: none;
@@ -971,11 +971,11 @@ blockquote {
 }
 
 .finding-metric strong > span {
-  font-size: 1.953125rem;
+  font-size: 2rem;
 }
 
 .finding-metric > p {
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
   color: #8b9cba;
   margin: 0;
 }
@@ -989,13 +989,13 @@ blockquote {
 }
 
 .result-summary .fineprint {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   line-height: 1.7;
   color: #526887;
 }
 
 .result-summary > .appendix-link {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
 }
 
 .result-panel .chart-series {
@@ -1008,19 +1008,19 @@ blockquote {
 }
 
 .result-panel .chart-readout {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   line-height: 1.7;
   color: #526887;
 }
 
 .result-panel .report-chart figcaption {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   line-height: 1.7;
   color: #526887;
 }
 
 .leaderboard td {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
 }
 
 .leaderboard tr.highlight {
@@ -1058,7 +1058,7 @@ blockquote {
 }
 
 .results-extra > .appendix-link {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   line-height: 1.5;
 }
 
@@ -1067,7 +1067,7 @@ blockquote {
   border: 0;
   border-bottom: 1px solid #dce5f4;
   border-radius: 0;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   padding: 5px 0;
   color: #718bb6;
   display: flex;
@@ -1083,17 +1083,17 @@ blockquote {
 }
 
 .matrix-heading h3 {
-  font-size: 2.03125rem;
+  font-size: 2rem;
   margin: 0 0 22px;
 }
 
 .matrix-heading .eyebrow {
-  font-size: 0.703125rem;
+  font-size: 0.75rem;
   margin-bottom: 12px;
 }
 
 .matrix-heading > a {
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
   color: #8299bc;
   white-space: nowrap;
 }
@@ -1120,7 +1120,7 @@ blockquote {
   border-bottom: 2px solid transparent;
   border-radius: 0;
   padding: 10px 0;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   color: #8b9cb8;
   transition:
     color 0.15s,
@@ -1134,7 +1134,7 @@ blockquote {
   border-bottom: 2px solid transparent;
   border-radius: 0;
   padding: 10px 0;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   color: #8b9cb8;
   white-space: nowrap;
 }
@@ -1159,7 +1159,7 @@ blockquote {
   background: none;
   border: 0;
   padding: 3px 0;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   color: #8a9ebb;
   line-height: 1.5;
 }
@@ -1180,7 +1180,7 @@ blockquote {
   text-align: center;
   padding: 6px 2px;
   white-space: normal;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   color: #526989;
 }
 
@@ -1196,7 +1196,7 @@ blockquote {
 
 .benchmark-table tbody th {
   color: #293e5c;
-  font-size: 1.015625rem;
+  font-size: 1rem;
   padding-right: 14px;
   font-weight: 500;
   background: #eef0f3;
@@ -1207,7 +1207,7 @@ blockquote {
 
 .benchmark-table tbody th small {
   display: block;
-  font-size: 0.703125rem;
+  font-size: 0.75rem;
   color: #8fa2c3;
   font-weight: 400;
 }
@@ -1217,7 +1217,7 @@ blockquote {
   border: 0;
   text-align: center;
   font: 13.75px/1.8 var(--font-body);
-  font-size: 1.015625rem;
+  font-size: 1rem;
   line-height: 1.5;
   font-weight: 500;
 }
@@ -1250,7 +1250,7 @@ blockquote {
   gap: 8px 12px;
   max-width: none;
   margin: 15px 0 10px;
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
   color: #536785;
   grid-template-columns: auto minmax(0, 1fr) auto;
   width: 100%;
@@ -1276,7 +1276,7 @@ blockquote {
 }
 
 .task-explorer > p {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   color: #8194af;
   margin: 20px 0 10px;
 }
@@ -1291,7 +1291,7 @@ blockquote {
 }
 
 .library-controls label {
-  font-size: 0.78125rem;
+  font-size: 0.75rem;
   color: #8a9fbe;
   display: flex;
   flex-direction: column;
@@ -1304,7 +1304,7 @@ blockquote {
   color: #5e789b;
   border-radius: 6px;
   padding: 8px 11px;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   min-width: 240px;
 }
 
@@ -1314,7 +1314,7 @@ blockquote {
   color: #5e789b;
   border-radius: 6px;
   padding: 8px 11px;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   min-width: 175px;
 }
 
@@ -1331,7 +1331,7 @@ blockquote {
 }
 
 .task-results thead button {
-  font-size: 0.78125rem;
+  font-size: 0.75rem;
   background: none;
   border: 0;
   padding: 4px 0;
@@ -1340,7 +1340,7 @@ blockquote {
 }
 
 .task-results tbody th {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   font-weight: 400;
   text-align: left;
   padding-right: 12px;
@@ -1359,7 +1359,7 @@ blockquote {
   text-align: center;
   height: 35px;
   transition: filter 0.15s;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   font-weight: 500;
 }
 
@@ -1369,7 +1369,7 @@ blockquote {
 }
 
 .task-results td button {
-  font-size: 0.703125rem;
+  font-size: 0.75rem;
 }
 
 .method-details {
@@ -1383,7 +1383,7 @@ blockquote {
   background: none;
   border: 0;
   padding: 0;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   color: #607db3;
   line-height: 1.6;
 }
@@ -1399,7 +1399,7 @@ blockquote {
 }
 
 .findings-opening h2 {
-  font-size: 2.65625rem;
+  font-size: 2.75rem;
   margin-bottom: 20px;
 }
 
@@ -1409,12 +1409,12 @@ blockquote {
 
 .finding-grid > .finding-story > p {
   color: #455570;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   line-height: 1.9;
 }
 
 .finding-grid > .finding-story > .fineprint {
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
 }
 
 .finding-grid .report-chart {
@@ -1437,7 +1437,7 @@ blockquote {
 }
 
 .task-highlights strong {
-  font-size: 2.265625rem;
+  font-size: 2.25rem;
   font-weight: 500;
   display: block;
   color: #3b5de4;
@@ -1450,13 +1450,13 @@ blockquote {
 
 .task-highlights span {
   display: block;
-  font-size: 0.78125rem;
+  font-size: 0.75rem;
   color: #92a6c5;
   margin-top: 8px;
 }
 
 .case-play {
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
   color: #607fa7;
   background: #e0e6ef;
   border: 0;
@@ -1465,7 +1465,7 @@ blockquote {
 }
 
 .poc-play {
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
   color: #607fa7;
   background: #e0e6ef;
   border: 0;
@@ -1485,12 +1485,12 @@ blockquote {
 }
 
 .behavior-evidence h3 {
-  font-size: 1.796875rem;
+  font-size: 1.75rem;
   margin: 0 0 22px;
 }
 
 .behavior-evidence p {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   color: #455570;
   line-height: 1.85;
 }
@@ -1502,7 +1502,7 @@ blockquote {
 }
 
 .trace-excerpt dt {
-  font-size: 0.78125rem;
+  font-size: 0.75rem;
   color: #344d77;
   margin-top: 15px;
   letter-spacing: 0.025em;
@@ -1510,7 +1510,7 @@ blockquote {
 }
 
 .trace-excerpt dd {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   color: #263c60;
   margin: 7px 0 0;
   line-height: 1.8;
@@ -1540,12 +1540,12 @@ blockquote {
 }
 
 .focus-switch > span {
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   color: #a2b4ce;
 }
 
 .focus-switch button {
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
   background: none;
   color: #8fa6c7;
   border: 0;
@@ -1589,7 +1589,7 @@ blockquote {
   border: 0;
   border-bottom: 2px solid transparent;
   color: #8a9ebc;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   padding: 10px 0;
 }
 
@@ -1643,20 +1643,20 @@ blockquote {
 }
 
 .outcome-name {
-  font-size: 1.015625rem;
+  font-size: 1rem;
   display: block;
   font-weight: 600;
   margin-bottom: 4px;
 }
 
 .outcome-legend strong {
-  font-size: 2.1875rem;
+  font-size: 2.25rem;
   margin-right: 13px;
   line-height: 1.4;
 }
 
 .outcome-legend small {
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
   color: #8495b1;
 }
 
@@ -1671,7 +1671,7 @@ blockquote {
 .outcome-readout {
   max-width: 1040px;
   margin: 12px auto 0;
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
   color: #8094b8;
 }
 
@@ -1686,14 +1686,14 @@ blockquote {
 
 .library-item .video-label > span {
   display: block;
-  font-size: 0.703125rem;
+  font-size: 0.75rem;
   margin-top: 3px;
   text-align: left;
   max-width: none;
 }
 
 .library-item figcaption {
-  font-size: 0.78125rem;
+  font-size: 0.75rem;
 }
 
 .library-item figcaption > span {
@@ -1706,7 +1706,7 @@ blockquote {
   align-items: center;
   gap: 30px;
   margin-top: 36px;
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
   color: #879dbb;
 }
 
@@ -1716,7 +1716,7 @@ blockquote {
   border-radius: 5px;
   color: #5d79ad;
   padding: 7px 15px;
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
 }
 
 .library-pagination button:disabled {
@@ -1731,12 +1731,12 @@ blockquote {
 }
 
 .closing-actions > a {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   color: #4d6eac;
 }
 
 .closing-actions > button {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   color: #4d6eac;
   background: none;
   border: 0;
@@ -1744,12 +1744,12 @@ blockquote {
 }
 
 .full-comparison th {
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
   padding: 10px 8px;
 }
 
 .full-comparison td {
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
   padding: 10px 8px;
 }
 
@@ -1774,12 +1774,12 @@ blockquote {
 }
 
 .task-count {
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
 }
 
 .source-link {
   display: inline-block;
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
   color: #5873ab;
   margin: 2px 20px 0 0;
 }
@@ -1804,18 +1804,18 @@ blockquote {
 }
 
 .research-questions > a > span {
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
   color: #617dd0;
 }
 
 .research-questions strong {
-  font-size: 1.40625rem;
+  font-size: 1.375rem;
   font-weight: 600;
   line-height: 1.5;
 }
 
 .research-questions p {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   line-height: 1.7;
   margin: 6px 0 0;
   max-width: 740px;
@@ -1840,7 +1840,7 @@ blockquote {
 }
 
 .shift-analysis .appendix-link {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
 }
 
 .behavior-evidence > .evidence-video {
@@ -1880,13 +1880,13 @@ blockquote {
 
 .video-collection > summary strong {
   display: block;
-  font-size: 1.484375rem;
+  font-size: 1.5rem;
   color: #243a59;
 }
 
 .video-collection > summary small {
   display: block;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   color: #637795;
   margin-top: 5px;
 }
@@ -1906,7 +1906,7 @@ blockquote {
 .collection-toggle {
   margin-left: auto;
   color: #536cad;
-  font-size: 1.953125rem;
+  font-size: 2rem;
   transition: transform 0.2s;
 }
 
@@ -1941,7 +1941,7 @@ blockquote {
 }
 
 .metric-success {
-  font-size: 3.4375rem;
+  font-size: 3.5rem;
   font-weight: 550;
   line-height: 1;
   letter-spacing: -1.6px;
@@ -1949,7 +1949,7 @@ blockquote {
 }
 
 .metric-success > span {
-  font-size: 1.953125rem;
+  font-size: 2rem;
   font-weight: 450;
   letter-spacing: 0;
   margin-left: 3px;
@@ -1961,7 +1961,7 @@ blockquote {
   gap: 7px;
   border-left: 1px solid #dce3ef;
   padding-left: 17px;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   line-height: 1;
   color: #6b7a92;
 }
@@ -1975,7 +1975,7 @@ blockquote {
 
 .explorer-links > a {
   border-bottom: 1px solid #dce5f4;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   padding: 5px 0;
   color: #718bb6;
   display: flex;
@@ -1984,7 +1984,7 @@ blockquote {
 }
 
 .method-details > a {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   color: #536fab;
   line-height: 1.8;
 }
@@ -2011,7 +2011,7 @@ blockquote {
   justify-content: flex-end;
   align-items: center;
   height: 28px;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   line-height: 1;
   color: #5c7190;
 }
@@ -2093,23 +2093,23 @@ blockquote {
 .icl-card-copy .eyebrow {
   margin: 0;
   color: #617494;
-  font-size: 0.703125rem;
+  font-size: 0.75rem;
 }
 
 .icl-card-copy > strong {
-  font-size: 1.640625rem;
+  font-size: 1.625rem;
   line-height: 1.3;
   font-weight: 650;
 }
 
 .icl-card-copy > span:not(.eyebrow) {
-  font-size: 1.015625rem;
+  font-size: 1rem;
   line-height: 1.7;
   color: #566882;
 }
 
 .icl-card-copy > b {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   font-weight: 600;
   color: #3353c5;
 }
@@ -2125,14 +2125,14 @@ blockquote {
 }
 
 .icl-dialog h2 {
-  font-size: 2.34375rem;
+  font-size: 2.25rem;
   letter-spacing: -0.6px;
   margin-bottom: 15px;
 }
 
 .icl-intro {
   max-width: 850px;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   line-height: 1.8;
   color: #52637d;
 }
@@ -2151,7 +2151,7 @@ blockquote {
 }
 
 .icl-toolbar label {
-  font-size: 1.015625rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #52637d;
   display: grid;
@@ -2162,7 +2162,7 @@ blockquote {
   min-width: 270px;
   max-width: 100%;
   font: inherit;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   padding: 10px 34px 10px 12px;
   border: 1px solid #cad5e9;
   border-radius: 6px;
@@ -2171,7 +2171,7 @@ blockquote {
 }
 
 .icl-toolbar > span {
-  font-size: 1.015625rem;
+  font-size: 1rem;
   color: #65758c;
   padding-bottom: 10px;
 }
@@ -2184,7 +2184,7 @@ blockquote {
 }
 
 .icl-tabs button {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   font-weight: 600;
   background: none;
   border: 0;
@@ -2221,7 +2221,7 @@ blockquote {
 }
 
 .icl-frame-view figcaption {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   line-height: 1.7;
   color: #405776;
   padding: 12px 0;
@@ -2256,7 +2256,7 @@ blockquote {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  font-size: 1.015625rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #526683;
   gap: 7px;
@@ -2283,7 +2283,7 @@ blockquote {
   border: 2px solid transparent;
   border-radius: 7px;
   color: #617391;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
 }
 
 .icl-filmstrip button[aria-pressed='true'] {
@@ -2309,7 +2309,7 @@ blockquote {
 }
 
 .icl-data-table {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   width: 100%;
   margin: 0;
 }
@@ -2323,14 +2323,14 @@ blockquote {
   padding: 11px 14px;
   border-bottom: 1px solid #e6ebf4;
   text-align: left;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
 }
 
 .icl-data-table td {
   padding: 11px 14px;
   border-bottom: 1px solid #e6ebf4;
   text-align: left;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   color: #263951;
   min-width: 240px;
   overflow-wrap: anywhere;
@@ -2358,20 +2358,20 @@ blockquote {
 
 .icl-raw summary {
   cursor: pointer;
-  font-size: 1.015625rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #3457ae;
 }
 
 .icl-context summary {
   cursor: pointer;
-  font-size: 1.015625rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #3457ae;
 }
 
 .icl-context p {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   line-height: 1.85;
   color: #415571;
 }
@@ -2387,7 +2387,7 @@ blockquote {
     Consolas,
     monospace;
   color: #34465e;
-  font-size: 1.015625rem;
+  font-size: 1rem;
 }
 
 .icl-input-heading {
@@ -2398,14 +2398,14 @@ blockquote {
 }
 
 .icl-input-heading p {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   max-width: 580px;
   color: #536783;
   margin: 0 0 20px;
 }
 
 .icl-input-heading button {
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
   white-space: nowrap;
 }
 
@@ -2415,7 +2415,7 @@ blockquote {
 }
 
 .icl-input-block p {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   line-height: 1.9;
   color: #354b6c;
 }
@@ -2437,11 +2437,11 @@ blockquote {
 }
 
 .icl-pair-findings h3 {
-  font-size: 1.328125rem;
+  font-size: 1.375rem;
 }
 
 .icl-pair-findings p {
-  font-size: 1.015625rem;
+  font-size: 1rem;
   margin: 8px 0;
 }
 
@@ -2451,7 +2451,7 @@ blockquote {
 
 .paired-detail-table {
   min-width: 660px;
-  font-size: 1.015625rem;
+  font-size: 1rem;
 }
 
 .paired-detail-table tbody th {
@@ -2494,7 +2494,7 @@ blockquote {
 .comparison-footnote p {
   max-width: 860px;
   margin: 0;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   line-height: 1.7;
   color: #526887;
 }
@@ -2530,19 +2530,19 @@ blockquote {
     monospace;
   letter-spacing: 0.35px;
   color: #506ba3;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   line-height: 1.6;
 }
 
 .icl-frame-prompt h3 {
-  font-size: 1.5625rem;
+  font-size: 1.5rem;
   line-height: 1.4;
   margin: 13px 0;
   color: #273f63;
 }
 
 .icl-frame-prompt blockquote {
-  font-size: 1.328125rem;
+  font-size: 1.375rem;
   line-height: 1.8;
   color: #304767;
   margin: 0;
@@ -2554,7 +2554,7 @@ blockquote {
 }
 
 .icl-frame-prompt .icl-prompt-note {
-  font-size: 1.015625rem;
+  font-size: 1rem;
   line-height: 1.65;
   color: #637692;
   margin: 18px 0 0;
@@ -2623,15 +2623,15 @@ blockquote {
 }
 
 .icl-dialog .icl-intro {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
 }
 
 .icl-dialog .icl-data-table th {
-  font-size: 1.015625rem;
+  font-size: 1rem;
 }
 
 .icl-dialog .icl-data-table td {
-  font-size: 1.015625rem;
+  font-size: 1rem;
 }
 
 .safety-evidence {
@@ -2643,7 +2643,7 @@ blockquote {
 }
 
 .safety-case-copy h3 {
-  font-size: 1.796875rem;
+  font-size: 1.75rem;
   line-height: 1.35;
   margin: 0 0 22px;
   color: #243957;
@@ -2654,7 +2654,7 @@ blockquote {
 }
 
 .safety-case-copy dt {
-  font-size: 1.015625rem;
+  font-size: 1rem;
   font-weight: 650;
   color: #344db1;
   margin: 20px 0 8px;
@@ -2677,25 +2677,25 @@ blockquote {
 }
 
 .safety-evidence .video-label strong {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   color: #304766;
 }
 
 .safety-evidence .video-label > span {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   color: #546b8a;
   line-height: 1.6;
 }
 
 .safety-evidence figcaption {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   color: #546b8a;
   line-height: 1.6;
 }
 
 .conclusion-prose h3 {
   margin-top: 40px;
-  font-size: 1.953125rem;
+  font-size: 2rem;
   line-height: 1.4;
   color: #253c60;
 }
@@ -2711,7 +2711,7 @@ blockquote {
   width: 100%;
   min-width: 620px;
   border-collapse: collapse;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   font-variant-numeric: tabular-nums;
 }
 
@@ -2719,7 +2719,7 @@ blockquote {
   text-align: left;
   padding: 14px 16px;
   color: #506687;
-  font-size: 1.015625rem;
+  font-size: 1rem;
 }
 
 .timing-measurements th {
@@ -2738,7 +2738,7 @@ blockquote {
 
 .timing-measurements thead th {
   background: #e4e9f2;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   font-weight: 600;
   white-space: normal;
 }
@@ -2811,7 +2811,7 @@ blockquote {
 }
 
 .icl-overview-sheet figcaption {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   color: #617491;
   margin-top: 12px;
   line-height: 1.6;
@@ -2820,7 +2820,7 @@ blockquote {
 .icl-numeric-detail {
   margin: 10px 0;
   color: #455d7e;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   line-height: 1.6;
 }
 
@@ -2856,7 +2856,7 @@ blockquote {
   border: 1px solid #cfd8ea;
   background: #f5f6f8;
   color: #2d4bd1;
-  font-size: 1.40625rem;
+  font-size: 1.375rem;
   box-shadow: var(--shadow-soft);
   opacity: 0;
   transform: translateY(8px);
@@ -2894,7 +2894,7 @@ blockquote {
 
 .anchor-link.is-copied::after {
   content: 'copied';
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
   margin-left: 6px;
   color: var(--good);
 }
@@ -2909,7 +2909,7 @@ blockquote {
   background: #152238;
   color: #e9eefb;
   border-radius: 8px;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   line-height: 1.6;
   box-shadow: 0 12px 30px rgba(8, 16, 32, 0.35);
   pointer-events: none;
@@ -2918,7 +2918,7 @@ blockquote {
 
 .viz-tip b {
   display: block;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   color: #fff;
   margin-bottom: 2px;
   line-height: 1.6;
@@ -2929,7 +2929,7 @@ blockquote {
   font-style: normal;
   font-weight: 700;
   color: #bcc9ff;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   margin-top: 2px;
   line-height: 1.6;
 }
@@ -2945,7 +2945,7 @@ blockquote {
   padding-top: 6px;
   border-top: 1px solid #2c3d5c;
   color: #9fb0cf;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   line-height: 1.6;
 }
 
@@ -2953,7 +2953,7 @@ blockquote {
   display: block;
   width: 100%;
   height: auto;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
 }
 
 .viz-svg text {
@@ -2971,35 +2971,35 @@ blockquote {
 }
 
 .viz-axis {
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
   fill: #8a99b5;
 }
 
 .viz-axis-note {
-  font-size: 0.8203125rem;
+  font-size: 0.875rem;
   fill: #8a99b5;
   letter-spacing: 0.04em;
 }
 
 .viz-label {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   fill: #3b4c68;
 }
 
 .viz-value {
-  font-size: 0.8984375rem;
+  font-size: 0.875rem;
   fill: #2f4160;
   font-weight: 600;
 }
 
 .viz-row-title {
-  font-size: 0.9765625rem;
+  font-size: 1rem;
   font-weight: 700;
   fill: #243756;
 }
 
 .viz-row-sub {
-  font-size: 0.8203125rem;
+  font-size: 0.875rem;
   fill: #8a99b5;
 }
 
@@ -3053,13 +3053,13 @@ blockquote {
 }
 
 .viz-astra-label {
-  font-size: 0.8984375rem;
+  font-size: 0.875rem;
   font-weight: 700;
   fill: #3456ef;
 }
 
 .viz-math {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   color: #3b4c68;
 }
 
@@ -3134,7 +3134,7 @@ blockquote {
 }
 
 .viz-slope-label {
-  font-size: 0.8984375rem;
+  font-size: 0.875rem;
   fill: #5b6d8c;
 }
 
@@ -3175,7 +3175,7 @@ blockquote {
 }
 
 .viz-pair-success {
-  font-size: 0.8203125rem;
+  font-size: 0.875rem;
   fill: #2f7d5b;
   font-weight: 700;
 }
@@ -3193,7 +3193,7 @@ blockquote {
   flex-wrap: wrap;
   gap: 8px 18px;
   margin: 12px 0 4px;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   color: #5b6d8c;
   line-height: 1.5;
 }
@@ -3225,14 +3225,14 @@ blockquote {
 }
 
 .viz-figure figcaption {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   line-height: 1.7;
   color: #526887;
   margin-top: 10px;
 }
 
 .viz-caption {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   line-height: 1.7;
   color: #526887;
   margin-top: 10px;
@@ -3247,7 +3247,7 @@ blockquote {
   border: 1px solid transparent;
   background: #e6eaf1;
   color: #71809a;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   transition:
     background 0.15s,
     color 0.15s,
@@ -3283,7 +3283,7 @@ blockquote {
   gap: 14px;
   align-items: center;
   flex-wrap: wrap;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   color: #8a99b5;
   margin: 6px 0 0;
   line-height: 1.5;
@@ -3305,7 +3305,7 @@ blockquote {
   gap: 10px 22px;
   align-items: center;
   margin: 18px 0 6px;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   color: #71809a;
   line-height: 1.5;
 }
@@ -3323,7 +3323,7 @@ blockquote {
   border: 0;
   border-radius: 4px;
   padding: 4px 10px;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   color: #71809a;
   line-height: 1.5;
 }
@@ -3350,14 +3350,14 @@ blockquote {
 
 .field-summary b {
   display: block;
-  font-size: 1.71875rem;
+  font-size: 1.75rem;
   font-weight: 600;
   letter-spacing: -0.6px;
   color: var(--ink);
 }
 
 .field-summary span {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   color: #6b7a92;
   line-height: 1.5;
   display: block;
@@ -3440,7 +3440,7 @@ blockquote {
 }
 
 .model-references strong {
-  font-size: 1.328125rem;
+  font-size: 1.375rem;
   color: #253e64;
 }
 
@@ -3461,7 +3461,7 @@ blockquote {
 }
 
 .model-reference-links a {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   text-underline-offset: 3px;
 }
 
@@ -3471,11 +3471,11 @@ blockquote {
 }
 
 .leaderboard th {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
 }
 
 .method-details a {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   line-height: 1.6;
 }
 
@@ -3500,7 +3500,7 @@ blockquote {
   flex-direction: column;
   gap: 8px;
   min-width: 0;
-  font-size: 1.015625rem;
+  font-size: 1rem;
   line-height: 1.4;
   color: #536b8a;
 }
@@ -3513,7 +3513,7 @@ blockquote {
 }
 
 .task-control-label {
-  font-size: 1.015625rem;
+  font-size: 1rem;
   line-height: 1.4;
   color: #536b8a;
 }
@@ -3545,7 +3545,7 @@ blockquote {
   border-radius: 10px;
   background: #f7f9fc;
   font: inherit;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   color: #294366;
 }
 
@@ -3571,7 +3571,7 @@ blockquote {
   color: #5c708d;
   padding: 5px 12px;
   font: inherit;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   white-space: nowrap;
   cursor: pointer;
 }
@@ -3584,7 +3584,7 @@ blockquote {
 
 .task-metric-switch small {
   font: inherit;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   margin-left: 4px;
   color: inherit;
 }
@@ -3606,7 +3606,7 @@ blockquote {
   list-style: none;
   background: #f7f9fc;
   color: #294366;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   line-height: 1.4;
   cursor: pointer;
 }
@@ -3621,7 +3621,7 @@ blockquote {
 }
 
 .task-selected-count {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   font-variant-numeric: tabular-nums;
   color: #637995;
   padding: 1px 7px;
@@ -3630,7 +3630,7 @@ blockquote {
 }
 
 .task-option-count {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   font-variant-numeric: tabular-nums;
   color: #637995;
 }
@@ -3681,7 +3681,7 @@ blockquote {
 .task-option-heading {
   display: block;
   padding: 5px 10px;
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #7689a5;
@@ -3697,7 +3697,7 @@ blockquote {
   border-radius: 7px;
   background: none;
   font: inherit;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   text-align: left;
   line-height: 1.3;
   color: #3c5578;
@@ -3752,7 +3752,7 @@ blockquote {
 }
 
 .report-references h2 {
-  font-size: 2.34375rem;
+  font-size: 2.25rem;
   margin-bottom: 24px;
 }
 
@@ -3767,7 +3767,7 @@ blockquote {
 .report-reference-list li {
   padding-left: 34px;
   margin: 0 0 20px;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   line-height: 1.65;
   position: relative;
   counter-increment: reference;
@@ -3822,7 +3822,7 @@ blockquote {
 
 .case-study-section > h3 {
   margin: 0 0 30px;
-  font-size: 2.265625rem;
+  font-size: 2.25rem;
   line-height: 1.3;
   color: #1b2e48;
   font-weight: 600;
@@ -3836,7 +3836,7 @@ blockquote {
 
 .case-study-content .case-heading h4 {
   margin: 0;
-  font-size: 1.71875rem;
+  font-size: 1.75rem;
   line-height: 1.5;
   color: #47678c;
   font-weight: 500;
@@ -3875,7 +3875,7 @@ blockquote {
   align-items: center;
   padding: 13px 14px;
   cursor: pointer;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   color: #36517a;
   list-style: none;
 }
@@ -3886,7 +3886,7 @@ blockquote {
 
 .case-selector-mark:after {
   content: '+';
-  font-size: 1.5625rem;
+  font-size: 1.5rem;
   font-weight: 400;
 }
 
@@ -3909,7 +3909,7 @@ blockquote {
   padding: 11px 10px;
   text-align: left;
   font: inherit;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   line-height: 1.45;
   background: transparent;
   color: #657c9b;
@@ -4067,7 +4067,7 @@ blockquote {
   border-radius: 4px;
   background: #152238bb;
   color: #f1f5fc;
-  font-size: 1.015625rem;
+  font-size: 1rem;
   line-height: 1.5;
   pointer-events: none;
 }
@@ -4079,7 +4079,7 @@ blockquote {
   padding: 12px 0 2px;
   background: transparent;
   color: #536985;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
 }
 
 .recording-playback button {
@@ -4147,7 +4147,7 @@ blockquote {
 }
 
 .episode-section > h3 {
-  font-size: 2.1875rem;
+  font-size: 2.25rem;
   line-height: 1.2;
   margin: 12px 0 18px;
 }
@@ -4188,7 +4188,7 @@ blockquote {
 }
 
 .episode-heading h4 {
-  font-size: 1.796875rem;
+  font-size: 1.75rem;
   line-height: 1.4;
   margin: 0 0 8px;
   color: #203654;
@@ -4203,7 +4203,7 @@ blockquote {
 
 .episode-outcome {
   white-space: nowrap;
-  font-size: 1.40625rem;
+  font-size: 1.375rem;
   font-weight: 600;
   color: #2d4e87;
   text-align: right;
@@ -4211,7 +4211,7 @@ blockquote {
 
 .episode-outcome small {
   display: block;
-  font-size: 1.015625rem;
+  font-size: 1rem;
   font-weight: 400;
   margin-top: 7px;
 }
@@ -4230,7 +4230,7 @@ blockquote {
   background: #eaedf5;
   color: #3f577e;
   font: inherit;
-  font-size: 1.015625rem;
+  font-size: 1rem;
 }
 
 .episode-bookmarks button[aria-current='true'] {
@@ -4262,7 +4262,7 @@ blockquote {
   border-bottom: 2px solid transparent;
   background: none;
   color: #566b85;
-  font-size: 1.015625rem;
+  font-size: 1rem;
 }
 
 .episode-cameras button[aria-pressed='true'] {
@@ -4332,7 +4332,7 @@ blockquote {
 
 .episode-multiview figcaption {
   padding: 6px 10px;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   line-height: 1.4;
   color: #455d7e;
 }
@@ -4342,7 +4342,7 @@ blockquote {
   align-items: center;
   gap: 10px;
   padding: 12px 0;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   color: #526783;
 }
 
@@ -4363,7 +4363,7 @@ blockquote {
   padding: 7px 12px;
   font: inherit;
   margin: 14px 0 10px;
-  font-size: 1.015625rem;
+  font-size: 1rem;
 }
 
 .episode-playback input {
@@ -4382,7 +4382,7 @@ blockquote {
 }
 
 .episode-playback select {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   background: #f5f6f8;
   border: 1px solid #d4ddf0;
   padding: 5px;
@@ -4390,7 +4390,7 @@ blockquote {
 }
 
 .episode-caption {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   line-height: 1.6;
   color: #637590;
   margin: 0;
@@ -4407,7 +4407,7 @@ blockquote {
   align-items: center;
   justify-content: space-between;
   color: #566b85;
-  font-size: 1.015625rem;
+  font-size: 1rem;
 }
 
 .episode-step-nav button {
@@ -4417,7 +4417,7 @@ blockquote {
   width: 32px;
   height: 32px;
   color: #304ce1;
-  font-size: 1.40625rem;
+  font-size: 1.375rem;
 }
 
 .episode-step-nav button:disabled {
@@ -4425,7 +4425,7 @@ blockquote {
 }
 
 .episode-speaker {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   font-weight: 700;
   margin: 20px 0 12px;
   color: #304a73;
@@ -4433,13 +4433,13 @@ blockquote {
 
 .episode-speaker span {
   font-weight: 400;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   margin-left: 10px;
   color: #60748c;
 }
 
 .episode-interaction blockquote {
-  font-size: 1.328125rem;
+  font-size: 1.375rem;
   line-height: 1.65;
   margin: 0 0 20px;
   padding: 0;
@@ -4450,21 +4450,21 @@ blockquote {
 }
 
 .episode-no-reason {
-  font-size: 1.40625rem;
+  font-size: 1.375rem;
 }
 
 .episode-return {
   background: #e6ecf3;
   border-radius: 6px;
   padding: 14px 16px;
-  font-size: 1.015625rem;
+  font-size: 1rem;
   line-height: 1.6;
   color: #49617f;
 }
 
 .episode-return p {
   margin: 6px 0;
-  font-size: 1.015625rem;
+  font-size: 1rem;
 }
 
 .episode-return strong {
@@ -4472,13 +4472,13 @@ blockquote {
 }
 
 .episode-raw summary {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   color: #637590;
   cursor: pointer;
 }
 
 .episode-raw pre {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   max-height: 250px;
   overflow: auto;
   white-space: pre-wrap;
@@ -4494,7 +4494,7 @@ blockquote {
 }
 
 .episode-log summary {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   font-weight: 600;
   color: #415b80;
   cursor: pointer;
@@ -4506,7 +4506,7 @@ blockquote {
   margin: 15px 0;
   padding: 0 0 0 32px;
   color: #7b8ca5;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
 }
 
 .episode-log li button {
@@ -4520,7 +4520,7 @@ blockquote {
   border-radius: 4px;
   color: #3f5575;
   font: inherit;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   line-height: 1.5;
 }
 
@@ -4531,14 +4531,14 @@ blockquote {
 
 .episode-log time {
   min-width: 35px;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   color: #657997;
 }
 
 .episode-prompt {
   max-height: 350px;
   overflow: auto;
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
   line-height: 1.8;
   padding: 8px 20px 0 0;
   overflow-wrap: anywhere;
@@ -4548,7 +4548,7 @@ blockquote {
   display: flex;
   gap: 24px;
   flex-wrap: wrap;
-  font-size: 1.015625rem;
+  font-size: 1rem;
   margin: 22px 0;
 }
 
@@ -4571,16 +4571,16 @@ blockquote {
 }
 
 .episode-demo-card .episode-picker button {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
 }
 
 .episode-demo-card .episode-heading h4 {
-  font-size: 1.640625rem;
+  font-size: 1.625rem;
   margin-top: 0;
 }
 
 .episode-demo-card .episode-heading p {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
 }
 
 .episode-demo-card .episode-interaction {
@@ -4591,7 +4591,7 @@ blockquote {
 }
 
 .episode-demo-card .episode-interaction blockquote {
-  font-size: 1.40625rem;
+  font-size: 1.375rem;
   min-height: 90px;
 }
 
@@ -4611,7 +4611,7 @@ blockquote {
 }
 
 .insight-block > h3 {
-  font-size: 1.953125rem;
+  font-size: 2rem;
   line-height: 1.3;
   margin: 0 0 20px;
 }
@@ -4625,13 +4625,13 @@ blockquote {
   border-collapse: separate;
   border-spacing: 4px;
   width: 100%;
-  font-size: 1.015625rem;
+  font-size: 1rem;
   color: #294365;
 }
 
 .insight-table caption {
   text-align: left;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   color: #607593;
   padding-bottom: 12px;
 }
@@ -4692,13 +4692,13 @@ blockquote {
 
 .insight-table small {
   display: block;
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
   color: #6a7f9b;
   margin-top: 4px;
 }
 
 .insight-note {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   line-height: 1.8;
   color: #617592;
   margin: 16px 0;
@@ -4713,7 +4713,7 @@ blockquote {
 }
 
 .insight-controls label {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   color: #607593;
   display: flex;
   flex-direction: column;
@@ -4724,7 +4724,7 @@ blockquote {
   border: 1px solid #d2ddef;
   border-radius: 5px;
   background: #f5f6f8;
-  font-size: 1.015625rem;
+  font-size: 1rem;
   color: #3a557e;
   padding: 9px 12px;
   max-width: 100%;
@@ -4734,7 +4734,7 @@ blockquote {
   background: #e6ebf3;
   border-radius: 5px;
   padding: 13px 16px;
-  font-size: 1.015625rem;
+  font-size: 1rem;
   line-height: 1.7;
   color: #425c80;
   min-height: 66px;
@@ -4745,7 +4745,7 @@ blockquote {
   display: flex;
   flex-wrap: wrap;
   gap: 10px 20px;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   color: #526c8f;
   margin: 25px 0 16px;
 }
@@ -4754,7 +4754,7 @@ blockquote {
   display: flex;
   flex-wrap: wrap;
   gap: 10px 20px;
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   color: #526c8f;
   margin: 25px 0 16px;
 }
@@ -4806,7 +4806,7 @@ blockquote {
   grid-template-columns: 155px minmax(140px, 1fr) 75px;
   gap: 15px;
   align-items: center;
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
   color: #6c80a0;
   padding: 0 12px;
 }
@@ -4816,7 +4816,7 @@ blockquote {
   grid-template-columns: 155px minmax(140px, 1fr) 75px;
   gap: 15px;
   align-items: center;
-  font-size: 1.015625rem;
+  font-size: 1rem;
   padding: 5px 12px;
   border-radius: 5px;
   color: #344e73;
@@ -4833,7 +4833,7 @@ blockquote {
 }
 
 .perturbation-row > strong {
-  font-size: 1.171875rem;
+  font-size: 1.125rem;
   text-align: right;
 }
 
@@ -4872,7 +4872,7 @@ blockquote {
 }
 
 .fixed-insight-table {
-  font-size: 1.09375rem;
+  font-size: 1.125rem;
 }
 
 .fixed-insight-table th {
@@ -4904,7 +4904,7 @@ blockquote {
   background: #f5f6f8;
   color: #3e5778;
   font: inherit;
-  font-size: 1.015625rem;
+  font-size: 1rem;
   width: 100%;
   text-align: left;
   padding: 8px 10px;
@@ -4916,7 +4916,7 @@ blockquote {
 }
 
 .failure-depth-row > span:last-child {
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
   text-align: right;
 }
 
@@ -4931,7 +4931,7 @@ blockquote {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 0.859375rem;
+  font-size: 0.875rem;
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
 }
@@ -4963,7 +4963,7 @@ blockquote {
   background: transparent;
   color: #3c58b6;
   font: inherit;
-  font-size: 1.015625rem;
+  font-size: 1rem;
   cursor: pointer;
 }
 
@@ -4972,7 +4972,7 @@ blockquote {
 }
 
 .failure-expand-icon {
-  font-size: 1.40625rem;
+  font-size: 1.375rem;
   line-height: 1;
   transition: transform 0.2s;
 }

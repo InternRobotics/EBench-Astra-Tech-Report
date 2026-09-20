@@ -1,0 +1,221 @@
+/* Header, contents rail, page frame, masthead */
+@layer layout {
+  .skip-link {
+    position: fixed;
+    top: -5rem;
+    left: 1rem;
+    z-index: 200;
+    background: white;
+    padding: 0.5rem 1rem;
+  }
+  .skip-link:focus {
+    top: 0.5rem;
+  }
+  #ambient-particles {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.7;
+  }
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    display: grid;
+    grid-template-columns: var(--rail-width) minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1.5rem;
+    min-height: var(--header-height);
+    background: var(--deep);
+    color: #e0e7f1;
+    padding: 0.8rem var(--gutter) 0.8rem 0;
+  }
+  .toc-toggle {
+    justify-self: start;
+    margin-left: 1.5rem;
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    padding: 0.4rem;
+    background: transparent;
+    color: inherit;
+    border: 0;
+  }
+  .toc-toggle svg {
+    width: 2rem;
+    height: 2rem;
+  }
+  .brand-lockup {
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+    min-width: 0;
+    max-width: 36rem;
+  }
+  .institution-brand {
+    display: block;
+    min-width: 0;
+  }
+  .shanghai-ai-brand {
+    flex: 1.15;
+  }
+  .internrobotics-brand {
+    flex: 1;
+  }
+  .brand-lockup img {
+    width: 100%;
+    height: auto;
+    max-height: 2.5rem;
+    object-fit: contain;
+  }
+  .brand-divider {
+    height: 1.8rem;
+    width: 1px;
+    background: #526078;
+    flex: none;
+  }
+  .header nav {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: end;
+    font-size: 1.125rem;
+  }
+  .header nav a {
+    color: #d6dfef;
+    white-space: nowrap;
+  }
+  .header nav a[aria-current] {
+    color: white;
+    text-decoration: underline;
+  }
+  .report-toc {
+    position: fixed;
+    inset: var(--header-height) auto 0 0;
+    width: var(--rail-width);
+    z-index: 50;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: #eef1f6f5;
+    border-right: 1px solid var(--line);
+    padding: 1.25rem 0.75rem;
+  }
+  .report-toc nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .report-toc a {
+    display: block;
+    color: var(--muted);
+    font-size: 1.125rem;
+    line-height: 1.4;
+    padding: 0.6rem 0.75rem;
+    border-left: 2px solid transparent;
+    overflow-wrap: break-word;
+  }
+  .report-toc a[aria-current] {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    font-weight: 700;
+    color: #3049b7;
+  }
+  .report-toc .toc-subsection {
+    padding-left: 1.6rem;
+  }
+  .toc-title {
+    display: none;
+  }
+  body[data-toc-open='false'] .report-toc {
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .report-page {
+    margin-left: var(--rail-width);
+    min-width: 0;
+  }
+  :is(.showcase-hero, .section-inner) {
+    width: min(calc(100% - 2 * var(--gutter)), var(--reading-width));
+    max-width: none;
+    margin-inline: auto;
+    min-width: 0;
+    padding: 0;
+  }
+  .cosmos {
+    padding: 0;
+  }
+  .showcase-hero {
+    padding-block: 4.5rem 2rem;
+  }
+  .hero-copy {
+    margin: 0;
+    text-align: center;
+  }
+  .hero-copy h1 {
+    font-size: 3.5rem;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    white-space: normal;
+  }
+  .hero-copy em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .hero-copy .report-subtitle {
+    font-size: 1.625rem;
+    color: var(--muted);
+    margin: 2rem 0;
+  }
+  .report-authors {
+    max-width: 60rem;
+    margin-inline: auto;
+  }
+  .authors {
+    font-size: 1.375rem;
+    color: var(--muted);
+    line-height: 1.8;
+    text-wrap: balance;
+  }
+  .author {
+    white-space: nowrap;
+  }
+  .affiliations,
+  .author-note {
+    font-size: var(--small);
+    color: var(--muted);
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1rem;
+    margin-top: 2rem;
+    font-size: var(--small);
+  }
+  .hero-primary,
+  .coming-soon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    border: 1px solid var(--line);
+    border-radius: 0.4rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--paper);
+    font: inherit;
+  }
+  .hero-primary {
+    background: #24364f;
+    color: white;
+    border-color: #24364f;
+  }
+  .coming-soon small {
+    font-size: 0.8em;
+  }
+}
