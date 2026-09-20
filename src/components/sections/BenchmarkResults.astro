@@ -1,3 +1,8 @@
+---
+import { icon } from '../../lib/icons.js';
+import OverallResults from '../OverallResults.astro';
+---
+
 <section id="overall" class="section">
   <div class="section-inner">
     <div class="section-heading benchmark-opening">
@@ -8,21 +13,16 @@
         We evaluated GPT-6-Astra across{' '}
         <strong>all 26 tasks and 510 episodes in the EBench test-mini suite</strong>, and compared
         its performance with the model results reported on the EBench leaderboard.
-        <sup>
-          <a
-            id="comparison-note-ref"
-            href="#comparison-note"
-            aria-label="Footnote 1: comparison scope"
-          >
-            1
-          </a>
-        </sup>
       </p>
       <div id="model-references" class="model-reference-entry">
-        <a href="#model-references">Model References ↗</a>
+        <a href="#model-references">
+          Model References <Fragment set:html={icon('external-link')} />
+        </a>
       </div>
     </div>
-    <div id="overall-content"></div>
+    <div id="overall-content">
+      <OverallResults />
+    </div>
     <aside class="comparison-footnote" id="comparison-note" role="note">
       <p>
         <a href="#comparison-note-ref" aria-label="Back to footnote 1 reference">
@@ -35,3 +35,26 @@
     </aside>
   </div>
 </section>
+
+<style>
+  .comparison-footnote {
+    width: 100%;
+    max-width: none;
+    margin: 1.5rem 0 0;
+    border-top: 1px solid var(--line);
+    padding-top: 0.875rem;
+    scroll-margin-top: 6rem;
+  }
+
+  .comparison-footnote p {
+    max-width: none;
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.8125rem;
+    line-height: 1.5;
+  }
+
+  .comparison-footnote a {
+    color: var(--accent);
+  }
+</style>

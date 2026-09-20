@@ -111,7 +111,9 @@ function updateBehaviorNarrative(key) {
     story.insertAdjacentHTML(
       'beforeend',
       narrativeHTML(key) +
-        '<a class="source-link" href="data/apple-recovery-evidence.json" target="_blank">Public action notes & terminal result ↗</a>',
+        ('<a class="source-link" href="data/apple-recovery-evidence.json" target="_blank">Public action notes & terminal result ' +
+          reportIcon('external-link') +
+          '</a>'),
     );
     return;
   }
@@ -129,7 +131,7 @@ function initNarrative() {
   $('#mobile-content .finding-story').classList.add('report-prose');
   $('#mobile-content').insertAdjacentHTML(
     'beforeend',
-    `<div class="report-prose shift-analysis"><h3>Strong and balanced performance across perturbations</h3>${narrativeHTML('shifts')}<a class="appendix-link" href="#comparison" data-matrix-link="shifts" data-matrix-view="range">Performance across perturbations ↗</a></div>`,
+    `<div class="report-prose shift-analysis"><h3>Strong and balanced performance across perturbations</h3>${narrativeHTML('shifts')}<a class="appendix-link" href="#comparison" data-matrix-link="shifts" data-matrix-view="range">Performance across perturbations ${reportIcon('external-link')}</a></div>`,
   );
   $('#mobile-content .shift-analysis').before($('#cross-group-analysis'));
   initAnalysisInsights();

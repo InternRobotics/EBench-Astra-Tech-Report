@@ -1,9 +1,14 @@
+---
+import { icon } from '../../lib/icons.js';
+---
+
 <section id="comparison" class="section benchmark-details">
   <div class="section-inner">
     <div id="benchmark-matrix"></div>
     <p class="results-extra">
       <button class="appendix-link" data-appendix="generalization">
-        Compare object, scene and instruction perturbations ↗
+        Compare object, scene and instruction perturbations
+        <Fragment set:html={icon('external-link')} />
       </button>
     </p>
     <div class="explorer-links">
@@ -12,13 +17,13 @@
         target="_blank"
         rel="noopener"
       >
-        Explore EBench tasks <span>↗</span>
+        Explore EBench tasks <Fragment set:html={icon('external-link')} />
       </a>
       <button data-appendix="full-comparison">
-        All models And task groups <span>↗</span>
+        All models and task groups <Fragment set:html={icon('external-link')} />
       </button>
       <button data-appendix="ablation">
-        All paired ICL experiments <span>↗</span>
+        All paired ICL experiments <Fragment set:html={icon('external-link')} />
       </button>
     </div>
   </div>

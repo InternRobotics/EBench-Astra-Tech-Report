@@ -1,3 +1,7 @@
+---
+import { icon } from '../../lib/icons.js';
+---
+
 <section id="conclusion" class="section">
   <div class="section-inner">
     <h2>
@@ -108,7 +112,10 @@
         class="study-limitations-link"
         data-appendix="study-limitations"
       >
-        Study Limitations <span aria-hidden="true">↗</span>
+        Study Limitations{' '}
+        <span aria-hidden="true">
+          <Fragment set:html={icon('external-link')} />
+        </span>
       </button>
     </div>
   </div>

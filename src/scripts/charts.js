@@ -91,6 +91,7 @@ function initCharts() {
     let metric = 'sr',
       selected = available.map((_, i) => kind === 'overall' || i < 3);
     host.innerHTML = `<div class="chart-heading"><h4>${spec.title}</h4>${kind === 'perturbation' ? '<span>Success rate (%)</span>' : '<div class="chart-metrics" aria-label="Chart metric"><button data-metric="sr" aria-pressed="true">SR (%)</button><button data-metric="score" aria-pressed="false">Score</button></div>'}</div><div class="chart-series" aria-label="Models to compare">${available.map(([key, label, color], i) => `<button data-series="${i}" aria-pressed="${selected[i]}" style="--series:${color}"><i></i>${label}</button>`).join('')}</div><div class="chart-drawing"></div><p class="chart-readout" aria-live="polite"></p>${spec.note === '' ? '' : `<figcaption>${spec.note || 'Task-averaged performance within each attribute group.'}</figcaption>`}`;
+    initSegmentedControl(host.querySelector('.chart-metrics'));
     function draw() {
       const visible = available
         .map((m, i) => ({ ...{ key: m[0], label: m[1], color: m[2] }, index: i }))
@@ -229,11 +230,11 @@ function taskResultsMarkup() {
   const groupId = `task-group-${++taskControlId}`;
   const option = (value, label, count) =>
     `<button type="button" role="option" data-task-group="${value}" data-label="${label}" data-count="${count}" aria-selected="${value === 'all'}" tabindex="-1"><span>${label}</span><span class="task-option-count">${count}</span><svg class="task-option-check" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 8 3 3 7-7"/></svg></button>`;
-  return `<div class="task-explorer"><p><a class="appendix-link" href="data/report-tasks.csv" download>Download task data CSV ↗</a></p><div class="task-table-controls">
- <label class="task-search-field">Find task<span class="task-search-box"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4 4"/></svg><input class="task-search" type="search" placeholder="Search tasks"></span></label>
- <div class="task-control-field"><span class="task-control-label">Metric</span><input type="hidden" class="task-metric" value="sr"><div class="task-metric-switch" role="group" aria-label="Metric"><button type="button" data-task-metric="sr" aria-pressed="true">Success rate <small>%</small></button><button type="button" data-task-metric="score" aria-pressed="false">Score</button></div></div>
- <div class="task-control-field"><span class="task-control-label" id="${groupId}-label">Task attribute</span><input type="hidden" class="task-group" value="all"><details class="task-group-control"><summary aria-haspopup="listbox" aria-controls="${groupId}" aria-labelledby="${groupId}-label ${groupId}-value"><span id="${groupId}-value" class="task-group-value">All tasks</span><span class="task-selected-count">${tasks.length}</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary><div class="task-group-menu" role="listbox" id="${groupId}" aria-labelledby="${groupId}-label">${option('all', 'All tasks', tasks.length)}${taskGroupDimensions.map((d) => `<div class="task-option-group" role="group" aria-label="${d.label}"><span class="task-option-heading" aria-hidden="true">${d.label}</span>${d.values.map(([value, label]) => option(`${d.field}:${value}`, label, tasks.filter((t) => t[d.field] === value).length)).join('')}</div>`).join('')}</div></details></div>
- </div><p class="task-count fineprint" aria-live="polite"></p><div class="table-scroll task-table" tabindex="0" role="region" aria-label="26-task benchmark heatmap"></div><div class="heat-legend"><span>Shared absolute scale</span><span>0</span><i></i><span>1</span></div></div>`;
+  return `<div class="task-explorer"><div class="task-table-controls">
+ <label class="task-search-field">Find task<span class="task-search-box"><svg viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4 4"/></svg><input class="task-search" type="search" placeholder="Search tasks"></span></label>
+ <div class="task-control-field"><span class="task-control-label">Metric</span><input type="hidden" class="task-metric" value="sr"><div class="task-metric-switch" role="group" aria-label="Task table metric"><button type="button" data-task-metric="sr" aria-pressed="true">SR <small>(%)</small></button><button type="button" data-task-metric="score" aria-pressed="false">Score</button></div></div>
+ <div class="task-control-field"><span class="task-control-label" id="${groupId}-label">Task attribute</span><input type="hidden" class="task-group" value="all"><details class="task-group-control"><summary aria-haspopup="listbox" aria-expanded="false" aria-controls="${groupId}" aria-labelledby="${groupId}-label ${groupId}-value"><span id="${groupId}-value" class="task-group-value">All tasks</span><span class="task-selected-count">${tasks.length}</span>${reportIcon('chevron-down')}</summary><div class="task-group-menu" role="listbox" id="${groupId}" aria-labelledby="${groupId}-label">${option('all', 'All tasks', tasks.length)}${taskGroupDimensions.map((d) => `<div class="task-option-group" role="group" aria-label="${d.label}"><span class="task-option-heading" aria-hidden="true">${d.label}</span>${d.values.map(([value, label]) => option(`${d.field}:${value}`, label, tasks.filter((t) => t[d.field] === value).length)).join('')}</div>`).join('')}</div></details></div>
+ </div><div class="table-toolbar"><p class="task-count fineprint" aria-live="polite"></p><a class="table-download" href="data/report-tasks.csv" download title="Download task data (CSV)" aria-label="Download task data (CSV)">${reportIcon('download')}<span>CSV</span></a></div><div class="table-scroll task-table" tabindex="0" role="region" aria-label="26-task benchmark heatmap"></div><div class="heat-legend"><span>Shared absolute scale</span><span>0</span><i aria-hidden="true"></i><span class="task-scale-max">100%</span></div></div>`;
 }
 // Close attribute menus when focus or the pointer leaves their control.
 document.addEventListener('click', (event) =>
@@ -247,6 +248,7 @@ function initTaskTable() {
     root.dataset.tableBound = 'true';
     const orderedModels = chartModels;
     const host = root.querySelector('.task-table');
+    initSegmentedControl(root.querySelector('.task-metric-switch'));
     let sortKey = 'Astra (ICL)',
       descending = true;
     const draw = () => {
@@ -262,10 +264,29 @@ function initTaskTable() {
               : Number(a[sortKey + '_' + metric]) - Number(b[sortKey + '_' + metric]);
           return descending ? -delta : delta;
         });
-      root.querySelector('.task-count').textContent = `${rows.length} of ${tasks.length} tasks`;
+      const episodes = rows.reduce((total, task) => total + Number(task.episodes), 0);
+      root.querySelector('.task-count').textContent =
+        `${rows.length} of ${tasks.length} tasks · ${episodes} episodes per model`;
+      root.querySelector('.task-scale-max').textContent = metric === 'sr' ? '100%' : '1';
       const heading = (key, label) =>
-        `<th scope="col"${key === sortKey ? ` aria-sort="${descending ? 'descending' : 'ascending'}"` : ''}><button data-sort="${key}">${label}${key === sortKey ? (descending ? ' ↓' : ' ↑') : ''}</button></th>`;
-      host.innerHTML = `<table class="task-results"><thead><tr>${heading('task', 'Task')}<th>N</th>${orderedModels.map(([key, label]) => heading(key, label)).join('')}<th>Video</th></tr></thead><tbody>${rows.map((t) => `<tr><th scope="row">${title(t.task)}</th><td>${t.episodes}</td>${orderedModels.map(([key, label]) => `<td title="${title(t.task)} · ${label}: ${metric === 'sr' ? (Number(t[key + '_sr']) * 100).toFixed(2) + '%' : Number(t[key + '_score']).toFixed(4)}" style="background:${heatColor(Number(t[key + '_' + metric]))};color:${heatInk(Number(t[key + '_' + metric]))}"${key === 'Astra (ICL)' ? ' class="astra-cell"' : ''}>${metric === 'sr' ? (Number(t[key + '_sr']) * 100).toFixed(2) + '%' : Number(t[key + '_score']).toFixed(4)}</td>`).join('')}<td><button class="text-link" data-task-video="${t.task}">Watch ↗</button></td></tr>`).join('') || '<tr><td colspan="11">No matching tasks.</td></tr>'}</tbody></table>`;
+        `<th scope="col"${key === sortKey ? ` aria-sort="${descending ? 'descending' : 'ascending'}"` : ''}><button type="button" class="table-sort" data-sort="${key}" aria-label="Sort by ${label}"><span>${label}</span>${key === sortKey ? reportIcon('chevron-down') : ''}</button></th>`;
+      host.innerHTML = `<table class="report-table report-table--heat task-results"><thead><tr>${heading('task', 'Task')}${orderedModels.map(([key, label]) => heading(key, label)).join('')}<th scope="col">Video</th></tr></thead><tbody>${
+        rows
+          .map(
+            (t) =>
+              `<tr><th scope="row">${title(t.task)}</th>${orderedModels
+                .map(([key, label]) => {
+                  const value = Number(t[key + '_' + metric]);
+                  const formatted =
+                    metric === 'sr' ? (value * 100).toFixed(2) + '%' : value.toFixed(4);
+                  return `<td class="heat-value" data-value="${value}" data-metric="${metric}" title="${title(t.task)} · ${label}: ${formatted}" style="--heat:${heatColor(value)};--heat-ink:${heatInk(value)}">${formatted}</td>`;
+                })
+                .join(
+                  '',
+                )}<td><button type="button" class="table-video" data-task-video="${t.task}" title="Watch ${title(t.task)}" aria-label="Watch ${title(t.task)}">${reportIcon('play')}</button></td></tr>`,
+          )
+          .join('') || '<tr><td class="table-empty" colspan="10">No matching tasks.</td></tr>'
+      }</tbody></table>`;
     };
     const menu = root.querySelector('.task-group-control'),
       summary = menu.querySelector('summary'),
@@ -396,53 +417,45 @@ function heatInk(value) {
 }
 
 function initProfileChart(host, kind, spec) {
-  const available = chartModels;
   let metric = 'sr';
-  const highlighted = new Set(['Astra (ICL)', 'OpenWAM-Alpha']);
-  host.innerHTML = `<div class="chart-heading"><h4>${spec.title}</h4><div class="chart-metrics" aria-label="Chart metric"><button data-metric="sr" aria-pressed="true">SR (%)</button><button data-metric="score" aria-pressed="false">Score</button></div></div><div class="chart-series" aria-label="Models to emphasize">${available.map(([key, label, color]) => `<button data-series="${key}" aria-pressed="${highlighted.has(key)}" style="--series:${color}"><i></i>${label}</button>`).join('')}</div><div class="chart-drawing" data-viz-linked></div><p class="profile-note"><span><i></i>Dashed ring: highest-performing model</span></p><p class="chart-readout" aria-live="polite"></p>${spec.note === '' ? '' : `<figcaption>${spec.note || 'Task-averaged performance within each attribute group.'}</figcaption>`}`;
-  function groups() {
-    return spec.groups.map(([label, value]) => {
-      const subset = tasks.filter((t) => t[spec.field] === value);
-      const values = {};
-      for (const [key] of available)
-        values[key] = chartAggregate(key, metric, spec.field, value, subset);
-      return { label, sub: `${subset.length} tasks`, values };
-    });
-  }
+  host.classList.add('profile-table-chart');
+  host.innerHTML = `<div class="chart-heading"><h4>${spec.title}</h4><div class="chart-metrics" role="group" aria-label="${spec.title} metric"><button type="button" data-metric="sr" aria-pressed="true">SR (%)</button><button type="button" data-metric="score" aria-pressed="false">Score</button></div></div><div class="table-scroll profile-table-scroll" tabindex="0" role="region" aria-label="${spec.title} results"></div><figcaption>Equal-task means within each group. <strong>Bold</strong>: best in column; shaded row: GPT-6-Astra.</figcaption>`;
+  initSegmentedControl(host.querySelector('.chart-metrics'));
+
   function draw() {
-    const gs = groups();
-    viz.dotStrip(host.querySelector('.chart-drawing'), {
-      groups: gs,
-      metric,
-      highlight: [...highlighted],
-      title: spec.title,
+    const groups = spec.groups.map(([label, group]) => {
+      const subset = tasks.filter((task) => task[spec.field] === group);
+      // Keep the same published equal-task aggregates (and fallback) as the profile plots.
+      const values = chartModels.map(([key]) =>
+        chartAggregate(key, metric, spec.field, group, subset),
+      );
+      return { label, group, count: subset.length, values, best: Math.max(...values) };
     });
+    const format = (value) => (metric === 'sr' ? (value * 100).toFixed(2) + '%' : value.toFixed(4));
+    const metricLabel = metric === 'sr' ? 'Success rate (%)' : 'Score (0–1)';
+    host.querySelector('.profile-table-scroll').innerHTML =
+      `<table class="report-table report-table--plain profile-results" data-profile="${kind}" data-metric="${metric}" aria-label="${spec.title}: ${metricLabel}"><thead><tr><th scope="col">Model</th>${groups.map((group) => `<th scope="col" data-group="${group.group}">${group.label}<small>${group.count} tasks</small></th>`).join('')}</tr></thead><tbody>${chartModels
+        .map(
+          ([key, label], index) =>
+            `<tr data-model="${key}"${key === 'Astra (ICL)' ? ' class="astra-row"' : ''}><th scope="row">${label}</th>${groups
+              .map((group) => {
+                const value = group.values[index];
+                const best = value === group.best;
+                return `<td data-group="${group.group}" data-value="${value}" data-metric="${metric}"${best ? ' class="is-best"' : ''}>${best ? `<strong>${format(value)}</strong>` : format(value)}</td>`;
+              })
+              .join('')}</tr>`,
+        )
+        .join('')}</tbody></table>`;
   }
-  host.addEventListener('click', (e) => {
-    const metricButton = e.target.closest('[data-metric]'),
-      seriesButton = e.target.closest('[data-series]');
-    if (metricButton) {
-      metric = metricButton.dataset.metric;
-      host
-        .querySelectorAll('[data-metric]')
-        .forEach((b) => b.setAttribute('aria-pressed', String(b === metricButton)));
-    } else if (seriesButton) {
-      const key = seriesButton.dataset.series;
-      if (highlighted.has(key)) highlighted.delete(key);
-      else highlighted.add(key);
-      seriesButton.setAttribute('aria-pressed', String(highlighted.has(key)));
-    } else return;
+
+  host.addEventListener('click', (event) => {
+    const button = event.target.closest('button[data-metric]');
+    if (!button || button.dataset.metric === metric) return;
+    metric = button.dataset.metric;
+    host
+      .querySelectorAll('button[data-metric]')
+      .forEach((control) => control.setAttribute('aria-pressed', String(control === button)));
     draw();
   });
-  host.querySelector('.chart-drawing').addEventListener('pointerover', (e) => {
-    const d = e.target.closest('[data-tip]');
-    if (d)
-      host.querySelector('.chart-readout').textContent = d.dataset.tip
-        .replace(/<[^>]+>/g, ' ')
-        .replace(/\s+/g, ' ')
-        .trim();
-  });
-  viz.bindTips(host);
   draw();
-  viz.resizeRedraw(host, draw);
 }

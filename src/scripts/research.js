@@ -4,7 +4,7 @@ function modelLabel(id) {
 }
 function matrixCell(value, metric, best = false) {
   const label = metric === 'sr' ? (value * 100).toFixed(2) : value.toFixed(4);
-  return `<td><span class="heat-cell ${best ? 'is-best' : ''}" style="--heat:${heatColor(value)};--heat-ink:${heatInk(value)}">${label}</span></td>`;
+  return `<td class="heat-value${best ? ' is-best' : ''}" data-value="${value}" data-metric="${metric}" style="--heat:${heatColor(value)};--heat-ink:${heatInk(value)}" title="${metric === 'sr' ? 'Success rate: ' + label + '%' : 'Score: ' + label}${best ? ' · Best in column' : ''}">${label}</td>`;
 }
 function initBenchmarkMatrix() {
   const host = $('#benchmark-matrix');
@@ -33,13 +33,30 @@ function initBenchmarkMatrix() {
     ],
     ['fixed-high', 'Tabletop · high', (t) => t.mobility === 'Fixed' && t.precision === 'High'],
   ];
-  host.innerHTML = `<div class="matrix-heading"><div><h3>Complete benchmark comparison</h3></div><a href="data/report-main-results.csv" download>Download data ↗</a></div><p class="matrix-introduction" hidden></p><div class="matrix-tabs" role="tablist" aria-label="Benchmark tables"><button data-matrix="attributes" role="tab" aria-selected="true">Overall And task groups</button><button data-matrix="tasks" role="tab" aria-selected="false" tabindex="-1">All 26 tasks</button><button data-matrix="shifts" role="tab" aria-selected="false" tabindex="-1">Distribution shifts</button><button data-matrix="field" role="tab" aria-selected="false" tabindex="-1">GPT-6-Astra vs. field</button></div><div class="matrix-view-slot"></div><div class="matrix-metric" aria-label="Table metric"><button data-matrix-metric="sr" aria-pressed="true">Success rate (%)</button><button data-matrix-metric="score" aria-pressed="false">Score</button></div><div id="matrix-content" role="tabpanel"></div>`;
+  host.classList.add('benchmark-explorer');
+  host.innerHTML = `<div class="matrix-heading table-toolbar"><h3>Complete benchmark comparison</h3><a class="table-download matrix-download" href="data/report-main-results.csv" download title="Download benchmark data (CSV)" aria-label="Download benchmark data (CSV)">${reportIcon('download')}<span>CSV</span></a></div><div class="matrix-tabs" role="tablist" aria-label="Benchmark tables"><button type="button" id="matrix-tab-attributes" data-matrix="attributes" role="tab" aria-controls="matrix-content" aria-selected="true">Overall and task groups</button><button type="button" id="matrix-tab-tasks" data-matrix="tasks" role="tab" aria-controls="matrix-content" aria-selected="false" tabindex="-1">All 26 tasks</button><button type="button" id="matrix-tab-shifts" data-matrix="shifts" role="tab" aria-controls="matrix-content" aria-selected="false" tabindex="-1">Distribution shifts</button><button type="button" id="matrix-tab-field" data-matrix="field" role="tab" aria-controls="matrix-content" aria-selected="false" tabindex="-1">GPT-6-Astra vs. field</button></div><p class="matrix-introduction" hidden></p><div class="matrix-controls"><div class="matrix-metric" role="group" aria-label="Table metric"><button type="button" data-matrix-metric="sr" aria-pressed="true">SR (%)</button><button type="button" data-matrix-metric="score" aria-pressed="false">Score</button></div><div class="shift-view-switch" role="group" aria-label="Distribution shifts presentation" hidden><button type="button" data-shift-view="table" aria-pressed="true">Numerical comparison</button><button type="button" data-shift-view="range" aria-pressed="false">Success-rate ranges</button></div></div><div id="matrix-content" role="tabpanel" aria-labelledby="matrix-tab-attributes" tabindex="0"></div>`;
+  initSegmentedControl(host.querySelector('.matrix-tabs'), '[aria-selected="true"]', {
+    variant: 'underline',
+    keyboard: false,
+  });
+  initSegmentedControl(host.querySelector('.matrix-metric'));
+  initSegmentedControl(host.querySelector('.shift-view-switch'));
   function draw() {
-    const target = $('#matrix-content');
+    const target = host.querySelector('#matrix-content');
+    target.setAttribute('aria-labelledby', `matrix-tab-${mode}`);
     host.querySelector('.matrix-introduction').hidden = mode !== 'field';
-    host.querySelector('.matrix-view-slot').innerHTML = '';
+    host.querySelector('.matrix-controls').hidden = mode === 'tasks';
     host.querySelector('.matrix-metric').hidden =
       mode === 'tasks' || (mode === 'shifts' && shiftView === 'range');
+    host.querySelector('.shift-view-switch').hidden = mode !== 'shifts';
+    host
+      .querySelectorAll('[data-shift-view]')
+      .forEach((button) =>
+        button.setAttribute('aria-pressed', String(button.dataset.shiftView === shiftView)),
+      );
+    const download = host.querySelector('.matrix-download');
+    download.hidden = mode === 'tasks';
+    download.href = `data/report-${mode === 'shifts' ? 'generalization' : mode === 'field' ? 'tasks' : 'main-results'}.csv`;
     if (mode === 'tasks') {
       target.innerHTML = taskResultsMarkup();
       initTaskTable();
@@ -49,8 +66,6 @@ function initBenchmarkMatrix() {
       drawField(target);
       return;
     }
-    const shiftControls = `<div class="view-switch shift-view-switch" role="group" aria-label="Distribution shifts presentation"><button data-shift-view="table" aria-pressed="${shiftView === 'table'}">Numerical comparison</button><button data-shift-view="range" aria-pressed="${shiftView === 'range'}">Success-rate ranges</button></div>`;
-    if (mode === 'shifts') host.querySelector('.matrix-view-slot').innerHTML = shiftControls;
     if (mode === 'shifts' && shiftView === 'range') {
       target.innerHTML =
         '<div class="matrix-perturbation-ranges"></div><p class="fineprint">Range is the highest minus the lowest condition success rate.</p>';
@@ -66,7 +81,7 @@ function initBenchmarkMatrix() {
         : ['Low', 'Medium', 'High', 'Mobile', 'Tabletop', 'Short', 'Long'];
     const systems = [...reportFigures.models].sort((a, b) => b.sr - a.sr),
       max = (get) => Math.max(...systems.map(get));
-    target.innerHTML = `<div class="table-scroll benchmark-scroll" tabindex="0" role="region" aria-label="Eight-model comparison"><table class="benchmark-table"><thead><tr><th rowspan="2" scope="col">Model</th>${shifts ? '<th colspan="4" scope="colgroup">Controlled perturbations</th>' : '<th colspan="2" scope="colgroup">Overall</th><th colspan="3" scope="colgroup">Precision</th><th colspan="2" scope="colgroup">Mobility</th><th colspan="2" scope="colgroup">Horizon</th>'}</tr><tr>${shifts ? '' : '<th>SR (%)</th><th>Score</th>'}${labels.map((l) => `<th scope="col">${l}</th>`).join('')}</tr></thead><tbody>${systems
+    target.innerHTML = `<div class="table-scroll benchmark-scroll" tabindex="0" role="region" aria-label="Eight-model comparison: ${shifts ? 'controlled perturbations' : 'overall and task groups'}"><table class="report-table report-table--heat benchmark-table${shifts ? ' benchmark-table--shifts' : ''}"><thead><tr><th rowspan="2" scope="col">Model</th>${shifts ? '<th colspan="4" scope="colgroup">Controlled perturbations</th>' : '<th colspan="2" scope="colgroup">Overall</th><th colspan="3" scope="colgroup">Precision</th><th colspan="2" scope="colgroup">Mobility</th><th colspan="2" scope="colgroup">Horizon</th>'}</tr><tr>${shifts ? '' : '<th scope="col">SR (%)</th><th scope="col">Score</th>'}${labels.map((l) => `<th scope="col">${l}</th>`).join('')}</tr></thead><tbody>${systems
       .map(
         (m) =>
           `<tr class="${m.id === 'Astra (ICL)' ? 'astra-row' : ''}"><th scope="row">${modelLabel(m.id)}<small>${m.id === 'Astra (ICL)' ? 'single-shot ICL' : ''}</small></th>${shifts ? '' : matrixCell(m.sr, 'sr', m.sr === max((x) => x.sr)) + matrixCell(m.score, 'score', m.score === max((x) => x.score))}${groups
@@ -82,7 +97,7 @@ function initBenchmarkMatrix() {
       )
       .join(
         '',
-      )}</tbody></table></div><div class="heat-legend"><span>${metric === 'sr' ? 'Success rate (%)' : 'Score'}</span><span>0</span><i></i><span>${metric === 'sr' ? '100' : '1'}</span></div>`;
+      )}</tbody></table></div><div class="heat-legend"><span>${shifts ? '' : 'Task groups · '}${metric === 'sr' ? 'Success rate (%)' : 'Score'}</span><span>0</span><i aria-hidden="true"></i><span>${metric === 'sr' ? '100' : '1'}</span><span>Bold: best in column</span></div>`;
   }
   function drawField(target) {
     const referenceLabel =
@@ -207,51 +222,8 @@ function renderPoc(area) {
     ['openwam-poc-1', 'OpenWAM · Rollout 1', 'Pen-directed; bookmark remains off'],
     ['openwam-poc-2', 'OpenWAM · Rollout 2', 'Bookmark placed; pen untouched'],
   ];
-  area.innerHTML = `<div class="case-heading"><h4>Atomic task execution does not guarantee compositional completion</h4></div><div class="case-description report-prose"><p>We further evaluate a composite task that requires placing a bookmark and a pen on the same open book. Bookmark on Book appears in the robot-policy training set, whereas Pen on Book does not. This setting therefore tests more than the sequencing of two familiar tasks: the combined objective includes an atomic task absent from the robot-policy training data. Across 10 rollouts per method, GPT-6-Astra achieved a 100% success rate, whereas π₀.₅ and OpenWAM both achieved 0% success, with mean scores of 0.40 and 0.35, respectively. Partial credit of 0.5 points is awarded for correctly completing the first object placement in the prescribed sequence.</p><p>GPT-6-Astra, evaluated zero-shot without in-context demonstrations, places the bookmark and then the pen on the book in the required order. The specialized policies instead either manipulate the pen or place the bookmark without proceeding with execution. Their pen-directed behavior suggests partial generalization to a task absent from the post-training data, yet this transfer does not translate into successful execution of the compound instruction. One plausible contributing factor is limited coverage of sequential tasks in the training data. This could help explain why a policy engages one constituent manipulation but fails to organize the complete sequence.</p></div><div class="poc-controls"><div class="focus-switch" aria-label="Composition model view"><button data-poc-focus="all" aria-pressed="true">Compare all</button>${entries.map(([_, name], i) => `<button data-poc-focus="${i}" aria-pressed="false">${name}</button>`).join('')}</div><button class="poc-play">Play all ▷</button></div><div class="poc-videos">${entries.map(([file, name, condition]) => video(`media/poc/${file}.mp4`, name, condition, 'Compositional evaluation')).join('')}</div><div class="case-insight"><p>Together, these results highlight GPT-6-Astra’s advantage in translating a compound instruction into a complete, correctly ordered sequence of manipulations without in-context demonstrations. Specialized policies instead focus on individual constituent manipulations, suggesting that atomic-task generalization alone does not ensure successful composition. Improving compositional execution may therefore require more than expanding atomic-task coverage: training could benefit from data that span subtask boundaries and capture continuation from the states left by preceding actions.</p></div>`;
-  const modelChoices = area.querySelector('.focus-switch');
-  modelChoices.className = 'case-recording-tabs';
-  area.querySelector('.poc-controls').before(modelChoices);
-  tabKeyboard(modelChoices, 'button');
-  area.querySelectorAll('[data-poc-focus]').forEach((b) =>
-    b.addEventListener('click', () => {
-      const focus = b.dataset.pocFocus;
-      area.querySelector('.poc-videos').dataset.focus = focus;
-      area
-        .querySelectorAll('[data-poc-focus]')
-        .forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-      area.querySelectorAll('.evidence-video').forEach((f, i) => {
-        f.hidden = focus !== 'all' && +focus !== i;
-        if (f.hidden) f.querySelector('video').pause();
-      });
-    }),
-  );
-  area.querySelector('.poc-play').addEventListener('click', async () => {
-    const visible = [...area.querySelectorAll('.evidence-video:not([hidden]) video')],
-      play = visible.every((v) => v.paused);
-    for (const v of visible) {
-      if (play) {
-        if (!v.src) v.src = v.dataset.src;
-        v.muted = true;
-        try {
-          await v.play();
-        } catch {
-          v.controls = true;
-        }
-      } else v.pause();
-    }
-  });
-  for (const event of ['play', 'pause', 'ended'])
-    area.querySelector('.poc-videos').addEventListener(
-      event,
-      () => {
-        area.querySelector('.poc-play').textContent = [...area.querySelectorAll('video')].some(
-          (v) => !v.paused && !v.ended,
-        )
-          ? 'Pause all Ⅱ'
-          : 'Play all ▷';
-      },
-      true,
-    );
+  area.innerHTML = `<div class="case-heading"><h4>Atomic task execution does not guarantee compositional completion</h4></div><div class="case-description report-prose"><p>We further evaluate a composite task that requires placing a bookmark and a pen on the same open book. Bookmark on Book appears in the robot-policy training set, whereas Pen on Book does not. This setting therefore tests more than the sequencing of two familiar tasks: the combined objective includes an atomic task absent from the robot-policy training data. Across 10 rollouts per method, GPT-6-Astra achieved a 100% success rate, whereas π₀.₅ and OpenWAM both achieved 0% success, with mean scores of 0.40 and 0.35, respectively. Partial credit of 0.5 points is awarded for correctly completing the first object placement in the prescribed sequence.</p><p>GPT-6-Astra, evaluated zero-shot without in-context demonstrations, places the bookmark and then the pen on the book in the required order. The specialized policies instead either manipulate the pen or place the bookmark without proceeding with execution. Their pen-directed behavior suggests partial generalization to a task absent from the post-training data, yet this transfer does not translate into successful execution of the compound instruction. One plausible contributing factor is limited coverage of sequential tasks in the training data. This could help explain why a policy engages one constituent manipulation but fails to organize the complete sequence.</p></div><div class="case-video-toolbar"><div class="case-model-tabs" aria-label="Composition model view"><button type="button" data-poc-focus="all" aria-pressed="true">Compare all</button>${entries.map(([_, name], i) => `<button type="button" data-poc-focus="${i}" aria-pressed="false">${i === 0 ? 'Astra' : i === 1 ? 'π0.5' : name}</button>`).join('')}</div><button type="button" class="case-play poc-play" aria-label="Play all" aria-pressed="false">${reportIcon('play')}<span>Play all</span></button></div><div class="poc-videos">${entries.map(([file, name, condition]) => video(`media/poc/${file}.mp4`, name, condition, 'Compositional evaluation')).join('')}</div><div class="case-insight"><p>Together, these results highlight GPT-6-Astra’s advantage in translating a compound instruction into a complete, correctly ordered sequence of manipulations without in-context demonstrations. Specialized policies instead focus on individual constituent manipulations, suggesting that atomic-task generalization alone does not ensure successful composition. Improving compositional execution may therefore require more than expanding atomic-task coverage: training could benefit from data that span subtask boundaries and capture continuation from the states left by preceding actions.</p></div>`;
+  enhanceCaseControls(area);
   initVideos();
 }
 function initBehavior() {
@@ -287,7 +259,7 @@ function initBehavior() {
   function draw(key) {
     const d = entries[key];
     $('#behavior-content').innerHTML =
-      `<div class="behavior-evidence"><div><h3>${d.heading}</h3><dl class="trace-excerpt"><dt>${key === 'coffee' ? 'Supplied execution guidance' : 'Live task instruction'}</dt><dd>${d.input}</dd><dt>Recorded action description</dt><dd>${d.action}</dd></dl><p>${d.body}</p><button class="appendix-link" data-appendix="behavior">Read the report annotations ↗</button></div>${video(`media/cases/${d.task}_${d.seed}-web.mp4`, title(d.task), '', `${key === 'apple' ? 'Success' : 'Incomplete'} (Score ${d.score.toFixed(2)})`)}</div>`;
+      `<div class="behavior-evidence"><div><h3>${d.heading}</h3><dl class="trace-excerpt"><dt>${key === 'coffee' ? 'Supplied execution guidance' : 'Live task instruction'}</dt><dd>${d.input}</dd><dt>Recorded action description</dt><dd>${d.action}</dd></dl><p>${d.body}</p><button class="appendix-link" data-appendix="behavior">Read the report annotations ${reportIcon('external-link')}</button></div>${video(`media/cases/${d.task}_${d.seed}-web.mp4`, title(d.task), '', `${key === 'apple' ? 'Success' : 'Incomplete'} (Score ${d.score.toFixed(2)})`)}</div>`;
     updateBehaviorNarrative(key);
     initVideos();
   }
@@ -321,7 +293,10 @@ function initDemoLibrary() {
           d &&
           title(t.task).toLowerCase().includes(query) &&
           matchesTaskGroup(t, group) &&
-          (outcome === 'all' || (outcome === 'success' ? d.sr : !d.sr)),
+          (outcome === 'all' ||
+            (outcome === 'success'
+              ? d.sr
+              : !d.sr && (outcome === 'failed' ? d.score === 0 : d.score > 0))),
       ),
       pages = Math.max(1, Math.ceil(filtered.length / size));
     page = Math.min(page, pages - 1);
@@ -336,9 +311,9 @@ function initDemoLibrary() {
         .slice(page * size, page * size + size)
         .map(
           ({ task: t, demo: d }) =>
-            `<article class="library-item">${video(d.path, title(t.task), `Task SR <b>${pct(t['Astra (ICL)_sr'])}%</b> across ${t.episodes} episodes`, `${d.sr ? 'Success' : 'Incomplete'} (Score ${d.score.toFixed(2)})`)}</article>`,
+            `<article class="recording-library__item">${video(d.path, title(t.task), `Task SR <b>${pct(t['Astra (ICL)_sr'])}%</b> across ${t.episodes} episodes`, `${d.sr ? 'Success' : d.score > 0 ? 'Incomplete' : 'Failed'} (Score ${d.score.toFixed(2)})`)}</article>`,
         )
-        .join('') || '<p>No tasks match these filters.</p>';
+        .join('') || '<p class="recording-library__empty">No tasks match these filters.</p>';
     $('#library-count').textContent =
       `${filtered.length} tasks · ${filtered.length ? page * size + 1 : 0}–${Math.min((page + 1) * size, filtered.length)} shown`;
     $('#demo-page').textContent = `${page + 1} / ${pages}`;
@@ -369,29 +344,31 @@ async function initEpisodeOutcomes() {
       { id: 'success', name: 'Complete success', color: '#3456ef', test: (d) => d.sr === 1 },
       {
         id: 'partial',
-        name: 'Incomplete (positive Score)',
+        name: 'Incomplete',
         color: '#9eaff9',
         test: (d) => d.sr === 0 && d.score > 0,
       },
       {
         id: 'zero',
-        name: 'Incomplete (zero Score)',
+        name: 'Failed',
         color: '#dce1eb',
         test: (d) => d.sr === 0 && d.score === 0,
       },
-    ];
+    ].map((g) => ({ ...g, count: episodes.filter(g.test).length }));
   const ordered = groups.flatMap((g) =>
-    episodes.filter(g.test).map((d) => ({ ...d, group: g.id, color: g.color })),
+    episodes
+      .filter(g.test)
+      .map((d) => ({ ...d, group: g.id, outcomeName: g.name, color: g.color })),
   );
+  const summary = `${episodes.length} episodes: ${groups.map((g) => `${g.name} ${g.count}`).join(', ')}.`;
   $('#episode-outcomes').innerHTML =
-    `<div class="outcome-layout"><svg viewBox="0 0 480 286" role="img" aria-label="510 episodes: 237 complete successes, 188 incomplete with positive score, 85 incomplete with zero score">${ordered.map((d, i) => `<circle data-outcome="${d.group}" data-index="${i}" cx="${8 + (i % 30) * 16}" cy="${9 + Math.floor(i / 30) * 16}" r="5.2" fill="${d.color}"><title>${title(d.task)} / ${d.seed}: SR ${d.sr}, Score ${d.score}</title></circle>`).join('')}</svg><div class="outcome-legend">${groups
+    `<div class="outcome-layout"><svg viewBox="0 0 480 286" role="img" aria-label="${summary}">${ordered.map((d, i) => `<circle data-outcome="${d.group}" data-index="${i}" cx="${8 + (i % 30) * 16}" cy="${9 + Math.floor(i / 30) * 16}" r="5.2" fill="${d.color}"><title>${title(d.task)} / ${d.seed}: ${d.outcomeName} · SR ${d.sr}, Score ${d.score}</title></circle>`).join('')}</svg><div class="outcome-legend">${groups
       .map((g) => {
-        const n = episodes.filter(g.test).length;
-        return `<button data-outcome-filter="${g.id}" aria-pressed="false" style="--outcome:${g.color}"><span class="outcome-name">${g.name}</span><strong>${n}</strong><small>${((n / episodes.length) * 100).toFixed(1)}% of episodes</small></button>`;
+        return `<button type="button" data-outcome-filter="${g.id}" aria-pressed="false" style="--outcome:${g.color}"><span class="outcome-name">${g.name}</span><strong>${g.count}</strong><small>${((g.count / episodes.length) * 100).toFixed(1)}% of episodes</small></button>`;
       })
       .join(
         '',
-      )}</div></div><p class="outcome-readout" aria-live="polite"></p><p class="fineprint">Episode-weighted success is 46.47%; the headline 46.73% is the equal-weight mean across tasks. Partial Score follows each task’s scoring rules.</p>`;
+      )}</div></div><p class="outcome-readout" aria-live="polite" aria-atomic="true"></p><p class="outcome-definition">Complete success: SR = 1; Incomplete: SR = 0 and Score > 0; Failed: SR = 0 and Score = 0.</p><p class="fineprint">Episode-weighted success is 46.47%; the headline 46.73% is the equal-weight mean across tasks. Partial Score follows each task’s scoring rules.</p>`;
   const host = $('#episode-outcomes');
   host.addEventListener('click', (e) => {
     const button = e.target.closest('[data-outcome-filter]');
@@ -404,12 +381,10 @@ async function initEpisodeOutcomes() {
     host
       .querySelectorAll('circle')
       .forEach((c) => (c.style.opacity = active && c.dataset.outcome !== key ? '.13' : '1'));
+    const group = groups.find((g) => g.id === key);
     host.querySelector('.outcome-readout').textContent = active
-      ? groups.find((g) => g.id === key).name +
-        ' · ' +
-        episodes.filter(groups.find((g) => g.id === key).test).length +
-        ' episodes highlighted'
-      : 'All 510 episodes shown.';
+      ? `${group.name} · ${group.count}/${episodes.length} episodes (${((100 * group.count) / episodes.length).toFixed(2)}%) highlighted.`
+      : `All ${episodes.length} episodes shown.`;
   });
   host.addEventListener('pointerover', (e) => {
     const c = e.target.closest('circle');
@@ -449,8 +424,7 @@ function initSafetyEvidence() {
       path: 'collect_coffee_beans_009-web.mp4',
       label: 'Collect coffee beans',
       result: 'Failed (Score 0.07)',
-      observation:
-        'GPT-6-Astra repeatedly reorients the held jar and spoon into <strong>awkward end-effector poses</strong>. The jar interferes with the table edge; later, the spoon contacts the edge during sweeping, followed by further grasp attempts around the displaced lid. In a related detergent failure, bottles fall over and the basket rim obstructs subsequent manipulation (<a href="media/cases/detergent_000-web.mp4" target="_blank" rel="noopener">Video link ↗</a>).',
+      observation: `GPT-6-Astra repeatedly reorients the held jar and spoon into <strong>awkward end-effector poses</strong>. The jar interferes with the table edge; later, the spoon contacts the edge during sweeping, followed by further grasp attempts around the displaced lid. In a related detergent failure, bottles fall over and the basket rim obstructs subsequent manipulation (<a href="media/cases/detergent_000-web.mp4" target="_blank" rel="noopener">Video link ${reportIcon('external-link')}</a>).`,
       risk: '<strong>EEF pose selection must account for both the robot’s configuration and the held object’s interaction with the scene.</strong> These awkward poses create unsafe motion demands for a physical robot. Insufficient attention to clearance and contact also disrupts the manipulation itself: correcting the wrist pose after interference does not undo the resulting displacement of objects.',
       question:
         'Safe manipulation requires coordinated planning of arm posture, object orientation and scene contact.',
