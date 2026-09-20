@@ -101,3 +101,42 @@
     </ol>
   </div>
 </section>
+
+<style is:global>
+  @layer layout {
+    .report-reference-list {
+      padding-left: 1.75rem;
+      margin: 0;
+      list-style: none;
+      counter-reset: reference;
+    }
+
+    .report-reference-list li {
+      position: relative;
+      counter-increment: reference;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+      overflow-wrap: anywhere;
+    }
+
+    .report-reference-list li:before {
+      content: '[' counter(reference) ']';
+      position: absolute;
+      right: calc(100% + 0.4rem);
+      color: var(--muted);
+    }
+
+    .report-reference-list cite {
+      font-style: italic;
+    }
+
+    .study-limitations-link {
+      font-size: var(--text);
+      background: none;
+      border: 0;
+      padding: 0;
+      color: var(--accent);
+    }
+  }
+</style>

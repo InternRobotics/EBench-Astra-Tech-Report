@@ -47,3 +47,75 @@
 }</code></pre>
   </div>
 </footer>
+
+<style is:global>
+  @layer layout {
+    .report-footer {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+      gap: 3rem;
+      background: var(--deep);
+      padding: 3rem max(var(--gutter), calc((100% - var(--reading-width)) / 2));
+      color: #d9e4f4;
+      margin-top: 2rem;
+    }
+
+    .report-footer p,
+    .report-footer a {
+      color: #d9e4f4;
+    }
+
+    .footer-identity strong {
+      font-size: 1.5rem;
+    }
+
+    .footer-identity p {
+      font-size: var(--small);
+      margin-top: 1rem;
+    }
+
+    .footer-resource-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-size: var(--small);
+      margin: 2rem 0;
+    }
+
+    .footer-marks {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+
+    .footer-marks a {
+      display: block;
+      max-width: 46%;
+    }
+
+    .footer-marks img {
+      width: 100%;
+      height: auto;
+    }
+
+    .report-citation {
+      min-width: 0;
+    }
+
+    .citation-prompt {
+      font-size: 1.25rem;
+    }
+
+    .report-citation pre {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-size: 0.875rem;
+      line-height: 1.7;
+      background: #1e3049;
+      border: 1px solid #465a75;
+      border-radius: 0.4rem;
+      padding: 1.5rem;
+      margin: 0;
+    }
+  }
+</style>

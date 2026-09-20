@@ -36,3 +36,55 @@
     <a href="#references">References</a>
   </nav>
 </aside>
+
+<style is:global>
+  @layer layout {
+    .report-toc {
+      position: fixed;
+      inset: var(--header-height) auto 0 0;
+      width: var(--rail-width);
+      z-index: 50;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      background: #eef1f6f5;
+      border-right: 1px solid var(--line);
+      padding: 1.25rem 0.75rem;
+    }
+
+    .report-toc nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .report-toc a {
+      display: block;
+      color: var(--muted);
+      font-size: 1.125rem;
+      line-height: 1.4;
+      padding: 0.6rem 0.75rem;
+      border-left: 2px solid transparent;
+      overflow-wrap: break-word;
+    }
+
+    .report-toc a[aria-current] {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      font-weight: 700;
+      color: #3049b7;
+    }
+
+    .report-toc .toc-subsection {
+      padding-left: 1.6rem;
+    }
+
+    .toc-title {
+      display: none;
+    }
+
+    body[data-toc-open='false'] .report-toc {
+      visibility: hidden;
+      pointer-events: none;
+    }
+  }
+</style>
