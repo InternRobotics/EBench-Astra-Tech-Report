@@ -135,7 +135,7 @@ h2:hover .anchor-link,.anchor-link:focus-visible{opacity:1}
 .chart-readout:empty,.insight-readout:empty,.outcome-readout:empty,.episode-caption:empty{display:none}
 
 /* Match the author's preferred 125% reading scale on desktop. */
-html{zoom:1.25}
+html{zoom:1}
 
 /* A single headline metric with a compact secondary score on its baseline. */
 #overall .metric-values{display:grid;grid-template-columns:max-content max-content;align-items:baseline;gap:12px 20px;white-space:normal}
@@ -338,8 +338,8 @@ body>main>#introduction{padding-inline:252px;padding-top:38px}
 
 .case-videos .video-label strong{font-size:18px;line-height:1.5;color:#395577}
 
-/* Keep dialog chrome inside the viewport at the report's 125% scale. */
-#appendix-dialog,#appendix-dialog.icl-dialog{max-width:calc((100vw - 48px)/1.25);max-height:calc((100dvh - 48px)/1.25);overflow:hidden}
+/* Keep dialog chrome inside the viewport at the report's normal scale. */
+#appendix-dialog,#appendix-dialog.icl-dialog{max-width:calc(100vw - 48px);max-height:calc(100dvh - 48px);overflow:hidden}
 #appendix-dialog[open]{display:flex;flex-direction:column}
 #appendix-dialog .dialog-heading{position:relative;flex:0 0 auto;gap:24px;padding:12px 20px;color:#445a76;font-size:12px;letter-spacing:.06em;background:#e8edf5}
 #appendix-body{min-height:0;overflow:auto;overscroll-behavior:contain}

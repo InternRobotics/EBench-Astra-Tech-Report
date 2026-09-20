@@ -6,7 +6,7 @@ const reportNarrative = {
     "To find out, we turned to <strong><a class=\"ebench-inline-link\" href=\"https://github.com/InternRobotics/EBench\" target=\"_blank\" rel=\"noopener\">EBench</a></strong>. Built on Isaac Sim, EBench evaluates physical interactions across household, retail and industrial settings, with controlled variations in objects, backgrounds and instructions. We use it to map where GPT-6-Astra and existing policies differ, and what each can learn from the other."
   ],
   "overall": [
-    "With one historical demonstration per task, GPT-6-Astra <strong>ranks second among eight models</strong> on both success rate and partial-completion Score, behind OpenWAM-α by <strong>8.59 percentage points</strong> in success rate. This result compares task-specific adaptation from one demonstration with policies trained on the EBench dataset.",
+    "With one historical demonstration per task, GPT-6-Astra <strong>ranks second among the eight models analyzed below</strong> on both success rate and partial-completion Score, behind OpenWAM-α by <strong>8.59 percentage points</strong> in success rate. This result compares task-specific adaptation from one demonstration with policies trained on the EBench dataset.",
     "The agent <strong>leads all eight models on the 12 mobile, short-horizon tasks</strong> and falls behind on <strong>tabletop and long-horizon tasks</strong>. The aggregate result combines large leads on some tasks with large deficits on others. <strong>Task-level results locate these gaps; execution videos and interaction logs help explain how they arise.</strong> We examine where the models differ, how execution fails, and how the agent responds to those failures."
   ],
   "mobile": [

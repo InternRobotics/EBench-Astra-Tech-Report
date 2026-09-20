@@ -11,7 +11,7 @@ const tasks=JSON.parse(fs.readFileSync('dist/data/tasks.json','utf8'));
 const demos=JSON.parse(fs.readFileSync('dist/data/demo-videos.json','utf8'));
 const context=vm.createContext({
  document:{addEventListener(){},querySelector:node,querySelectorAll(){return [];}},
- $:node,tasks,demos,title:value=>value.replaceAll('_',' '),pct:value=>Number(value)*100,
+ $:node,tasks,demos,reportFigures:JSON.parse(fs.readFileSync('dist/data/report-figures.json','utf8')),title:value=>value.replaceAll('_',' '),pct:value=>Number(value)*100,
  video:(path,label)=>`<video src="${path}" aria-label="${label}"></video>`,initVideos(){}
 });
 for(const file of ['charts.js','research.js','narrative.js'])vm.runInContext(fs.readFileSync(`dist/${file}`,'utf8'),context,{filename:file});
@@ -31,3 +31,13 @@ node('#demo-next').listeners.click();
 assert.equal(node('#demo-page').textContent,'2 / 2');
 assert.equal((node('#library-grid').innerHTML.match(/class="library-item"/g)||[]).length,1);
 console.log('Startup checks: all three introduction paragraphs, library rendering, subgroup filtering and pagination pass.');
+
+// The extra leaderboard submission belongs only to the overall ranking.
+const ranking=JSON.parse(vm.runInContext('JSON.stringify(overallRanking())',context));
+assert.deepEqual(ranking.map(m=>m.key),['OpenWAM-Alpha','AMapbot','Astra (ICL)','Qwen-RobotManip','Pi05','InternVLA-A1.5','Pi0','GigaBrain-0.7','FastWAM']);
+assert.equal(ranking[1].sr,.4891);assert.equal(ranking[1].score,.6386);
+const scoreRanking=JSON.parse(vm.runInContext("JSON.stringify(overallRanking('score'))",context));
+assert.deepEqual(scoreRanking.map(m=>m.key),['OpenWAM-Alpha','Astra (ICL)','AMapbot','Qwen-RobotManip','Pi05','Pi0','InternVLA-A1.5','GigaBrain-0.7','FastWAM']);
+assert.equal(vm.runInContext('chartModels.length',context),8);
+assert.equal(vm.runInContext("chartModels.some(m=>m[0]==='AMapbot')",context),false);
+console.log('Overall ranking: nine entries sorted for both metrics; detailed analysis retains eight models.');

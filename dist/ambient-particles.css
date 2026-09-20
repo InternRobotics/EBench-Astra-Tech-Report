@@ -1,5 +1,5 @@
 /* Preserve the desktop composition at every window width. */
-html{zoom:1.25}
+html{zoom:1}
 body{min-width:1360px;isolation:isolate}
 .header nav a{white-space:nowrap}
 

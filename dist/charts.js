@@ -4,6 +4,13 @@ const chartModels = [
  ['InternVLA-A1.5','InternVLA-A1.5','#9b8ed0'],['Pi0','π₀','#9aa8bd'],
  ['GigaBrain-0.7','GigaBrain-0.7','#bac4d8'],['FastWAM','Fast-WAM','#7e9fbd']
 ];
+// Archived leaderboard snapshot, September 17, 2026: recheck-20260917/ranking.json.
+// This submission is shown only in the overall ranking, not the analysis cohort.
+const overallOnlyModel={key:'AMapbot',label:'AMapbot',sr:0.4891,score:0.6386,color:'#627c99'};
+const overallChartModels=[...chartModels,[overallOnlyModel.key,overallOnlyModel.label,overallOnlyModel.color]];
+function overallRanking(metric='sr'){
+ return overallChartModels.map(([key,label])=>({key,label,sr:chartAggregate(key,'sr',null,null,tasks),score:chartAggregate(key,'score',null,null,tasks)})).sort((a,b)=>b[metric]-a[metric]);
+}
 const chartSpecs = {
  overall:{title:'Overall benchmark performance',groups:[['All tasks',null]],note:''},
  mobility:{title:'Performance by mobility',field:'mobility',groups:[['Mobile','Mobile'],['Tabletop','Fixed']]},
@@ -15,12 +22,13 @@ function reportChart(kind){return `<figure class="report-chart" data-chart="${ki
 function initCharts(){document.querySelectorAll('[data-chart]:not([data-chart-ready])').forEach(host=>{
  host.dataset.chartReady='true';const kind=host.dataset.chart,spec=chartSpecs[kind];
  if(['mobility','precision','horizon'].includes(kind)){initProfileChart(host,kind,spec);return;}
- const available=kind==='perturbation'?chartModels.slice(0,4):chartModels;
+ const available=kind==='overall'?overallChartModels:kind==='perturbation'?chartModels.slice(0,4):chartModels;
  let metric='sr',selected=available.map((_,i)=>kind==='overall'||i<3);
  host.innerHTML=`<div class="chart-heading"><h4>${spec.title}</h4>${kind==='perturbation'?'<span>Success rate (%)</span>':'<div class="chart-metrics" aria-label="Chart metric"><button data-metric="sr" aria-pressed="true">SR (%)</button><button data-metric="score" aria-pressed="false">Score</button></div>'}</div><div class="chart-series" aria-label="Models to compare">${available.map(([key,label,color],i)=>`<button data-series="${i}" aria-pressed="${selected[i]}" style="--series:${color}"><i></i>${label}</button>`).join('')}</div><div class="chart-drawing"></div><p class="chart-readout" aria-live="polite"></p>${spec.note===''?'':`<figcaption>${spec.note||'Task-averaged performance within each attribute group.'}</figcaption>`}`;
  function draw(){
   const visible=available.map((m,i)=>({...{key:m[0],label:m[1],color:m[2]},index:i})).filter(m=>selected[m.index]);
   const groups=spec.groups.map(([label,value],gi)=>{const subset=tasks.filter(t=>!spec.field||t[spec.field]===value);return {label:label+(spec.field?` · ${subset.length} tasks`:''),values:visible.map(m=>({...m,value:spec.values?spec.values[m.index][gi]:chartAggregate(m.key,metric,spec.field,value,subset)*(metric==='sr'?100:1)}))};});
+  if(kind==='overall')groups.forEach(group=>group.values.sort((a,b)=>b.value-a.value));
   const width=Math.max(280,Math.min(760,host.clientWidth)),left=width<500?132:158,right=62,plot=width-left-right,row=27,groupGap=34,height=52+groups.length*(visible.length*row+groupGap);
   const fmt=v=>metric==='sr'?v.toFixed(2)+'%':v.toFixed(4), max=metric==='sr'?100:1;
   let svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" role="group" aria-label="${spec.title}: ${metric==='sr'?'success rate':'Score'}" font-family="Times New Roman, Times, serif" font-size="12">`;
@@ -85,7 +93,7 @@ function initTaskTable(){document.querySelectorAll('.task-explorer:not([data-tab
  });
  root.querySelector('.task-search').addEventListener('input',draw);host.addEventListener('click',e=>{const b=e.target.closest('[data-sort]');if(!b)return;descending=b.dataset.sort===sortKey?!descending:b.dataset.sort!=='task';sortKey=b.dataset.sort;draw();host.querySelector(`[data-sort="${sortKey}"]`).focus();});draw();});}
 
-function chartAggregate(key,metric,field,group,subset){const model=reportFigures.models?.find(m=>m.id===key);if(model){const value=field?model.groups[group]?.[metric]:model[metric];if(value!==undefined)return value;}return subset.reduce((sum,t)=>sum+Number(t[key+'_'+metric]),0)/subset.length;}
+function chartAggregate(key,metric,field,group,subset){if(key===overallOnlyModel.key&&!field)return overallOnlyModel[metric];const model=reportFigures.models?.find(m=>m.id===key);if(model){const value=field?model.groups[group]?.[metric]:model[metric];if(value!==undefined)return value;}return subset.reduce((sum,t)=>sum+Number(t[key+'_'+metric]),0)/subset.length;}
 
 // Shared absolute scale for both heatmaps, with luminance-based text contrast.
 function heatRGB(value){
