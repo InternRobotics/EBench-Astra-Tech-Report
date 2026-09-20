@@ -76,14 +76,20 @@ for (const file of ['charts.js', 'research.js'])
 // Exercise the library's real startup and filter handlers, including shared helpers.
 vm.runInContext('initDemoLibrary()', context);
 assert.ok(node('#demo-group').innerHTML.includes('Tabletop (7)'));
-assert.equal((node('#library-grid').innerHTML.match(/class="library-item"/g) || []).length, 6);
+assert.equal(
+  (node('#library-grid').innerHTML.match(/class="recording-library__item"/g) || []).length,
+  6,
+);
 assert.ok(node('#library-count').textContent.startsWith('26 tasks'));
 node('#demo-group').value = 'mobility:Fixed';
 node('#demo-group').listeners.change();
 assert.ok(node('#library-count').textContent.startsWith('7 tasks'));
 node('#demo-next').listeners.click();
 assert.equal(node('#demo-page').textContent, '2 / 2');
-assert.equal((node('#library-grid').innerHTML.match(/class="library-item"/g) || []).length, 1);
+assert.equal(
+  (node('#library-grid').innerHTML.match(/class="recording-library__item"/g) || []).length,
+  1,
+);
 console.log(
   'Startup checks: introduction and related-work copy, library rendering, subgroup filtering and pagination pass.',
 );

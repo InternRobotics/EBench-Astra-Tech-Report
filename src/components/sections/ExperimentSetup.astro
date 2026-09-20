@@ -1,3 +1,9 @@
+---
+import { icon } from '../../lib/icons.js';
+import DemonstrationCard from '../DemonstrationCard.astro';
+import ExecutionDemo from '../ExecutionDemo.astro';
+---
+
 <section id="setup" class="section setup-showcase">
   <div class="section-inner">
     <h2>Benchmark composition and evaluation protocol</h2>
@@ -69,50 +75,27 @@
         so all models use <strong>zero-shot execution</strong>. This tests whether they can
         understand and compose a new task from familiar skills.
       </p>
-      <button class="icl-package-card" data-icl-package="install_gear">
-        <span class="icl-card-preview" aria-hidden="true">
-          <img src="media/icl/install_gear/01_left_frame_000120.png" loading="lazy" alt="" />
-          <img src="media/icl/install_gear/11_top_frame_000645.png" loading="lazy" alt="" />
-        </span>
-        <span class="icl-card-copy">
-          <span class="eyebrow">DEMONSTRATION INPUT</span>
-          <strong>What does GPT-6-Astra see in a single shot?</strong>
-          <span>
-            Single-shot ICL data for all 26 tasks: annotated keyframes, task context, and recorded
-            states and actions.
-          </span>
-          <b>Demonstration data ↗</b>
-        </span>
-      </button>
+      <DemonstrationCard />
       <div class="method-details">
         <button class="appendix-link" data-appendix="protocol">
-          Evaluation protocol ↗
+          Evaluation protocol <Fragment set:html={icon('external-link')} />
         </button>
         <a
           href="https://internrobotics.github.io/EBench-doc/getting-started/overview/"
           target="_blank"
           rel="noopener"
         >
-          Benchmark overview ↗
+          Benchmark overview <Fragment set:html={icon('external-link')} />
         </a>
         <a
           href="https://internrobotics.github.io/EBench-doc/getting-started/overview/"
           target="_blank"
           rel="noopener"
         >
-          Evaluation metrics ↗
+          Evaluation metrics <Fragment set:html={icon('external-link')} />
         </a>
       </div>
     </div>
-    <section
-      class="episode-section episode-demo-card"
-      id="episode-interactions"
-      aria-labelledby="episode-interactions-title"
-    >
-      <h3 id="episode-interactions-title">Execution Demo</h3>
-      <div id="episode-viewer">
-        <p role="status">Loading episode interactions…</p>
-      </div>
-    </section>
+    <ExecutionDemo />
   </div>
 </section>

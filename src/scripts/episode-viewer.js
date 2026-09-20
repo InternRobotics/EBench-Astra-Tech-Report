@@ -1,7 +1,10 @@
 // Whole-episode public actions, synchronized by recorded execution chunks.
 (() => {
-  const root = document.querySelector('#episode-viewer');
+  const root = document.querySelector('.execution-demo #episode-viewer');
   if (!root) return;
+  const picker = root.querySelector('.episode-picker');
+  const content = root.querySelector('[data-episode-content]');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const escape = (value) =>
     String(value).replace(
       /[&<>"']/g,
@@ -9,61 +12,166 @@
     );
   const time = (value) =>
     `${Math.floor(value / 60)}:${String(Math.floor(value % 60)).padStart(2, '0')}`;
-  let entries = [],
-    episode,
-    index = 0,
-    request = 0,
-    segmentEnd = null,
-    visibilityObserver,
-    inView = false,
-    userPaused = false,
-    stopFrames = () => {};
-  const get = async (path) => {
-    const r = await fetch(path);
-    if (!r.ok) throw Error('Episode data unavailable');
-    return r.json();
-  };
+  const icon = (name) => `<span class="episode-icon" aria-hidden="true">${reportIcon(name)}</span>`;
   const actionName = (call) =>
     call.arguments.reason ||
     `${call.arguments.opening === 0 ? 'Close' : call.arguments.opening === 1 ? 'Open' : 'Adjust'} the ${call.arguments.side} gripper`;
+  let entries = [],
+    episode,
+    selectedId,
+    index = 0,
+    request = 0,
+    controller,
+    segmentEnd = null,
+    pendingSeek = null,
+    visibilityObserver,
+    inView = false,
+    userPaused = reducedMotion.matches,
+    camera = '0',
+    speed = 1,
+    layoutFrame = null,
+    stopFrames = () => {};
+  const get = async (path, signal) => {
+    const response = await fetch(path, { signal });
+    if (!response.ok) throw Error('Episode data unavailable');
+    return response.json();
+  };
+
+  // Indicators live outside the replaceable content (the camera indicator is never
+  // replaced when changing cameras). Measure actual buttons, including wrapped text.
+  function positionIndicator(group, selector, indicatorSelector) {
+    if (!group || group.hidden) return;
+    const selected = group.querySelector(`${selector}[aria-pressed="true"]`);
+    const indicator = group.querySelector(indicatorSelector);
+    if (!selected || !indicator) return;
+    indicator.style.width = `${selected.offsetWidth}px`;
+    indicator.style.transform = `translateX(${selected.offsetLeft}px)`;
+    group.dataset.positioned = 'true';
+  }
+  function layout() {
+    positionIndicator(picker, '[data-episode]', '.episode-picker-indicator');
+    positionIndicator(
+      root.querySelector('.episode-cameras'),
+      '[data-episode-camera]',
+      '.episode-camera-indicator',
+    );
+    const rail = root.querySelector('.episode-chapters');
+    if (!rail) return;
+    const width = rail.clientWidth;
+    const bounds = root.querySelector('.episode-timeline').getBoundingClientRect();
+    const railBounds = rail.getBoundingClientRect();
+    rail.style.setProperty('--chapter-label-max', `${bounds.width}px`);
+    const laneEnds = [];
+    // Nearby chapters retain their true time position, but use separate rows so
+    // their 44px touch/keyboard targets never overlap, even on narrow screens.
+    rail.querySelectorAll('[data-chapter]').forEach((button) => {
+      const x = 8 + Number(button.dataset.position) * Math.max(0, width - 16);
+      let lane = laneEnds.findIndex((end) => x - end >= 46);
+      if (lane < 0) lane = laneEnds.length;
+      laneEnds[lane] = x;
+      button.style.left = `${x}px`;
+      button.style.top = `${lane * 44}px`;
+      const tooltip = button.querySelector('.episode-chapter-label');
+      const tooltipWidth = tooltip.offsetWidth;
+      const center = railBounds.left + x;
+      const left = Math.max(
+        bounds.left,
+        Math.min(center - tooltipWidth / 2, bounds.right - tooltipWidth),
+      );
+      tooltip.style.left = `${left - center + 22}px`;
+    });
+    rail.style.height = `${Math.max(1, laneEnds.length) * 44}px`;
+  }
+  function scheduleLayout() {
+    if (layoutFrame !== null) return;
+    layoutFrame = requestAnimationFrame(() => {
+      layoutFrame = null;
+      layout();
+    });
+  }
+  const resizeObserver = new ResizeObserver(scheduleLayout);
+  function observeLayout() {
+    resizeObserver.disconnect();
+    resizeObserver.observe(root);
+    root
+      .querySelectorAll(
+        '.episode-picker, .episode-picker button, .episode-cameras, .episode-cameras button, .episode-chapters',
+      )
+      .forEach((element) => resizeObserver.observe(element));
+    scheduleLayout();
+  }
+  document.fonts?.ready.then(scheduleLayout);
+  window.addEventListener('resize', scheduleLayout);
+
   async function load(id) {
     const token = ++request;
+    controller?.abort();
+    controller = new AbortController();
+    selectedId = id;
     stopFrames();
     visibilityObserver?.disconnect();
     inView = false;
-    root.querySelector('video')?.pause();
-    root.innerHTML = '<p role="status">Loading the episode…</p>';
+    content.querySelector('video')?.pause();
+    episode = null;
+    picker
+      .querySelectorAll('[data-episode]')
+      .forEach((button) =>
+        button.setAttribute('aria-pressed', String(button.dataset.episode === id)),
+      );
+    positionIndicator(picker, '[data-episode]', '.episode-picker-indicator');
+    content.setAttribute('aria-busy', 'true');
+    content.innerHTML = '<p class="episode-state" role="status">Loading the episode…</p>';
+    observeLayout();
     try {
-      const data = await get(`data/episodes/${id}.json`);
+      const data = await get(`data/episodes/${encodeURIComponent(id)}.json`, controller.signal);
       if (token !== request) return;
       episode = data;
       index = 0;
       segmentEnd = null;
-      userPaused = false;
+      pendingSeek = null;
+      userPaused = reducedMotion.matches;
       render();
-    } catch {
-      if (token === request)
-        root.innerHTML =
-          '<p role="alert">The episode could not be loaded.</p><button data-episode-retry>Retry</button>';
+    } catch (error) {
+      if (token === request && error.name !== 'AbortError') {
+        content.innerHTML =
+          '<div class="episode-state"><p role="alert">The episode could not be loaded. Choose another episode or try again.</p><button type="button" data-episode-retry>Retry</button></div>';
+        observeLayout();
+      }
+    } finally {
+      if (token === request) content.setAttribute('aria-busy', 'false');
     }
   }
+
   function render() {
-    root.innerHTML = `<div class="episode-picker" aria-label="Choose an episode">${entries.map((e) => `<button data-episode="${e.id}" aria-pressed="${e.id === episode.id}">${escape(e.title)}</button>`).join('')}</div>
-   <div class="episode-heading"><div><h4>${escape(episode.instruction)}</h4><p>${escape(episode.description)}</p></div><span class="episode-outcome">${episode.result.sr ? 'Successful' : 'Incomplete'}<small>Final score ${episode.result.score.toFixed(1)}</small></span></div>
-   <div class="episode-bookmarks" aria-label="Key moments">${episode.bookmarks.map((b) => `<button data-call="${b.call - 1}">${escape(b.label)}</button>`).join('')}</div>
-   <div class="episode-stage"><div class="episode-screen"><div class="episode-cameras" aria-label="Video camera"><button data-episode-camera="0" aria-pressed="true">Overview</button><button data-episode-camera="1" aria-pressed="false">Left wrist</button><button data-episode-camera="2" aria-pressed="false">Right wrist</button><button data-episode-camera="all" aria-pressed="false">All views</button></div><div class="episode-viewport"><video data-camera-ready="true" data-custom-controls="true" preload="metadata" muted loop playsinline src="${escape(episode.video)}" aria-label="Recorded execution: ${escape(episode.instruction)}"></video><div class="episode-multiview">${['Overview', 'Left wrist', 'Right wrist'].map((label, i) => `<figure><canvas data-camera-tile="${i}" role="img" aria-label="${label} camera"></canvas><figcaption>${label}</figcaption></figure>`).join('')}</div></div><div class="episode-playback"><button data-play aria-label="Play episode">Play</button><input data-seek type="range" min="0" max="${episode.duration}" step="0.01" value="0" aria-label="Video position"><output data-time>0:00 / ${time(episode.duration)}</output><label>Speed<select data-speed aria-label="Playback speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label></div><p class="episode-caption" role="status"></p></div><div class="episode-interaction"><div class="episode-step-nav"><button data-prev aria-label="Previous interaction">←</button><span data-counter></span><button data-next aria-label="Next interaction">→</button></div><div data-interaction></div></div></div>
-   <details class="episode-log"><summary>Full interaction timeline · ${episode.calls.length} calls</summary><ol>${episode.calls.map((c, i) => `<li><button data-call="${i}"><time>${time(c.video_start)}</time><span>${escape(actionName(c))}</span></button></li>`).join('')}</ol></details>
-   <div class="episode-source-links"><button class="appendix-link" data-icl-package="${escape(episode.task)}">Historical ICL input ↗</button><a href="data/episodes/${episode.id}.json" download>Download public interaction log</a></div>
-   <details class="episode-log"><summary>Initial task prompt</summary><div class="episode-prompt">${episode.initial_prompt
-     .split('\n')
-     .filter(Boolean)
-     .map((p) => `<p>${escape(p)}</p>`)
-     .join('')}</div></details>
-`;
-    const video = root.querySelector('video');
+    content.innerHTML = `<div class="episode-heading"><div class="episode-task"><h4>${escape(episode.instruction)}</h4><details class="episode-prompt-disclosure"><summary>${icon('chevron-down')}Initial task prompt</summary><div class="episode-prompt" tabindex="0">${escape(episode.initial_prompt)}</div></details></div><span class="episode-outcome" data-success="${Boolean(episode.result.sr)}">${episode.result.sr ? `${icon('check')}Successful` : 'Incomplete'}<small>Final score ${episode.result.score.toFixed(1)}</small></span></div>
+      <div class="episode-stage">
+        <div class="episode-screen">
+          <div class="episode-cameras" role="group" aria-label="Video camera"><span class="episode-camera-indicator" aria-hidden="true"></span>${['Overview', 'Left wrist', 'Right wrist', 'All views'].map((label, i) => `<button type="button" data-episode-camera="${i === 3 ? 'all' : i}" aria-pressed="${camera === (i === 3 ? 'all' : String(i))}">${label}</button>`).join('')}</div>
+          <div class="episode-viewport"><video data-camera-ready="true" data-custom-controls="true" preload="metadata" muted loop playsinline src="${escape(episode.video)}" aria-label="Recorded execution: ${escape(episode.instruction)}"></video><div class="episode-multiview">${['Overview', 'Left wrist', 'Right wrist'].map((label, i) => `<figure><canvas data-camera-tile="${i}" role="img" aria-label="${label} camera"></canvas><figcaption>${label}</figcaption></figure>`).join('')}</div></div>
+          <p class="episode-caption" role="status"></p>
+        </div>
+        <div class="episode-interaction" role="region" aria-label="Current interaction" tabindex="0"><div data-interaction></div></div>
+      </div>
+      <div class="episode-controls">
+        <div class="episode-playback">
+          <div class="episode-transport" role="group" aria-label="Episode playback"><button type="button" data-play aria-label="Play episode">${icon('play')}</button><span class="episode-control-divider" aria-hidden="true"></span><button type="button" data-prev aria-label="Previous interaction">${icon('chevron-left')}</button><span data-counter></span><button type="button" data-next aria-label="Next interaction">${icon('chevron-right')}</button></div>
+          <div class="episode-playback-meta"><output data-time aria-live="off">0:00 / ${time(episode.duration)}</output><select data-speed aria-label="Playback speed">${[0.5, 1, 2].map((rate) => `<option value="${rate}"${speed === rate ? ' selected' : ''}>${rate}×</option>`).join('')}</select></div>
+        </div>
+        <div class="episode-timeline"><div class="episode-scrubber"><input data-seek type="range" min="0" max="${episode.duration}" step="0.01" value="0" aria-label="Video position" aria-valuetext="0:00 of ${time(episode.duration)}"><div class="episode-chapters" role="group" aria-label="Episode chapters">${episode.bookmarks
+          .map((bookmark) => {
+            const start = episode.calls[bookmark.call - 1].video_start;
+            return `<button type="button" class="episode-chapter" data-chapter data-call="${bookmark.call - 1}" data-position="${Math.max(0, Math.min(1, start / episode.duration))}" aria-label="Seek to ${escape(bookmark.label)}, ${time(start)}"><span class="episode-chapter-label" aria-hidden="true">${escape(bookmark.label)}<small>${time(start)}</small></span></button>`;
+          })
+          .join('')}</div></div></div>
+      </div>
+      <details class="episode-log"><summary>${icon('chevron-down')}Full interaction timeline · ${episode.calls.length} calls</summary><ol tabindex="0" aria-label="Complete interaction timeline">${episode.calls.map((call, i) => `<li><button type="button" data-call="${i}"><time>${time(call.video_start)}</time><span>${escape(actionName(call))}</span></button></li>`).join('')}</ol></details>
+      <div class="episode-source-links"><button type="button" data-icl-package="${escape(episode.task)}">${icon('book-open')}Historical ICL input${icon('external-link')}</button><a href="data/episodes/${escape(episode.id)}.json" download>${icon('download')}Download public interaction log</a></div>`;
+    const video = content.querySelector('video');
+    const current = () => content.querySelector('video') === video;
     video.muted = true;
     video.defaultMuted = true;
     video.loop = true;
+    video.playbackRate = speed;
     let frameHandle = null;
     const useVideoFrames = typeof video.requestVideoFrameCallback === 'function';
     stopFrames = () => {
@@ -75,7 +183,7 @@
     };
     const frame = () => {
       frameHandle = null;
-      if (!video.isConnected) return;
+      if (!current()) return;
       drawViews(video);
       if (!video.paused)
         frameHandle = useVideoFrames
@@ -83,54 +191,79 @@
           : requestAnimationFrame(frame);
     };
     video.addEventListener('play', () => {
+      if (!current()) return;
       stopFrames();
       frame();
     });
     video.addEventListener('pause', () => {
+      if (!current()) return;
       stopFrames();
       drawViews(video);
     });
+    video.addEventListener('loadedmetadata', () => {
+      if (!current()) return;
+      if (pendingSeek !== null) seekTo(pendingSeek);
+    });
     for (const event of ['loadeddata', 'seeked'])
-      video.addEventListener(event, () => drawViews(video));
+      video.addEventListener(event, () => {
+        if (!current()) return;
+        drawViews(video);
+        if (!video.error) setCaption('');
+        updateProgress();
+      });
     video.addEventListener('timeupdate', () => {
+      if (!current() || pendingSeek !== null) return;
       if (segmentEnd !== null && video.currentTime >= segmentEnd) {
+        const end = segmentEnd;
+        segmentEnd = null;
         userPaused = true;
         video.pause();
-        video.currentTime = segmentEnd;
-        segmentEnd = null;
+        video.currentTime = end;
       }
-      root.querySelector('[data-seek]').value = video.currentTime;
-      root.querySelector('[data-time]').textContent =
-        `${time(video.currentTime)} / ${time(episode.duration)}`;
-      const next = episode.calls.findIndex(
-        (c) => video.currentTime >= c.video_start && video.currentTime < c.video_end,
-      );
-      if (next >= 0 && next !== index) {
-        index = next;
-        renderCall();
-      }
+      updateProgress();
     });
     for (const event of ['play', 'pause', 'ended'])
       video.addEventListener(event, () => {
-        const b = root.querySelector('[data-play]');
-        b.textContent = video.paused ? 'Play' : 'Pause';
-        b.setAttribute('aria-label', video.paused ? 'Play episode' : 'Pause episode');
+        if (!current()) return;
+        const button = root.querySelector('[data-play]');
+        const label = video.paused ? 'Play episode' : 'Pause episode';
+        if (button.getAttribute('aria-label') !== label) {
+          button.innerHTML = icon(video.paused ? 'play' : 'pause');
+          button.setAttribute('aria-label', label);
+        }
       });
+    video.addEventListener('playing', () => {
+      if (current()) setCaption('');
+    });
     video.addEventListener('error', () => {
-      root.querySelector('.episode-caption').textContent =
-        'Video unavailable. The complete interaction log remains available below.';
+      if (!current()) return;
+      setCaption('Video unavailable. The complete interaction log remains available below.');
+      root
+        .querySelectorAll('[data-play], [data-play-call], [data-seek], [data-speed]')
+        .forEach((control) => {
+          control.disabled = true;
+        });
+      pendingSeek = null;
     });
     renderCall();
+    setCamera(camera);
+    observeLayout();
     visibilityObserver = new IntersectionObserver(
       ([entry]) => {
+        if (!current()) return;
         inView = entry.isIntersecting && entry.intersectionRatio >= 0.25;
         syncPlayback();
       },
       { threshold: [0, 0.25] },
     );
     visibilityObserver.observe(root.querySelector('.episode-viewport'));
-    video.addEventListener('canplay', syncPlayback);
+    video.addEventListener('canplay', () => {
+      if (!current()) return;
+      setCaption('');
+      syncPlayback();
+    });
   }
+
   // Every tile is cropped from the same decoded frame, so the cameras cannot drift.
   function drawViews(video) {
     if (
@@ -148,7 +281,7 @@
       }
       canvas
         .getContext('2d')
-        .drawImage(
+        ?.drawImage(
           video,
           Number(canvas.dataset.cameraTile) * width,
           0,
@@ -161,124 +294,240 @@
         );
     });
   }
+  function setCamera(value) {
+    camera = value;
+    const video = root.querySelector('video');
+    const all = camera === 'all';
+    video.parentElement.classList.toggle('all-views', all);
+    video.style.transform = all ? 'none' : `translateX(-${(Number(camera) * 100) / 3}%)`;
+    video.setAttribute('aria-hidden', String(all));
+    root
+      .querySelectorAll('[data-episode-camera]')
+      .forEach((button) =>
+        button.setAttribute('aria-pressed', String(button.dataset.episodeCamera === camera)),
+      );
+    if (all) drawViews(video);
+    positionIndicator(
+      root.querySelector('.episode-cameras'),
+      '[data-episode-camera]',
+      '.episode-camera-indicator',
+    );
+    scheduleLayout();
+  }
   function renderCall() {
-    const c = episode.calls[index],
-      reason = c.arguments.reason,
-      result = c.response.episode_results[0];
+    const call = episode.calls[index],
+      reason = call.arguments.reason,
+      result = call.response.episode_results[0];
+    const detailsOpen = root.querySelector('.episode-raw')?.open;
+    const previousInteraction = root.querySelector('[data-interaction]');
+    const focused = previousInteraction.contains(document.activeElement)
+      ? document.activeElement.matches('[data-play-call]')
+        ? '[data-play-call]'
+        : document.activeElement.matches('summary')
+          ? 'summary'
+          : null
+      : null;
     root.querySelector('[data-counter]').textContent =
       `Interaction ${index + 1} / ${episode.calls.length}`;
     root.querySelector('[data-prev]').disabled = index === 0;
     root.querySelector('[data-next]').disabled = index === episode.calls.length - 1;
-    root.querySelector('[data-interaction]').innerHTML =
-      `<p class="episode-speaker">GPT-6-Astra <span>${escape(c.tool)}</span></p>${reason ? `<blockquote>${escape(reason)}</blockquote>` : `<p class="episode-no-reason">${escape(actionName(c))}</p>`}<div class="episode-return"><strong>Tool response</strong><p>${c.response.success ? 'Command executed.' : 'Command reported a failure.'} Steps ${c.start_step}–${c.end_step}.</p>${result ? `<p class="episode-terminal"><strong>Evaluator: ${result.sr ? 'task successful' : 'task incomplete'} · score ${result.score.toFixed(1)}</strong></p>` : ''}</div><button class="episode-play-call" data-play-call>Play this action</button><details class="episode-raw"><summary>Exact tool arguments & response</summary><pre>${escape(JSON.stringify({ tool: c.tool, arguments: c.arguments, response_summary: c.response }, null, 2))}</pre></details>`;
-    root.querySelectorAll('[data-call]').forEach((b) => {
-      const active = Number(b.dataset.call) === index;
-      b.setAttribute('aria-current', String(active));
+    previousInteraction.innerHTML = `<p class="episode-speaker">GPT-6-Astra <span>${escape(call.tool)}</span></p>${reason ? `<blockquote>${escape(reason)}</blockquote>` : `<p class="episode-no-reason">${escape(actionName(call))}</p>`}<div class="episode-return"><strong>Tool response</strong><p>${call.response.success ? 'Command executed.' : 'Command reported a failure.'} Steps ${call.start_step}–${call.end_step}.</p>${result ? `<p class="episode-terminal"><strong>Evaluator: ${result.sr ? 'task successful' : 'task incomplete'} · score ${result.score.toFixed(1)}</strong></p>` : ''}</div><button type="button" class="episode-play-call" data-play-call${root.querySelector('video').error ? ' disabled' : ''}>${icon('play')}Play this action</button><details class="episode-raw"${detailsOpen ? ' open data-restored-open' : ''}><summary>${icon('chevron-down')}Exact tool arguments & response</summary><pre tabindex="0">${escape(JSON.stringify({ tool: call.tool, arguments: call.arguments, response_summary: call.response }, null, 2))}</pre></details>`;
+    if (focused) previousInteraction.querySelector(focused)?.focus({ preventScroll: true });
+    const chapter = episode.bookmarks.filter((bookmark) => bookmark.call - 1 <= index).at(-1);
+    root.querySelectorAll('[data-call]').forEach((button) => {
+      const active =
+        Number(button.dataset.call) ===
+        (button.hasAttribute('data-chapter') ? chapter?.call - 1 : index);
+      button.setAttribute('aria-current', String(active));
     });
+  }
+  function updateProgress(position) {
+    const video = root.querySelector('video');
+    if (!episode || !video) return;
+    const seconds = Math.max(
+      0,
+      Math.min(episode.duration, position ?? pendingSeek ?? video.currentTime),
+    );
+    const seek = root.querySelector('[data-seek]');
+    seek.value = seconds;
+    seek.style.setProperty('--progress', `${(seconds / episode.duration) * 100}%`);
+    root.querySelector('[data-time]').textContent = `${time(seconds)} / ${time(episode.duration)}`;
+    const next =
+      seconds >= episode.duration
+        ? episode.calls.length - 1
+        : episode.calls.findIndex(
+            (call) => seconds >= call.video_start && seconds < call.video_end,
+          );
+    if (next >= 0 && next !== index) {
+      index = next;
+      renderCall();
+    }
+    seek.setAttribute(
+      'aria-valuetext',
+      `${time(seconds)} of ${time(episode.duration)}; interaction ${index + 1} of ${episode.calls.length}`,
+    );
+  }
+  function seekTo(seconds) {
+    const video = root.querySelector('video');
+    if (!video || !episode) return;
+    const target = Math.max(0, Math.min(episode.duration, seconds));
+    pendingSeek = video.readyState === 0 && !video.error ? target : null;
+    if (!video.error && video.readyState > 0) video.currentTime = target;
+    updateProgress(target);
   }
   function select(i) {
     const video = root.querySelector('video');
+    if (!episode || !video) return;
     video.pause();
     segmentEnd = null;
     index = Math.max(0, Math.min(episode.calls.length - 1, i));
-    video.currentTime = episode.calls[index].video_start;
+    seekTo(episode.calls[index].video_start);
     renderCall();
     syncPlayback();
   }
+  function setCaption(message) {
+    const caption = root.querySelector('.episode-caption');
+    if (caption) caption.textContent = message;
+  }
   function syncPlayback() {
     const video = root.querySelector('video');
-    if (!video) return;
+    if (!video || video.error) return;
     if (inView && !document.hidden && !userPaused) play(video);
     else video.pause();
   }
   async function play(video) {
+    if (video.error) return;
     try {
       await video.play();
     } catch (error) {
-      if (error.name !== 'AbortError' && root.querySelector('video') === video)
-        root.querySelector('.episode-caption').textContent =
-          'Press Play to start the recorded video.';
+      if (error.name !== 'AbortError' && root.querySelector('video') === video && !video.error)
+        setCaption('Press Play to start the recorded video.');
     }
   }
   document.addEventListener('visibilitychange', syncPlayback);
+  reducedMotion.addEventListener('change', () => {
+    if (reducedMotion.matches) {
+      userPaused = true;
+      syncPlayback();
+    }
+  });
   root.addEventListener(
     'toggle',
-    (e) => {
-      if (e.target.tagName === 'DETAILS' && e.target.open) {
+    (event) => {
+      if (event.target.hasAttribute('data-restored-open')) {
+        event.target.removeAttribute('data-restored-open');
+        return;
+      }
+      if (event.target.tagName === 'DETAILS' && event.target.open) {
         userPaused = true;
         root.querySelector('video')?.pause();
       }
     },
     true,
   );
-  root.addEventListener('click', (e) => {
-    const b = e.target.closest('button');
-    if (!b) return;
-    if (b.hasAttribute('data-episode-retry')) {
-      init();
+  root.addEventListener('click', (event) => {
+    const button = event.target.closest('button');
+    if (!button || !root.contains(button)) return;
+    if (button.hasAttribute('data-episode-retry')) {
+      if (selectedId) {
+        picker.querySelector('[aria-pressed="true"]')?.focus({ preventScroll: true });
+        load(selectedId);
+      } else init();
       return;
     }
-    if (b.dataset.episode) {
-      load(b.dataset.episode);
+    if (button.dataset.episode) {
+      if (button.dataset.episode !== selectedId) load(button.dataset.episode);
       return;
     }
-    if (b.hasAttribute('data-call')) {
-      select(Number(b.dataset.call));
+    if (!episode) return;
+    if (button.hasAttribute('data-call')) {
+      select(Number(button.dataset.call));
       return;
     }
-    if (b.hasAttribute('data-prev')) {
+    if (button.hasAttribute('data-prev')) {
       select(index - 1);
       return;
     }
-    if (b.hasAttribute('data-next')) {
+    if (button.hasAttribute('data-next')) {
       select(index + 1);
       return;
     }
     const video = root.querySelector('video');
-    if (b.hasAttribute('data-play')) {
+    if (button.hasAttribute('data-play')) {
       segmentEnd = null;
       userPaused = !video.paused;
       video.paused ? play(video) : video.pause();
     }
-    if (b.hasAttribute('data-play-call')) {
-      const c = episode.calls[index];
+    if (button.hasAttribute('data-play-call')) {
+      const call = episode.calls[index];
       userPaused = false;
-      video.currentTime = c.video_start;
-      segmentEnd = c.video_end - 0.015;
+      seekTo(call.video_start);
+      segmentEnd = call.video_end - 0.015;
       play(video);
     }
-    if (b.hasAttribute('data-icl-package')) {
+    if (button.hasAttribute('data-icl-package')) {
       userPaused = true;
       video.pause();
     }
-    if (b.hasAttribute('data-episode-camera')) {
-      const all = b.dataset.episodeCamera === 'all';
-      root.querySelector('.episode-viewport').classList.toggle('all-views', all);
-      video.style.transform = all
-        ? 'none'
-        : `translateX(-${(Number(b.dataset.episodeCamera) * 100) / 3}%)`;
-      if (all) drawViews(video);
-      root
-        .querySelectorAll('[data-episode-camera]')
-        .forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-    }
+    if (button.hasAttribute('data-episode-camera')) setCamera(button.dataset.episodeCamera);
   });
-  root.addEventListener('input', (e) => {
-    if (e.target.hasAttribute('data-seek')) {
+  root.addEventListener('input', (event) => {
+    if (event.target.hasAttribute('data-seek')) {
       segmentEnd = null;
-      root.querySelector('video').currentTime = Number(e.target.value);
+      seekTo(Number(event.target.value));
     }
   });
-  root.addEventListener('change', (e) => {
-    if (e.target.hasAttribute('data-speed'))
-      root.querySelector('video').playbackRate = Number(e.target.value);
+  root.addEventListener('change', (event) => {
+    if (event.target.hasAttribute('data-speed')) {
+      speed = Number(event.target.value);
+      root.querySelector('video').playbackRate = speed;
+    }
   });
+  root.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape')
+      event.target.closest('[data-chapter]')?.setAttribute('data-tooltip-dismissed', 'true');
+    const group = event.target.closest('.episode-picker, .episode-cameras');
+    if (!group || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+    const buttons = [...group.querySelectorAll('button')];
+    const position = buttons.indexOf(event.target);
+    if (position < 0) return;
+    event.preventDefault();
+    const next =
+      event.key === 'Home'
+        ? 0
+        : event.key === 'End'
+          ? buttons.length - 1
+          : (position + (event.key === 'ArrowRight' ? 1 : -1) + buttons.length) % buttons.length;
+    buttons[next].focus();
+    buttons[next].click();
+  });
+  for (const event of ['pointerover', 'focusin'])
+    root.addEventListener(event, (event) =>
+      event.target.closest('[data-chapter]')?.removeAttribute('data-tooltip-dismissed'),
+    );
+
   async function init() {
+    content.setAttribute('aria-busy', 'true');
+    content.innerHTML = '<p class="episode-state" role="status">Loading episode interactions…</p>';
     try {
       entries = await get('data/episodes/index.json');
+      if (!entries.length) throw Error('No episodes');
+      // Only the catalog initializes these buttons. Episode changes never replace them.
+      picker.insertAdjacentHTML(
+        'beforeend',
+        entries
+          .map(
+            (entry) =>
+              `<button type="button" data-episode="${escape(entry.id)}" aria-pressed="false">${escape(entry.title)}</button>`,
+          )
+          .join(''),
+      );
+      picker.hidden = false;
       await load(entries[0].id);
     } catch {
-      root.innerHTML = '<p>Episode data unavailable.</p><button data-episode-retry>Retry</button>';
+      content.setAttribute('aria-busy', 'false');
+      content.innerHTML =
+        '<div class="episode-state"><p role="alert">Episode data unavailable.</p><button type="button" data-episode-retry>Retry</button></div>';
     }
   }
   init();

@@ -1,3 +1,7 @@
+---
+import RecordingLibrary from '../RecordingLibrary.astro';
+---
+
 <section id="cases" class="section">
   <div class="section-inner">
     <div class="section-heading">
@@ -26,48 +30,6 @@
       <h3 id="case-poc-title">Compositional completion</h3>
       <div class="case-study-content"></div>
     </section>
-    <details id="video-library" class="video-collection">
-      <summary>
-        <span class="collection-icon" aria-hidden="true">
-          ▷
-        </span>
-        <span>
-          <strong>More recorded cases</strong>
-          <small>Selected GPT-6-Astra rollouts across all 26 tasks</small>
-        </span>
-        <span class="collection-toggle" aria-hidden="true">
-          +
-        </span>
-      </summary>
-      <div class="collection-body">
-        <div class="library-controls">
-          <label>
-            Search tasks
-            <input type="search" id="demo-search" placeholder="Search tasks…" />
-          </label>
-          <label>
-            Task attribute
-            <select id="demo-group">
-              <option value="all">All tasks</option>
-            </select>
-          </label>
-          <label>
-            Episode outcome
-            <select id="demo-outcome">
-              <option value="all">All outcomes</option>
-              <option value="success">Successful</option>
-              <option value="incomplete">Incomplete</option>
-            </select>
-          </label>
-        </div>
-        <p id="library-count" class="fineprint" aria-live="polite"></p>
-        <div id="library-grid"></div>
-        <div class="library-pagination">
-          <button id="demo-prev">← Previous</button>
-          <span id="demo-page"></span>
-          <button id="demo-next">Next →</button>
-        </div>
-      </div>
-    </details>
+    <RecordingLibrary />
   </div>
 </section>
