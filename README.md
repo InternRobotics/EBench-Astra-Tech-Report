@@ -53,4 +53,4 @@ The existing **Deploy report to GitHub Pages** workflow is Astro-compatible:
 3. Build with `REPORT_BASE=/Ebench-Astra-Tech-Report`.
 4. Upload `_site-next` and deploy it using GitHub Pages Actions.
 
-Select **GitHub Actions** in Settings → Pages. In Actions, run **Deploy report to GitHub Pages** and select `clean` to publish this branch. Deployment remains **manual**; pushing `clean` does not automatically replace the live report. No local build output needs to be committed.
+Use `clean` as the working branch. In Actions, run **Deploy report to GitHub Pages** and select `clean` to publish it. The `github-pages` environment permits deployment only from `clean`, and the workflow enforces the same branch. Deployment remains **manual**; pushing `clean` does not automatically replace the live report. No local build output needs to be committed.

@@ -14,6 +14,7 @@ concurrency:
 
 jobs:
   deploy:
+    if: github.ref == 'refs/heads/clean'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
