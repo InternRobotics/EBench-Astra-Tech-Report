@@ -1,4 +1,4 @@
-/* Editorial synthesis of the supplied report; provenance is in docs/REPORT-COPY.md. */
+/* Editorial narrative rendered into [data-narrative] containers. */
 const reportNarrative = {
   introduction: [
     'We evaluate GPT-6-Astra as an embodied agent and examine how its capabilities compare with those of learned robot policies. Our study uses <strong>EBench</strong>, covering household, retail, and industrial tasks with controlled variations in objects, backgrounds, and instructions. Astra controls the robot through a fixed execution interface, using <strong>one annotated demonstration per task</strong> as context. The <strong>main evaluation</strong> covers <strong>26 tasks and 510 episodes</strong>, comparing Astra with seven learned policies on task success and partial completion. We analyze performance across multiple dimensions and use <strong>execution case studies</strong> to examine task interpretation, adaptation, and failure recovery. Finally, small paired experiments investigate <strong>in-context learning</strong>, while a separate proof of concept tests <strong>zero-shot composition of familiar skills</strong> in unseen tasks.',
