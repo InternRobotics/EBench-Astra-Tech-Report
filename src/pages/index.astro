@@ -9,8 +9,21 @@ import '../styles/report.css';
 import SiteHeader from '../components/SiteHeader.astro';
 import Contents from '../components/Contents.astro';
 import Masthead from '../components/Masthead.astro';
-import ReportSection from '../components/ReportSection.astro';
-import report from '../content/report.json';
+import ReportFooter from '../components/ReportFooter.astro';
+import Supplement from '../components/Supplement.astro';
+import Introduction from '../components/sections/Introduction.astro';
+import BenchmarkResults from '../components/sections/BenchmarkResults.astro';
+import ExperimentSetup from '../components/sections/ExperimentSetup.astro';
+import ScoreAndRanking from '../components/sections/ScoreAndRanking.astro';
+import Findings from '../components/sections/Findings.astro';
+import CapabilityDifferences from '../components/sections/CapabilityDifferences.astro';
+import FailurePatterns from '../components/sections/FailurePatterns.astro';
+import EmergingCapabilities from '../components/sections/EmergingCapabilities.astro';
+import Safety from '../components/sections/Safety.astro';
+import CaseStudies from '../components/sections/CaseStudies.astro';
+import Conclusion from '../components/sections/Conclusion.astro';
+import RelatedWork from '../components/sections/RelatedWork.astro';
+import References from '../components/sections/References.astro';
 ---
 
 <!doctype html>
@@ -28,21 +41,29 @@ import report from '../content/report.json';
     </script>
   </head>
   <body data-toc-open="true">
-    <a class="skip-link" href="#introduction">
-      Skip to report
-    </a>
+    <a class="skip-link" href="#introduction">Skip to report</a>
     <canvas id="ambient-particles" aria-hidden="true"></canvas>
     <SiteHeader />
     <Contents />
     <div class="report-page">
       <Masthead />
       <main>
-        {report.sections.map((section) => (
-          <ReportSection {...section} />
-        ))}
+        <Introduction />
+        <BenchmarkResults />
+        <ExperimentSetup />
+        <ScoreAndRanking />
+        <Findings />
+        <CapabilityDifferences />
+        <FailurePatterns />
+        <EmergingCapabilities />
+        <Safety />
+        <CaseStudies />
+        <Conclusion />
+        <RelatedWork />
+        <References />
       </main>
-      <Fragment set:html={report.footer} />
+      <ReportFooter />
     </div>
-    <Fragment set:html={report.supplement} />
+    <Supplement />
   </body>
 </html>

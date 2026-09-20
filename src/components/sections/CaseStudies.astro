@@ -1,0 +1,73 @@
+<section id="cases" class="section">
+  <div class="section-inner">
+    <div class="section-heading">
+      <div>
+        <h2>Case studies</h2>
+      </div>
+      <p>
+        The selected comparisons illustrate three conclusions. In-context learning (ICL) guides
+        task-specific manipulation. Task-level adaptation does not guarantee precise execution.
+        Atomic task execution does not guarantee compositional completion. The teacup and glasses
+        recordings reveal <strong>complementary capabilities</strong>: GPT-6-Astra revises grasps
+        and recovers disrupted goals, while specialized policies execute fine manipulation more
+        accurately in these examples. This separate compositional-completion experiment also reports
+        10-rollout success rates and scores.
+      </p>
+    </div>
+    <section id="case-icl" class="case-study-section" aria-labelledby="case-icl-title">
+      <h3 id="case-icl-title">In-context learning</h3>
+      <div class="case-study-content"></div>
+    </section>
+    <section id="case-adapt" class="case-study-section" aria-labelledby="case-adapt-title">
+      <h3 id="case-adapt-title">Adaptation and precision</h3>
+      <div class="case-study-content"></div>
+    </section>
+    <section id="case-poc" class="case-study-section" aria-labelledby="case-poc-title">
+      <h3 id="case-poc-title">Compositional completion</h3>
+      <div class="case-study-content"></div>
+    </section>
+    <details id="video-library" class="video-collection">
+      <summary>
+        <span class="collection-icon" aria-hidden="true">
+          ▷
+        </span>
+        <span>
+          <strong>More recorded cases</strong>
+          <small>Selected GPT-6-Astra rollouts across all 26 tasks</small>
+        </span>
+        <span class="collection-toggle" aria-hidden="true">
+          +
+        </span>
+      </summary>
+      <div class="collection-body">
+        <div class="library-controls">
+          <label>
+            Search tasks
+            <input type="search" id="demo-search" placeholder="Search tasks…" />
+          </label>
+          <label>
+            Task attribute
+            <select id="demo-group">
+              <option value="all">All tasks</option>
+            </select>
+          </label>
+          <label>
+            Episode outcome
+            <select id="demo-outcome">
+              <option value="all">All outcomes</option>
+              <option value="success">Successful</option>
+              <option value="incomplete">Incomplete</option>
+            </select>
+          </label>
+        </div>
+        <p id="library-count" class="fineprint" aria-live="polite"></p>
+        <div id="library-grid"></div>
+        <div class="library-pagination">
+          <button id="demo-prev">← Previous</button>
+          <span id="demo-page"></span>
+          <button id="demo-next">Next →</button>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>

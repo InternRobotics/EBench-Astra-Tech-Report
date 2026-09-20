@@ -1,0 +1,118 @@
+<section id="setup" class="section setup-showcase">
+  <div class="section-inner">
+    <h2>Benchmark composition and evaluation protocol</h2>
+    <div class="report-prose">
+      <p>
+        The main evaluation covers the 26 EBench test-mini tasks in nine scene categories: 19 mobile
+        and seven tabletop tasks, spanning household, retail, and industrial settings. Controlled
+        variations change objects, backgrounds, instructions, and their combinations. We report{' '}
+        <strong>equal-weight task means</strong> for complete success (SR) and normalized terminal
+        partial credit (Score), using 510 retained episodes.
+      </p>
+      <h3>Agentic control and learned policies</h3>
+      <p>
+        GPT-6-Astra runs with <code>high</code> reasoning effort. It requests end-effector (EEF)
+        poses, gripper and base targets, and action durations; a fixed execution interface carries
+        out those requests.{' '}
+        <strong>
+          No learned vision-language-action (VLA) or world-action model (WAM) policy generates or
+          refines its actions
+        </strong>
+        . <strong>The agent receives new observations when a tool call returns</strong>, after the
+        whole waypoint sequence has run. The interface logs execution in chunks of up to eight
+        physics steps; the model makes its next decision after the complete call.
+      </p>
+      <p>
+        The VLA/WAM policies are trained on the publicly released EBench dataset, which contains{' '}
+        <strong>6,600 episodes across 26 tasks</strong>. For task-specific adaptation, GPT-6-Astra
+        receives <strong>one historical demonstration per task, without parameter updates</strong>.
+        A separate GPT-6-Astra instance running with <code>high</code> reasoning effort reviews one
+        video trajectory from the training set and{' '}
+        <strong>autonomously selects the keyframes and writes the accompanying prompts</strong>. The
+        resulting ICL package contains 10–18 annotated keyframes, operation phases, arm roles, and
+        selected state/action examples. Every episode of a task uses the same package. The model
+        adapts the procedure to live observations without task-specific parameter updates or
+        coordinate replay.
+      </p>
+      <h3>Observations and evaluation conditions</h3>
+      <p>
+        GPT-6-Astra receives RGB observations from the{' '}
+        <strong>overview, left wrist, and right wrist cameras</strong>. All three views are provided
+        at the start of an episode; subsequent tool calls return the camera views requested by the
+        model. The accompanying state includes{' '}
+        <strong>
+          end-effector poses, gripper state, base pose, and the current simulator timestep
+        </strong>
+        . Joint states are used by the execution interface and recorded in the logs. During
+        execution, the model receives{' '}
+        <strong>
+          no depth data, ground-truth object poses, camera calibration, segmentation, intermediate
+          task scores, or subgoal-completion signals
+        </strong>
+        . The simulator timestep indicates elapsed steps; the task’s maximum physics-step budget is
+        not supplied to the model.
+      </p>
+      <p>
+        We impose no additional aggregate cap on the model’s{' '}
+        <strong>token budget, total tool calls or inference time</strong>. Physical execution
+        follows the <strong>same task-specific step limits as the baseline policies</strong>.
+        GPT-6-Astra may end its action sequence with a termination signal;{' '}
+        <strong>the server determines task success and Score</strong>. All eight models are compared
+        on the same task suite and evaluation metrics.
+      </p>
+      <h3>A separate test of unseen composition</h3>
+      <p>
+        The proof-of-concept (POC) experiment sits <strong>outside the 26-task cohort</strong>.
+        Comparison policies are retrained on its atomic skills and familiar objects, but the
+        evaluated task combinations are unseen.{' '}
+        <strong>No ground-truth (GT) trajectories are available for the composed POC tasks</strong>,
+        so all models use <strong>zero-shot execution</strong>. This tests whether they can
+        understand and compose a new task from familiar skills.
+      </p>
+      <button class="icl-package-card" data-icl-package="install_gear">
+        <span class="icl-card-preview" aria-hidden="true">
+          <img src="media/icl/install_gear/01_left_frame_000120.png" loading="lazy" alt="" />
+          <img src="media/icl/install_gear/11_top_frame_000645.png" loading="lazy" alt="" />
+        </span>
+        <span class="icl-card-copy">
+          <span class="eyebrow">DEMONSTRATION INPUT</span>
+          <strong>What does GPT-6-Astra see in a single shot?</strong>
+          <span>
+            Single-shot ICL data for all 26 tasks: annotated keyframes, task context, and recorded
+            states and actions.
+          </span>
+          <b>Demonstration data ↗</b>
+        </span>
+      </button>
+      <div class="method-details">
+        <button class="appendix-link" data-appendix="protocol">
+          Evaluation protocol ↗
+        </button>
+        <a
+          href="https://internrobotics.github.io/EBench-doc/getting-started/overview/"
+          target="_blank"
+          rel="noopener"
+        >
+          Benchmark overview ↗
+        </a>
+        <a
+          href="https://internrobotics.github.io/EBench-doc/getting-started/overview/"
+          target="_blank"
+          rel="noopener"
+        >
+          Evaluation metrics ↗
+        </a>
+      </div>
+    </div>
+    <section
+      class="episode-section episode-demo-card"
+      id="episode-interactions"
+      aria-labelledby="episode-interactions-title"
+    >
+      <h3 id="episode-interactions-title">Execution Demo</h3>
+      <div id="episode-viewer">
+        <p role="status">Loading episode interactions…</p>
+      </div>
+    </section>
+  </div>
+</section>

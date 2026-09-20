@@ -21,14 +21,16 @@ function node(selector) {
 }
 const tasks = JSON.parse(fs.readFileSync('dist/data/tasks.json', 'utf8'));
 const demos = JSON.parse(fs.readFileSync('dist/data/demo-videos.json', 'utf8'));
-const report = JSON.parse(fs.readFileSync('src/content/report.json', 'utf8'));
-const narrativeNodes = report.sections.flatMap((section) =>
-  [...section.html.matchAll(/data-narrative=\\?"([^\\"]+)/g)].map(([, key]) => {
-    const element = node(`[data-narrative="${key}"]`);
-    element.dataset = { narrative: key };
-    return element;
-  }),
-);
+const sectionsDir = 'src/components/sections';
+const sectionSources = fs
+  .readdirSync(sectionsDir)
+  .map((name) => fs.readFileSync(`${sectionsDir}/${name}`, 'utf8'))
+  .join('\n');
+const narrativeNodes = [...sectionSources.matchAll(/data-narrative="([^"]+)"/g)].map(([, key]) => {
+  const element = node(`[data-narrative="${key}"]`);
+  element.dataset = { narrative: key };
+  return element;
+});
 const context = vm.createContext({
   document: {
     addEventListener() {},
@@ -64,10 +66,9 @@ for (let reference = 1; reference <= 8; reference++)
 for (const [anchor] of relatedWork.matchAll(/<a\b[^>]*>[\s\S]*?<\/a>/gi))
   assert.ok(!/\[\d+\]/.test(anchor), 'Citation numbers must not be links.');
 assert.ok(!/href=["']#ref-|role=["']doc-biblioref/.test(relatedWork));
-const sectionIds = report.sections.map((section) => section.id);
-assert.equal(
-  sectionIds.indexOf('references') - sectionIds.indexOf('related-work'),
-  1,
+const page = fs.readFileSync('src/pages/index.astro', 'utf8');
+assert.ok(
+  page.indexOf('<RelatedWork />') < page.indexOf('<References />'),
   'Related work must appear directly before References.',
 );
 for (const file of ['charts.js', 'research.js'])

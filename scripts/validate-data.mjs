@@ -58,11 +58,8 @@ assert.deepEqual(
   apple.actions.map((a) => a.call),
   ['call_00010', 'call_00011', 'call_00017'],
 );
-const report = JSON.parse(fs.readFileSync('src/content/report.json', 'utf8'));
-assert.ok(
-  report.sections.findIndex((s) => s.id === 'overall') <
-    report.sections.findIndex((s) => s.id === 'setup'),
-);
+const page = fs.readFileSync('src/pages/index.astro', 'utf8');
+assert.ok(page.indexOf('<BenchmarkResults />') < page.indexOf('<ExperimentSetup />'));
 assert.ok(
   fs
     .readFileSync('src/components/Masthead.astro', 'utf8')
