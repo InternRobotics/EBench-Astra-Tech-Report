@@ -14,7 +14,7 @@ const context=vm.createContext({
  $:node,tasks,demos,reportFigures:JSON.parse(fs.readFileSync('dist/data/report-figures.json','utf8')),title:value=>value.replaceAll('_',' '),pct:value=>Number(value)*100,
  video:(path,label)=>`<video src="${path}" aria-label="${label}"></video>`,initVideos(){}
 });
-for(const file of ['charts.js','research.js','narrative.js'])vm.runInContext(fs.readFileSync(`dist/${file}`,'utf8'),context,{filename:file});
+for(const file of ['charts.js','research.js','narrative.js'])vm.runInContext(fs.readFileSync(`src/scripts/${file}`,'utf8'),context,{filename:file});
 // Opening copy must be present even before benchmark initialization runs.
 const intro=node('[data-narrative="introduction"]').innerHTML;
 assert.equal((intro.match(/<p>/g)||[]).length,3);

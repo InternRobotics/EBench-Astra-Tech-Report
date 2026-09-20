@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 
-const app=fs.readFileSync('dist/app.js','utf8');
+const app=fs.readFileSync('src/scripts/app.js','utf8');
 const demos=JSON.parse(fs.readFileSync('dist/data/demo-videos.json','utf8'));
 const safety=JSON.parse(fs.readFileSync('dist/data/safety-evidence.json','utf8'));
 const context=vm.createContext({demos});

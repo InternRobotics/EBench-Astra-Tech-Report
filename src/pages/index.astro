@@ -1,0 +1,36 @@
+---
+import '@fontsource/stix-two-text/400.css';
+import '@fontsource/stix-two-text/500.css';
+import '@fontsource/stix-two-text/600.css';
+import '@fontsource/stix-two-text/700.css';
+import '@fontsource/stix-two-text/400-italic.css';
+import 'katex/dist/katex.min.css';
+import '../styles/report.css';
+import SiteHeader from '../components/SiteHeader.astro';
+import Contents from '../components/Contents.astro';
+import Masthead from '../components/Masthead.astro';
+import ReportSection from '../components/ReportSection.astro';
+import report from '../content/report.json';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Evaluation of GPT-6-Astra on EBench: benchmark comparisons, embodied capabilities, and recorded execution evidence." />
+    <title>How Frontier Large Language Models Reshape Embodied Policies</title>
+    <script>import '../../.generated/runtime.js';</script>
+  </head>
+  <body data-toc-open="true">
+    <a class="skip-link" href="#introduction">Skip to report</a>
+    <canvas id="ambient-particles" aria-hidden="true"></canvas>
+    <SiteHeader />
+    <Contents />
+    <div class="report-page">
+      <Masthead />
+      <main>{report.sections.map(section=><ReportSection {...section} />)}</main>
+      <Fragment set:html={report.footer} />
+    </div>
+    <Fragment set:html={report.supplement} />
+  </body>
+</html>
