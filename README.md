@@ -12,15 +12,14 @@ npm ci
 npm run dev
 ```
 
-Open http://127.0.0.1:4321/.
+Open http://127.0.0.1:4322/.
 
 ## Source organization
 
-- `src/components/`: masthead, navigation, and shared report section.
-- `src/content/report.json`: report markup, references, and citation.
+- `src/components/`: masthead, navigation, footer, dialog, and one component per report section in `sections/`. Component-specific styles live beside their markup.
 - `src/scripts/`: benchmark, chart, and video interactions. Their shared runtime is compiled and bundled by Astro/Vite.
-- `src/styles/report.css`: the only owner of page geometry, typography, and breakpoints.
-- `src/styles/evidence.css`: isolated evidence-widget presentation in a lower CSS layer.
+- `src/styles/report.css`: stylesheet entry point; imports the focused modules (reset, theme, shell, article, results, findings, media, analysis, panels, adaptive).
+- `src/styles/widgets.css`: isolated evidence-widget presentation in a lower CSS layer.
 - `dist/data`, `dist/media`, `dist/vendor`: versioned research assets; this directory is no longer the website source.
 - `_site-next/`: generated publication output. Do not edit it.
 
