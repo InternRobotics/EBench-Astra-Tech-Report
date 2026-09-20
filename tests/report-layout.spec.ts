@@ -31,6 +31,16 @@ test('consistent reading edges and center after resizing and restoring',async({p
   }
   const restored=await geometry(page);expect(restored.reference).toEqual(initial.reference);
 });
+test('text scaling to 125% and 200% restores without stale geometry',async({page})=>{
+  await page.setViewportSize({width:1800,height:1100});await ready(page);
+  const initial=await geometry(page);
+  for(const size of ['20px','32px','16px']){
+    await page.evaluate(size=>{document.documentElement.style.fontSize=size;},size);
+    await expect.poll(async()=>(await geometry(page)).overflow).toBeLessThanOrEqual(1);
+    const g=await geometry(page);expect(Math.abs(g.headline.center-g.reference.center)).toBeLessThan(1);
+  }
+  expect((await geometry(page)).reference).toEqual(initial.reference);
+});
 test('contents toggle never shifts the report and dialog always exposes Close',async({page})=>{
   await page.setViewportSize({width:1800,height:1100});await ready(page);
   const initial=await geometry(page);
@@ -53,7 +63,12 @@ test('tables, cases, video stages, and references retain their interactions',asy
   await expect(page.locator('#matrix-content')).toContainText('OpenWAM');
   const outcome=page.locator('#case-adapt').getByRole('button',{name:'Outcome',exact:true});
   await outcome.click();
-  await expect.poll(()=>page.locator('#case-adapt video').evaluateAll(videos=>videos.filter((v:HTMLVideoElement)=>!v.paused&&v.currentTime>0).length),{timeout:30000}).toBeGreaterThan(0);
+  try{
+    await expect.poll(()=>page.locator('#case-adapt video').evaluateAll(videos=>videos.filter((v:HTMLVideoElement)=>!v.paused&&v.currentTime>0).length),{timeout:30000}).toBeGreaterThan(0);
+  }catch(error){
+    const state=await page.locator('#case-adapt video').evaluateAll(videos=>videos.map((v:HTMLVideoElement)=>({paused:v.paused,time:v.currentTime,ready:v.readyState,error:v.error?.message,source:v.currentSrc})));
+    throw new Error(JSON.stringify(state)+'\n'+error);
+  }
   await expect(page.locator('.citation-prompt')).toHaveText('If you find this work useful, please cite:');
   await expect(page.locator('.report-reference-list li')).toHaveCount(9);
 });

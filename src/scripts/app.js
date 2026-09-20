@@ -45,7 +45,38 @@ function layoutCaseSelector(area){
  });
 }
 
-document.addEventListener('click',e=>{let el=e.target.closest('[data-appendix]');if(el)openAppendix(el.dataset.appendix);el=e.target.closest('[data-icl]');if(el){iclTask=el.dataset.icl;changeCase('icl');document.querySelector('[data-icl="'+iclTask+'"]').focus({preventScroll:true});}el=e.target.closest('[data-adapt]');if(el){adaptTask=el.dataset.adapt;changeCase('adapt');document.querySelector('[data-adapt="'+adaptTask+'"]').focus({preventScroll:true});}el=e.target.closest('[data-stage]');if(el){let times=adaptTask==='glasses'?[[0,14,46,100],[0,26,51,100],[0,26,49,70.4]]:[[0,8.9,38.5,47],[0,6,29,66.7],[0,7,35,66.7]];document.querySelector('#case-adapt').querySelectorAll('video').forEach((v,i)=>{if(!v.src)v.src=v.dataset.src;const seek=()=>{v.muted=true;v.controls=true;const overlay=v.closest('.media-viewport')?.querySelector('.video-start');if(overlay)overlay.hidden=true;v.currentTime=Math.min(times[i][Number(el.dataset.stage)],Number.isFinite(v.duration)?Math.max(0,v.duration-3):Infinity);v.play().catch(()=>{if(overlay)overlay.hidden=false;});};if(v.readyState>=1)seek();else v.addEventListener('loadedmetadata',seek,{once:true});});document.querySelectorAll('[data-stage]').forEach(b=>b.classList.toggle('active',b===el));}el=e.target.closest('[data-task-video]');if(el){let d=demos.find(x=>x.task===el.dataset.taskVideo);$('#appendix-body').innerHTML=`<button class="appendix-link" data-appendix="results">← All task results</button><h2 id="appendix-title">${title(d.task)}</h2>${mainVideo(d.task,d.seed,'GPT-6-Astra · ICL','')}`;if(!$('#appendix-dialog').open)$('#appendix-dialog').showModal();initVideos();}});
+document.addEventListener('click',e=>{let el=e.target.closest('[data-appendix]');if(el)openAppendix(el.dataset.appendix);el=e.target.closest('[data-icl]');if(el){iclTask=el.dataset.icl;changeCase('icl');document.querySelector('[data-icl="'+iclTask+'"]').focus({preventScroll:true});}el=e.target.closest('[data-adapt]');if(el){adaptTask=el.dataset.adapt;changeCase('adapt');document.querySelector('[data-adapt="'+adaptTask+'"]').focus({preventScroll:true});}el=e.target.closest('[data-stage]');if(el)playCaseStage(el);el=e.target.closest('[data-task-video]');if(el){let d=demos.find(x=>x.task===el.dataset.taskVideo);$('#appendix-body').innerHTML=`<button class="appendix-link" data-appendix="results">← All task results</button><h2 id="appendix-title">${title(d.task)}</h2>${mainVideo(d.task,d.seed,'GPT-6-Astra · ICL','')}`;if(!$('#appendix-dialog').open)$('#appendix-dialog').showModal();initVideos();}});
+
+let caseStageRequest=0;
+async function playCaseStage(button){
+ const request=++caseStageRequest;
+ const area=document.querySelector('#case-adapt');
+ const times=adaptTask==='glasses'?[[0,14,46,100],[0,26,51,100],[0,26,49,70.4]]:[[0,8.9,38.5,47],[0,6,29,66.7],[0,7,35,66.7]];
+ // Keep the requested evidence in view before the lazy-load observer can pause it.
+ area.querySelector('.case-videos').scrollIntoView({block:'center',behavior:'instant'});
+ document.querySelectorAll('[data-stage]').forEach(b=>b.classList.toggle('active',b===button));
+ await Promise.all([...area.querySelectorAll('video')].map(async(v,i)=>{
+  if(v.closest('figure').hidden)return;
+  const overlay=v.closest('.media-viewport')?.querySelector('.video-start');
+  try{
+   v.muted=true;v.controls=true;
+   if(v.readyState<2){
+    await new Promise((resolve,reject)=>{
+     const cleanup=()=>{v.removeEventListener('loadeddata',loaded);v.removeEventListener('error',failed);};
+     const loaded=()=>{cleanup();resolve();},failed=()=>{cleanup();reject(v.error);};
+     v.addEventListener('loadeddata',loaded,{once:true});v.addEventListener('error',failed,{once:true});
+     // Drop the thumbnail fragment so it cannot overwrite the requested seek.
+     if(v.getAttribute('src')!==v.dataset.src){v.src=v.dataset.src;v.preload='auto';v.load();}
+    });
+   }
+   if(request!==caseStageRequest)return;
+   v.currentTime=Math.min(times[i][Number(button.dataset.stage)],Math.max(0,v.duration-3));
+   if(overlay)overlay.hidden=true;
+   await v.play();
+  }catch{if(overlay)overlay.hidden=false;}
+ }));
+}
+
 $('.close-dialog').addEventListener('click',()=>$('#appendix-dialog').close());$('#appendix-dialog').addEventListener('click',e=>{if(e.target===$('#appendix-dialog')){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)e.target.close();}});$('#appendix-dialog').addEventListener('close',()=>$('#appendix-dialog').querySelectorAll('video').forEach(v=>v.pause()));
 Promise.all(['tasks','demo-videos','ablations','report-figures'].map(n=>fetch('data/'+n+'.json').then(r=>{if(!r.ok)throw Error(n);return r.json();}))).then(([t,d,a,r])=>{tasks=t;demos=d;ablations=a;reportFigures=r;reportFigures.models.forEach(m=>{if(m.id==='Astra (ICL)')m.label='GPT-6-Astra (ICL)';if(m.id==='FastWAM')m.label='Fast-WAM';});renderAnalysis();renderCase();initReportLayout();initResearch();initNarrative();initShowcase();initRefresh();}).catch(error=>{console.error('Report initialization failed:',error);$('#mobile-content').innerHTML='<p>Benchmark data could not load. Please reload the page.</p>';});
 // Enlarge one camera pane without altering the original recording.

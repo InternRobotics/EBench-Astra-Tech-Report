@@ -50,7 +50,7 @@
   .paper-citation{white-space:nowrap;font:inherit}
   .report-prose,.report-prose p{font-size:var(--text);line-height:1.65;letter-spacing:0}
   .report-prose p a.source-link{font:inherit}
-  button{border:1px solid var(--line);border-radius:.35rem;background:#f5f7fa;padding:.45rem .8rem}
+  button{border:1px solid var(--line);border-radius:.35rem;background:#f5f7fa;color:var(--muted);padding:.45rem .8rem}
   button:hover{border-color:#a9b7d8}
   button[aria-pressed=true],button[aria-selected=true]{color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
   button:disabled{opacity:.55}
