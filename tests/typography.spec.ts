@@ -7,11 +7,11 @@ test('bibliography numbers stay on one line and BibTeX uses a readable code bloc
   const reference = page.locator('.report-reference-list li').first();
   const marker = await reference.evaluate((el) => {
     const style = getComputedStyle(el, '::before');
-    return { width: parseFloat(style.width), whiteSpace: style.whiteSpace, right: style.right };
+    return { width: parseFloat(style.width), whiteSpace: style.whiteSpace, left: style.left };
   });
   expect(marker.width).toBeGreaterThanOrEqual(24);
   expect(marker.whiteSpace).toBe('nowrap');
-  expect(marker.right).toBe('auto');
+  expect(marker.left).toBe('0px');
   const code = page.locator('.report-citation code');
   await expect(code).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
   await expect(code).toContainText('@techreport{yao2026frontier,');
