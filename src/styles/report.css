@@ -10,6 +10,11 @@
 @import './media.css';
 @import './analysis.css';
 @import './panels.css';
+@import './tables.css';
+@import './controls.css';
+@import './profile-tables.css';
+@import './outcomes.css';
+@import './case-controls.css';
 @import './adaptive.css';
 
 @font-face {

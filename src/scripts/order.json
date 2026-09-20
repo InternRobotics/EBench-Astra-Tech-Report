@@ -1,4 +1,5 @@
 [
+  "segmented-control.js",
   "model-math.js",
   "charts.js",
   "viz.js",
