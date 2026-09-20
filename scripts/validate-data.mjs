@@ -25,7 +25,9 @@ for(const name of ['collect_coffee_beans_013-web','fruit_015-web','apple_to_frui
 const apple=read('apple-recovery-evidence'),appleEpisode=episodes.find(e=>e.task===apple.task&&e.seed===apple.seed);
 assert.equal(appleEpisode.sr,apple.server_result.sr);assert.equal(appleEpisode.score,apple.server_result.score);
 assert.deepEqual(apple.actions.map(a=>a.call),['call_00010','call_00011','call_00017']);
-const html=fs.readFileSync(path.join(root,'index.html'),'utf8');assert.ok(html.indexOf('id="overall"')<html.indexOf('id="setup"'));assert.ok(html.includes('https://internrobotics.shlab.org.cn/eval/landing-page'));
+const report=JSON.parse(fs.readFileSync('src/content/report.json','utf8'));
+assert.ok(report.sections.findIndex(s=>s.id==='overall')<report.sections.findIndex(s=>s.id==='setup'));
+assert.ok(fs.readFileSync('src/components/Masthead.astro','utf8').includes('https://internrobotics.shlab.org.cn/eval/landing-page'));
 const safety=read('safety-evidence');
 assert.equal(safety.length,4);
 assert.ok(safety.some(e=>e.task==='collect_coffee_beans'&&e.seed==='009'));
