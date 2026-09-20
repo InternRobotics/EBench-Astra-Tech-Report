@@ -1,3 +1,8 @@
+---
+import { icon } from '../lib/icons.js';
+import '../styles/supplement.css';
+---
+
 <template id="study-limitations-content">
   <div class="report-prose">
     <h3>Limited evaluation budget</h3>
@@ -31,101 +36,21 @@
     </p>
   </div>
 </template>
-<dialog id="appendix-dialog" aria-labelledby="appendix-title">
-  <div class="dialog-heading">
-    <span>SUPPLEMENTARY MATERIAL</span>
-    <button class="close-dialog" aria-label="Close supplementary material">
-      <span aria-hidden="true">×</span> Close
+<dialog id="appendix-dialog" class="report-supplement" aria-labelledby="appendix-title">
+  <header class="dialog-heading">
+    <span class="supplement-eyebrow">
+      <Fragment set:html={icon('book-open')} />
+      Supplementary material
+    </span>
+    <button
+      type="button"
+      class="close-dialog"
+      aria-label="Close supplementary material"
+      title="Close supplementary material (Escape)"
+      autofocus
+    >
+      <Fragment set:html={icon('x')} />
     </button>
-  </div>
-  <div id="appendix-body"></div>
+  </header>
+  <div id="appendix-body" role="region" aria-labelledby="appendix-title" tabindex="0"></div>
 </dialog>
-
-<style is:global>
-  @layer layout {
-    dialog {
-      position: fixed;
-      inset: 0;
-      width: min(72rem, calc(100% - 2rem));
-      max-width: none;
-      max-height: calc(100dvh - 2rem);
-      margin: auto;
-      padding: 0;
-      overflow: hidden;
-      border: 1px solid #bcc9dc;
-      border-radius: 0.6rem;
-      background: #f5f7fa;
-      color: var(--ink);
-      box-shadow: 0 2rem 8rem #091b4255;
-    }
-
-    dialog::backdrop {
-      background: #0b1a38a6;
-      backdrop-filter: blur(4px);
-    }
-
-    #appendix-dialog[open] {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .dialog-heading {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 0.8rem 1.25rem;
-      background: #e5ebf3;
-      flex: none;
-      font-size: 1rem;
-    }
-
-    .close-dialog {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-      background: #24364f;
-      color: white;
-      white-space: nowrap;
-      font-size: var(--small);
-    }
-
-    .close-dialog span {
-      font: 1.8rem/1 sans-serif;
-    }
-
-    #appendix-body {
-      overflow: auto;
-      overscroll-behavior: contain;
-      min-height: 0;
-      padding: 2rem;
-    }
-
-    #appendix-body h2 {
-      font-size: 2rem;
-    }
-
-    #appendix-body p {
-      font-size: var(--text);
-      color: #111;
-    }
-
-    #appendix-body .report-prose {
-      max-width: none;
-    }
-
-    #appendix-body table {
-      display: block;
-      overflow: auto;
-    }
-
-    .model-reference {
-      border-bottom: 1px solid var(--line);
-      padding: 1.25rem 0;
-    }
-
-    .model-reference h3 {
-      margin-top: 0;
-    }
-  }
-</style>

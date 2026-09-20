@@ -27,7 +27,8 @@ function iclText(text) {
       try {
         const value = JSON.parse(line);
         if (value && typeof value === 'object')
-          return `<details class="icl-numeric-detail"><summary>Recorded data${value.frame !== undefined ? ' · frame ' + iclEscape(value.frame) : ''}</summary><pre class="icl-json">${iclEscape(JSON.stringify(value, null, 2))}</pre></details>`;
+          // Keep the original numeric spelling (including signed zero) in raw evidence.
+          return `<details class="icl-numeric-detail"><summary>Recorded data${value.frame !== undefined ? ' · frame ' + iclEscape(value.frame) : ''}</summary><pre class="icl-json">${iclEscape(line)}</pre></details>`;
       } catch {}
       return `<p>${iclEscape(line)}</p>`;
     })
@@ -40,7 +41,7 @@ function iclRecords(pkg) {
       x.text.split('\n').flatMap((line) => {
         try {
           const value = JSON.parse(line);
-          return typeof value === 'object' && value !== null ? [value] : [];
+          return typeof value === 'object' && value !== null ? [{ value, source: line }] : [];
         } catch {
           return [];
         }
@@ -56,7 +57,7 @@ async function openICLPackage(task = 'install_gear') {
   body.innerHTML =
     '<h2 id="appendix-title">Inside a single-shot ICL package</h2><p role="status">Loading the recorded demonstration…</p>';
   if (!dialog.open) dialog.showModal();
-  dialog.scrollTop = 0;
+  body.scrollTop = 0;
   try {
     if (!iclPackagesPromise)
       iclPackagesPromise = Promise.all(
@@ -79,7 +80,7 @@ async function openICLPackage(task = 'install_gear') {
     iclView.tab = 'overview';
     renderICLPackage();
   } catch {
-    if (request === iclRequest && dialog.dataset.content === 'icl')
+    if (request === iclRequest && dialog.dataset.content === 'icl' && dialog.open)
       body.innerHTML =
         '<h2 id="appendix-title">Demonstration data unavailable</h2><p>Please reload and open the package again.</p>';
   }
@@ -93,7 +94,14 @@ function renderICLPackage() {
     ['frames', 'Keyframes'],
     ['inputs', 'Full prompt'],
   ];
-  body.innerHTML = `<h2 id="appendix-title">Single-shot ICL</h2><p class="icl-intro">One training demonstration, annotated by a separate GPT-6-Astra instance at <code>high</code> reasoning effort.</p><div class="icl-toolbar"><label for="icl-task">Task<select id="icl-task">${iclView.packages.map((p) => `<option value="${iclEscape(p.task)}" ${p.task === pkg.task ? 'selected' : ''}>${iclTaskName(p.task)}</option>`).join('')}</select></label><span>${frames.length} keyframes</span></div><div class="icl-tabs" role="tablist" aria-label="Demonstration presentation">${tabs.map(([key, label]) => `<button id="icl-tab-${key}" role="tab" aria-controls="icl-panel" aria-selected="${iclView.tab === key}" tabindex="${iclView.tab === key ? 0 : -1}" data-icl-view="${key}">${label}</button>`).join('')}</div><div id="icl-panel" role="tabpanel" aria-labelledby="icl-tab-${iclView.tab}"></div>`;
+  body.innerHTML = `<h2 id="appendix-title">Single-shot ICL</h2>
+    <p class="icl-intro">One training demonstration, annotated by a separate GPT-6-Astra instance at <code>high</code> reasoning effort.</p>
+    <div class="icl-toolbar">
+      <label for="icl-task">Task<select id="icl-task">${iclView.packages.map((p) => `<option value="${iclEscape(p.task)}" ${p.task === pkg.task ? 'selected' : ''}>${iclEscape(iclTaskName(p.task))}</option>`).join('')}</select></label>
+      <span aria-live="polite">${frames.length} keyframes</span>
+    </div>
+    <div class="icl-tabs" role="tablist" aria-label="Demonstration presentation">${tabs.map(([key, label]) => `<button type="button" id="icl-tab-${key}" role="tab" aria-controls="icl-panel" aria-selected="${iclView.tab === key}" tabindex="${iclView.tab === key ? 0 : -1}" data-icl-view="${key}">${label}</button>`).join('')}</div>
+    <div id="icl-panel" role="tabpanel" tabindex="0" aria-labelledby="icl-tab-${iclView.tab}"></div>`;
   renderICLPanel();
 }
 function renderICLPanel() {
@@ -102,19 +110,45 @@ function renderICLPanel() {
     frames = iclFrames(pkg),
     panel = document.querySelector('#icl-panel');
   if (iclView.tab === 'overview') {
-    panel.innerHTML = `<div class="icl-overview-copy"><h3>${iclTaskName(pkg.task)}</h3><p>${iclEscape(overview.description)}</p></div><figure class="icl-overview-sheet"><a href="${iclEscape(overview.overview)}" target="_blank" rel="noopener" aria-label="Open ${iclEscape(iclTaskName(pkg.task))} keyframe overview at full size"><img src="${iclEscape(overview.overview)}" alt="${iclEscape(iclTaskName(pkg.task))}: annotated keyframe overview"/></a></figure>`;
+    panel.innerHTML = `<div class="icl-overview-copy"><h3>${iclEscape(iclTaskName(pkg.task))}</h3><p>${iclEscape(overview.description)}</p></div>
+      <figure class="icl-overview-sheet">
+        <a href="${iclEscape(overview.overview)}" target="_blank" rel="noopener" aria-label="Open ${iclEscape(iclTaskName(pkg.task))} keyframe overview at full size"><img src="${iclEscape(overview.overview)}" alt="${iclEscape(iclTaskName(pkg.task))}: annotated keyframe overview"/></a>
+        <figcaption>Open the overview image to inspect it at full size.</figcaption>
+      </figure>`;
     return;
   }
   if (iclView.tab === 'inputs') {
-    panel.innerHTML = `<div class="icl-input-heading"><p>The complete demonstration prompt and images, in their original order.</p><button class="appendix-link" data-icl-download>Download original input</button></div><div class="icl-input-sequence">${pkg.inputs.map((input) => `<section class="icl-input-block">${input.type === 'text' ? iclText(input.text) : `<img src="${iclEscape(input.path)}" loading="lazy" alt="${iclEscape(frames.find((f) => f.path === input.path).phase)}"/>`}</section>`).join('')}</div>`;
+    panel.innerHTML = `<div class="icl-input-heading">
+      <p>The complete demonstration prompt and images, in their original order.</p>
+      <button type="button" class="supplement-action" data-icl-download>${reportIcon('download')}<span>Download original input</span></button>
+    </div><div class="icl-input-sequence">${pkg.inputs.map((input) => `<section class="icl-input-block">${input.type === 'text' ? iclText(input.text) : `<img src="${iclEscape(input.path)}" loading="lazy" alt="${iclEscape(frames.find((f) => f.path === input.path).phase)}"/>`}</section>`).join('')}</div>`;
     return;
   }
   const frame = frames[iclView.frame],
-    record = iclRecords(pkg).find((r) => Number(r.frame) === frame.frame);
-  panel.innerHTML = `<div class="icl-album" tabindex="0" role="group" aria-label="Keyframe album; use left and right arrow keys"><button class="icl-album-arrow" data-icl-step="-1" ${iclView.frame === 0 ? 'disabled' : ''} aria-label="Previous keyframe">‹</button><div class="icl-frame-pair"><figure class="icl-frame-view"><div class="icl-image-stage"><img src="${iclEscape(frame.path)}" alt="${iclEscape(frame.phase)}" aria-describedby="icl-frame-prompt"/></div></figure><aside class="icl-frame-prompt" aria-label="Annotation for this keyframe"><span class="icl-prompt-label">KEYFRAME ${iclView.frame + 1} / ${frames.length}</span><h3>${iclEscape(iclTaskName(pkg.task))}</h3><blockquote id="icl-frame-prompt" aria-live="polite">${iclEscape(frame.phase)}</blockquote><p class="icl-prompt-note">Frame ${frame.frame} · ${iclEscape(frame.camera)} camera</p></aside></div><button class="icl-album-arrow" data-icl-step="1" ${iclView.frame === frames.length - 1 ? 'disabled' : ''} aria-label="Next keyframe">›</button></div><div class="icl-frame-controls"><label>Keyframe <output>${iclView.frame + 1} / ${frames.length}</output><input aria-label="Select demonstration keyframe" type="range" min="0" max="${frames.length - 1}" value="${iclView.frame}" id="icl-frame-range"/></label></div><div class="icl-filmstrip" aria-label="All demonstration keyframes">${frames.map((f, i) => `<button data-icl-frame="${i}" aria-label="${iclEscape(f.phase)}" aria-pressed="${i === iclView.frame}"><img src="${iclEscape(f.path)}" loading="lazy" alt=""/><span>${i + 1}</span></button>`).join('')}</div><details class="icl-context"><summary>Recorded state and action</summary>${record ? iclRecordTable(record) : '<p>No numeric excerpt for this frame.</p>'}</details><details class="icl-context"><summary>Original image caption</summary><p>${iclEscape(frame.label)}</p></details>`;
+    record = iclRecords(pkg).find((r) => Number(r.value.frame) === frame.frame);
+  panel.innerHTML = `<div class="icl-album" tabindex="0" role="group" aria-label="Keyframe album; use left and right arrow keys">
+    <div class="icl-frame-pair">
+      <figure class="icl-frame-view"><div class="icl-image-stage"><img src="${iclEscape(frame.path)}" alt="${iclEscape(frame.phase)}" aria-describedby="icl-frame-prompt"/></div></figure>
+      <aside class="icl-frame-prompt" aria-label="Annotation for this keyframe">
+        <span class="icl-prompt-label">KEYFRAME ${iclView.frame + 1} / ${frames.length}</span>
+        <h3>${iclEscape(iclTaskName(pkg.task))}</h3>
+        <blockquote id="icl-frame-prompt" aria-live="polite">${iclEscape(frame.phase)}</blockquote>
+        <p class="icl-prompt-note">Frame ${frame.frame} · ${iclEscape(frame.camera)} camera</p>
+      </aside>
+    </div>
+    <div class="icl-album-navigation">
+      <button type="button" class="icl-album-arrow" data-icl-step="-1" ${iclView.frame === 0 ? 'disabled' : ''} aria-label="Previous keyframe">${reportIcon('chevron-left')}<span>Previous</span></button>
+      <a class="supplement-action" href="${iclEscape(frame.path)}" target="_blank" rel="noopener">${reportIcon('external-link')}<span>Original image</span></a>
+      <button type="button" class="icl-album-arrow" data-icl-step="1" ${iclView.frame === frames.length - 1 ? 'disabled' : ''} aria-label="Next keyframe"><span>Next</span>${reportIcon('chevron-right')}</button>
+    </div>
+  </div>
+  <div class="icl-frame-controls"><label>Keyframe <output>${iclView.frame + 1} / ${frames.length}</output><input aria-label="Select demonstration keyframe" type="range" min="0" max="${frames.length - 1}" value="${iclView.frame}" id="icl-frame-range"/></label></div>
+  <div class="icl-filmstrip" aria-label="All demonstration keyframes">${frames.map((f, i) => `<button type="button" data-icl-frame="${i}" aria-label="Keyframe ${i + 1}: ${iclEscape(f.phase)}" aria-pressed="${i === iclView.frame}"><img src="${iclEscape(f.path)}" loading="lazy" alt=""/><span>${i + 1}</span></button>`).join('')}</div>
+  <details class="icl-context"><summary>Recorded state and action</summary>${record ? iclRecordTable(record.value, record.source) : '<p>No numeric excerpt for this frame.</p>'}</details>
+  <details class="icl-context"><summary>Original image caption</summary><p>${iclEscape(frame.label)}</p></details>`;
 }
 
-function iclRecordTable(record) {
+function iclRecordTable(record, source) {
   let measured = record.measured,
     action = record.exported_action;
   if (!measured && record.measured_left_xyz_wxyz) {
@@ -127,18 +161,21 @@ function iclRecordTable(record) {
       left_total_gap_m: record.command_left_total_gap_m,
     };
   }
+  const raw = `<details class="icl-raw"><summary>Original numeric record · frame ${iclEscape(record.frame)}</summary><pre class="icl-json">${iclEscape(source)}</pre></details>`;
+  const tableStart =
+    '<div class="icl-data-scroll" tabindex="0" role="region" aria-label="Recorded state and action values"><table class="report-table report-table--plain icl-data-table">';
   if (measured && action) {
     const fields = [...new Set([...Object.keys(measured), ...Object.keys(action)])];
-    return `<div class="icl-data-scroll"><table class="icl-data-table"><thead><tr><th>Source field</th><th>Measured state</th><th>Exported action target</th></tr></thead><tbody>${fields.map((field) => `<tr><th>${iclEscape(field)}</th><td>${iclEscape(iclNumber(measured[field]))}</td><td>${iclEscape(iclNumber(action[field]))}</td></tr>`).join('')}</tbody></table></div><details class="icl-raw"><summary>Original numeric record · frame ${iclEscape(record.frame)}</summary><pre class="icl-json">${iclEscape(JSON.stringify(record, null, 2))}</pre></details>`;
+    return `${tableStart}<thead><tr><th scope="col">Source field</th><th scope="col">Measured state</th><th scope="col">Exported action target</th></tr></thead><tbody>${fields.map((field) => `<tr><th scope="row">${iclEscape(field)}</th><td>${iclEscape(iclNumber(measured[field]))}</td><td>${iclEscape(iclNumber(action[field]))}</td></tr>`).join('')}</tbody></table></div>${raw}`;
   }
-  return `<div class="icl-data-scroll"><table class="icl-data-table"><thead><tr><th>Source field</th><th>Recorded value</th></tr></thead><tbody>${Object.entries(
+  return `${tableStart}<thead><tr><th scope="col">Source field</th><th scope="col">Recorded value</th></tr></thead><tbody>${Object.entries(
     record,
   )
     .map(
       ([field, value]) =>
-        `<tr><th>${iclEscape(field)}</th><td>${iclEscape(iclNumber(value))}</td></tr>`,
+        `<tr><th scope="row">${iclEscape(field)}</th><td>${iclEscape(iclNumber(value))}</td></tr>`,
     )
-    .join('')}</tbody></table></div>`;
+    .join('')}</tbody></table></div>${raw}`;
 }
 function selectICLFrame(index) {
   const strip = document.querySelector('.icl-filmstrip'),
@@ -236,10 +273,10 @@ function pairedICLContent() {
       )
       .join('');
   const table = (ps) =>
-    `<div class="table-scroll"><table class="paired-detail-table"><thead><tr><th rowspan="2">Task / seed</th><th colspan="2">Zero-shot</th><th colspan="2">Single-shot ICL</th><th rowspan="2">Δ Score</th></tr><tr><th>SR</th><th>Score</th><th>SR</th><th>Score</th></tr></thead><tbody>${rows(ps)}</tbody></table></div>`;
+    `<div class="table-scroll" tabindex="0" role="region" aria-label="All eight paired ICL results"><table class="report-table report-table--plain paired-detail-table"><thead><tr><th rowspan="2">Task / seed</th><th colspan="2">Zero-shot</th><th colspan="2">Single-shot ICL</th><th rowspan="2">Δ Score</th></tr><tr><th>SR</th><th>Score</th><th>SR</th><th>Score</th></tr></thead><tbody>${rows(ps)}</tbody></table></div>`;
   return [
     'Paired ICL results: gains and regressions',
-    `<p><strong>Eight matched pairs, sixteen fresh episodes</strong>, separate from the main 510-episode cohort. Both conditions share execution guidance and resource settings; only the annotated demonstration is switched on or off.</p><div class="icl-pair-findings">${groups.map((g) => `<section><h3>${title(g.task)}</h3><p><strong>${g.zero_shot_successes}/${g.pairs} → ${g.icl_successes}/${g.pairs}</strong> complete successes</p><p>Mean Score ${g.zero_shot_score.toFixed(4)} → ${g.icl_score.toFixed(4)}</p><p>${g.score_better} pairs improve · ${g.score_worse} worsen · ${g.score_tied} tie</p><button class="appendix-link" data-icl-package="${g.task}">Inspect this task’s demonstration ↗</button></section>`).join('')}</div><h3>All eight pairs</h3>${table(pairs)}<p><strong>Terminal success includes any holding phase.</strong> Frame ICL seed 003 receives success after 1,032 policy steps and 520 holding steps. Gear ICL seed 001 succeeds after 541 policy steps without holding.</p><p class="fineprint">The comparison covers two tasks selected after pilot experiments; seed 000 repeats a previously evaluated scene.</p>`,
+    `<p><strong>Eight matched pairs, sixteen fresh episodes</strong>, separate from the main 510-episode cohort. Both conditions share execution guidance and resource settings; only the annotated demonstration is switched on or off.</p><div class="icl-pair-findings">${groups.map((g) => `<section><h3>${title(g.task)}</h3><p><strong>${g.zero_shot_successes}/${g.pairs} → ${g.icl_successes}/${g.pairs}</strong> complete successes</p><p>Mean Score ${g.zero_shot_score.toFixed(4)} → ${g.icl_score.toFixed(4)}</p><p>${g.score_better} pairs improve · ${g.score_worse} worsen · ${g.score_tied} tie</p><button type="button" class="supplement-action" data-icl-package="${g.task}"><span>Inspect this task’s demonstration</span>${reportIcon('book-open')}</button></section>`).join('')}</div><h3>All eight pairs</h3>${table(pairs)}<p><strong>Terminal success includes any holding phase.</strong> Frame ICL seed 003 receives success after 1,032 policy steps and 520 holding steps. Gear ICL seed 001 succeeds after 541 policy steps without holding.</p><p class="fineprint">The comparison covers two tasks selected after pilot experiments; seed 000 repeats a previously evaluated scene.</p>`,
   ];
 }
 
